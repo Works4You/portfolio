@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shimon Ezekiel — Product Leader, Founder</title>
+<style>
+  :root{
+    --blue:#2E5496; --blue-dark:#1f3c6d; --ink:#1c2333; --muted:#6b7280;
+    --line:#e6e8ee; --bg:#ffffff; --soft:#f6f8fc; --chip:#eef3fb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  section{padding:74px 0;border-top:1px solid var(--line)}
+  h2{font-size:26px;letter-spacing:.3px;margin-bottom:8px}
+  .eyebrow{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:26px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  nav .brand{font-weight:800;letter-spacing:.5px}
+  nav .links a{margin-left:22px;color:var(--ink);font-size:14px;font-weight:600}
+  nav .links a:hover{color:var(--blue);text-decoration:none}
+  @media(max-width:640px){nav .links{display:none}}
+
+  /* HERO */
+  .hero{background:linear-gradient(160deg,#f7f9fd 0%,#eef3fb 100%);border-top:none}
+  .hero .wrap{display:grid;grid-template-columns:1.4fr .9fr;gap:48px;align-items:center;padding:84px 24px}
+  .hero h1{font-size:44px;line-height:1.12;letter-spacing:-.5px}
+  .hero .role{color:var(--blue);font-weight:700;font-size:19px;margin-top:14px}
+  .hero .sub{color:var(--muted);font-size:16px;margin-top:6px;letter-spacing:.4px}
+  .hero p.lead{margin-top:20px;font-size:16px;color:#33404f;max-width:560px}
+  .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px}
+  .btn.primary{background:var(--blue);color:#fff}
+  .btn.primary:hover{background:var(--blue-dark);text-decoration:none}
+  .btn.ghost{border:1px solid #c9d3e6;color:var(--blue)}
+  .btn.ghost:hover{text-decoration:none;border-color:var(--blue)}
+  .avatar{width:100%;aspect-ratio:1;border-radius:20px;background:linear-gradient(150deg,var(--blue),#5b83c4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:76px;font-weight:800;letter-spacing:2px;box-shadow:0 20px 50px rgba(46,84,150,.28)}
+  @media(max-width:760px){.hero .wrap{grid-template-columns:1fr;text-align:center}.avatar{max-width:200px;margin:0 auto}.cta{justify-content:center}.hero p.lead{margin-left:auto;margin-right:auto}}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:14px}
+  .stat{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:26px 20px;text-align:center}
+  .stat .num{font-size:38px;font-weight:800;color:var(--blue)}
+  .stat .lbl{color:var(--muted);font-size:14px;margin-top:4px}
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr}.stats{margin-top:26px}}
+  .about-grid p{font-size:16.5px;color:#33404f;margin-bottom:14px}
+
+  /* VENTURES */
+  .cards{display:grid;grid-template-columns:1fr;gap:22px}
+  .card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;transition:box-shadow .2s,transform .2s}
+  .card:hover{box-shadow:0 14px 40px rgba(28,35,51,.10);transform:translateY(-2px)}
+  .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:24px 26px 6px}
+  .card h3{font-size:21px}
+  .card .role2{color:var(--blue);font-weight:700;font-size:14px;margin-top:3px}
+  .card .yr{color:var(--muted);font-size:13px;font-weight:600;white-space:nowrap;background:var(--chip);padding:5px 12px;border-radius:20px}
+  .card .body{padding:6px 26px 24px}
+  .card ul{list-style:none;margin-top:8px}
+  .card li{position:relative;padding-left:20px;margin-top:8px;color:#39465a;font-size:15px}
+  .card li:before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+  .tag{font-size:12px;background:var(--chip);color:var(--blue-dark);padding:5px 11px;border-radius:16px;font-weight:600}
+  .stage{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-top:2px}
+  .stage.live{background:#e5f4ec;color:#1c7a47}
+  .stage.dev{background:#fef2e0;color:#a9670b}
+  .stage.past{background:#eef0f4;color:#5b6472}
+  .card .links2{margin-top:16px;display:flex;gap:14px;flex-wrap:wrap;font-size:14px;font-weight:600}
+
+  /* APPROACH */
+  .appr{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .appr .box{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .appr .box h4{color:var(--blue);font-size:16px;margin-bottom:8px}
+  .appr .box p{font-size:14.5px;color:#39465a}
+  @media(max-width:760px){.appr{grid-template-columns:1fr}}
+
+  /* RESUME */
+  .res-item{padding:18px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:180px 1fr;gap:24px}
+  .res-item:last-child{border-bottom:none}
+  .res-item .when{color:var(--muted);font-size:14px;font-weight:600}
+  .res-item h4{font-size:17px}
+  .res-item .org{color:var(--blue);font-weight:600;font-size:14px;margin:2px 0 8px}
+  .res-item p{font-size:14.5px;color:#39465a}
+  @media(max-width:640px){.res-item{grid-template-columns:1fr;gap:4px}}
+  .skillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .skillrow .tag{background:#fff;border:1px solid var(--line)}
+
+  /* CONTACT */
+  .contact{background:linear-gradient(160deg,#1f3c6d,#2E5496);color:#fff;border-top:none;text-align:center}
+  .contact h2{color:#fff}
+  .contact .eyebrow{color:#bcd0f0}
+  .contact p{color:#dfe8f7;max-width:520px;margin:0 auto 22px}
+  .contact .cbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+  .contact .btn.primary{background:#fff;color:var(--blue-dark)}
+  .contact .btn.ghost{border-color:#89a7d6;color:#fff}
+  footer{padding:26px 0;text-align:center;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">Shimon Ezekiel</div>
+  <div class="links">
+    <a href="#about">About</a>
+    <a href="#ventures">Ventures</a>
+    <a href="#approach">Approach</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Product leader who builds and proves ideas from zero.</h1>
+      <div class="role">Product Leader · Founder · Business Development</div>
+      <div class="sub">Product • 0→1 • AI Tooling • Operations • Growth</div>
+      <p class="lead">11+ years founding and scaling technology-driven ventures end to end — owning product from first idea to launch, with the operational and financial discipline to make it real.</p>
+      <div class="cta">
+        <a class="btn primary" href="#ventures">View my work</a>
+        <a class="btn ghost" href="Shimon_Ezekiel_CV.pdf" target="_blank">Download CV</a>
+      </div>
+    </div>
+    <div class="avatar">SE</div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <div class="about-grid">
+      <div>
+        <h2>About me</h2>
+        <p style="margin-top:14px">I'm a product and business leader who has spent 11+ years turning ideas into operating companies — as a two-time founder and as the product owner behind live technology platforms.</p>
+        <p>Today I'm co-founder of <strong>Works4you</strong>, an AI-powered B2B customer-acquisition engine, where I lead product and business development from concept through build. In parallel I run product for <strong>POKER111</strong>, a live SaaS platform serving 100+ international users with distributed engineering teams across three continents.</p>
+        <p>Before that I founded and scaled <strong>TWOTONE</strong>, a retail + e-commerce brand, to 100+ boutique partners with overseas manufacturing and full P&amp;L ownership. I combine product thinking, AI tooling, and hard operational and financial discipline — I don't just imagine the product, I build the machine that ships it and prove it works before spending.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">11+</div><div class="lbl">Years building ventures</div></div>
+        <div class="stat"><div class="num">3</div><div class="lbl">Ventures founded &amp; led</div></div>
+        <div class="stat"><div class="num">100+</div><div class="lbl">Retail partners scaled</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ventures">
+  <div class="wrap">
+    <div class="eyebrow">Selected Work</div>
+    <h2 style="margin-bottom:26px">Ventures &amp; products</h2>
+    <div class="cards">
+
+      <div class="card">
+        <div class="top">
+          <div>
+            <h3>Works4you</h3>
+            <div class="role2">Co-Founder · Product &amp; Business Development</div>
+            <span class="stage dev">In development</span>
+          </div>
+          <div class="yr">2026 – Present</div>
+        </div>
+        <div class="body">
+          <ul>
+            <li>Co-building an AI-driven engine that detects time-sensitive "burning-need" moments in public data and matches them to service providers on a pay-per-deal model.</li>
+            <li>Own product from thinking through build — architecture direction, AI tooling, and specs for signal detection, attribution, and a callback SLA loop.</li>
+            <li>Designed and ran disciplined, near-zero-cost validation experiments that stress-tested core assumptions and killed flawed ones before any capital was spent.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Product Strategy</span><span class="tag">AI Tooling</span><span class="tag">Data Pipelines</span><span class="tag">Lean Validation</span><span class="tag">Go-to-Market</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <div>
+            <h3>POKER111</h3>
+            <div class="role2">Product Manager</div>
+            <span class="stage live">Live</span>
+          </div>
+          <div class="yr">2024 – Present</div>
+        </div>
+        <div class="body">
+          <ul>
+            <li>Launched and operate a SaaS platform serving 100+ international users with tiered memberships and integrated payments.</li>
+            <li>Lead cross-functional development teams across Nepal, Belarus, and Brazil with an agile, daily-standup cadence.</li>
+            <li>Own the technology roadmap, specs, and P&amp;L; built KPI dashboards and automated workflows across WordPress, Strapi, Vimeo, SendPulse, and Google Workspace.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">SaaS</span><span class="tag">Roadmap</span><span class="tag">Distributed Teams</span><span class="tag">Power BI / Looker</span><span class="tag">Payments</span>
+          </div>
+          <div class="links2"><a href="https://www.poker111.com" target="_blank">poker111.com ↗</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <div>
+            <h3>TWOTONE</h3>
+            <div class="role2">Founder &amp; CEO</div>
+            <span class="stage past">2014 – 2024</span>
+          </div>
+          <div class="yr">10 years</div>
+        </div>
+        <div class="body">
+          <ul>
+            <li>Built a retail + e-commerce fashion brand from concept to a multi-year operation with 100+ boutique partners.</li>
+            <li>Owned the full P&amp;L — financial models, pricing, cash flow, and strategic growth; ran end-to-end operations from supply chain to storefront.</li>
+            <li>Managed sourcing and manufacturing in Italy including import and customs; implemented the full business-system stack (Comex ERP, Pipedrive CRM, marketing automation).</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Founder / CEO</span><span class="tag">P&amp;L Ownership</span><span class="tag">E-commerce</span><span class="tag">Supply Chain</span><span class="tag">ERP / CRM</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="approach" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="eyebrow">How I Work</div>
+    <h2 style="margin-bottom:26px">My approach to product</h2>
+    <div class="appr">
+      <div class="box"><h4>Idea → machine</h4><p>I take a raw idea and turn it into a working system — specs, architecture, tooling, and the team to ship it. Vision only counts when it runs in production.</p></div>
+      <div class="box"><h4>Prove before you spend</h4><p>I pressure-test the assumptions a business is built on with cheap, fast experiments — and I'll kill my own idea when the data says so, before real money is at risk.</p></div>
+      <div class="box"><h4>Own the P&amp;L</h4><p>Two companies founded, one SaaS run today. I connect product decisions to unit economics, cash flow, and growth — not just features.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="wrap">
+    <div class="eyebrow">Resume</div>
+    <h2 style="margin-bottom:20px">Experience</h2>
+
+    <div class="res-item"><div class="when">2026 – Present</div><div><h4>Co-Founder — Product &amp; Business Development</h4><div class="org">Works4you</div><p>Co-lead product and business development for an AI-powered B2B acquisition engine; own product from concept through build and run lean validation.</p></div></div>
+    <div class="res-item"><div class="when">2024 – Present</div><div><h4>Product Manager</h4><div class="org">POKER111</div><p>Own roadmap, specs, and P&amp;L for a live SaaS platform (100+ users); lead distributed engineering teams and BI/automation.</p></div></div>
+    <div class="res-item"><div class="when">2014 – 2024</div><div><h4>Founder &amp; CEO</h4><div class="org">TWOTONE</div><p>Founded and scaled a retail + e-commerce brand to 100+ boutique partners with full P&amp;L ownership and overseas manufacturing.</p></div></div>
+    <div class="res-item"><div class="when">2022 – 2024</div><div><h4>Business Adviser (Volunteer)</h4><div class="org">Small business support</div><p>Advised owners on management, strategy, and execution of growth plans.</p></div></div>
+    <div class="res-item"><div class="when">2016 – 2019</div><div><h4>Executive MBA (EMBA)</h4><div class="org">Coller School of Management, Tel Aviv University</div></div></div>
+    <div class="res-item"><div class="when">2010 – 2014</div><div><h4>B.A. Industrial Design &amp; Arts</h4><div class="org">Avni Institute of Design</div><p>Practical Engineering Certificate, 2012.</p></div></div>
+
+    <h2 style="margin:34px 0 4px;font-size:20px">Skills</h2>
+    <div class="skillrow">
+      <span class="tag">Product Management</span><span class="tag">0→1 Product</span><span class="tag">Business Development</span><span class="tag">AI Tooling &amp; Automation</span><span class="tag">P&amp;L Ownership</span><span class="tag">BI &amp; Analytics</span><span class="tag">Distributed Teams</span><span class="tag">ERP / CRM Systems</span><span class="tag">Go-to-Market</span><span class="tag">Data-Driven Decisions</span><span class="tag">Agile Delivery</span><span class="tag">Supply Chain</span>
+    </div>
+    <p style="margin-top:22px;color:var(--muted);font-size:14px"><strong>Languages:</strong> Hebrew (native) · English (fluent)</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's build something</h2>
+    <p>Open to Product Leadership, Founding Product, and BizOps roles — on-site, hybrid, or fully remote.</p>
+    <div class="cbtns">
+      <a class="btn primary" href="mailto:shimonez@gmail.com">shimonez@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/shimon-ezekiel" target="_blank">LinkedIn</a>
+      <a class="btn ghost" href="Shimon_Ezekiel_CV.pdf" target="_blank">Download CV</a>
+    </div>
+    <p style="margin-top:26px;font-size:13px;color:#bcd0f0">Ramat Gan, Israel</p>
+  </div>
+</section>
+
+<footer>© 2026 Shimon Ezekiel</footer>
+
+</body>
+</html>
