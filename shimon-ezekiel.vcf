@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Ezekiel;Shimon;;;
+FN:Shimon Ezekiel
+TITLE:Founder & Operator
+TEL;TYPE=CELL,VOICE,PREF:+972547555020
+EMAIL;TYPE=INTERNET,PREF:shimonez@gmail.com
+URL:https://shimon-ezekiel.pages.dev
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/shimon-ezekiel
+ADR;TYPE=HOME:;;Ramat Gan;;;Israel
+NOTE:Executive MBA · Coller School of Management, Tel Aviv University
+END:VCARD

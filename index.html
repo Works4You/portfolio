@@ -132,6 +132,230 @@
 .w4y-bar a.k{background:#0071e3;color:#fff}
 .w4y-bar svg{width:17px;height:17px;fill:currentColor}
 @media(max-width:560px){.w4y-bar a span{display:none}.w4y-bar a{padding:12px 15px}}
+
+/* CARD POPUP / BOTTOM SHEET */
+.card-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility .25s ease;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.card-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+.card-sheet {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.22);
+  transform: translateY(100%);
+  transition: transform .32s cubic-bezier(0.32, 0.72, 0, 1);
+  max-height: 88vh;
+  max-height: 88dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overscroll-behavior: contain;
+}
+.card-modal-backdrop.active .card-sheet {
+  transform: translateY(0);
+}
+@media (min-width: 561px) {
+  .card-modal-backdrop {
+    align-items: center;
+    padding: 20px;
+  }
+  .card-sheet {
+    border-radius: 22px;
+    transform: scale(0.94) translateY(16px);
+    transition: transform .25s cubic-bezier(0.16, 1, 0.3, 1), opacity .25s ease;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.22);
+  }
+  .card-modal-backdrop.active .card-sheet {
+    transform: scale(1) translateY(0);
+  }
+  .sheet-grabber-area {
+    display: none;
+  }
+}
+.sheet-grabber-area {
+  padding: 10px 0 4px;
+  display: flex;
+  justify-content: center;
+  cursor: grab;
+  touch-action: none;
+}
+.sheet-grabber {
+  width: 40px;
+  height: 5px;
+  border-radius: 999px;
+  background: #d2d2d7;
+}
+.sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 18px 2px;
+}
+.sheet-lang-btn {
+  background: #f2f2f5;
+  border: none;
+  color: #6e6e73;
+  font: 500 12px/1 -apple-system,BlinkMacSystemFont,"SF Pro Text",Rubik,sans-serif;
+  padding: 7px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: .15s;
+}
+.sheet-lang-btn:hover {
+  color: #1d1d1f;
+}
+.sheet-close-btn {
+  background: #f2f2f5;
+  border: none;
+  color: #6e6e73;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .15s;
+}
+.sheet-close-btn:hover {
+  background: #e5e5ea;
+  color: #1d1d1f;
+}
+.sheet-body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 6px 22px calc(24px + env(safe-area-inset-bottom));
+  text-align: center;
+}
+.c-photo {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3.5px solid #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,.14);
+  margin-bottom: 12px;
+}
+.c-title {
+  font-size: 1.5rem;
+  margin: 0 0 2px;
+  letter-spacing: -.02em;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+.c-role {
+  color: #0071e3;
+  font-weight: 600;
+  font-size: .94rem;
+  margin: 0 0 12px;
+}
+.c-pitch {
+  color: #6e6e73;
+  font-size: .9rem;
+  line-height: 1.55;
+  margin: 0;
+}
+.c-edu {
+  color: #6e6e73;
+  font-size: .78rem;
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid #e3e3e6;
+}
+.c-actions {
+  display: grid;
+  gap: 9px;
+  margin-top: 18px;
+}
+.c-row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+.c-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .92rem;
+  background: #f2f2f5;
+  color: #1d1d1f;
+  border: none;
+  transition: .15s;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.c-btn:hover {
+  filter: brightness(.965);
+}
+.c-btn.c-wa {
+  background: #25d366;
+  color: #fff;
+}
+.c-btn.c-call {
+  background: #34c759;
+  color: #fff;
+}
+.c-btn.c-save {
+  background: #0071e3;
+  color: #fff;
+}
+.c-btn svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  fill: currentColor;
+}
+.c-foot {
+  margin-top: 16px;
+  font-size: .78rem;
+  color: #6e6e73;
+}
+.card-sheet[dir="rtl"] {
+  font-family: -apple-system,BlinkMacSystemFont,"SF Pro Text",Rubik,Assistant,"Segoe UI",Arial,sans-serif;
+}
+.card-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1d1d1f;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.28);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+  z-index: 10001;
+}
+.card-toast.show {
+  opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -308,7 +532,228 @@
   <a class="c" href="tel:+972547555020" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg><span>Call</span></a>
   <a class="w" href="https://wa.me/972547555020" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.5-1.2-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.3c-.1.1-.2.3-.1.5.1.2.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l2 .9c.2.1.4.2.4.3.1.1.1.6-.1 1.3z"/></svg><span>WhatsApp</span></a>
   <a href="mailto:shimonez@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4.2l-8 5-8-5V6l8 5 8-5v2.2z"/></svg><span>Email</span></a>
-  <a class="k" href="https://shimon-ezekiel.pages.dev/card/index.html" aria-label="Digital card"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 110 8 4 4 0 010-8zm0 10c4.4 0 8 2 8 4.5V21H4v-3.5C4 15 7.6 13 12 13z"/></svg><span>My card</span></a>
+  <a class="k" href="card/index.html" id="openCardBtn" aria-label="Digital card"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 110 8 4 4 0 010-8zm0 10c4.4 0 8 2 8 4.5V21H4v-3.5C4 15 7.6 13 12 13z"/></svg><span>My card</span></a>
 </nav>
+
+<!-- CARD MODAL / BOTTOM SHEET -->
+<div class="card-modal-backdrop" id="cardModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="card-sheet" id="cardSheet">
+    <div class="sheet-grabber-area" id="sheetGrabberArea" aria-label="Drag down to close">
+      <div class="sheet-grabber"></div>
+    </div>
+    
+    <div class="sheet-header">
+      <button class="sheet-lang-btn" id="modalLangBtn" type="button">עברית</button>
+      <button class="sheet-close-btn" id="modalCloseBtn" type="button" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="sheet-body" id="modalCardBody">
+      <img class="c-photo" src="profile.jpg" alt="Shimon Ezekiel">
+      <div class="c-title" data-en="Shimon Ezekiel" data-he="שמעון אזקיאל">Shimon Ezekiel</div>
+      <div class="c-role" data-en="Founder &amp; Operator" data-he="מנכ&quot;ל ובעלים">Founder &amp; Operator</div>
+
+      <p class="c-pitch"
+         data-en="12 years of ownership and management - a fashion house, international sports staking, and today an AI product I build hands-on."
+         data-he="12 שנה של בעלות וניהול - בית אופנה, סטייקינג ספורט בינלאומי, והיום מוצר AI שאני בונה בידיים.">
+        12 years of ownership and management - a fashion house, international sports staking, and today an AI product I build hands-on.
+      </p>
+
+      <p class="c-edu"
+         data-en="Executive MBA · Coller School of Management, Tel Aviv University"
+         data-he="EMBA · בית הספר קולר למנהל עסקים, אוניברסיטת תל אביב">
+        Executive MBA · Coller School of Management, Tel Aviv University
+      </p>
+
+      <div class="c-actions">
+        <div class="c-row2">
+          <a class="c-btn c-call" href="tel:+972547555020">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+            <span data-en="Call" data-he="התקשר">Call</span>
+          </a>
+          <a class="c-btn c-wa" id="modalWaBtn" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.5-1.2-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.3c-.1.1-.2.3-.1.5.1.2.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l2 .9c.2.1.4.2.4.3.1.1.1.6-.1 1.3z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+
+        <a class="c-btn c-save" href="shimon-ezekiel.vcf" download="Shimon-Ezekiel.vcf">
+          <svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 110 8 4 4 0 010-8zm0 10c4.4 0 8 2 8 4.5V21H4v-3.5C4 15 7.6 13 12 13z"/></svg>
+          <span data-en="Save to contacts" data-he="שמור לאנשי קשר">Save to contacts</span>
+        </a>
+
+        <button class="c-btn" id="modalEmailBtn" type="button">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4.2l-8 5-8-5V6l8 5 8-5v2.2z"/></svg>
+          <span data-en="Email" data-he="שלח מייל">Email</span>
+        </button>
+
+        <div class="c-row2">
+          <a class="c-btn" href="https://www.linkedin.com/in/shimon-ezekiel" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.75-1.95C21.4 8.75 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21h-4z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="c-btn" href="Shimon_Ezekiel_CV.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9l-7-7zm-1 16l-4-4h2.5v-4h3v4H16l-4 4z"/></svg>
+            <span data-en="CV" data-he="קורות חיים">CV</span>
+          </a>
+        </div>
+      </div>
+
+      <p class="c-foot">
+        <span data-en="Ramat Gan, Israel" data-he="רמת גן, ישראל">Ramat Gan, Israel</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card-toast" id="cardToast"></div>
+
+<script>
+(function(){
+  var modal = document.getElementById("cardModal");
+  var sheet = document.getElementById("cardSheet");
+  var closeBtn = document.getElementById("modalCloseBtn");
+  var langBtn = document.getElementById("modalLangBtn");
+  var emailBtn = document.getElementById("modalEmailBtn");
+  var waBtn = document.getElementById("modalWaBtn");
+  var toast = document.getElementById("cardToast");
+  var grabber = document.getElementById("sheetGrabberArea");
+
+  var WA_NUMBER = "972547555020";
+  var EMAIL_ADDR = "shimonez@gmail.com";
+  var MSG = {
+    en: "Hi Shimon, I came across your card.",
+    he: "היי שמעון, הגעתי דרך הכרטיס שלך."
+  };
+  var curLang = (navigator.language || "en").toLowerCase().indexOf("he") === 0 ? "he" : "en";
+
+  function showToast(msg) {
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add("show");
+    setTimeout(function(){ toast.classList.remove("show"); }, 3000);
+  }
+
+  function applyLang(lang) {
+    curLang = lang;
+    sheet.setAttribute("dir", lang === "he" ? "rtl" : "ltr");
+    sheet.querySelectorAll("[data-en]").forEach(function(el){
+      var v = el.getAttribute("data-" + lang);
+      if (v) el.innerHTML = v;
+    });
+    langBtn.textContent = (lang === "he") ? "English" : "עברית";
+    waBtn.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(MSG[lang]);
+    try { localStorage.setItem("cardLang", lang); } catch(e){}
+  }
+
+  try {
+    var savedLang = localStorage.getItem("cardLang");
+    if (savedLang) curLang = savedLang;
+  } catch(e){}
+  applyLang(curLang);
+
+  langBtn.addEventListener("click", function(){
+    applyLang(curLang === "he" ? "en" : "he");
+  });
+
+  function openCardModal() {
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    if (window.location.hash !== "#card") {
+      history.pushState(null, "", "#card");
+    }
+  }
+
+  function closeCardModal(skipHistory) {
+    if (!modal.classList.contains("active")) return;
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    sheet.style.transform = "";
+    document.body.style.overflow = "";
+    if (!skipHistory && window.location.hash === "#card") {
+      history.back();
+    }
+  }
+
+  // Intercept any click to digital card
+  document.querySelectorAll('a[href*="/card"], a[href="#card"], .w4y-bar a.k').forEach(function(el){
+    el.addEventListener("click", function(e){
+      e.preventDefault();
+      openCardModal();
+    });
+  });
+
+  closeBtn.addEventListener("click", function(){ closeCardModal(); });
+  modal.addEventListener("click", function(e){
+    if (e.target === modal) closeCardModal();
+  });
+  window.addEventListener("keydown", function(e){
+    if (e.key === "Escape" || e.keyCode === 27) closeCardModal();
+  });
+  window.addEventListener("popstate", function(){
+    if (window.location.hash !== "#card") {
+      closeCardModal(true);
+    } else {
+      openCardModal();
+    }
+  });
+
+  if (window.location.hash === "#card") {
+    openCardModal();
+  }
+
+  // Mobile swipe down gesture
+  if (grabber) {
+    var startY = 0, currentY = 0, isDragging = false;
+    grabber.addEventListener("touchstart", function(e){
+      if (e.touches.length === 1) {
+        startY = e.touches[0].clientY;
+        currentY = startY;
+        isDragging = true;
+        sheet.style.transition = "none";
+      }
+    }, {passive: true});
+
+    window.addEventListener("touchmove", function(e){
+      if (!isDragging) return;
+      currentY = e.touches[0].clientY;
+      var diff = currentY - startY;
+      if (diff > 0) {
+        sheet.style.transform = "translateY(" + diff + "px)";
+      }
+    }, {passive: true});
+
+    window.addEventListener("touchend", function(){
+      if (!isDragging) return;
+      isDragging = false;
+      sheet.style.transition = "";
+      var diff = currentY - startY;
+      if (diff > 75) {
+        closeCardModal();
+      } else {
+        sheet.style.transform = "";
+      }
+      startY = 0;
+      currentY = 0;
+    });
+  }
+
+  // Email button with clipboard copy fallback + toast
+  if (emailBtn) {
+    emailBtn.addEventListener("click", function(){
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(EMAIL_ADDR);
+      }
+      var toastMsg = (curLang === "he") ? 'דוא"ל הועתק ללוח: ' + EMAIL_ADDR : 'Email copied to clipboard: ' + EMAIL_ADDR;
+      showToast(toastMsg);
+      setTimeout(function(){
+        window.location.href = "mailto:" + EMAIL_ADDR;
+      }, 250);
+    });
+  }
+})();
+</script>
 </body>
 </html>
