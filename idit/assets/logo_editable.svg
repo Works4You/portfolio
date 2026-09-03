@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 130" width="100%" height="100%" dir="rtl">
+  <style>
+    .tile-green { fill: #1a593a; rx: 8px; }
+    .tile-grey { fill: #9ca3af; rx: 8px; }
+    .symbol-text { fill: #ffffff; font-family: 'Assistant', Arial, sans-serif; font-weight: 800; font-size: 32px; text-anchor: middle; dominant-baseline: central; }
+    .brand-name { fill: #111827; font-family: 'Assistant', 'Frank Ruhl Libre', Arial, sans-serif; font-weight: 700; font-size: 26px; }
+    .brand-title { fill: #111827; font-family: 'Assistant', Arial, sans-serif; font-weight: 600; font-size: 22px; }
+    .brand-subtitle { fill: #6b7280; font-family: 'Assistant', Arial, sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 0.5px; }
+  </style>
+
+  <!-- 4 אריחי פעולות החשבון -->
+  <g transform="translate(140, 10)">
+    <!-- אריח פלוס (+) -->
+    <rect x="0" y="0" width="46" height="46" class="tile-green"/>
+    <text x="23" y="23" class="symbol-text">+</text>
+
+    <!-- אריח מינוס (-) -->
+    <rect x="56" y="0" width="46" height="46" class="tile-grey"/>
+    <text x="79" y="21" class="symbol-text" font-size="36">−</text>
+
+    <!-- אריח כפל (×) -->
+    <rect x="112" y="0" width="46" height="46" class="tile-green"/>
+    <text x="135" y="24" class="symbol-text" font-size="28">✕</text>
+
+    <!-- אריח חילוק (÷) -->
+    <rect x="168" y="0" width="46" height="46" class="tile-grey"/>
+    <text x="191" y="22" class="symbol-text" font-size="30">÷</text>
+  </g>
+
+  <!-- טקסט הלוגו הראשי: שם ותואר -->
+  <g transform="translate(0, 88)">
+    <text x="355" y="0" class="brand-name" text-anchor="start">עידית שניר</text>
+    <text x="220" y="0" class="brand-title" text-anchor="start">רו״ח (עו״ד)</text>
+  </g>
+
+  <!-- שורת תיאור המשרד -->
+  <g transform="translate(0, 114)">
+    <text x="250" y="0" class="brand-subtitle" text-anchor="middle">חוות דעת כלכליות | הערכות שווי</text>
+  </g>
+</svg>
