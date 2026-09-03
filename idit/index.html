@@ -519,6 +519,109 @@
   html[dir="ltr"] .service-list li::before { right: auto; left: 0; }
   html[dir="ltr"] .hero-quote { border-right: none; border-left: 3px solid var(--gold); border-radius: 8px 0 0 8px; }
   html[dir="ltr"] .footer-links a { margin-left: 0; margin-right: 20px; }
+
+  /* CARD POPUP / BOTTOM SHEET */
+  .card-modal-backdrop {
+    position: fixed; inset: 0; z-index: 10000;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    opacity: 0; visibility: hidden;
+    transition: opacity .25s ease, visibility .25s ease;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .card-modal-backdrop.active { opacity: 1; visibility: visible; }
+  .card-sheet {
+    background: #ffffff; width: 100%; max-width: 420px;
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.25);
+    transform: translateY(100%);
+    transition: transform .32s cubic-bezier(0.32, 0.72, 0, 1);
+    max-height: 88vh; max-height: 88dvh;
+    display: flex; flex-direction: column; position: relative;
+    overscroll-behavior: contain; overflow: hidden;
+  }
+  .card-sheet::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--gold) 50%, var(--primary) 100%);
+  }
+  .card-modal-backdrop.active .card-sheet { transform: translateY(0); }
+  @media (min-width: 561px) {
+    .card-modal-backdrop { align-items: center; padding: 20px; }
+    .card-sheet {
+      border-radius: 22px;
+      transform: scale(0.94) translateY(16px);
+      transition: transform .25s cubic-bezier(0.16, 1, 0.3, 1), opacity .25s ease;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.24);
+    }
+    .card-modal-backdrop.active .card-sheet { transform: scale(1) translateY(0); }
+    .sheet-grabber-area { display: none; }
+  }
+  .sheet-grabber-area {
+    padding: 10px 0 4px; display: flex; justify-content: center;
+    cursor: grab; touch-action: none;
+  }
+  .sheet-grabber { width: 40px; height: 5px; border-radius: 999px; background: #d2d2d7; }
+  .sheet-header {
+    display: flex; align-items: center; justify-content: space-between; padding: 6px 18px 2px;
+  }
+  .sheet-badge {
+    font-size: 11px; font-weight: 700; color: var(--primary);
+    background: rgba(22, 56, 38, 0.08); padding: 4px 10px; border-radius: 999px;
+  }
+  .sheet-close-btn {
+    background: #f2f2f5; border: none; color: #6e6e73;
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: .15s;
+  }
+  .sheet-close-btn:hover { background: #e5e5ea; color: #1d1d1f; }
+  .sheet-body {
+    overflow-y: auto; -webkit-overflow-scrolling: touch;
+    padding: 6px 22px calc(24px + env(safe-area-inset-bottom)); text-align: center;
+  }
+  .c-photo-wrap { position: relative; width: 116px; height: 116px; margin: 0 auto 12px; }
+  .c-photo {
+    width: 116px; height: 116px; border-radius: 50%; object-fit: cover;
+    border: 3.5px solid #fff; box-shadow: 0 4px 16px rgba(22,56,38,.16); display: block;
+  }
+  .c-crest {
+    position: absolute; bottom: -3px; right: -2px; width: 30px; height: 30px;
+    border-radius: 50%; background: var(--primary); border: 2px solid #fff;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  .c-crest svg { width: 14px; height: 14px; fill: currentColor; }
+  .c-title {
+    font-size: 1.45rem; margin: 0 0 3px; font-weight: 700; color: var(--ink);
+  }
+  .c-role { color: var(--primary); font-weight: 700; font-size: .92rem; margin: 0 0 10px; }
+  .c-pitch { color: var(--slate); font-size: .88rem; line-height: 1.55; margin: 0; }
+  .c-edu {
+    color: var(--slate); font-size: .78rem; margin: 12px 0 0; padding-top: 12px;
+    border-top: 1px solid var(--line); font-weight: 600;
+  }
+  .c-actions { display: grid; gap: 8px; margin-top: 16px; }
+  .c-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .c-btn {
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    padding: 12px 10px; border-radius: 12px; text-decoration: none; font-weight: 700;
+    font-size: .91rem; background: #f2f2f5; color: #1d1d1f; border: none;
+    transition: .15s; cursor: pointer; width: 100%; font-family: inherit; box-sizing: border-box;
+  }
+  .c-btn:hover { filter: brightness(.965); }
+  .c-btn.c-wa { background: var(--wa); color: #fff; }
+  .c-btn.c-call { background: var(--call); color: #fff; }
+  .c-btn.c-save { background: var(--primary); color: #fff; }
+  .c-btn.c-waze { background: #33ccff; color: #00384d; }
+  .c-btn svg { width: 17px; height: 17px; flex: none; fill: currentColor; }
+  .c-foot { margin-top: 14px; font-size: .76rem; color: var(--slate); }
+  .card-toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: #1d1d1f; color: #fff; padding: 10px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 500; box-shadow: 0 6px 20px rgba(0,0,0,0.28);
+    opacity: 0; pointer-events: none; transition: opacity .25s ease; z-index: 10001;
+  }
+  .card-toast.show { opacity: 1; }
 </style>
 </head>
 <body>
@@ -1043,11 +1146,91 @@
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.5-1.2-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.3c-.1.1-.2.3-.1.5.1.2.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l2 .9c.2.1.4.2.4.3.1.1.1.6-.1 1.3z"/></svg>
     <span>WhatsApp</span>
   </a>
-  <a href="card/index.html" class="m-card">
+  <a href="card/index.html" class="m-card" id="openIditCardBtn">
     <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg>
     <span data-en="Card" data-he="כרטיס ביקור">כרטיס ביקור</span>
   </a>
 </div>
+
+<!-- IDIT SNIR CARD MODAL / BOTTOM SHEET -->
+<div class="card-modal-backdrop" id="iditCardModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="card-sheet" id="iditCardSheet">
+    <div class="sheet-grabber-area" id="iditGrabberArea" aria-label="Drag down to close">
+      <div class="sheet-grabber"></div>
+    </div>
+    
+    <div class="sheet-header">
+      <span class="sheet-badge" data-en="⚖️ Court-Appointed Expert" data-he="⚖️ מומחית מוסמכת בתי משפט">⚖️ מומחית מוסמכת בתי משפט</span>
+      <button class="sheet-close-btn" id="iditModalCloseBtn" type="button" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="sheet-body">
+      <div class="c-photo-wrap">
+        <img class="c-photo" src="profile.jpg" alt="עו״ד ורו״ח עידית שניר">
+        <div class="c-crest" title="CPA & Adv.">
+          <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.84L19.5 19H4.5L12 5.84zM11 10h2v4h-2zm0 6h2v2h-2z"/></svg>
+        </div>
+      </div>
+
+      <div class="c-title" data-en="Adv. &amp; CPA Idit Snir" data-he="עו״ד ורו״ח עידית שניר">עו״ד ורו״ח עידית שניר</div>
+      <div class="c-role" data-en="Court-Appointed Financial Expert &amp; Valuation Consultant" data-he="מומחית בית משפט לאיזון משאבים והערכות שווי">מומחית בית משפט לאיזון משאבים והערכות שווי</div>
+
+      <p class="c-pitch"
+         data-en="15+ years combining legal acumen, CPA precision, and financial valuation. Expert in family law asset partition, pension actuary, M&amp;A valuations, and court-mandated financial opinions."
+         data-he="מעל 15 שנה בשילוב נדיר של משפט, חשבונאות ומימון. מומחית מטעם בתי המשפט ובתי הדין הרבניים לחוות דעת אקטואריות ואיזון משאבים בדיני משפחה, הערכות שווי חברות וליווי עסקאות M&amp;A.">
+        מעל 15 שנה בשילוב נדיר של משפט, חשבונאות ומימון. מומחית מטעם בתי המשפט ובתי הדין הרבניים לחוות דעת אקטואריות ואיזון משאבים בדיני משפחה, הערכות שווי חברות וליווי עסקאות M&amp;A.
+      </p>
+
+      <p class="c-edu"
+         data-en="Certified Public Accountant (CPA) · Adv. (LL.B) · B.A. Economics &amp; Accounting"
+         data-he="רו״ח מוסמכת (CPA) · עו״ד (LL.B) · תואר ראשון בכלכלה וחשבונאות (B.A)">
+        רו״ח מוסמכת (CPA) · עו״ד (LL.B) · תואר ראשון בכלכלה וחשבונאות (B.A)
+      </p>
+
+      <div class="c-actions">
+        <div class="c-row2">
+          <a class="c-btn c-call" href="tel:+972528660329">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+            <span data-en="Call" data-he="התקשר">התקשר</span>
+          </a>
+          <a class="c-btn c-wa" href="https://wa.me/972528660329?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A2%D7%99%D7%93%D7%99%D7%AA%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%9B%D7%A8%D7%98%D7%99%D7%A1%20%D7%94%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.5-1.2-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.3c-.1.1-.2.3-.1.5.1.2.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l2 .9c.2.1.4.2.4.3.1.1.1.6-.1 1.3z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+
+        <a class="c-btn c-save" href="idit-snir.vcf" download="Idit-Snir.vcf">
+          <svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 110 8 4 4 0 010-8zm0 10c4.4 0 8 2 8 4.5V21H4v-3.5C4 15 7.6 13 12 13z"/></svg>
+          <span data-en="Save to contacts" data-he="שמור לאנשי קשר">שמור לאנשי קשר</span>
+        </a>
+
+        <button class="c-btn" id="iditModalEmailBtn" type="button">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4.2l-8 5-8-5V6l8 5 8-5v2.2z"/></svg>
+          <span data-en="Email" data-he="שלח מייל">office@iditsnir.co.il</span>
+        </button>
+
+        <div class="c-row2">
+          <a class="c-btn c-waze" href="https://waze.com/ul?q=Alon%20Tower%202%20Tel%20Aviv" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span data-en="Waze" data-he="נווט למשרד">Waze</span>
+          </a>
+          <a class="c-btn" href="tel:+97236005520">
+            <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+            <span data-en="Tel Aviv Office" data-he="טלפון משרד">03-6005520</span>
+          </a>
+        </div>
+      </div>
+
+      <p class="c-foot">
+        <span data-en="Alon Tower 2, 94 Yigal Alon St, Tel Aviv" data-he="מגדל אלון 2, יגאל אלון 94, תל אביב">מגדל אלון 2, יגאל אלון 94, תל אביב</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="card-toast" id="iditCardToast"></div>
 
 <script>
   // Dynamic Year
@@ -1093,6 +1276,118 @@
     var waUrl = "https://wa.me/972528660329?text=" + encodeURIComponent(text);
     window.open(waUrl, "_blank");
   }
+
+  // Idit Card Modal / Bottom Sheet Controller
+  (function(){
+    var modal = document.getElementById("iditCardModal");
+    var sheet = document.getElementById("iditCardSheet");
+    var closeBtn = document.getElementById("iditModalCloseBtn");
+    var emailBtn = document.getElementById("iditModalEmailBtn");
+    var grabber = document.getElementById("iditGrabberArea");
+    var toast = document.getElementById("iditCardToast");
+    var EMAIL = "office@iditsnir.co.il";
+
+    function showToast(msg) {
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(function(){ toast.classList.remove("show"); }, 3000);
+    }
+
+    function openModal() {
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      if (window.location.hash !== "#card") {
+        history.pushState(null, "", "#card");
+      }
+    }
+
+    function closeModal(skipHistory) {
+      if (!modal.classList.contains("active")) return;
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      sheet.style.transform = "";
+      document.body.style.overflow = "";
+      if (!skipHistory && window.location.hash === "#card") {
+        history.back();
+      }
+    }
+
+    // Intercept all card links on page
+    document.querySelectorAll('a[href*="card/"], a[href="#card"], .m-card, .btn-card-nav').forEach(function(el){
+      el.addEventListener("click", function(e){
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    closeBtn.addEventListener("click", function(){ closeModal(); });
+    modal.addEventListener("click", function(e){
+      if (e.target === modal) closeModal();
+    });
+    window.addEventListener("keydown", function(e){
+      if (e.key === "Escape" || e.keyCode === 27) closeModal();
+    });
+    window.addEventListener("popstate", function(){
+      if (window.location.hash !== "#card") {
+        closeModal(true);
+      } else {
+        openModal();
+      }
+    });
+
+    if (window.location.hash === "#card") {
+      openModal();
+    }
+
+    // Mobile swipe down
+    if (grabber) {
+      var startY = 0, currentY = 0, isDragging = false;
+      grabber.addEventListener("touchstart", function(e){
+        if (e.touches.length === 1) {
+          startY = e.touches[0].clientY;
+          currentY = startY;
+          isDragging = true;
+          sheet.style.transition = "none";
+        }
+      }, {passive: true});
+
+      window.addEventListener("touchmove", function(e){
+        if (!isDragging) return;
+        currentY = e.touches[0].clientY;
+        var diff = currentY - startY;
+        if (diff > 0) {
+          sheet.style.transform = "translateY(" + diff + "px)";
+        }
+      }, {passive: true});
+
+      window.addEventListener("touchend", function(){
+        if (!isDragging) return;
+        isDragging = false;
+        sheet.style.transition = "";
+        var diff = currentY - startY;
+        if (diff > 75) {
+          closeModal();
+        } else {
+          sheet.style.transform = "";
+        }
+        startY = 0;
+        currentY = 0;
+      });
+    }
+
+    if (emailBtn) {
+      emailBtn.addEventListener("click", function(){
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(EMAIL);
+        }
+        var msg = (curLang === "he") ? 'דוא"ל המשרד הועתק ללוח: ' + EMAIL : 'Office email copied: ' + EMAIL;
+        showToast(msg);
+        setTimeout(function(){ window.location.href = "mailto:" + EMAIL; }, 250);
+      });
+    }
+  })();
 </script>
 </body>
 </html>
