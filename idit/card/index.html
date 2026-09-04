@@ -11,16 +11,16 @@
 <meta property="og:title" content="עו״ד ורו״ח עידית שניר | מנהלת תחום הייעוץ הפיננסי ב-KS Finance">
 <meta property="og:description" content="מומחית מטעם בית המשפט לאיזון משאבים בדיני משפחה, חוות דעת אקטואריות, הערכות שווי חברות (DCF) וליווי עסקאות M&A.">
 <meta property="og:url" content="https://idit-snir.pages.dev/card/">
-<meta property="og:image" content="https://idit-snir.pages.dev/og-card.jpg?v=3">
-<meta property="og:image:secure_url" content="https://idit-snir.pages.dev/og-card.jpg?v=3">
+<meta property="og:image" content="https://idit-snir.pages.dev/og-card.jpg?v=20260904-figma">
+<meta property="og:image:secure_url" content="https://idit-snir.pages.dev/og-card.jpg?v=20260904-figma">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="עו״ד ורו״ח עידית שניר | כרטיס ביקור דיגיטלי">
 <meta name="twitter:description" content="מנהלת תחום הייעוץ הפיננסי ב-KS Finance | מומחית בית משפט לאיזון משאבים והערכות שווי">
-<meta name="twitter:image" content="https://idit-snir.pages.dev/og-card.jpg?v=3">
-<meta name="theme-color" content="#163826">
+<meta name="twitter:image" content="https://idit-snir.pages.dev/og-card.jpg?v=20260904-figma">
+<meta name="theme-color" content="#1d4ed8">
 <link rel="icon" href="../profile.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,41 +30,41 @@
 <script>
   if (window.location.hostname.includes("shimon-ezekiel")) {
     window.location.replace("https://idit-snir.pages.dev/card/" + window.location.search);
-  } else if (!window.location.search.includes("standalone=1")) {
-    window.location.replace("../#card" + (window.location.search ? window.location.search : ""));
   }
 </script>
 
 <style>
   :root{
-    --bg:#0f172a; --card:#ffffff; --line:#e2e8f0;
+    --bg:#f1f5f9; --card:#ffffff; --line:#e2e8f0;
     --txt:#0f172a; --mut:#64748b;
-    --primary:#163826; --primary-light:#23583c;
-    --gold:#c5a059; --gold-dark:#99732e;
-    --blue:#0071e3; --green:#34c759; --wa:#25d366; --soft:#f1f5f9;
+    --primary:#1d4ed8; --primary-light:#2563eb;
+    --coral:#ea580c; --coral-light:#f97316;
+    --amber:#ffcf00;
+    --blue:#2563eb; --green:#1d4ed8; --wa:#25d366; --soft:#f8fafc;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
   body{
-    background:rgba(15, 23, 42, 0.65);
-    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    background:var(--bg);
     color:var(--txt); min-height:100dvh;
     font-family:'Assistant',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    display:flex; align-items:center; justify-content:center; padding:20px 16px;
+    display:flex; align-items:center; justify-content:center; padding:24px 16px;
     -webkit-font-smoothing:antialiased;
+    background-image: radial-gradient(at 0% 0%, rgba(29, 78, 216, 0.06) 0px, transparent 50%),
+                      radial-gradient(at 100% 100%, rgba(234, 88, 12, 0.06) 0px, transparent 50%);
   }
   .wrap{width:100%;max-width:410px}
   .card{
-    background:var(--card); border:1px solid rgba(255,255,255,0.2); border-radius:24px;
-    padding:24px 22px 24px; text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,0.35);
+    background:var(--card); border:1px solid var(--line); border-radius:24px;
+    padding:28px 24px 26px; text-align:center;
+    box-shadow:0 12px 40px rgba(29, 78, 216, 0.10);
     position:relative; overflow:hidden;
   }
   .card::before {
-    content:""; position:absolute; top:0; left:0; right:0; height:4px;
-    background:linear-gradient(90deg, var(--primary) 0%, var(--gold) 50%, var(--primary) 100%);
+    content:""; position:absolute; top:0; left:0; right:0; height:5px;
+    background:linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 50%, var(--coral) 100%);
   }
-  .langbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .langbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
   .sheet-close-btn {
     background:#f1f5f9; border:none; color:#64748b; text-decoration:none;
     width:32px; height:32px; border-radius:50%;
@@ -73,73 +73,82 @@
   }
   .sheet-close-btn:hover { background:#e2e8f0; color:#0f172a; }
   .badge-law{
-    font-size:11px; font-weight:700; letter-spacing:0.5px;
-    color:var(--primary); background:rgba(22, 56, 38, 0.08);
-    padding:4px 10px; border-radius:999px; display:inline-flex; align-items:center; gap:4px;
+    font-size:12px; font-weight:800; letter-spacing:0.3px;
+    color:var(--coral); background:rgba(234, 88, 12, 0.08);
+    border:1px solid rgba(234, 88, 12, 0.25);
+    padding:5px 12px; border-radius:999px; display:inline-flex; align-items:center; gap:5px;
   }
   .lang{
-    background:var(--soft);border:1px solid rgba(0,0,0,.04);color:var(--mut);
-    font:600 12px/1 inherit;padding:7px 12px;border-radius:999px;cursor:pointer;
+    background:var(--soft);border:1px solid var(--line);color:var(--mut);
+    font:700 12px/1 inherit;padding:7px 12px;border-radius:999px;cursor:pointer;
     transition:.15s ease;
   }
   .lang:hover{color:var(--txt);background:#e2e8f0}
 
   .photo-wrap{
-    position:relative; width:128px; height:128px; margin:0 auto 16px;
+    position:relative; width:132px; height:132px; margin:0 auto 14px;
   }
   .photo{
-    width:128px;height:128px;border-radius:50%;object-fit:cover;
-    border:4px solid #fff; box-shadow:0 6px 20px rgba(22,56,38,.16);
+    width:132px;height:132px;border-radius:50%;object-fit:cover;
+    border:4px solid #fff; box-shadow:0 0 0 3px var(--primary), 0 8px 24px rgba(29,78,216,.2);
     display:block;
   }
   .gold-crest{
-    position:absolute; bottom:-4px; right:-2px;
-    width:34px; height:34px; border-radius:50%;
-    background:var(--primary); border:2px solid #fff;
+    position:absolute; bottom:-3px; right:-2px;
+    width:36px; height:36px; border-radius:50%;
+    background:var(--coral); border:2.5px solid #fff;
     display:flex; align-items:center; justify-content:center;
-    color:var(--gold); box-shadow:0 2px 8px rgba(0,0,0,.15);
+    color:#fff; box-shadow:0 3px 10px rgba(234,88,12,.35);
   }
   .gold-crest svg{width:18px;height:18px;fill:currentColor}
 
+  .stat-pill-mini {
+    display:inline-block;
+    background:linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color:#fff; font-weight:800; font-size:12.5px;
+    padding:4px 14px; border-radius:999px; margin-bottom:12px;
+    box-shadow:0 3px 10px rgba(234,88,12,0.25);
+  }
+
   h1{
     font-family:'Frank Ruhl Libre','Assistant',serif;
-    font-size:1.68rem; margin:0 0 4px; letter-spacing:-.015em; font-weight:700;
+    font-size:1.75rem; margin:0 0 4px; letter-spacing:-.015em; font-weight:800;
     color:#0f172a;
   }
   .role{
-    color:var(--primary-light); font-weight:700; font-size:.96rem; margin:0 0 14px;
-    line-height:1.4;
+    color:var(--primary); font-weight:800; font-size:1.02rem; margin:0 0 12px;
+    line-height:1.35;
   }
-  .pitch{color:#334155;font-size:.92rem;line-height:1.6;margin:0;font-weight:400}
+  .pitch{color:#475569;font-size:.92rem;line-height:1.6;margin:0;font-weight:500}
   .edu{
     color:var(--mut);font-size:.82rem;margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);
-    line-height:1.5;
+    line-height:1.5; font-weight:600;
   }
 
   .actions{display:grid;gap:10px;margin-top:22px}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   a.btn, button.btn{
     display:flex;align-items:center;justify-content:center;gap:8px;
-    padding:13px 12px;border-radius:14px;text-decoration:none;font-weight:600;font-size:.93rem;
+    padding:13px 12px;border-radius:14px;text-decoration:none;font-weight:700;font-size:.94rem;
     background:var(--soft); color:var(--txt); border:none; transition:.15s ease; cursor:pointer; width:100%;
     font-family:inherit;
   }
   a.btn:hover, button.btn:hover{filter:brightness(.96);transform:translateY(-1px)}
   a.btn:active, button.btn:active{transform:translateY(0)}
-  a.wa{background:var(--wa);color:#fff}
-  a.call{background:var(--green);color:#fff}
-  a.save{background:var(--primary);color:#fff}
-  a.save:hover{background:var(--primary-light)}
+  a.wa{background:var(--wa);color:#fff;box-shadow:0 4px 14px rgba(37,211,102,.25)}
+  a.call{background:var(--primary);color:#fff;box-shadow:0 4px 14px rgba(29,78,216,.25)}
+  a.save{background:linear-gradient(135deg, #f97316 0%, #ea580c 100%);color:#fff;box-shadow:0 4px 14px rgba(234,88,12,.28)}
+  a.save:hover{filter:brightness(1.05)}
   a.nav-btn{background:#edf2f7;color:#1e293b}
-  a.full-site{background:linear-gradient(135deg, #1e293b 0%, #0f172a 100%);color:#fff}
-  a.full-site:hover{background:#000}
+  a.full-site{background:linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);color:#fff}
+  a.full-site:hover{background:#0f172a}
   svg{width:19px;height:19px;flex:none;fill:currentColor}
 
   .office-pill{
     display:inline-flex; align-items:center; justify-content:center; gap:6px;
     margin-top:20px; font-size:.82rem; color:var(--mut); font-weight:500;
   }
-  .office-pill svg{width:15px;height:15px;fill:var(--gold)}
+  .office-pill svg{width:15px;height:15px;fill:var(--coral)}
 
   .toast{
     position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
@@ -174,6 +183,7 @@
 
     <h1 data-en="Adv. &amp; CPA Idit Snir" data-he="עו״ד ורו״ח עידית שניר">עו״ד ורו״ח עידית שניר</h1>
     <p class="role" data-en="Head of Financial Advisory, KS Finance | Court Expert" data-he="מנהלת תחום הייעוץ הפיננסי ב-KS Finance | מומחית בתי משפט">מנהלת תחום הייעוץ הפיננסי ב-KS Finance | מומחית בתי משפט</p>
+    <div class="stat-pill-mini" data-en="17+ Years Integrated Experience" data-he="17 שנות ניסיון משולב">17 שנות ניסיון משולב</div>
 
     <p class="pitch"
        data-en="17+ years integrating civil litigation, CPA practice, and corporate finance. Head of Financial Advisory at KS Finance, ex-BDO Consulting &amp; Barlev Forensic Audit. Expert in court-appointed financial opinions, business valuations (DCF), and M&amp;A advisory."
