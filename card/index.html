@@ -135,9 +135,9 @@
         </a>
       </div>
 
-      <a class="btn" href="../index.html">
+      <a class="btn" id="portfolioBtn" href="../index.html">
         <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-        <span data-en="Full portfolio" data-he="לפורטפוליו המלא">Full portfolio</span>
+        <span data-en="Tech Portfolio &amp; Builds" data-he="פורטפוליו ניהול בכיר">Tech Portfolio &amp; Builds</span>
       </a>
     </div>
 
@@ -177,6 +177,10 @@
     document.getElementById("langBtn").textContent = (lang === "he") ? "English" : "עברית";
     document.getElementById("waBtn").href =
       "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(MSG[lang]);
+    var portBtn = document.getElementById("portfolioBtn");
+    if (portBtn) {
+      portBtn.href = (lang === "he") ? "../he/index.html" : "../index.html";
+    }
     try { localStorage.setItem("cardLang", lang); } catch(e){}
   }
 
