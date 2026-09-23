@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Works4you AI — Autonomous Agent Fleet & Company Brain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7C3AED;
+      --primary-hover: #6D28D9;
+      --primary-light: #EDE9FE;
+      --accent-cyan: #06B6D4;
+      --accent-lilac: #C4B5FD;
+      --bg-gradient: linear-gradient(180deg, #F8F7FF 0%, #F1EEFE 50%, #E9E4FC 100%);
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --card-bg: rgba(255, 255, 255, 0.82);
+      --card-border: rgba(124, 58, 237, 0.12);
+      --card-shadow: 0 20px 40px -15px rgba(124, 58, 237, 0.08);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient 3D floating spheres effect */
+    .ambient-sphere {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .sphere-1 {
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(196, 181, 253, 0.8) 0%, rgba(237, 233, 254, 0) 70%);
+      top: -100px;
+      right: -80px;
+    }
+    .sphere-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.5) 0%, rgba(243, 232, 255, 0) 70%);
+      top: 600px;
+      left: -100px;
+    }
+
+    /* Top banner */
+    .top-banner {
+      background: #7C3AED;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 13.5px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      letter-spacing: -0.01em;
+    }
+    .top-banner a {
+      color: #FFFFFF;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 21px;
+      color: var(--text-main);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-brand .sparkle {
+      color: var(--primary);
+      font-size: 22px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 14.5px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: none;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #0F172A;
+      color: #FFFFFF;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 80px 20px 50px;
+    }
+    .hero h1 {
+      font-size: 58px;
+      font-weight: 250;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #0F172A;
+    }
+    .hero h1 strong {
+      font-weight: 800;
+      color: #0F172A;
+      position: relative;
+    }
+    .hero p {
+      font-size: 19px;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+    .hero-actions .btn-main {
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 14px 32px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
+      transition: all 0.2s;
+    }
+    .hero-actions .btn-main:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+    .hero-actions .btn-video {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-main);
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+      transition: all 0.2s;
+    }
+    .hero-actions .btn-video:hover {
+      background: #FFFFFF;
+    }
+
+    /* Alta Floating Command Bar */
+    .command-card {
+      max-width: 640px;
+      margin: 0 auto 70px;
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 25px 50px -12px rgba(124, 58, 237, 0.15);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+    .command-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .command-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1.5px solid var(--primary-light);
+    }
+    .command-title {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .command-prompt {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .command-input-group {
+      display: flex;
+      gap: 10px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 8px 12px;
+      align-items: center;
+    }
+    .command-input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 14.5px;
+      font-family: inherit;
+      color: var(--text-main);
+      width: 100%;
+    }
+    .command-btn {
+      background: #0F172A;
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .command-btn:hover {
+      background: var(--primary);
+    }
+
+    /* Section Title */
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .section-badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Fleet Grid */
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 100px;
+    }
+    @media (max-width: 1100px) {
+      .fleet-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .fleet-grid { grid-template-columns: 1fr; }
+    }
+
+    .agent-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .agent-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 60px -15px rgba(124, 58, 237, 0.16);
+      border-color: rgba(124, 58, 237, 0.3);
+    }
+    .agent-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #EDE9FE;
+    }
+    .agent-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .agent-card:hover .agent-img {
+      transform: scale(1.03);
+    }
+    .agent-status-pill {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+    }
+
+    .agent-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .agent-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+    .agent-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+    .agent-alias {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .agent-role {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .agent-desc {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .agent-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+    .agent-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: #475569;
+      background: #F1F5F9;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    /* Architecture section (Alta Layered Brain) */
+    .brain-section {
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: 32px;
+      padding: 60px 48px;
+      box-shadow: 0 30px 60px -20px rgba(124, 58, 237, 0.1);
+      margin-bottom: 100px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .brain-section { grid-template-columns: 1fr; padding: 36px 24px; }
+    }
+    .brain-header h2 {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .brain-header p {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+    .brain-layers {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .layer-item {
+      display: flex;
+      gap: 18px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      transition: all 0.2s;
+    }
+    .layer-item:hover {
+      background: #FAF5FF;
+      border-color: var(--accent-lilac);
+      transform: translateX(4px);
+    }
+    .layer-num {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: 'Inter', sans-serif;
+    }
+    .layer-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+    .layer-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.6);
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Spheres -->
+  <div class="ambient-sphere sphere-1"></div>
+  <div class="ambient-sphere sphere-2"></div>
+
+  <!-- Announcement Bar -->
+  <div class="top-banner">
+    <span>✨ Works4you AI — Autonomous Agent Fleet & Company Brain V2</span>
+    <a href="#fleet">Meet the 8 Agents &rarr;</a>
+  </div>
+
+  <!-- Navbar -->
+  <nav>
+    <a href="#" class="nav-brand">
+      <span class="sparkle">✦</span> Works4you AI
+    </a>
+    <ul class="nav-links">
+      <li><a href="#fleet">Agent Fleet</a></li>
+      <li><a href="#brain">Fleet Brain</a></li>
+      <li><a href="#brief">Design Brief</a></li>
+      <li><a href="#specs">Architecture</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-secondary">Log in</button>
+      <button class="btn-primary">Deploy Fleet</button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="section-badge">Autonomous Multi-Agent Fleet</div>
+      <h1>The AI platform built for <strong>autonomous enterprise scale</strong></h1>
+      <p>A coordinated fleet of 8 specialized AI agents that execute, decide, and deliver end-to-end, so your executive team can focus on closing and growth.</p>
+      
+      <div class="hero-actions">
+        <a href="#fleet" class="btn-main">Explore Agent Fleet</a>
+        <a href="#brain" class="btn-video">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          See Fleet in Action
+        </a>
+      </div>
+
+      <!-- Alta-Style Live Command Bar -->
+      <div class="command-card">
+        <div class="command-header">
+          <img src="assets/orion.jpg" alt="Orion" class="command-avatar">
+          <div>
+            <div class="command-title">Orion — Chief Fleet Orchestrator</div>
+            <div class="command-prompt">Hi Shimon, which autonomous workflow should we execute today?</div>
+          </div>
+        </div>
+        <div class="command-input-group">
+          <input type="text" class="command-input" placeholder="e.g. Audit court filings with Maeve, run cashflow scan with Sterling..." value="Audit court filings with Maeve and stage candidate applications with Hunter">
+          <button class="command-btn">
+            <span>✦</span> Run Workflow
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Fleet Roster Grid -->
+    <section id="fleet">
+      <div class="section-header">
+        <div class="section-badge">International Fleet Roster</div>
+        <h2 class="section-title">8 Specialized Agents. One Shared Brain.</h2>
+        <p class="section-subtitle">Every bot owns a critical executive domain with autonomous tools, safety approval gates, and continuous learning.</p>
+      </div>
+
+      <div class="fleet-grid">
+        
+        <!-- 1. Orion -->
+        <div class="agent-card">
+          <div class="agent-img-wrap">
+            <img src="assets/orion.jpg" alt="Orion" class="agent-img">
+            <div class="agent-status-pill"><span class="status-dot"></span> Active Core</div>
+          </div>
+          <div class="agent-info">
+            <div class="agent-meta">
+              <span class="agent-name">Orion</span>
+              <span class="agent-alias">Omri / עומרי</span>
+            </div>
+            <div class="agent-role">Chief Fleet Orchestrator</div>
+            <p class="agent-desc">Master fleet coordination, multi-agent dependency resolution, subagent lifecycle management, and self-healing DevOps on Cloud Run.</p>
+            <div class="agent-tags">
+              <span class="agent-tag">ADK 2.8</span>
+              <span class="agent-tag">Self-Healing</span>
+              <span class="agent-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Maeve -->
+        <div class="agent-card">
+          <div class="agent-img-wrap">
+            <img src="assets/maeve.jpg" alt="Maeve" class="agent-img">
+            <div class="agent-status-pill"><span class="status-dot"></span> Verified Gate</div>
+          </div>
+          <div class="agent-info">
+            <div class="agent-meta">
+              <span class="agent-name">Maeve</span>
+              <span class="agent-alias">Maya / מאיה</span>
+            </div>
+            <div class="agent-role">Legal & Compliance Counsel</div>
+            <p class="agent-desc">Exclusive executive assistant for Edith Ltd (Idit Snir). Case law indexing, court filing approval gates, and actuarial computations.</p>
+            <div class="agent-tags">
+              <span class="agent-tag">Court Gate</span>
+              <span class="agent-tag">Actuarial</span>
+              <span class="agent-tag">Drive Sync</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Hunter -->
+        <div class="agent-card">
+          <div class="agent-img-wrap">
+            <img src="assets/hunter.jpg" alt="Hunter" class="agent-img">
+            <div class="agent-status-pill"><span class="status-dot"></span> In-Session CDP</div>
+          </div>
+          <div class="agent-info">
+            <div class="agent-meta">
+              <span class="agent-name">Hunter</span>
+              <span class="agent-alias">Outbound / גיוס</span>
+            </div>
+            <div class="agent-role">Talent & Executive Headhunter</div>
+            <p class="agent-desc">Dual-track executive candidate sourcing, 1-page bespoke CV PDF tailoring, and autonomous single-window Chrome CDP ATS form staging.</p>
+            <div class="agent-tags">
+              <span class="agent-tag">Chrome CDP</span>
+              <span class="agent-tag">ATS Staging</span>
+              <span class="agent-tag">Sourcing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Aria -->
+        <div class="agent-card">
+          <div class="agent-img-wrap">
+            <img src="assets/aria.jpg" alt="Aria" class="agent-img">
+            <div class="agent-status-pill"><span class="status-dot"></span> Drafts Guard</div>
+          </div>
+          <div class="agent-info">
+            <div class="agent-meta">
+              <span class="agent-name">Aria</span>
+              <span class="agent-alias">Alma / עלמה</span>
+            </div>
+            <div class="agent-role">Executive Chief of Staff</div>
+            <p class="agent-desc">Executive operations guardian. Google Calendar strict confirmation gate, Gmail draft-only triage, and Telegram/Chat assistant.</p>
+            <div class="agent-tags">
+              <span class="agent-tag">Gmail Triage</span>
+              <span class="agent-tag">Calendar Gate</span>
+              <span class="agent-tag">Google Native</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Sterling -->
+        <div class="agent-card">
+          <div class="agent-img-wrap">
+            <img src="assets/sterling.jpg" alt="Sterling" class="agent-img">
+            <div class="agent-status-pill"><span class="status-dot"></span> Live Ledger</div>
+          </div>
+          <div class="agent-info">
+            <div class="agent-meta">
+              <span class="agent-name">Sterling</span>
+              <span class="agent-alias">Cashflow / תזרים</span>
+            </div>
+            <div class="agent-role">Financial Controller</div>
+            <p class="agent-desc">Autonomous mailbox receipt & invoice scanning (tecktitans111), real-time FX conversions (ILS/EUR/USD), and Google Sheets ledger synchronization.</p>
+            <div class="agent-tags">
+              <span class="agent-tag">FX Engine</span>
+              <span class="agent-tag">Sheets Sync</span>
+              <span class="agent-tag">Zero Touch</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Sylvan -->
+        <div class="agent-card">
+          <div class="agent-img-wrap">
+            <img src="assets/sylvan.jpg" alt="Sylvan" class="agent-img">
+            <div class="agent-status-pill"><span class="status-dot"></span> Multilingual RAG</div>
+          </div>
+          <div class="agent-info">
+            <div class="agent-meta">
+              <span class="agent-name">Sylvan</span>
+              <span class="agent-alias">4rest Suite</span>
+            </div>
+            <div class="agent-role">Global Impact Advocate</div>
+            <p class="agent-desc">Multilingual conversational RAG (EN/PT/HE/ES) and grant indexing for Forest for All (4rest4all). Donor qualification and Stripe links.</p>
+            <div class="agent-tags">
+              <span class="agent-tag">Vector RAG</span>
+              <span class="agent-tag">Stripe Pay</span>
+              <span class="agent-tag">Lookalikes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Echo -->
+        <div class="agent-card">
+          <div class="agent-img-wrap">
+            <img src="assets/echo.jpg" alt="Echo" class="agent-img">
+            <div class="agent-status-pill"><span class="status-dot"></span> Omnichannel</div>
+          </div>
+          <div class="agent-info">
+            <div class="agent-meta">
+              <span class="agent-name">Echo</span>
+              <span class="agent-alias">Chatwoot AI</span>
+            </div>
+            <div class="agent-role">Omnichannel Support Lead</div>
+            <p class="agent-desc">24/7 unified messaging support across Instagram, WhatsApp, TikTok, and Web. Lead qualification, sentiment scoring, and Twenty CRM sync.</p>
+            <div class="agent-tags">
+              <span class="agent-tag">Chatwoot</span>
+              <span class="agent-tag">Twenty CRM</span>
+              <span class="agent-tag">Real-Time</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Nexus -->
+        <div class="agent-card">
+          <div class="agent-img-wrap">
+            <img src="assets/nexus.jpg" alt="Nexus" class="agent-img">
+            <div class="agent-status-pill"><span class="status-dot"></span> Graph Core</div>
+          </div>
+          <div class="agent-info">
+            <div class="agent-meta">
+              <span class="agent-name">Nexus</span>
+              <span class="agent-alias">Knowledge Mesh</span>
+            </div>
+            <div class="agent-role">Knowledge Graph Architect</div>
+            <p class="agent-desc">Nightly cross-agent learning synthesis, operational pattern consolidation, Graphify knowledge mesh synchronization, and AI frontier radar.</p>
+            <div class="agent-tags">
+              <span class="agent-tag">Graphify</span>
+              <span class="agent-tag">Memory Mesh</span>
+              <span class="agent-tag">AI Radar</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Brain Architecture Section -->
+    <section id="brain" class="brain-section">
+      <div class="brain-header">
+        <div class="section-badge">System Architecture</div>
+        <h2>One Company Brain. Underneath every agent.</h2>
+        <p>No agent operates in a silo. Every execution outcome, user preference, and tool resolution continuously sharpens the central intelligence layer.</p>
+        <button class="btn-primary">Inspect System Blueprint</button>
+      </div>
+
+      <div class="brain-layers">
+        <div class="layer-item">
+          <div class="layer-num">01</div>
+          <div>
+            <div class="layer-title">Execution Engine</div>
+            <div class="layer-desc">Direct CDP browser automation, Google Workspace native APIs, Cloud Run containers, and headless shell tooling.</div>
+          </div>
+        </div>
+        <div class="layer-item">
+          <div class="layer-num">02</div>
+          <div>
+            <div class="layer-title">Judgement & Safety Gates</div>
+            <div class="layer-desc">Hardened approval gates for financial transactions, court legal filings, and calendar commits with zero accidental loss.</div>
+          </div>
+        </div>
+        <div class="layer-item">
+          <div class="layer-num">03</div>
+          <div>
+            <div class="layer-title">Memory & Knowledge Mesh</div>
+            <div class="layer-desc">Shared long-term Memory Bank, Graphify topological knowledge graphs, and vector semantic embeddings.</div>
+          </div>
+        </div>
+        <div class="layer-item">
+          <div class="layer-num">04</div>
+          <div>
+            <div class="layer-title">Self-Healing & Continuous Feedback Loop</div>
+            <div class="layer-desc">Autonomous CI/CD recovery, model fallback chain, friction escalation directly to Orion, and zero-touch error resolution.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Works4you AI — Founded by <strong>שמעון אזקיאל</strong>. All rights reserved. Modeled on Alta HQ Design System.</p>
+  </footer>
+
+</body>
+</html>
