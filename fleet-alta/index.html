@@ -706,6 +706,635 @@
       flex-shrink: 0;
     }
 
+    /* =========================================
+       Needs Matcher & Custom Agent Builder
+       ========================================= */
+    .matcher-section {
+      margin-bottom: 100px;
+    }
+    .interactive-card-shell {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(24px);
+      border: 1.5px solid var(--card-border);
+      border-radius: 32px;
+      padding: 44px;
+      box-shadow: 0 30px 60px -15px rgba(124, 58, 237, 0.12);
+    }
+    .toggle-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .toggle-nav-btn {
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 14.5px;
+      font-weight: 700;
+      border: 1.5px solid #E2E8F0;
+      background: #FFFFFF;
+      color: #64748B;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toggle-nav-btn.active {
+      background: linear-gradient(135deg, var(--primary) 0%, #9333EA 100%);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.4);
+    }
+    .matcher-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 36px;
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .matcher-grid { grid-template-columns: 1fr; }
+      .interactive-card-shell { padding: 24px; }
+    }
+    .matcher-control-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+    .preset-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .preset-chip {
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: #F1F5F9;
+      color: #334155;
+      border: 1px solid #E2E8F0;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .preset-chip:hover, .preset-chip.active {
+      background: var(--primary-light);
+      color: var(--primary);
+      border-color: rgba(124, 58, 237, 0.3);
+    }
+    .custom-textarea {
+      width: 100%;
+      height: 100px;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1.5px solid #E2E8F0;
+      font-family: inherit;
+      font-size: 14px;
+      color: #0F172A;
+      background: #F8FAFC;
+      resize: none;
+      margin-bottom: 18px;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .custom-textarea:focus {
+      border-color: var(--primary);
+      background: #FFFFFF;
+    }
+    .match-action-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      background: var(--text-main);
+      color: #FFF;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .match-action-btn:hover {
+      background: var(--primary);
+      box-shadow: 0 10px 20px -5px rgba(124, 58, 237, 0.3);
+    }
+    .matcher-result-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+    }
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .result-badge {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #ECFDF5;
+      color: #059669;
+    }
+    .recommended-agents-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .rec-agent-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 8px 14px;
+      border-radius: 12px;
+    }
+    .rec-agent-badge img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .rec-agent-name {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #0F172A;
+    }
+    .rec-agent-role {
+      font-size: 11px;
+      color: #64748B;
+    }
+    .orchestration-plan {
+      background: #F8FAFC;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 18px;
+      border-left: 3px solid var(--primary);
+    }
+    .orchestration-step {
+      font-size: 13.5px;
+      color: #334155;
+      line-height: 1.55;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .orchestration-step:last-child { margin-bottom: 0; }
+    .step-num-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Custom Agent Builder Form */
+    .builder-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 600px) {
+      .builder-form-grid { grid-template-columns: 1fr; }
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .form-input, .form-select {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1.5px solid #E2E8F0;
+      font-family: inherit;
+      font-size: 13.5px;
+      background: #F8FAFC;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--primary);
+      background: #FFF;
+    }
+    .tools-checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 600px) {
+      .tools-checkbox-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .tool-checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #334155;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .tool-checkbox-item input {
+      accent-color: var(--primary);
+    }
+    .custom-agent-card-preview {
+      background: linear-gradient(145deg, #FFFFFF 0%, #F5F3FF 100%);
+      border: 2px dashed rgba(124, 58, 237, 0.4);
+      border-radius: 24px;
+      padding: 32px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .preview-avatar-wrap {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #DDD6FE 0%, #C4B5FD 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 54px;
+      margin-bottom: 16px;
+      box-shadow: 0 15px 30px -10px rgba(124, 58, 237, 0.3);
+    }
+    .preview-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .preview-role {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .preview-desc {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+    .preview-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* =========================================
+       Workflow Timeline & Simulation Section
+       ========================================= */
+    .workflow-section {
+      margin-bottom: 100px;
+    }
+    .workflow-container {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+    @media (max-width: 960px) {
+      .workflow-container { grid-template-columns: 1fr; }
+    }
+    .timeline-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .timeline-step-card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1.5px solid var(--card-border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .timeline-step-card:hover, .timeline-step-card.active {
+      background: #FFFFFF;
+      border-color: var(--primary);
+      box-shadow: 0 15px 35px -10px rgba(124, 58, 237, 0.15);
+      transform: translateX(6px);
+    }
+    .timeline-step-card.active::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--primary);
+    }
+    .step-time-badge {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .step-card-title {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .step-card-desc {
+      font-size: 12.5px;
+      color: #64748B;
+      line-height: 1.5;
+    }
+
+    /* Terminal Mockup */
+    .terminal-mockup {
+      background: #0B0F19;
+      border-radius: 24px;
+      border: 1px solid #1E293B;
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .terminal-topbar {
+      background: #111827;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1F2937;
+    }
+    .terminal-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .terminal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #EF4444; }
+    .dot-yellow { background: #F59E0B; }
+    .dot-green { background: #10B981; }
+    .terminal-title {
+      color: #9CA3AF;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: monospace;
+    }
+    .terminal-body {
+      padding: 24px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #E2E8F0;
+      flex-grow: 1;
+      overflow-y: auto;
+      min-height: 380px;
+    }
+    .term-line {
+      margin-bottom: 12px;
+      display: flex;
+      gap: 10px;
+    }
+    .term-prompt { color: #8B5CF6; font-weight: 700; flex-shrink: 0; }
+    .term-agent { color: #38BDF8; font-weight: 700; flex-shrink: 0; }
+    .term-msg { color: #F1F5F9; }
+    .term-badge-airgap {
+      display: inline-block;
+      font-size: 10px;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      border: 1px solid #059669;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+    .approval-gate-box {
+      margin: 16px 0;
+      padding: 16px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 12px;
+    }
+    .approval-btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .gate-btn-approve {
+      background: #10B981;
+      color: #FFF;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .gate-btn-reject {
+      background: transparent;
+      color: #F87171;
+      border: 1px solid #EF4444;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* =========================================
+       Integrations & Ecosystem Section
+       ========================================= */
+    .integrations-section {
+      margin-bottom: 100px;
+    }
+    .integration-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 800px) {
+      .integration-metrics-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    .int-metric-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+    }
+    .int-metric-val {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .int-metric-lbl {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .categories-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .category-block {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1.5px solid var(--card-border);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.03);
+    }
+    .category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .cat-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cat-icon {
+      font-size: 22px;
+    }
+    .cat-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .cat-pill {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .integrations-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 900px) {
+      .integrations-cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .integrations-cards-grid { grid-template-columns: 1fr; }
+    }
+    .integration-tile {
+      background: #FFFFFF;
+      border: 1.5px solid #F1F5F9;
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.2s ease;
+    }
+    .integration-tile:hover {
+      border-color: rgba(124, 58, 237, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -5px rgba(124, 58, 237, 0.1);
+    }
+    .tile-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #F8FAFC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .tile-icon-box svg, .tile-icon-box img {
+      width: 22px;
+      height: 22px;
+    }
+    .tile-info {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      min-width: 0;
+    }
+    .tile-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tile-type {
+      font-size: 11px;
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .tile-status {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #059669;
+    }
+
     /* Comparison Section */
     .compare-section {
       background: #FFFFFF;
@@ -777,8 +1406,10 @@
     </a>
     <ul class="nav-links">
       <li><a href="#fleet">Agent Fleet</a></li>
+      <li><a href="#matcher">Needs & Builder</a></li>
+      <li><a href="#workflow">How It Works</a></li>
       <li><a href="#usecases">Use Cases</a></li>
-      <li><a href="#isolation">Tenant Airgap</a></li>
+      <li><a href="#integrations">Integrations & MCP</a></li>
       <li><a href="#compare">Why Works4you</a></li>
     </ul>
     <div class="nav-actions">
@@ -1048,6 +1679,235 @@
       </div>
     </section>
 
+    <!-- Needs Matcher & Custom Agent Builder Section -->
+    <section id="matcher" class="matcher-section">
+      <div class="section-header">
+        <div class="section-tag">AI Fleet Orchestration</div>
+        <h2 class="section-title">Match Your Operations — Or Build a Custom Agent</h2>
+        <p class="section-subtitle">Select your enterprise bottleneck to see how our autonomous fleet resolves it end-to-end, or design a custom agent tailored to your tech stack.</p>
+      </div>
+
+      <div class="interactive-card-shell">
+        <div class="toggle-nav">
+          <button class="toggle-nav-btn active" id="tab-btn-matcher" onclick="switchMatcherTab('matcher')">
+            <span>⚡</span> Workflow Needs Matcher
+          </button>
+          <button class="toggle-nav-btn" id="tab-btn-builder" onclick="switchMatcherTab('builder')">
+            <span>🛠️</span> Build Your Custom Agent
+          </button>
+        </div>
+
+        <!-- Tab 1: Needs Matcher -->
+        <div id="tab-content-matcher" class="matcher-grid">
+          <div>
+            <h3 class="matcher-control-title">Select Your Operational Need</h3>
+            <p style="font-size:13.5px; color:#64748B; margin-bottom:14px;">Choose a common enterprise challenge or describe your specific workflow below:</p>
+            
+            <div class="preset-chips">
+              <div class="preset-chip active" id="chip-inbound" onclick="applyPreset('inbound')">Inbound Leads & CRM Sync</div>
+              <div class="preset-chip" id="chip-legal" onclick="applyPreset('legal')">Contract Audit & NDA Review</div>
+              <div class="preset-chip" id="chip-cyber" onclick="applyPreset('cyber')">SOC 2 & PenTesting Pipeline</div>
+              <div class="preset-chip" id="chip-finance" onclick="applyPreset('finance')">Multi-Currency FX & Ledger</div>
+              <div class="preset-chip" id="chip-talent" onclick="applyPreset('talent')">Executive Sourcing & Headhunting</div>
+            </div>
+
+            <textarea id="matcher-input" class="custom-textarea" placeholder="Or describe your custom workflow requirement in plain English...">We receive hundreds of inbound inquiries across WhatsApp and web chat. We need an autonomous agent to qualify them immediately, enrich CRM records, and stage calendar bookings for account executives.</textarea>
+            
+            <button class="match-action-btn" onclick="executeFleetMatch()">
+              <span>✦</span> Analyze Fleet Compatibility & Map Agents
+            </button>
+          </div>
+
+          <div class="matcher-result-card" id="matcher-result">
+            <div class="result-header">
+              <div style="font-size:14px; font-weight:800; color:var(--text-main);" id="match-summary-title">Mapped Fleet Architecture</div>
+              <span class="result-badge" id="match-status-badge">100% Compatible</span>
+            </div>
+
+            <div style="font-size:12px; font-weight:700; color:#64748B; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px;">Assigned Autonomous Agents</div>
+            <div class="recommended-agents-row" id="match-agents-row">
+              <div class="rec-agent-badge">
+                <img src="assets/transparent/katie_transparent.png" alt="Katie">
+                <div>
+                  <div class="rec-agent-name">Katie</div>
+                  <div class="rec-agent-role">Inbound Experience</div>
+                </div>
+              </div>
+              <div class="rec-agent-badge">
+                <img src="assets/transparent/jake_transparent.png" alt="Jake">
+                <div>
+                  <div class="rec-agent-name">Jake</div>
+                  <div class="rec-agent-role">Fleet Orchestrator</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="font-size:12px; font-weight:700; color:#64748B; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px;">End-to-End Orchestration Plan</div>
+            <div class="orchestration-plan" id="match-plan-box">
+              <div class="orchestration-step">
+                <div class="step-num-dot">1</div>
+                <div><strong>Omnichannel Ingestion:</strong> Katie intercepts inbound prospects instantly across WhatsApp & web chat.</div>
+              </div>
+              <div class="orchestration-step">
+                <div class="step-num-dot">2</div>
+                <div><strong>Qualification & Data Enrichment:</strong> Prospect budget, timeline, and use cases validated against enterprise criteria.</div>
+              </div>
+              <div class="orchestration-step">
+                <div class="step-num-dot">3</div>
+                <div><strong>CRM & Calendar Dispatch:</strong> Jake writes structured records into the CRM system and alerts executive leadership.</div>
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+              <span style="font-size:12px; color:#64748B;">⚡ Execution speed: <strong>&lt; 30 seconds</strong></span>
+              <button class="btn-primary" style="padding:8px 16px; font-size:13px;" onclick="alert('Launching workflow demo with Katie & Jake...')">Deploy Mapped Fleet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Custom Agent Builder -->
+        <div id="tab-content-builder" class="matcher-grid" style="display:none;">
+          <div>
+            <h3 class="matcher-control-title">Configure Custom Agent Specs</h3>
+            <p style="font-size:13.5px; color:#64748B; margin-bottom:14px;">Need an agent outside the core 9? Define custom tools, model engine, and isolation parameters:</p>
+
+            <div class="builder-form-grid">
+              <div class="form-group">
+                <label>Agent Codename</label>
+                <input type="text" id="builder-name" class="form-input" value="Nova" oninput="updateBuilderPreview()">
+              </div>
+              <div class="form-group">
+                <label>Executive Role</label>
+                <input type="text" id="builder-role" class="form-input" value="Supply Chain Risk Auditor" oninput="updateBuilderPreview()">
+              </div>
+            </div>
+
+            <div class="builder-form-grid">
+              <div class="form-group">
+                <label>Intelligence Engine</label>
+                <select id="builder-model" class="form-select" onchange="updateBuilderPreview()">
+                  <option value="Gemini 2.5 Flash">Gemini 2.5 Flash (Ultra-Low Latency)</option>
+                  <option value="Claude 3.5 Sonnet">Claude 3.5 Sonnet (Deep Reasoning)</option>
+                  <option value="Gemini 3.0 Pro">Gemini 3.0 Pro (Multimodal Core)</option>
+                  <option value="Airgapped Local Weights">Airgapped Local Weights (Zero Cloud)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Data Isolation Level</label>
+                <select id="builder-airgap" class="form-select" onchange="updateBuilderPreview()">
+                  <option value="Sovereign Hermetic Airgap (Dedicated Pod)">Sovereign Hermetic Airgap (Dedicated Pod)</option>
+                  <option value="Multi-Tenant High Security">Multi-Tenant High Security</option>
+                  <option value="Ephemeral Session Only">Ephemeral Session Only</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:8px;">
+              <label>Integrated Tools & MCP Connectors</label>
+            </div>
+            <div class="tools-checkbox-grid">
+              <label class="tool-checkbox-item"><input type="checkbox" checked onchange="updateBuilderPreview()" value="Google Drive"> Google Drive</label>
+              <label class="tool-checkbox-item"><input type="checkbox" checked onchange="updateBuilderPreview()" value="WhatsApp API"> WhatsApp API</label>
+              <label class="tool-checkbox-item"><input type="checkbox" checked onchange="updateBuilderPreview()" value="CRM Systems"> CRM Systems</label>
+              <label class="tool-checkbox-item"><input type="checkbox" onchange="updateBuilderPreview()" value="GitHub Actions"> GitHub Actions</label>
+              <label class="tool-checkbox-item"><input type="checkbox" onchange="updateBuilderPreview()" value="Stripe API"> Stripe Payments</label>
+              <label class="tool-checkbox-item"><input type="checkbox" checked onchange="updateBuilderPreview()" value="Custom MCP"> Custom MCP</label>
+            </div>
+
+            <div class="form-group">
+              <label>Primary Directive / Objective</label>
+              <textarea id="builder-desc" class="custom-textarea" style="height:70px;" oninput="updateBuilderPreview()">Monitors global freight tracking manifests, correlates weather delay signals, and updates ERP purchase orders automatically.</textarea>
+            </div>
+
+            <button class="match-action-btn" onclick="generateCustomAgentBlueprint()">
+              <span>✦</span> Generate Agent Blueprint & Deploy Spec
+            </button>
+          </div>
+
+          <div class="custom-agent-card-preview">
+            <div class="preview-avatar-wrap" id="preview-avatar">🤖</div>
+            <div class="preview-name" id="preview-name-display">Nova</div>
+            <div class="preview-role" id="preview-role-display">Supply Chain Risk Auditor</div>
+            <p class="preview-desc" id="preview-desc-display">Monitors global freight tracking manifests, correlates weather delay signals, and updates ERP purchase orders automatically.</p>
+            
+            <div style="font-size:11px; font-weight:700; color:#64748B; text-transform:uppercase; margin-bottom:8px;">Equipped MCP Tools & Runtimes</div>
+            <div class="preview-tools" id="preview-tools-display">
+              <span class="tool-tag">Google Drive</span>
+              <span class="tool-tag">WhatsApp API</span>
+              <span class="tool-tag">CRM Systems</span>
+              <span class="tool-tag">Custom MCP</span>
+            </div>
+
+            <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:12px; width:100%; box-sizing:border-box; text-align:left; margin-top:auto;">
+              <div style="font-size:11px; color:#64748B;">Architecture & Isolation:</div>
+              <div style="font-size:12.5px; font-weight:800; color:#0F172A;" id="preview-airgap-display">Sovereign Hermetic Airgap (Dedicated Pod)</div>
+              <div style="font-size:11px; color:var(--primary); margin-top:3px;" id="preview-model-display">Engine: Gemini 2.5 Flash</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Workflow Walkthrough & Interactive Simulation Section -->
+    <section id="workflow" class="workflow-section">
+      <div class="section-header">
+        <div class="section-tag">Under the Hood</div>
+        <h2 class="section-title">How It Works: An Autonomous Day in Action</h2>
+        <p class="section-subtitle">Click through the live execution lifecycle to observe how our multi-agent fleet coordinates, enforces strict airgaps, and surfaces critical approval gates.</p>
+      </div>
+
+      <div class="workflow-container">
+        <!-- Interactive Step Selector -->
+        <div class="timeline-steps">
+          <div class="timeline-step-card active" id="step-card-1" onclick="activateWorkflowStep(1)">
+            <span class="step-time-badge">09:00 AM • Event Ingestion</span>
+            <div class="step-card-title"><span>📥</span> 1. Inbound Signal Ingestion</div>
+            <p class="step-card-desc">An inbound WhatsApp lead arrives with a multi-page enterprise vendor contract attached for review.</p>
+          </div>
+
+          <div class="timeline-step-card" id="step-card-2" onclick="activateWorkflowStep(2)">
+            <span class="step-time-badge">09:01 AM • Orchestrator Routing</span>
+            <div class="step-card-title"><span>⚡</span> 2. Intent Triage & Spoke Dispatch</div>
+            <p class="step-card-desc">Jake evaluates intent, triggers Katie for customer qualification, and passes the contract to Claire's legal pod.</p>
+          </div>
+
+          <div class="timeline-step-card" id="step-card-3" onclick="activateWorkflowStep(3)">
+            <span class="step-time-badge">09:02 AM • Deep Autonomous Audit</span>
+            <div class="step-card-title"><span>⚖️</span> 3. Airgapped Execution & PenTest Check</div>
+            <p class="step-card-desc">Claire redlines indemnification clauses in an isolated runtime while Vance verifies the vendor's domain security posture.</p>
+          </div>
+
+          <div class="timeline-step-card" id="step-card-4" onclick="activateWorkflowStep(4)">
+            <span class="step-time-badge">09:04 AM • Mandatory Approval Gate</span>
+            <div class="step-card-title"><span>🛡️</span> 4. Cryptographic Human Sign-Off</div>
+            <p class="step-card-desc">Zero unauthorized dispatches: The system generates an executive summary awaiting digital approval before sending redlines.</p>
+          </div>
+
+          <div class="timeline-step-card" id="step-card-5" onclick="activateWorkflowStep(5)">
+            <span class="step-time-badge">09:05 AM • Multi-System Sync</span>
+            <div class="step-card-title"><span>📊</span> 5. Ledger & CRM Auto-Reconciliation</div>
+            <p class="step-card-desc">Warren records the retainer invoice in the treasury ledger, CRM status is marked "Contract Approved", and the audit log is archived.</p>
+          </div>
+        </div>
+
+        <!-- Live Agent Terminal / Console -->
+        <div class="terminal-mockup">
+          <div class="terminal-topbar">
+            <div class="terminal-dots">
+              <div class="terminal-dot dot-red"></div>
+              <div class="terminal-dot dot-yellow"></div>
+              <div class="terminal-dot dot-green"></div>
+            </div>
+            <div class="terminal-title" id="terminal-step-indicator">EXECUTION_LOG: STEP 1 (09:00:14 UTC)</div>
+            <div style="font-size:11px; color:#10B981; font-weight:700;">● STREAMING LIVE</div>
+          </div>
+          <div class="terminal-body" id="terminal-content">
+            <!-- Dynamic terminal lines rendered via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Enterprise Use Cases Section -->
     <section id="usecases" class="usecase-section">
       <div class="section-header">
@@ -1190,6 +2050,260 @@
       </div>
     </section>
 
+    <!-- Enterprise Integrations & MCP Ecosystem Section -->
+    <section id="integrations" class="integrations-section">
+      <div class="section-header">
+        <div class="section-tag">Connected Ecosystem</div>
+        <h2 class="section-title">Enterprise Connectors, APIs & MCP Protocols</h2>
+        <p class="section-subtitle">Seamlessly wired into your existing toolchains. Pre-built connectors and Model Context Protocol (MCP) servers run with zero-log airgap guarantees.</p>
+      </div>
+
+      <div class="integration-metrics-row">
+        <div class="int-metric-card">
+          <div class="int-metric-val">40+</div>
+          <div class="int-metric-lbl">Production Connectors</div>
+        </div>
+        <div class="int-metric-card">
+          <div class="int-metric-val">24</div>
+          <div class="int-metric-lbl">MCP Servers Active</div>
+        </div>
+        <div class="int-metric-card">
+          <div class="int-metric-val">&lt; 50ms</div>
+          <div class="int-metric-lbl">Tool Execution Latency</div>
+        </div>
+        <div class="int-metric-card">
+          <div class="int-metric-val">100%</div>
+          <div class="int-metric-lbl">Zero-Data-Retention Airgap</div>
+        </div>
+      </div>
+
+      <div class="categories-stack">
+        <!-- 1. Messaging & Channels -->
+        <div class="category-block">
+          <div class="category-header">
+            <div class="cat-title-group">
+              <span class="cat-icon">💬</span>
+              <h3 class="cat-title">Messaging & Omnichannel Ingestion</h3>
+            </div>
+            <span class="cat-pill">Conversational Channels</span>
+          </div>
+          <div class="integrations-cards-grid">
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#25D366;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2M12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.82L4.43 19.64L5.26 16.59L5.07 16.29C4.24 14.97 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.32 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15Z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">WhatsApp Business</span>
+                <span class="tile-type">Native Baileys / Cloud API</span>
+                <span class="tile-status">● Live Active</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#229ED9;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Telegram Bot API</span>
+                <span class="tile-type">Bi-directional MTProto</span>
+                <span class="tile-status">● Live Active</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#00AC47;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Google Chat</span>
+                <span class="tile-type">Workspace Add-on</span>
+                <span class="tile-status">● Live Active</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#4A154B;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 15a2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2h2v2zm1 0a2 2 0 0 1 2-2 2 2 0 0 1 2 2v5a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-5zm2-7a2 2 0 0 1-2-2 2 2 0 0 1 2-2 2 2 0 0 1 2 2v2H9zm0 1a2 2 0 0 1 2 2 2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 2 2 0 0 1 2-2h5zm7 2a2 2 0 0 1 2-2 2 2 0 0 1 2 2 2 2 0 0 1-2 2h-2v-2zm-1 0a2 2 0 0 1-2 2 2 2 0 0 1-2-2V6a2 2 0 0 1 2-2 2 2 0 0 1 2 2v5zm-2 7a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2v-2h2zm0-1a2 2 0 0 1-2-2 2 2 0 0 1 2-2h5a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-5z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Slack Enterprise</span>
+                <span class="tile-type">Socket Mode / Bolt</span>
+                <span class="tile-status">● Verified MCP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Developer, Cloud & DevOps -->
+        <div class="category-block">
+          <div class="category-header">
+            <div class="cat-title-group">
+              <span class="cat-icon">⚙️</span>
+              <h3 class="cat-title">Developer, DevOps & Cloud Infrastructure</h3>
+            </div>
+            <span class="cat-pill">Continuous Autonomous CI/CD</span>
+          </div>
+          <div class="integrations-cards-grid">
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#0F172A;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">GitHub & Actions</span>
+                <span class="tile-type">CI/CD & Self-Healing MCP</span>
+                <span class="tile-status">● Live Active</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#4285F4;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Google Cloud Run</span>
+                <span class="tile-type">Serverless Pod Containers</span>
+                <span class="tile-status">● Live Active</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#2496ED;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.186.186.186m5.893 2.715h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H5.136a.186.186 0 00-.186.185v1.888c0 .102.084.185.186.185m-2.928 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H2.208a.186.186 0 00-.186.185v1.888c0 .102.084.185.186.185"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Docker Engine</span>
+                <span class="tile-type">Isolated Pod Environments</span>
+                <span class="tile-status">● Airgapped</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#7C3AED;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Model Context Protocol</span>
+                <span class="tile-type">Anthropic / AGY Standard</span>
+                <span class="tile-status">● 24 Tools Live</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Workspaces & Productivity -->
+        <div class="category-block">
+          <div class="category-header">
+            <div class="cat-title-group">
+              <span class="cat-icon">📑</span>
+              <h3 class="cat-title">Workspaces, Documents & Cloud Storage</h3>
+            </div>
+            <span class="cat-pill">Google Workspace & Office</span>
+          </div>
+          <div class="integrations-cards-grid">
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#EA4335;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Gmail Workspace</span>
+                <span class="tile-type">Triage & Draft Creation</span>
+                <span class="tile-status">● Live Active</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#0F9D58;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Google Sheets & Drive</span>
+                <span class="tile-type">Real-Time Ledger Sync</span>
+                <span class="tile-status">● Live Active</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#4285F4;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Google Docs & PDF</span>
+                <span class="tile-type">Legal Contract Redlining</span>
+                <span class="tile-status">● Live Active</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#000000;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.105 2.574c-.466.047-.56.28-.373.466l1.727 1.168zm.84 3.034v13.583c0 .84.56 1.12 1.354 1.12h11.856c.793 0 1.26-.28 1.26-1.12V7.242c0-.84-.467-1.12-1.26-1.12H6.653c-.794 0-1.354.28-1.354 1.12z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Notion Enterprise</span>
+                <span class="tile-type">Knowledge Base Sync</span>
+                <span class="tile-status">● Verified MCP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. CRM, Payments & Intelligence -->
+        <div class="category-block">
+          <div class="category-header">
+            <div class="cat-title-group">
+              <span class="cat-icon">💳</span>
+              <h3 class="cat-title">CRM Systems, Billing & Frontier AI Models</h3>
+            </div>
+            <span class="cat-pill">Commercial & Intelligence Layer</span>
+          </div>
+          <div class="integrations-cards-grid">
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#7C3AED;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Enterprise CRM Platforms</span>
+                <span class="tile-type">Twenty CRM / HubSpot / SF</span>
+                <span class="tile-status">● Live Active</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#635BFF;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.97 15.697 0 12.165 0 9.667 0 7.589.74 6.204 2.178 4.757 3.677 4 5.766 4 8.243c0 5.253 3.593 6.945 7.15 8.243 2.532.923 3.39 1.63 3.39 2.651 0 .97-.84 1.488-2.312 1.488-2.39 0-5.187-1.127-7.25-2.22l-.934 5.568c1.85.923 4.887 1.527 7.785 1.527 2.628 0 4.79-.714 6.204-2.128 1.47-1.47 2.24-3.614 2.24-6.195 0-5.46-3.69-7.14-8.297-8.027z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Stripe Payments</span>
+                <span class="tile-type">Multi-Currency Checkout</span>
+                <span class="tile-status">● Live Active</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#4285F4;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Google Gemini 2.5 & 3.0</span>
+                <span class="tile-type">Flash / Pro Multi-Modal</span>
+                <span class="tile-status">● Native Core</span>
+              </div>
+            </div>
+
+            <div class="integration-tile">
+              <div class="tile-icon-box" style="color:#D97706;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 21l3.52-.92C9.37 20.66 10.65 21 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-1.15 0-2.24-.31-3.18-.85l-.23-.13-2.36.62.63-2.3-.15-.24C6.18 14.17 5.86 13.11 5.86 12c0-3.39 2.76-6.14 6.14-6.14 3.39 0 6.14 2.75 6.14 6.14 0 3.39-2.75 6.14-6.14 6.14z"/></svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-name">Anthropic Claude 3.5</span>
+                <span class="tile-type">Sonnet / Haiku Reasoning</span>
+                <span class="tile-status">● Live Fallback</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Why Works4you vs Generic AI -->
     <section id="compare" class="compare-section">
       <h2 class="compare-title">Why Works4you Outperforms Single-Purpose SaaS</h2>
@@ -1231,6 +2345,317 @@
   <footer>
     <p>&copy; 2026 Works4you AI. The Autonomous Multi-Agent Operating System for Enterprise Scale.</p>
   </footer>
+
+  <script>
+    // --- Data Presets for Matcher ---
+    const PRESETS = {
+      inbound: {
+        title: "Omnichannel Lead Qualification & CRM Sync",
+        input: "We receive hundreds of inbound inquiries across WhatsApp and web chat. We need an autonomous agent to qualify them immediately, enrich CRM records, and stage calendar bookings for account executives.",
+        agents: [
+          { name: "Katie", role: "Inbound Experience Lead", img: "assets/transparent/katie_transparent.png" },
+          { name: "Jake", role: "Fleet Orchestrator", img: "assets/transparent/jake_transparent.png" }
+        ],
+        steps: [
+          "Omnichannel Ingestion: Katie intercepts inbound prospects instantly across WhatsApp & web chat.",
+          "Qualification & Data Enrichment: Prospect budget, timeline, and use cases validated against enterprise criteria.",
+          "CRM & Calendar Dispatch: Jake writes structured records into the CRM system and alerts executive leadership."
+        ],
+        speed: "< 25 seconds"
+      },
+      legal: {
+        title: "Contract Review & Indemnity Clause Audit",
+        input: "Our corporate counsel spends 15+ hours weekly reviewing vendor NDAs, master services agreements, and liability terms. We need automated clause auditing with a strict human approval sign-off gate.",
+        agents: [
+          { name: "Claire", role: "Legal & Regulatory Counsel", img: "assets/transparent/claire_transparent.png" },
+          { name: "Chloe", role: "Chief of Staff & Ops", img: "assets/transparent/chloe_transparent.png" }
+        ],
+        steps: [
+          "Document Ingestion: Contract drafts uploaded to Google Drive or received via email trigger Claire's legal engine.",
+          "Automated Redlining: Asymmetric liability, IP clauses, and GDPR/privacy terms flagged against corporate playbooks.",
+          "Cryptographic Approval Gate: Executive summary staged for digital human sign-off before dispatch."
+        ],
+        speed: "< 45 seconds"
+      },
+      cyber: {
+        title: "External Threat Recon & Continuous SOC 2 Readiness",
+        input: "We need continuous external penetration testing, funding signal surveillance across target enterprise accounts, and automated SOC 2 audit readiness checklists.",
+        agents: [
+          { name: "Vance", role: "Cyber & Compliance Officer", img: "assets/transparent/vance_transparent.png" }
+        ],
+        steps: [
+          "Domain & Cloud Posture Scan: Vance executes passive external asset discovery and maps public attack surfaces.",
+          "Funding & Growth Signal Correlation: Detects expansion signals and correlates required security controls.",
+          "Audit Plan Generation: Produces structured remediation roadmaps mapped to SOC 2 Type II controls."
+        ],
+        speed: "Continuous Live Scan"
+      },
+      finance: {
+        title: "Multi-Currency Billing, FX & Autonomous Ledger",
+        input: "Our team pays for dozens of SaaS and cloud tools across USD, EUR, and local currency. We need automated invoice extraction from inboxes, real-time FX conversion, and instant ledger sync.",
+        agents: [
+          { name: "Warren", role: "Financial Controller & Treasury", img: "assets/transparent/warren_transparent.png" }
+        ],
+        steps: [
+          "Mailbox Billing Scan: Warren extracts PDF receipts and tax invoices from billing email streams.",
+          "Real-Time FX Conversion: Normalizes transactions across currencies using live mid-market exchange rates.",
+          "Zero-Touch Ledger Sync: Reconciles bank statements against Google Sheets ledger with zero human data entry."
+        ],
+        speed: "< 10 seconds / invoice"
+      },
+      talent: {
+        title: "Executive Search & Tailored Candidate Outreach",
+        input: "We need to identify, score, and reach out to high-caliber VP and C-level candidates across technical and operations disciplines with bespoke 1-page briefings.",
+        agents: [
+          { name: "Hunter", role: "Executive Talent Engine", img: "assets/transparent/hunter_transparent.png" },
+          { name: "Jake", role: "Chief Fleet Orchestrator", img: "assets/transparent/jake_transparent.png" }
+        ],
+        steps: [
+          "Candidate Graph Discovery: Hunter scans executive directories and talent networks matching scoring matrices.",
+          "Bespoke Briefing Synthesis: Generates personalized 1-page executive pitch decks tailored to candidate backgrounds.",
+          "Multi-Channel Outreach: Orchestrates respectful multi-touch engagement sequences with automated tracking."
+        ],
+        speed: "< 60 seconds / pipeline"
+      }
+    };
+
+    function switchMatcherTab(tab) {
+      const matcherBtn = document.getElementById("tab-btn-matcher");
+      const builderBtn = document.getElementById("tab-btn-builder");
+      const matcherContent = document.getElementById("tab-content-matcher");
+      const builderContent = document.getElementById("tab-content-builder");
+
+      if (tab === "matcher") {
+        matcherBtn.classList.add("active");
+        builderBtn.classList.remove("active");
+        matcherContent.style.display = "grid";
+        builderContent.style.display = "none";
+      } else {
+        builderBtn.classList.add("active");
+        matcherBtn.classList.remove("active");
+        matcherContent.style.display = "none";
+        builderContent.style.display = "grid";
+        updateBuilderPreview();
+      }
+    }
+
+    function applyPreset(key) {
+      document.querySelectorAll(".preset-chip").forEach(el => el.classList.remove("active"));
+      const chip = document.getElementById("chip-" + key);
+      if (chip) chip.classList.add("active");
+
+      const preset = PRESETS[key];
+      if (preset) {
+        document.getElementById("matcher-input").value = preset.input;
+        renderMatcherResult(preset);
+      }
+    }
+
+    function executeFleetMatch() {
+      const val = document.getElementById("matcher-input").value.toLowerCase();
+      
+      let matchedKey = "inbound";
+      if (val.includes("contract") || val.includes("nda") || val.includes("legal") || val.includes("law") || val.includes("agreement")) {
+        matchedKey = "legal";
+      } else if (val.includes("cyber") || val.includes("soc") || val.includes("pentest") || val.includes("security") || val.includes("threat")) {
+        matchedKey = "cyber";
+      } else if (val.includes("finance") || val.includes("invoice") || val.includes("fx") || val.includes("currency") || val.includes("receipt") || val.includes("ledger")) {
+        matchedKey = "finance";
+      } else if (val.includes("talent") || val.includes("hire") || val.includes("recruiting") || val.includes("candidate") || val.includes("sourcing")) {
+        matchedKey = "talent";
+      }
+
+      applyPreset(matchedKey);
+    }
+
+    function renderMatcherResult(data) {
+      document.getElementById("match-summary-title").textContent = data.title;
+      
+      // Render agents
+      const agentRow = document.getElementById("match-agents-row");
+      agentRow.innerHTML = data.agents.map(a => `
+        <div class="rec-agent-badge">
+          <img src="${a.img}" alt="${a.name}">
+          <div>
+            <div class="rec-agent-name">${a.name}</div>
+            <div class="rec-agent-role">${a.role}</div>
+          </div>
+        </div>
+      `).join("");
+
+      // Render plan
+      const planBox = document.getElementById("match-plan-box");
+      planBox.innerHTML = data.steps.map((s, idx) => `
+        <div class="orchestration-step">
+          <div class="step-num-dot">${idx + 1}</div>
+          <div>${s}</div>
+        </div>
+      `).join("");
+    }
+
+    // --- Custom Builder Preview Logic ---
+    function updateBuilderPreview() {
+      const name = document.getElementById("builder-name").value || "Custom Agent";
+      const role = document.getElementById("builder-role").value || "Operations Specialist";
+      const model = document.getElementById("builder-model").value;
+      const airgap = document.getElementById("builder-airgap").value;
+      const desc = document.getElementById("builder-desc").value || "Autonomous agent executing custom directives.";
+
+      document.getElementById("preview-name-display").textContent = name;
+      document.getElementById("preview-role-display").textContent = role;
+      document.getElementById("preview-desc-display").textContent = desc;
+      document.getElementById("preview-airgap-display").textContent = airgap;
+      document.getElementById("preview-model-display").textContent = "Engine: " + model;
+
+      // Collect checked tools
+      const checkboxes = document.querySelectorAll(".tools-checkbox-grid input[type='checkbox']");
+      const selectedTools = [];
+      checkboxes.forEach(cb => {
+        if (cb.checked) selectedTools.push(cb.value);
+      });
+
+      const toolsDisplay = document.getElementById("preview-tools-display");
+      if (selectedTools.length === 0) {
+        toolsDisplay.innerHTML = '<span class="tool-tag" style="color:#94A3B8;">No external tools equipped</span>';
+      } else {
+        toolsDisplay.innerHTML = selectedTools.map(t => `<span class="tool-tag">${t}</span>`).join("");
+      }
+
+      // Dynamic Avatar Emoji
+      const emojis = ["🤖", "🚀", "⚡", "🛡️", "🔮", "💼", "🧠", "🎯"];
+      const charCode = name.charCodeAt(0) || 0;
+      document.getElementById("preview-avatar").textContent = emojis[charCode % emojis.length];
+    }
+
+    function generateCustomAgentBlueprint() {
+      const name = document.getElementById("builder-name").value;
+      const role = document.getElementById("builder-role").value;
+      const model = document.getElementById("builder-model").value;
+      const airgap = document.getElementById("builder-airgap").value;
+      
+      const checkboxes = document.querySelectorAll(".tools-checkbox-grid input[type='checkbox']");
+      const tools = [];
+      checkboxes.forEach(cb => { if (cb.checked) tools.push(cb.value); });
+
+      const blueprint = {
+        agent_id: name.toLowerCase().replace(/[^a-z0-9]/g, "_") + "_v1",
+        codename: name,
+        role: role,
+        intelligence_runtime: model,
+        data_airgap: airgap,
+        equipped_mcp_servers: tools,
+        status: "STAGED_READY_FOR_DEPLOY"
+      };
+
+      const jsonStr = JSON.stringify(blueprint, null, 2);
+      alert("✅ Custom Agent Blueprint Generated:\n\n" + jsonStr + "\n\nReady for single-click deployment to your isolated pod!");
+    }
+
+    // --- Workflow Live Terminal Simulation ---
+    const WORKFLOW_STEPS = {
+      1: {
+        indicator: "EXECUTION_LOG: STEP 1 (09:00:14 UTC)",
+        lines: [
+          { prompt: "09:00:12", agent: "SYS_INGEST", msg: "Inbound webhook triggered via WhatsApp Business API (+1-415-***-8820)." },
+          { prompt: "09:00:13", agent: "SYS_PARSER", msg: "Message payload: 'Hello, looking to sign an enterprise SLA for 500 seats. Master agreement attached for review.'" },
+          { prompt: "09:00:14", agent: "SYS_VAULT", msg: "Attachment 'Enterprise_SLA_Master.pdf' (1.4MB) encrypted and deposited in ephemeral vault <span class='term-badge-airgap'>AIRGAP LOCKED</span>." }
+        ]
+      },
+      2: {
+        indicator: "EXECUTION_LOG: STEP 2 (09:01:05 UTC)",
+        lines: [
+          { prompt: "09:01:02", agent: "JAKE [CTO]", msg: "Evaluating intent graph: Domain multi-tag classified as [HIGH_VALUE_COMMERCIAL + LEGAL_REVIEW + DOMAIN_SECURITY]." },
+          { prompt: "09:01:03", agent: "JAKE [CTO]", msg: "Routing conversational lead qualification to KATIE (Port 3186)." },
+          { prompt: "09:01:04", agent: "JAKE [CTO]", msg: "Dispatching PDF analysis payload to CLAIRE (Legal Pod) and domain audit to VANCE." },
+          { prompt: "09:01:05", agent: "KATIE", msg: "Generating conversational greeting: 'Hi there! Received your SLA draft. While our legal team audits terms, let\\'s align on rollout timing.'" }
+        ]
+      },
+      3: {
+        indicator: "EXECUTION_LOG: STEP 3 (09:02:40 UTC)",
+        lines: [
+          { prompt: "09:02:10", agent: "CLAIRE", msg: "Parsing 24 contractual clauses against standard B2B liability playbooks..." },
+          { prompt: "09:02:25", agent: "CLAIRE", msg: "⚠️ FLAG DETECTED in Section 14.2 (Uncapped Consequential Damages). Redline proposed: Standard 12-month trailing fee cap." },
+          { prompt: "09:02:30", agent: "VANCE", msg: "Passive cyber reconnaissance executed on client domain: SSL Grade A+, SOC 2 Type II active on file." },
+          { prompt: "09:02:40", agent: "CLAIRE", msg: "Redlined document generated: 'Enterprise_SLA_Master_Redlined.docx'. Staging approval gate..." }
+        ]
+      },
+      4: {
+        indicator: "EXECUTION_LOG: STEP 4 (09:04:15 UTC)",
+        lines: [
+          { prompt: "09:04:02", agent: "CHLOE", msg: "Executive approval gate triggered. Enforcing human-in-the-loop compliance standard." },
+          { prompt: "09:04:05", agent: "GATEWAY", msg: "Awaiting digital sign-off on redlined agreement terms..." }
+        ],
+        hasGate: true
+      },
+      5: {
+        indicator: "EXECUTION_LOG: STEP 5 (09:05:22 UTC)",
+        lines: [
+          { prompt: "09:05:01", agent: "JAKE [CTO]", msg: "Cryptographic approval signature confirmed. Authorizing multi-system dispatch." },
+          { prompt: "09:05:08", agent: "KATIE", msg: "Transmitting redlined agreement and executive briefing to enterprise counterparty on WhatsApp." },
+          { prompt: "09:05:14", agent: "WARREN", msg: "Updating treasury forecast: Added $60,000 ARR opportunity at 90% probability. Currency FX normalized (USD)." },
+          { prompt: "09:05:22", agent: "SYS_AUDIT", msg: "Full trace ID 8c92a-fa1 archived to immutable security ledger. Ephemeral memory wiped <span class='term-badge-airgap'>CLEAN</span>." }
+        ]
+      }
+    };
+
+    let gateApproved = false;
+
+    function activateWorkflowStep(stepNum) {
+      document.querySelectorAll(".timeline-step-card").forEach(el => el.classList.remove("active"));
+      const card = document.getElementById("step-card-" + stepNum);
+      if (card) card.classList.add("active");
+
+      const step = WORKFLOW_STEPS[stepNum];
+      if (!step) return;
+
+      document.getElementById("terminal-step-indicator").textContent = step.indicator;
+      
+      const body = document.getElementById("terminal-body");
+      let html = step.lines.map(l => `
+        <div class="term-line">
+          <span class="term-prompt">${l.prompt}</span>
+          <span class="term-agent">${l.agent}:</span>
+          <span class="term-msg">${l.msg}</span>
+        </div>
+      `).join("");
+
+      if (step.hasGate) {
+        if (!gateApproved) {
+          html += `
+            <div class="approval-gate-box" id="gate-interactive-box">
+              <div style="font-weight:700; color:#F59E0B; font-size:12px;">🔒 MANDATORY HUMAN APPROVAL GATE: Redlined Contract Dispatch</div>
+              <div style="font-size:11.5px; color:#E2E8F0; margin-top:4px;">Clause 14.2 capped liability to $100,000. Counterparty recipient: legal@enterprise.com</div>
+              <div class="approval-btn-row">
+                <button class="gate-btn-approve" onclick="approveGate()">✓ Approve & Sign Dispatch</button>
+                <button class="gate-btn-reject" onclick="alert('Revision requested. Claire re-evaluating terms...')">✕ Request Revision</button>
+              </div>
+            </div>
+          `;
+        } else {
+          html += `
+            <div style="margin:16px 0; padding:12px 16px; background:rgba(16, 185, 129, 0.15); border:1px solid #10B981; border-radius:10px; color:#34D399; font-weight:700;">
+              ✓ APPROVED BY EXECUTIVE SIGN-OFF (Digital Signature Validated)
+            </div>
+          `;
+        }
+      }
+
+      document.getElementById("terminal-content").innerHTML = html;
+    }
+
+    function approveGate() {
+      gateApproved = true;
+      activateWorkflowStep(4);
+      setTimeout(() => {
+        activateWorkflowStep(5);
+      }, 1200);
+    }
+
+    // Initialize on DOM load
+    document.addEventListener("DOMContentLoaded", () => {
+      activateWorkflowStep(1);
+    });
+  </script>
 
 </body>
 </html>
