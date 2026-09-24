@@ -575,6 +575,137 @@
       border-radius: 6px;
     }
 
+    /* Use Cases Section */
+    .usecase-section {
+      margin-bottom: 100px;
+    }
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 1080px) {
+      .usecase-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .usecase-grid { grid-template-columns: 1fr; }
+    }
+    .usecase-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+    }
+    .usecase-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px -12px rgba(124, 58, 237, 0.15);
+      border-color: rgba(124, 58, 237, 0.35);
+    }
+    .usecase-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .usecase-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .usecase-domain {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      background: rgba(124, 58, 237, 0.08);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(124, 58, 237, 0.15);
+    }
+    .usecase-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .usecase-block {
+      margin-bottom: 14px;
+    }
+    .usecase-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      display: block;
+      letter-spacing: 0.04em;
+    }
+    .usecase-desc {
+      font-size: 13.5px;
+      color: #334155;
+      line-height: 1.55;
+    }
+    .usecase-agents {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid rgba(124, 58, 237, 0.08);
+    }
+    .agent-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: #1E293B;
+    }
+    .agent-pill img {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .usecase-metric {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F172A;
+    }
+    .metric-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #06B6D4;
+      flex-shrink: 0;
+    }
+
     /* Comparison Section */
     .compare-section {
       background: #FFFFFF;
@@ -646,6 +777,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#fleet">Agent Fleet</a></li>
+      <li><a href="#usecases">Use Cases</a></li>
       <li><a href="#isolation">Tenant Airgap</a></li>
       <li><a href="#compare">Why Works4you</a></li>
     </ul>
@@ -913,6 +1045,148 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- Enterprise Use Cases Section -->
+    <section id="usecases" class="usecase-section">
+      <div class="section-header">
+        <div class="section-tag">Proven Deployments</div>
+        <h2 class="section-title">Autonomous Workflows in Action</h2>
+        <p class="section-subtitle">Real-world enterprise operations solved end-to-end by specialized agents with zero human intervention and strict data isolation.</p>
+      </div>
+
+      <div class="usecase-grid">
+        <!-- 1. Lead Qualification -->
+        <div class="usecase-card">
+          <div class="usecase-header">
+            <div class="usecase-icon">💬</div>
+            <span class="usecase-domain">Inbound Growth</span>
+          </div>
+          <h3 class="usecase-title">Real-Time Lead Qualification & CRM Sync</h3>
+          <div class="usecase-block">
+            <span class="usecase-label">Problem</span>
+            <p class="usecase-desc">High-intent inbound inquiries across WhatsApp, Instagram, and web chat went unanswered for hours, causing over 40% qualified deal drop-off.</p>
+          </div>
+          <div class="usecase-block">
+            <span class="usecase-label">Autonomous Execution</span>
+            <p class="usecase-desc">Inbound agent engages immediately in conversational dialogue, validates budget and requirements, writes enriched records to the CRM system, and stages meetings for account executives.</p>
+          </div>
+          <div class="usecase-metric">⚡ &lt;15s First Response &bull; 3.2x Lead-to-Meeting Conversion</div>
+          <div class="usecase-agents">
+            <span class="agent-pill"><img src="assets/transparent/katie_transparent.png" alt="Katie"> Katie</span>
+            <span class="agent-pill"><img src="assets/transparent/jake_transparent.png" alt="Jake"> Jake</span>
+          </div>
+        </div>
+
+        <!-- 2. Cyber & Compliance -->
+        <div class="usecase-card">
+          <div class="usecase-header">
+            <div class="usecase-icon">🛡️</div>
+            <span class="usecase-domain">Cyber & Compliance</span>
+          </div>
+          <h3 class="usecase-title">Continuous Penetration Testing & SOC 2 Pipeline</h3>
+          <div class="usecase-block">
+            <span class="usecase-label">Problem</span>
+            <p class="usecase-desc">Growing B2B startups required fast SOC 2 Type II readiness and quarterly pentests, but security consultancies demanded 6-figure retainers and weeks of onboarding.</p>
+          </div>
+          <div class="usecase-block">
+            <span class="usecase-label">Autonomous Execution</span>
+            <p class="usecase-desc">Dedicated cyber agent performs continuous external asset discovery, scans funding and compliance signals across target accounts, and drafts structured compliance audit plans automatically.</p>
+          </div>
+          <div class="usecase-metric">🛡️ 100% Audit Readiness &bull; 240+ Live Threat Signals Monitored</div>
+          <div class="usecase-agents">
+            <span class="agent-pill"><img src="assets/transparent/vance_transparent.png" alt="Vance"> Vance</span>
+          </div>
+        </div>
+
+        <!-- 3. Legal Contract Audit -->
+        <div class="usecase-card">
+          <div class="usecase-header">
+            <div class="usecase-icon">⚖️</div>
+            <span class="usecase-domain">Legal Counsel</span>
+          </div>
+          <h3 class="usecase-title">Automated Contract Review & Filing Sign-off Gate</h3>
+          <div class="usecase-block">
+            <span class="usecase-label">Problem</span>
+            <p class="usecase-desc">Boutique legal practice facing overwhelming volumes of NDAs, vendor retainers, and regulatory filings with acute risk of missing high-liability indemnification clauses.</p>
+          </div>
+          <div class="usecase-block">
+            <span class="usecase-label">Autonomous Execution</span>
+            <p class="usecase-desc">Legal counsel agent redlines agreements against standard playbooks, flags asymmetric clauses, and enforces a mandatory cryptographic human approval gate prior to formal submission.</p>
+          </div>
+          <div class="usecase-metric">⚖️ 85% Faster Turnaround &bull; 100% Pre-Filing Review Gate</div>
+          <div class="usecase-agents">
+            <span class="agent-pill"><img src="assets/transparent/claire_transparent.png" alt="Claire"> Claire</span>
+            <span class="agent-pill"><img src="assets/transparent/chloe_transparent.png" alt="Chloe"> Chloe</span>
+          </div>
+        </div>
+
+        <!-- 4. Executive Sourcing -->
+        <div class="usecase-card">
+          <div class="usecase-header">
+            <div class="usecase-icon">🎯</div>
+            <span class="usecase-domain">Executive Search</span>
+          </div>
+          <h3 class="usecase-title">Hyper-Tailored Talent Sourcing & Outreach</h3>
+          <div class="usecase-block">
+            <span class="usecase-label">Problem</span>
+            <p class="usecase-desc">Manual sourcing for senior executive and technical leadership roles yielded low response rates and exhausted weeks of partner time per vacancy.</p>
+          </div>
+          <div class="usecase-block">
+            <span class="usecase-label">Autonomous Execution</span>
+            <p class="usecase-desc">Talent engine scans professional networks, applies multi-criterion qualification scoring, crafts tailored 1-page briefings, and manages personalized multi-channel outreach campaigns.</p>
+          </div>
+          <div class="usecase-metric">🎯 4.8x Candidate Pipeline &bull; 68% Outreach Response Rate</div>
+          <div class="usecase-agents">
+            <span class="agent-pill"><img src="assets/transparent/hunter_transparent.png" alt="Hunter"> Hunter</span>
+            <span class="agent-pill"><img src="assets/transparent/jake_transparent.png" alt="Jake"> Jake</span>
+          </div>
+        </div>
+
+        <!-- 5. Treasury & Multi-Currency Expense -->
+        <div class="usecase-card">
+          <div class="usecase-header">
+            <div class="usecase-icon">📊</div>
+            <span class="usecase-domain">Finance & Treasury</span>
+          </div>
+          <h3 class="usecase-title">Autonomous Multi-Currency Expense & FX Ledger</h3>
+          <div class="usecase-block">
+            <span class="usecase-label">Problem</span>
+            <p class="usecase-desc">SaaS tool subscriptions, vendor invoices, and cross-border disbursements spread across multiple currencies resulted in delayed month-end closes and book discrepancies.</p>
+          </div>
+          <div class="usecase-block">
+            <span class="usecase-label">Autonomous Execution</span>
+            <p class="usecase-desc">Finance agent scans incoming billing streams, extracts tax receipts, applies real-time FX conversion rates, and updates ledger spreadsheets with zero human touch.</p>
+          </div>
+          <div class="usecase-metric">💰 Zero Manual Entry &bull; Real-Time FX Multi-Currency Audit</div>
+          <div class="usecase-agents">
+            <span class="agent-pill"><img src="assets/transparent/warren_transparent.png" alt="Warren"> Warren</span>
+          </div>
+        </div>
+
+        <!-- 6. Hermetic Multi-Tenant Airgap -->
+        <div class="usecase-card">
+          <div class="usecase-header">
+            <div class="usecase-icon">🔒</div>
+            <span class="usecase-domain">Data Governance</span>
+          </div>
+          <h3 class="usecase-title">Hermetic Multi-Tenant Airgap & Sovereign Isolation</h3>
+          <div class="usecase-block">
+            <span class="usecase-label">Problem</span>
+            <p class="usecase-desc">Advisory and service organizations serving sensitive accounts cannot tolerate shared context vectors, collective fine-tuning, or accidental cross-client data exposure.</p>
+          </div>
+          <div class="usecase-block">
+            <span class="usecase-label">Autonomous Execution</span>
+            <p class="usecase-desc">Fleet architecture partitions client data into isolated virtual memory environments, preventing cross-tenant leakage while allowing central orchestrators to dispatch workloads securely.</p>
+          </div>
+          <div class="usecase-metric">🔒 Zero Cross-Tenant Leakage &bull; Sovereign Vault Isolation</div>
+          <div class="usecase-agents">
+            <span class="agent-pill"><img src="assets/transparent/miles_transparent.png" alt="Miles"> Miles</span>
+            <span class="agent-pill"><img src="assets/transparent/vance_transparent.png" alt="Vance"> Vance</span>
+            <span class="agent-pill"><img src="assets/transparent/claire_transparent.png" alt="Claire"> Claire</span>
+          </div>
+        </div>
       </div>
     </section>
 
