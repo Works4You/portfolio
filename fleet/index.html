@@ -122,6 +122,17 @@
     .nav-brand:hover .brand-img-logo {
       transform: scale(1.12) rotate(-2deg);
     }
+    .brand-img-lockup {
+      height: 44px;
+      width: auto;
+      max-width: 260px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 14px rgba(255, 138, 0, 0.28));
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .nav-brand:hover .brand-img-lockup {
+      transform: scale(1.04);
+    }
     .brand-num-accent {
       background: linear-gradient(135deg, #FF8A00 0%, #FF1E6A 100%);
       -webkit-background-clip: text;
@@ -1470,9 +1481,7 @@
   <!-- Navbar -->
   <nav>
     <a href="#" class="nav-brand">
-      <img src="assets/logo_brand_primary_tight.png" alt="Works4you AI" class="brand-img-logo">
-      <span>Works<span class="brand-num-accent">4</span>you</span>
-      <span class="brand-ai-chip"><span class="chip-dot"></span>AI</span>
+      <img src="assets/brand_lockup_v3_stencil_gradient_light.png" alt="Works4you AI" class="brand-img-lockup">
     </a>
     <ul class="nav-links">
       <li><a href="#fleet">Agent Fleet</a></li>
