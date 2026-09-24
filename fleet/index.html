@@ -108,6 +108,16 @@
       gap: 8px;
       letter-spacing: -0.02em;
     }
+    .brand-img-logo {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(255, 138, 0, 0.35));
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .nav-brand:hover .brand-img-logo {
+      transform: scale(1.15) translateX(2px);
+    }
     .brand-emblem {
       width: 28px;
       height: 28px;
@@ -1424,25 +1434,7 @@
   <!-- Navbar -->
   <nav>
     <a href="#" class="nav-brand">
-      <svg class="brand-emblem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="brandGradNav" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#7C3AED" />
-            <stop offset="0.5" stop-color="#9333EA" />
-            <stop offset="1" stop-color="#06B6D4" />
-          </linearGradient>
-        </defs>
-        <path d="M12 2L20.66 7V17L12 22L3.34 17V7L12 2Z" stroke="url(#brandGradNav)" stroke-width="2.2" stroke-linejoin="round"/>
-        <path d="M12 12L20.66 7M12 12V22M12 12L3.34 7" stroke="url(#brandGradNav)" stroke-width="1.8" stroke-linecap="round"/>
-        <circle cx="12" cy="12" r="3" fill="#7C3AED"/>
-        <circle cx="12" cy="12" r="1.5" fill="#06B6D4"/>
-        <circle cx="12" cy="2" r="1.2" fill="#7C3AED"/>
-        <circle cx="20.66" cy="7" r="1.2" fill="#9333EA"/>
-        <circle cx="20.66" cy="17" r="1.2" fill="#06B6D4"/>
-        <circle cx="12" cy="22" r="1.2" fill="#06B6D4"/>
-        <circle cx="3.34" cy="17" r="1.2" fill="#9333EA"/>
-        <circle cx="3.34" cy="7" r="1.2" fill="#7C3AED"/>
-      </svg>
+      <img src="assets/logo_concept_1_chevrons.png" alt="Works4you AI" class="brand-img-logo">
       Works4you AI
     </a>
     <ul class="nav-links">
@@ -1454,6 +1446,7 @@
       <li><a href="#compare">Why Works4you</a></li>
     </ul>
     <div class="nav-actions">
+      <a href="logo-showcase.html" class="btn-secondary" style="border-color:#F59E0B; color:#D97706; text-decoration:none;">🎨 3D Logo Studio</a>
       <button class="btn-secondary" onclick="window.location.href='#fleet'">Explore Roster</button>
       <button class="btn-primary" onclick="alert('Connecting to Katie on WhatsApp...')">Book Fleet Demo</button>
     </div>

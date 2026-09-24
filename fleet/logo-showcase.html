@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Works4you AI — 3D Brand Logo Explorations</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7C3AED;
+      --bg: #F8F9FC;
+      --card-bg: #FFFFFF;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+    }
+    body.dark-mode {
+      --bg: #0B0F19;
+      --card-bg: #111827;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border: #1F2937;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      transition: background 0.3s ease, color 0.3s ease;
+      padding: 40px 24px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .header-left h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .header-left p {
+      color: var(--text-muted);
+      font-size: 14.5px;
+    }
+    .header-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn:hover {
+      border-color: var(--primary);
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #FFF;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #6D28D9;
+      transform: translateY(-1px);
+    }
+
+    /* Palette Bar */
+    .palette-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px 28px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .palette-label {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .swatches {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .swatch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg);
+      padding: 6px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+    .swatch-color {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+    }
+
+    /* Grid of Concepts */
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+    @media (max-width: 860px) {
+      .concepts-grid { grid-template-columns: 1fr; }
+    }
+    .concept-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .concept-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(124, 58, 237, 0.4);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .concept-tag {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: var(--primary);
+      background: rgba(124, 58, 237, 0.1);
+      padding: 4px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .img-stage {
+      width: 100%;
+      height: 320px;
+      border-radius: 16px;
+      background: radial-gradient(circle at center, rgba(124, 58, 237, 0.05) 0%, rgba(0, 0, 0, 0.02) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    body.dark-mode .img-stage {
+      background: radial-gradient(circle at center, rgba(124, 58, 237, 0.15) 0%, rgba(0, 0, 0, 0.4) 100%);
+    }
+    .img-stage img {
+      max-width: 85%;
+      max-height: 85%;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+    }
+    .concept-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .concept-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .concept-actions {
+      display: flex;
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Live In-Context Mockup */
+    .mockup-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px;
+      margin-bottom: 60px;
+    }
+    .mockup-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .mockup-sub {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .nav-mockup-bar {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+    body.dark-mode .nav-mockup-bar {
+      background: rgba(17, 24, 39, 0.95);
+      border-color: #374151;
+    }
+    .mock-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .mock-brand img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    .mock-links {
+      display: flex;
+      gap: 20px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Works4you AI — 3D Brand Logo Explorations</h1>
+        <p>Four distinct 3D isometric & vector interpretations inspired by the high-velocity dual chevron motif.</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn" onclick="document.body.classList.toggle('dark-mode')">🌓 Toggle Dark Mode</button>
+        <a href="index.html" class="btn btn-primary">&larr; Return to Fleet</a>
+      </div>
+    </header>
+
+    <!-- Color Palette -->
+    <div class="palette-card">
+      <div class="palette-label">Brand Colorway</div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#FF8A00;"></div> #FF8A00 (Solar Amber)</div>
+        <div class="swatch"><div class="swatch-color" style="background:#FF1E6A;"></div> #FF1E6A (Hyper Magenta)</div>
+        <div class="swatch"><div class="swatch-color" style="background:#7C3AED;"></div> #7C3AED (Royal Purple)</div>
+        <div class="swatch"><div class="swatch-color" style="background:#06B6D4;"></div> #06B6D4 (Electric Cyan)</div>
+      </div>
+    </div>
+
+    <!-- 4 Concepts Grid -->
+    <div class="concepts-grid">
+
+      <!-- Concept 1 -->
+      <div class="concept-card">
+        <div class="card-top">
+          <span class="concept-tag">Option 01 • Recommended</span>
+          <span style="font-size:12px; font-weight:700; color:var(--text-muted);">Direct Evolution</span>
+        </div>
+        <div class="img-stage">
+          <img src="assets/logo_concept_1_chevrons.png" alt="Concept 1 - Dual Chevrons">
+        </div>
+        <h2 class="concept-title">The Autonomous Dual Chevrons (&gt;&gt;)</h2>
+        <p class="concept-desc">A direct, polished evolution of your reference image. Two beveled isometric extruded blocks forming the universal "fast-forward" and code prompt symbol. Represents high-velocity autonomous execution and forward enterprise momentum.</p>
+        <div class="concept-actions">
+          <a href="assets/logo_concept_1_chevrons.png" download class="btn">📥 Download PNG (Transparent)</a>
+          <a href="assets/logo_vector_chevrons.svg" download class="btn">📐 Download Vector SVG</a>
+          <button class="btn btn-primary" onclick="applyLogoToFleet('concept_1')">Set as Live Logo</button>
+        </div>
+      </div>
+
+      <!-- Concept 2 -->
+      <div class="concept-card">
+        <div class="card-top">
+          <span class="concept-tag">Option 02 • Monogram</span>
+          <span style="font-size:12px; font-weight:700; color:var(--text-muted);">Monogram Identity</span>
+        </div>
+        <div class="img-stage">
+          <img src="assets/logo_concept_2_w_monogram.png" alt="Concept 2 - W Monogram">
+        </div>
+        <h2 class="concept-title">The Dimensional "W" Monogram</h2>
+        <p class="concept-desc">An architectural 3D 'W' for Works4you crafted from interlocking isometric chevron facets. Combines instant brand recognition with the dimensional tactile aesthetic.</p>
+        <div class="concept-actions">
+          <a href="assets/logo_concept_2_w_monogram.png" download class="btn">📥 Download PNG (Transparent)</a>
+          <button class="btn btn-primary" onclick="applyLogoToFleet('concept_2')">Set as Live Logo</button>
+        </div>
+      </div>
+
+      <!-- Concept 3 -->
+      <div class="concept-card">
+        <div class="card-top">
+          <span class="concept-tag">Option 03 • Brand Fusion</span>
+          <span style="font-size:12px; font-weight:700; color:var(--text-muted);">Numeral + Velocity</span>
+        </div>
+        <div class="img-stage">
+          <img src="assets/logo_concept_3_numeral_4.png" alt="Concept 3 - Numeral 4 + Chevron">
+        </div>
+        <h2 class="concept-title">The "4" + Forward Chevron Fusion</h2>
+        <p class="concept-desc">An isometric hybrid blending the numeral "4" (from Works4you) with a forward-pointing speed chevron block. Bold, tech-centric, and unmistakable.</p>
+        <div class="concept-actions">
+          <a href="assets/logo_concept_3_numeral_4.png" download class="btn">📥 Download PNG (Transparent)</a>
+          <button class="btn btn-primary" onclick="applyLogoToFleet('concept_3')">Set as Live Logo</button>
+        </div>
+      </div>
+
+      <!-- Concept 4 -->
+      <div class="concept-card">
+        <div class="card-top">
+          <span class="concept-tag">Option 04 • Cyber & Platform</span>
+          <span style="font-size:12px; font-weight:700; color:var(--text-muted);">Platform Architecture</span>
+        </div>
+        <div class="img-stage">
+          <img src="assets/logo_concept_4_hex_shield.png" alt="Concept 4 - Hex Platform">
+        </div>
+        <h2 class="concept-title">The Sovereign Airgap Platform</h2>
+        <p class="concept-desc">The dual velocity chevrons hovering above a high-precision hexagonal microchip platform with neon cyan traces. Emphasizes enterprise airgap security and multi-tenant isolation.</p>
+        <div class="concept-actions">
+          <a href="assets/logo_concept_4_hex_shield.png" download class="btn">📥 Download PNG (Transparent)</a>
+          <button class="btn btn-primary" onclick="applyLogoToFleet('concept_4')">Set as Live Logo</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Live In-Context Navbar Preview -->
+    <div class="mockup-section">
+      <h2 class="mockup-title">In-Context Navbar Preview</h2>
+      <p class="mockup-sub">Preview how Option 01 (Autonomous Dual Chevrons) renders inside the live Works4you AI navigation bar:</p>
+      
+      <div class="nav-mockup-bar">
+        <div class="mock-brand">
+          <img src="assets/logo_concept_1_chevrons.png" alt="Works4you AI Logo">
+          <span>Works4you AI</span>
+        </div>
+        <div class="mock-links">
+          <span>Agent Fleet</span>
+          <span>Needs & Builder</span>
+          <span>How It Works</span>
+          <span>Integrations & MCP</span>
+        </div>
+        <button class="btn btn-primary" style="padding:7px 18px;">Book Fleet Demo</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function applyLogoToFleet(conceptKey) {
+      alert("Selected " + conceptKey + " as preferred logo! You can also download the transparent PNG or vector SVG above for Figma/Canva.");
+    }
+  </script>
+
+</body>
+</html>
