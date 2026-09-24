@@ -37,6 +37,12 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html {
+      scroll-behavior: smooth;
+    }
+    section {
+      scroll-margin-top: 85px;
+    }
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg-gradient);
@@ -96,117 +102,64 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--card-border);
-      padding: 16px 48px;
+      padding: 12px 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: nowrap;
+      gap: 16px;
       max-width: 1440px;
+      width: 100%;
       margin: 0 auto;
+      box-sizing: border-box;
     }
 
     .nav-brand {
-      font-size: 21px;
+      font-size: 20px;
       font-weight: 800;
       color: var(--text-main);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      letter-spacing: -0.03em;
-    }
-    .brand-img-logo {
-      height: 38px;
-      width: auto;
-      max-width: 58px;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 12px rgba(255, 138, 0, 0.38));
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .nav-brand:hover .brand-img-logo {
-      transform: scale(1.12) rotate(-2deg);
+      gap: 10px;
+      flex-shrink: 0;
     }
     .brand-img-lockup {
-      height: 44px;
+      height: 32px;
       width: auto;
-      max-width: 260px;
+      max-width: 185px;
       object-fit: contain;
-      filter: drop-shadow(0 4px 14px rgba(255, 138, 0, 0.28));
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      filter: drop-shadow(0 2px 8px rgba(255, 138, 0, 0.22));
+      transition: transform 0.25s ease;
+      display: block;
     }
-    .nav-brand:hover .brand-img-lockup {
-      transform: scale(1.04);
-    }
-    .brand-num-accent {
-      background: linear-gradient(135deg, #FF8A00 0%, #FF1E6A 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 900;
-      margin: 0 1px;
-      display: inline-block;
-      filter: drop-shadow(0 2px 8px rgba(255, 30, 106, 0.3));
-    }
-    .brand-ai-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      margin-left: 6px;
-      padding: 3px 9px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
-      color: #FFFFFF;
-      font-size: 11.5px;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35);
-      line-height: 1;
-      vertical-align: middle;
-    }
-    .brand-ai-chip .chip-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #FFFFFF;
-      box-shadow: 0 0 6px #FFFFFF;
-    }
-    .brand-emblem {
-      width: 28px;
-      height: 28px;
-      display: inline-block;
-      flex-shrink: 0;
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .nav-brand:hover .brand-emblem {
-      transform: rotate(30deg) scale(1.1);
-    }
-    .btn-emblem {
-      width: 17px;
-      height: 17px;
-      display: inline-block;
-      vertical-align: -3px;
-      margin-right: 6px;
-      flex-shrink: 0;
-    }
-    .mini-emblem {
-      width: 15px;
-      height: 15px;
-      display: inline-block;
-      vertical-align: -2px;
-      margin-right: 6px;
+    .brand-img-lockup:hover {
+      transform: scale(1.03);
     }
 
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 20px;
       list-style: none;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      flex-shrink: 1;
+      white-space: nowrap;
+    }
+    .nav-links li {
+      display: inline-block;
     }
     .nav-links a {
       text-decoration: none;
       color: var(--text-muted);
-      font-size: 14.5px;
+      font-size: 13.5px;
       font-weight: 600;
+      white-space: nowrap;
       transition: color 0.2s;
     }
     .nav-links a:hover {
@@ -215,19 +168,22 @@
 
     .nav-actions {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
     .btn-secondary {
       background: transparent;
       border: 1px solid rgba(124, 58, 237, 0.2);
       color: var(--text-main);
-      padding: 9px 20px;
+      padding: 7px 16px;
       border-radius: 999px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
+      white-space: nowrap;
     }
     .btn-secondary:hover {
       background: rgba(124, 58, 237, 0.05);
@@ -237,17 +193,66 @@
       background: var(--primary);
       color: #FFFFFF;
       border: none;
-      padding: 9px 22px;
+      padding: 8px 20px;
       border-radius: 999px;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 600;
       cursor: pointer;
       box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
       transition: all 0.2s;
+      white-space: nowrap;
     }
     .btn-primary:hover {
       background: var(--primary-hover);
       transform: translateY(-1px);
+    }
+
+    /* Navbar Responsive Scaling */
+    @media (max-width: 1200px) {
+      nav {
+        padding: 10px 20px;
+        gap: 12px;
+      }
+      .nav-links {
+        gap: 14px;
+      }
+      .nav-links a {
+        font-size: 12.5px;
+      }
+      .brand-img-lockup {
+        height: 28px;
+        max-width: 165px;
+      }
+      .btn-primary {
+        padding: 7px 16px;
+        font-size: 13px;
+      }
+      .btn-secondary {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+    }
+    @media (max-width: 980px) {
+      .nav-links {
+        gap: 10px;
+      }
+      .nav-links a {
+        font-size: 12px;
+      }
+      .nav-actions .nav-studio-btn {
+        display: none;
+      }
+    }
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 16px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-brand {
+        margin-right: auto;
+      }
     }
 
     .container {
@@ -1282,7 +1287,7 @@
     .integrations-section {
       margin-bottom: 100px;
     }
-    .integration-metrics-row {
+    .integration-metrics-row-old {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
@@ -1290,6 +1295,16 @@
     }
     @media (max-width: 800px) {
       .integration-metrics-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    .integration-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 28px auto 20px auto;
+      width: 100%;
+      max-width: 860px;
+      position: relative;
+      z-index: 2;
     }
     .int-metric-card {
       background: rgba(255, 255, 255, 0.88);
@@ -1312,6 +1327,302 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
+    /* Honeycomb Hexagon Showcase */
+    .honeycomb-section-wrap {
+      margin: 40px auto 45px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      width: 100%;
+    }
+    .honeycomb-ambient-glow {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 650px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, rgba(6, 182, 212, 0.04) 50%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .honeycomb-cloud {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      user-select: none;
+      padding: 10px 0 20px 0;
+    }
+    .hex-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: -24px;
+      position: relative;
+    }
+    .hex-row:first-child {
+      margin-top: 0;
+    }
+    .hex-tile {
+      width: 96px;
+      height: 110px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+      filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.06)) drop-shadow(0 2px 5px rgba(0, 0, 0, 0.04));
+    }
+    .hex-tile:hover {
+      transform: translateY(-8px) scale(1.1);
+      filter: drop-shadow(0 18px 30px rgba(124, 58, 237, 0.22)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.06));
+      z-index: 20;
+    }
+    .hex-tile.active-selected {
+      transform: translateY(-6px) scale(1.08);
+      filter: drop-shadow(0 18px 30px rgba(124, 58, 237, 0.28)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+      z-index: 19;
+    }
+    .hex-tile.active-selected .hex-path {
+      stroke: var(--primary);
+      stroke-width: 2.2;
+    }
+    .hex-tile.ghost {
+      cursor: default;
+      pointer-events: none;
+      filter: none;
+    }
+    .hex-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hex-path {
+      fill: #FFFFFF;
+      stroke: rgba(226, 232, 240, 0.9);
+      stroke-width: 1.5;
+      transition: stroke 0.25s, fill 0.25s;
+    }
+    .hex-tile:hover .hex-path {
+      stroke: rgba(124, 58, 237, 0.6);
+    }
+    .hex-logo-wrap {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      pointer-events: none;
+    }
+    .hex-logo-wrap svg, .hex-logo-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+    .hex-tile:hover .hex-logo-wrap svg,
+    .hex-tile:hover .hex-logo-wrap img {
+      transform: scale(1.08);
+    }
+
+    /* Floating Tooltip */
+    .hex-tooltip {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      z-index: 30;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .hex-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 5px;
+      border-style: solid;
+      border-color: #0F172A transparent transparent transparent;
+    }
+    .hex-tooltip-badge {
+      font-size: 10px;
+      font-weight: 600;
+      color: #38BDF8;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .hex-tile:hover .hex-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Live Connector Inspector Card */
+    .mcp-inspector-card {
+      margin-top: 32px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--card-border);
+      border-radius: 20px;
+      padding: 20px 28px;
+      max-width: 740px;
+      width: 100%;
+      box-shadow: 0 16px 36px -10px rgba(124, 58, 237, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+    .inspector-main {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .inspector-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .inspector-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .inspector-pill {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .inspector-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+    .inspector-tags {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+      align-items: center;
+    }
+    .inspector-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #059669;
+      background: #ECFDF5;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .status-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 6px #10B981;
+    }
+
+    /* Expandable Catalog Toggle */
+    .catalog-toggle-btn {
+      margin-top: 24px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--card-border);
+      color: var(--text-main);
+      padding: 10px 24px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+    .catalog-toggle-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+    .catalog-expand-content {
+      display: none;
+      width: 100%;
+      margin-top: 28px;
+    }
+    .catalog-expand-content.open {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .honeycomb-cloud {
+        transform: scale(0.78);
+        transform-origin: top center;
+      }
+      .honeycomb-section-wrap {
+        margin-bottom: -40px;
+      }
+      .mcp-inspector-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+      }
+      .inspector-tags {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+    @media (max-width: 480px) {
+      .honeycomb-cloud {
+        transform: scale(0.62);
+      }
+      .honeycomb-section-wrap {
+        margin-bottom: -80px;
+      }
+    }
+
     .categories-stack {
       display: flex;
       flex-direction: column;
@@ -1498,8 +1809,7 @@
       <li><a href="#compare">Why Works4you</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="logo-showcase.html" class="btn-secondary" style="border-color:#F59E0B; color:#D97706; text-decoration:none;">🎨 3D Logo Studio</a>
-      <button class="btn-secondary" onclick="window.location.href='#fleet'">Explore Roster</button>
+      <a href="logo-showcase.html" class="btn-secondary nav-studio-btn" style="border-color:#F59E0B; color:#D97706; text-decoration:none; padding: 6px 13px; font-size: 12.5px;">🎨 3D Studio</a>
       <button class="btn-primary" onclick="alert('Connecting to Katie on WhatsApp...')">Book Fleet Demo</button>
     </div>
   </nav>
@@ -2139,30 +2449,299 @@
     <!-- Enterprise Integrations & MCP Ecosystem Section -->
     <section id="integrations" class="integrations-section">
       <div class="section-header">
-        <div class="section-tag">Connected Ecosystem</div>
-        <h2 class="section-title">Enterprise Connectors, APIs & MCP Protocols</h2>
-        <p class="section-subtitle">Seamlessly wired into your existing toolchains. Pre-built connectors and Model Context Protocol (MCP) servers run with zero-log airgap guarantees.</p>
+        <div class="section-tag">Enterprise Ecosystem</div>
+        <h2 class="section-title">Connected MCP Protocols & Production Integrations</h2>
+        <p class="section-subtitle">Autonomous multi-agent execution wired directly into your enterprise stack through verified Model Context Protocols (MCP) and zero-log airgapped connectors.</p>
       </div>
 
-      <div class="integration-metrics-row">
-        <div class="int-metric-card">
-          <div class="int-metric-val">40+</div>
-          <div class="int-metric-lbl">Production Connectors</div>
+      <!-- Honeycomb Hexagonal Cluster Cloud (Matches User Reference) -->
+      <div class="honeycomb-section-wrap">
+        <div class="honeycomb-ambient-glow"></div>
+        <div class="honeycomb-cloud" id="honeycombCloud">
+          
+          <!-- Row 0: Top ambient ghosts (2 items) -->
+          <div class="hex-row">
+            <div class="hex-tile ghost" style="opacity: 0.18;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+            <div class="hex-tile ghost" style="opacity: 0.28;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+          </div>
+
+          <!-- Row 1: GitHub center (5 items) -->
+          <div class="hex-row">
+            <div class="hex-tile ghost" style="opacity: 0.18;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+            <div class="hex-tile ghost" style="opacity: 0.32;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+            <div class="hex-tile active-selected" data-key="github" onmouseenter="selectHexTile(this, 'github')" onclick="selectHexTile(this, 'github')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="40" height="40"><path fill="#181717" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>GitHub & Actions</span>
+                <span class="hex-tooltip-badge">Official MCP • CI/CD</span>
+              </div>
+            </div>
+            <div class="hex-tile ghost" style="opacity: 0.32;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+            <div class="hex-tile ghost" style="opacity: 0.18;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+          </div>
+
+          <!-- Row 2: HubSpot, Amplitude (4 items) -->
+          <div class="hex-row">
+            <div class="hex-tile ghost" style="opacity: 0.28;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+            <div class="hex-tile" data-key="hubspot" onmouseenter="selectHexTile(this, 'hubspot')" onclick="selectHexTile(this, 'hubspot')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="40" height="40"><circle cx="12" cy="12" r="11" fill="#FF7A59"/><path fill="#FFFFFF" d="M17.8 11.2c-.3 0-.6.1-.8.3l-2.4-1.4V8.4c.6-.3 1-1 1-1.7 0-1.1-.9-2-2-2s-2 .9-2 2c0 .7.4 1.4 1 1.7v1.7L10.2 11.5c-.2-.2-.5-.3-.8-.3-1.1 0-2 .9-2 2s.9 2 2 2c.7 0 1.3-.4 1.7-1l2.4 1.4v.3c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5-.7-1.5-1.5-1.5c-.3 0-.6.1-.8.3L12 13.5v-1.6l2.3-1.3c.3.4.8.6 1.3.6 1.1 0 2-.9 2-2 0-.6-.3-1.1-.7-1.4l1.3-.7c.3.5.9.8 1.5.8 1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2c0 .3.1.5.2.8l-1.3.7c-.4-.5-1-.8-1.7-.8-1.3 0-2.3 1-2.3 2.3 0 .4.1.8.3 1.1L10.5 13c-.3-.2-.7-.3-1.1-.3-1.3 0-2.3 1-2.3 2.3s1 2.3 2.3 2.3c1 0 1.9-.6 2.2-1.5l2.4-1.4c.3.2.7.4 1.1.4 1.3 0 2.3-1 2.3-2.3 0-.7-.3-1.3-.9-1.7z"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>HubSpot CRM</span>
+                <span class="hex-tooltip-badge">Verified Connector</span>
+              </div>
+            </div>
+            <div class="hex-tile" data-key="amplitude" onmouseenter="selectHexTile(this, 'amplitude')" onclick="selectHexTile(this, 'amplitude')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="40" height="40"><circle cx="12" cy="12" r="11" fill="#1E61F0"/><path fill="#FFFFFF" d="M6.8 14.5c.3-1.5 1.8-4.5 3.7-4.5 1.8 0 2.2 2.5 3.5 2.5 1.1 0 1.8-.8 2.2-1.8l1.4.6c-.6 1.5-1.8 2.6-3.6 2.6-1.8 0-2.4-2.5-3.6-2.5-1.1 0-1.9 1.5-2.2 2.5l-1.4-.6z"/><circle cx="7" cy="12" r="1.2" fill="#FFFFFF"/><circle cx="17" cy="12" r="1.2" fill="#FFFFFF"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>Amplitude Analytics</span>
+                <span class="hex-tooltip-badge">Product Telemetry</span>
+              </div>
+            </div>
+            <div class="hex-tile ghost" style="opacity: 0.28;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+          </div>
+
+          <!-- Row 3: Slack, Twenty CRM, Linear (5 items) -->
+          <div class="hex-row">
+            <div class="hex-tile ghost" style="opacity: 0.32;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+            <div class="hex-tile" data-key="slack" onmouseenter="selectHexTile(this, 'slack')" onclick="selectHexTile(this, 'slack')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><path fill="#36C5F0" d="M6 15a2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2h2v2zm1 0a2 2 0 0 1 2-2 2 2 0 0 1 2 2v5a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-5z"/><path fill="#2EB67D" d="M9 6a2 2 0 0 1-2-2 2 2 0 0 1 2-2 2 2 0 0 1 2 2v2H9zm0 1a2 2 0 0 1 2 2 2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 2 2 0 0 1 2-2h5z"/><path fill="#ECB22E" d="M18 9a2 2 0 0 1 2-2 2 2 0 0 1 2 2 2 2 0 0 1-2 2h-2V9zm-1 0a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 2 2 0 0 1 2 2v5z"/><path fill="#E01E5A" d="M15 18a2 2 0 0 1 2 2 2 2 0 0 1 2 2 2 2 0 0 1-2 2h-2v-2zm0-1a2 2 0 0 1-2-2 2 2 0 0 1 2-2h5a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-5z"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>Slack Enterprise</span>
+                <span class="hex-tooltip-badge">Official MCP • Bot</span>
+              </div>
+            </div>
+            <div class="hex-tile" data-key="twenty" onmouseenter="selectHexTile(this, 'twenty')" onclick="selectHexTile(this, 'twenty')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><rect width="24" height="24" rx="6" fill="#10B981"/><path fill="#FFFFFF" d="M7 17V7h4a3 3 0 0 1 3 3 3 3 0 0 1-3 3H9v4H7zm2-6h2a1 1 0 0 0 1-1 1 1 0 0 0-1-1H9v2zm8 6h-2l-3-4 1.5-1.5L17 17z"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>Twenty CRM</span>
+                <span class="hex-tooltip-badge">Native Fleet CRM</span>
+              </div>
+            </div>
+            <div class="hex-tile" data-key="linear" onmouseenter="selectHexTile(this, 'linear')" onclick="selectHexTile(this, 'linear')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><circle cx="12" cy="12" r="11" fill="#0F172A"/><path fill="#FFFFFF" d="M7.2 16.8a6.8 6.8 0 0 1 0-9.6l9.6 9.6a6.8 6.8 0 0 1-9.6 0z"/><circle cx="14.5" cy="9.5" r="2" fill="#6366F1"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>Linear Issues</span>
+                <span class="hex-tooltip-badge">Project Ops MCP</span>
+              </div>
+            </div>
+            <div class="hex-tile ghost" style="opacity: 0.32;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+          </div>
+
+          <!-- Row 4: Sentry, PostHog, Datadog, Supabase (4 items) -->
+          <div class="hex-row">
+            <div class="hex-tile" data-key="sentry" onmouseenter="selectHexTile(this, 'sentry')" onclick="selectHexTile(this, 'sentry')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><path fill="#362D59" d="M12 2L3 18h4.5l1.8-3.5h5.4L16.5 18H21L12 2zm0 6l2.8 5.5H9.2L12 8z"/><path fill="#FF4646" d="M12 11l1.5 3h-3L12 11z"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>Sentry APM</span>
+                <span class="hex-tooltip-badge">Error Observability</span>
+              </div>
+            </div>
+            <div class="hex-tile" data-key="posthog" onmouseenter="selectHexTile(this, 'posthog')" onclick="selectHexTile(this, 'posthog')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><path fill="#F59E0B" d="M4 17h3v-8H4v8zm4 0h3V5H8v12zm4 0h3v-5h-3v5zm4 0h4v-3h-4v3z"/><path fill="#EF4444" d="M16 10h4V7h-4v3z"/><path fill="#3B82F6" d="M16 5h4V3h-4v2z"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>PostHog Telemetry</span>
+                <span class="hex-tooltip-badge">Product Intelligence</span>
+              </div>
+            </div>
+            <div class="hex-tile" data-key="datadog" onmouseenter="selectHexTile(this, 'datadog')" onclick="selectHexTile(this, 'datadog')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><rect width="24" height="24" rx="6" fill="#632CA6"/><path fill="#FFFFFF" d="M17 16h-2v-3a1 1 0 0 0-1-1h-1v4h-2V8h2a3 3 0 0 1 3 3v1a3 3 0 0 1 1 2.2V16zM9 16H7v-4a2 2 0 0 1 2-2h1v6H9z"/><circle cx="15.5" cy="9.5" r="1" fill="#FBBF24"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>Datadog Cloud</span>
+                <span class="hex-tooltip-badge">Infrastructure APM</span>
+              </div>
+            </div>
+            <div class="hex-tile" data-key="supabase" onmouseenter="selectHexTile(this, 'supabase')" onclick="selectHexTile(this, 'supabase')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><path fill="#3ECF8E" d="M13.2 2.5L3.8 13.8c-.5.6 0 1.5.8 1.5h7.2L10.8 22c-.3.7.6 1.2 1.1.7l10-12c.5-.6 0-1.5-.8-1.5h-7.2l1.3-6.7z"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>Supabase & pgvector</span>
+                <span class="hex-tooltip-badge">Vector DB • Airgap</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 5: Intercom, Postman, Segment (5 items) -->
+          <div class="hex-row">
+            <div class="hex-tile ghost" style="opacity: 0.28;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+            <div class="hex-tile" data-key="intercom" onmouseenter="selectHexTile(this, 'intercom')" onclick="selectHexTile(this, 'intercom')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><rect width="24" height="24" rx="6" fill="#000000"/><path stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" d="M8 10v4M11 8v6M13 8v6M16 10v4"/><path stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" d="M8 17c2 1.5 6 1.5 8 0"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>Intercom Messenger</span>
+                <span class="hex-tooltip-badge">Live Chat Hub</span>
+              </div>
+            </div>
+            <div class="hex-tile" data-key="postman" onmouseenter="selectHexTile(this, 'postman')" onclick="selectHexTile(this, 'postman')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><circle cx="12" cy="12" r="11" fill="#FF6C37"/><path fill="#FFFFFF" d="M12 6c-3.3 0-6 2.7-6 6 0 1.2.4 2.3 1 3.2L12 8.5l5 6.7c.6-.9 1-2 1-3.2 0-3.3-2.7-6-6-6zm0 12c-1.1 0-2.2-.3-3.1-.9L12 13l3.1 4.1c-.9.6-2 .9-3.1.9z"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>Postman Gateway</span>
+                <span class="hex-tooltip-badge">API Spec & MCP</span>
+              </div>
+            </div>
+            <div class="hex-tile" data-key="segment" onmouseenter="selectHexTile(this, 'segment')" onclick="selectHexTile(this, 'segment')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><rect x="4" y="4" width="7" height="7" rx="3.5" fill="#52BD94"/><rect x="13" y="4" width="7" height="7" rx="3.5" fill="#FFB400"/><rect x="4" y="13" width="7" height="7" rx="3.5" fill="#FF5A5F"/><rect x="13" y="13" width="7" height="7" rx="3.5" fill="#43B02A"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>Twilio Segment</span>
+                <span class="hex-tooltip-badge">Customer Data CDP</span>
+              </div>
+            </div>
+            <div class="hex-tile ghost" style="opacity: 0.28;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+          </div>
+
+          <!-- Row 6: WhatsApp Business & Google Workspace (4 items) -->
+          <div class="hex-row">
+            <div class="hex-tile ghost" style="opacity: 0.18;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+            <div class="hex-tile" data-key="whatsapp" onmouseenter="selectHexTile(this, 'whatsapp')" onclick="selectHexTile(this, 'whatsapp')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><circle cx="12" cy="12" r="11" fill="#25D366"/><path fill="#FFFFFF" d="M16.5 14.1c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.1-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4s-.5-1.2-.7-1.7c-.2-.4-.4-.4-.5-.4h-.4c-.2 0-.5.1-.7.3-.2.2-.8.8-.8 2 0 1.2.9 2.3 1 2.5.1.2 1.7 2.6 4.1 3.7.6.3 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.3-.5 1.5-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.1-.5-.2z"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>WhatsApp Business</span>
+                <span class="hex-tooltip-badge">Native Fleet Engine</span>
+              </div>
+            </div>
+            <div class="hex-tile" data-key="google" onmouseenter="selectHexTile(this, 'google')" onclick="selectHexTile(this, 'google')">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" class="hex-path"/></svg>
+              <div class="hex-logo-wrap">
+                <svg viewBox="0 0 24 24" width="38" height="38"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+              </div>
+              <div class="hex-tooltip">
+                <span>Google Workspace</span>
+                <span class="hex-tooltip-badge">Drive & Gmail MCP</span>
+              </div>
+            </div>
+            <div class="hex-tile ghost" style="opacity: 0.18;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+          </div>
+
+          <!-- Row 7: Bottom ambient ghosts (3 items) -->
+          <div class="hex-row">
+            <div class="hex-tile ghost" style="opacity: 0.14;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+            <div class="hex-tile ghost" style="opacity: 0.22;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+            <div class="hex-tile ghost" style="opacity: 0.14;">
+              <svg class="hex-bg" viewBox="0 0 108 124"><path d="M 48.00 7.46 A 12 12 0 0 1 60.00 7.46 L 98.00 29.40 A 12 12 0 0 1 104.00 39.80 L 104.00 83.67 A 12 12 0 0 1 98.00 94.07 L 60.00 116.01 A 12 12 0 0 1 48.00 116.01 L 10.00 94.07 A 12 12 0 0 1 4.00 83.67 L 4.00 39.80 A 12 12 0 0 1 10.00 29.40 Z" fill="rgba(255,255,255,0.45)" stroke="rgba(203,213,225,0.5)" stroke-width="1.2"/></svg>
+            </div>
+          </div>
+
         </div>
-        <div class="int-metric-card">
-          <div class="int-metric-val">24</div>
-          <div class="int-metric-lbl">MCP Servers Active</div>
+
+        <!-- Live Interactive MCP Inspector Card -->
+        <div class="mcp-inspector-card" id="mcpInspector">
+          <div class="inspector-main">
+            <div class="inspector-icon-box" id="inspectorIcon">
+              <svg viewBox="0 0 24 24" width="40" height="40"><path fill="#181717" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </div>
+            <div>
+              <div class="inspector-title">
+                <span id="inspectorTitle">GitHub &amp; Actions CI/CD</span>
+                <span class="inspector-pill" id="inspectorCategory">Official MCP Server</span>
+              </div>
+              <div class="inspector-desc" id="inspectorDesc">Autonomous deployment gatekeeper, error log extraction, pull request verification, and self-healing cloud commits with zero human intervention.</div>
+            </div>
+          </div>
+          <div class="inspector-tags">
+            <span class="inspector-status-badge">
+              <span class="status-pulse-dot"></span>
+              <span id="inspectorStatus">18ms Latency • Airgapped</span>
+            </span>
+          </div>
         </div>
-        <div class="int-metric-card">
-          <div class="int-metric-val">&lt; 50ms</div>
-          <div class="int-metric-lbl">Tool Execution Latency</div>
+
+      <div class=integration-metrics-row>
+        <div class=int-metric-card>
+          <div class=int-metric-val>40+</div>
+          <div class=int-metric-lbl>Production Connectors</div>
         </div>
-        <div class="int-metric-card">
-          <div class="int-metric-val">100%</div>
-          <div class="int-metric-lbl">Zero-Data-Retention Airgap</div>
+        <div class=int-metric-card>
+          <div class=int-metric-val>24</div>
+          <div class=int-metric-lbl>MCP Servers Active</div>
+        </div>
+        <div class=int-metric-card>
+          <div class=int-metric-val>&lt; 50ms</div>
+          <div class=int-metric-lbl>Tool Execution Latency</div>
+        </div>
+        <div class=int-metric-card>
+          <div class=int-metric-val>100%</div>
+          <div class=int-metric-lbl>Zero-Data-Retention Airgap</div>
         </div>
       </div>
 
+        <!-- Button to Toggle Full 40+ Registry -->
+        <button class="catalog-toggle-btn" onclick="toggleFullCatalog()">
+          <span id="catalogToggleIcon">▾</span>
+          <span id="catalogToggleText">View Categorized Registry &amp; Schemas (40+ Connectors)</span>
+        </button>
+
+        <div class="catalog-expand-content" id="catalogExpandContent">
       <div class="categories-stack">
         <!-- 1. Messaging & Channels -->
         <div class="category-block">
@@ -2386,6 +2965,27 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+        </div>
+      </div>
+
+      <div class="integration-metrics-row">
+        <div class="int-metric-card">
+          <div class="int-metric-val">40+</div>
+          <div class="int-metric-lbl">Production Connectors</div>
+        </div>
+        <div class="int-metric-card">
+          <div class="int-metric-val">24</div>
+          <div class="int-metric-lbl">MCP Servers Active</div>
+        </div>
+        <div class="int-metric-card">
+          <div class="int-metric-val">&lt; 50ms</div>
+          <div class="int-metric-lbl">Tool Execution Latency</div>
+        </div>
+        <div class="int-metric-card">
+          <div class="int-metric-val">100%</div>
+          <div class="int-metric-lbl">Zero-Data-Retention Airgap</div>
         </div>
       </div>
     </section>
@@ -2744,6 +3344,153 @@
     document.addEventListener("DOMContentLoaded", () => {
       activateWorkflowStep(1);
     });
+
+    // --- MCP Interactive Inspector Data ---
+    const MCP_DATA = {
+      github: {
+        title: "GitHub & Actions CI/CD",
+        category: "Official MCP Server",
+        desc: "Autonomous deployment gatekeeper, error log extraction, pull request verification, and self-healing cloud commits with zero human intervention.",
+        status: "18ms Latency • Airgapped",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><path fill="#181717" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>'
+      },
+      hubspot: {
+        title: "HubSpot CRM",
+        category: "Verified Connector",
+        desc: "Bi-directional contact qualification, deal stage orchestration, pipeline enrichment, and automated enterprise meeting staging.",
+        status: "24ms Latency • Verified",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="11" fill="#FF7A59"/><path fill="#FFFFFF" d="M17.8 11.2c-.3 0-.6.1-.8.3l-2.4-1.4V8.4c.6-.3 1-1 1-1.7 0-1.1-.9-2-2-2s-2 .9-2 2c0 .7.4 1.4 1 1.7v1.7L10.2 11.5c-.2-.2-.5-.3-.8-.3-1.1 0-2 .9-2 2s.9 2 2 2c.7 0 1.3-.4 1.7-1l2.4 1.4v.3c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5-.7-1.5-1.5-1.5c-.3 0-.6.1-.8.3L12 13.5v-1.6l2.3-1.3c.3.4.8.6 1.3.6 1.1 0 2-.9 2-2 0-.6-.3-1.1-.7-1.4l1.3-.7c.3.5.9.8 1.5.8 1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2c0 .3.1.5.2.8l-1.3.7c-.4-.5-1-.8-1.7-.8-1.3 0-2.3 1-2.3 2.3 0 .4.1.8.3 1.1L10.5 13c-.3-.2-.7-.3-1.1-.3-1.3 0-2.3 1-2.3 2.3s1 2.3 2.3 2.3c1 0 1.9-.6 2.2-1.5l2.4-1.4c.3.2.7.4 1.1.4 1.3 0 2.3-1 2.3-2.3 0-.7-.3-1.3-.9-1.7z"/></svg>'
+      },
+      amplitude: {
+        title: "Amplitude Analytics",
+        category: "Product & Growth Intelligence",
+        desc: "Autonomous user behavior querying, cohort retention tracking, and conversion drop-off telemetry for executive decision making.",
+        status: "32ms Latency • Live Sync",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="11" fill="#1E61F0"/><path fill="#FFFFFF" d="M6.8 14.5c.3-1.5 1.8-4.5 3.7-4.5 1.8 0 2.2 2.5 3.5 2.5 1.1 0 1.8-.8 2.2-1.8l1.4.6c-.6 1.5-1.8 2.6-3.6 2.6-1.8 0-2.4-2.5-3.6-2.5-1.1 0-1.9 1.5-2.2 2.5l-1.4-.6z"/><circle cx="7" cy="12" r="1.2" fill="#FFFFFF"/><circle cx="17" cy="12" r="1.2" fill="#FFFFFF"/></svg>'
+      },
+      slack: {
+        title: "Slack Enterprise",
+        category: "Official MCP Server",
+        desc: "Socket Mode bi-directional agent dispatch, human-in-the-loop approval requests, incident staging channels, and automated standup digests.",
+        status: "12ms Latency • Airgapped",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><path fill="#36C5F0" d="M6 15a2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2h2v2zm1 0a2 2 0 0 1 2-2 2 2 0 0 1 2 2v5a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-5z"/><path fill="#2EB67D" d="M9 6a2 2 0 0 1-2-2 2 2 0 0 1 2-2 2 2 0 0 1 2 2v2H9zm0 1a2 2 0 0 1 2 2 2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 2 2 0 0 1 2-2h5z"/><path fill="#ECB22E" d="M18 9a2 2 0 0 1 2-2 2 2 0 0 1 2 2 2 2 0 0 1-2 2h-2V9zm-1 0a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 2 2 0 0 1 2 2v5z"/><path fill="#E01E5A" d="M15 18a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2v-2h2zm0-1a2 2 0 0 1-2-2 2 2 0 0 1 2-2h5a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-5z"/></svg>'
+      },
+      twenty: {
+        title: "Twenty CRM (Open Core)",
+        category: "Native Fleet CRM",
+        desc: "High-performance customer relationship system, custom workspace schemas, zero vendor lock-in, and instant record synchronization across agents.",
+        status: "8ms Latency • Native Pod",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><rect width="24" height="24" rx="6" fill="#10B981"/><path fill="#FFFFFF" d="M7 17V7h4a3 3 0 0 1 3 3 3 3 0 0 1-3 3H9v4H7zm2-6h2a1 1 0 0 0 1-1 1 1 0 0 0-1-1H9v2zm8 6h-2l-3-4 1.5-1.5L17 17z"/></svg>'
+      },
+      linear: {
+        title: "Linear Issues & Roadmaps",
+        category: "Engineering & Project Ops",
+        desc: "Autonomous bug triage, sprint velocity estimation, regression tracking, and pull request correlation directly inside your engineering cycle.",
+        status: "15ms Latency • Verified",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="11" fill="#0F172A"/><path fill="#FFFFFF" d="M7.2 16.8a6.8 6.8 0 0 1 0-9.6l9.6 9.6a6.8 6.8 0 0 1-9.6 0z"/><circle cx="14.5" cy="9.5" r="2" fill="#6366F1"/></svg>'
+      },
+      sentry: {
+        title: "Sentry APM & Errors",
+        category: "Error Tracking & Observability",
+        desc: "Live stacktrace ingestion, autonomous Root Cause Analysis (RCA), and incident categorization with immediate escalation routing.",
+        status: "20ms Latency • Verified",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><path fill="#362D59" d="M12 2L3 18h4.5l1.8-3.5h5.4L16.5 18H21L12 2zm0 6l2.8 5.5H9.2L12 8z"/><path fill="#FF4646" d="M12 11l1.5 3h-3L12 11z"/></svg>'
+      },
+      posthog: {
+        title: "PostHog Product Analytics",
+        category: "Telemetry & Feature Flags",
+        desc: "Session recordings analysis, feature flag toggling, autonomous user drop-off telemetry, and event bus piping.",
+        status: "22ms Latency • Verified",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><path fill="#F59E0B" d="M4 17h3v-8H4v8zm4 0h3V5H8v12zm4 0h3v-5h-3v5zm4 0h4v-3h-4v3z"/><path fill="#EF4444" d="M16 10h4V7h-4v3z"/><path fill="#3B82F6" d="M16 5h4V3h-4v2z"/></svg>'
+      },
+      datadog: {
+        title: "Datadog Cloud Infrastructure",
+        category: "Cloud APM & Infrastructure",
+        desc: "Serverless container metrics, latency SLA auditing, log pattern anomaly detection, and automated fleet health telemetry.",
+        status: "25ms Latency • Verified",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><rect width="24" height="24" rx="6" fill="#632CA6"/><path fill="#FFFFFF" d="M17 16h-2v-3a1 1 0 0 0-1-1h-1v4h-2V8h2a3 3 0 0 1 3 3v1a3 3 0 0 1 1 2.2V16zM9 16H7v-4a2 2 0 0 1 2-2h1v6H9z"/><circle cx="15.5" cy="9.5" r="1" fill="#FBBF24"/></svg>'
+      },
+      supabase: {
+        title: "Supabase & PostgreSQL (pgvector)",
+        category: "Vector Database & Airgap Storage",
+        desc: "Sovereign tenant isolation, pgvector embeddings search, real-time table sync, and zero-data-leakage client vault partitioned memory.",
+        status: "5ms Latency • Hermetic Airgap",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><path fill="#3ECF8E" d="M13.2 2.5L3.8 13.8c-.5.6 0 1.5.8 1.5h7.2L10.8 22c-.3.7.6 1.2 1.1.7l10-12c.5-.6 0-1.5-.8-1.5h-7.2l1.3-6.7z"/></svg>'
+      },
+      intercom: {
+        title: "Intercom Inbound Messenger",
+        category: "Conversational Desk",
+        desc: "Live website prospect qualification, autonomous ticket resolution, CRM opportunity creation, and meeting staging.",
+        status: "19ms Latency • Live Sync",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><rect width="24" height="24" rx="6" fill="#000000"/><path stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" d="M8 10v4M11 8v6M13 8v6M16 10v4"/><path stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" d="M8 17c2 1.5 6 1.5 8 0"/></svg>'
+      },
+      postman: {
+        title: "Postman API Gateway",
+        category: "API Specifications & Collections",
+        desc: "Dynamic OpenAPI / Swagger schema discovery, automated integration testing, and instant agent-executable tool generation.",
+        status: "16ms Latency • Verified",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="11" fill="#FF6C37"/><path fill="#FFFFFF" d="M12 6c-3.3 0-6 2.7-6 6 0 1.2.4 2.3 1 3.2L12 8.5l5 6.7c.6-.9 1-2 1-3.2 0-3.3-2.7-6-6-6zm0 12c-1.1 0-2.2-.3-3.1-.9L12 13l3.1 4.1c-.9.6-2 .9-3.1.9z"/></svg>'
+      },
+      segment: {
+        title: "Twilio Segment CDP",
+        category: "Customer Data Platform",
+        desc: "Enterprise event piping, unified customer behavioral profiles, identity resolution, and real-time webhook routing across all fleet pods.",
+        status: "28ms Latency • Verified",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><rect x="4" y="4" width="7" height="7" rx="3.5" fill="#52BD94"/><rect x="13" y="4" width="7" height="7" rx="3.5" fill="#FFB400"/><rect x="4" y="13" width="7" height="7" rx="3.5" fill="#FF5A5F"/><rect x="13" y="13" width="7" height="7" rx="3.5" fill="#43B02A"/></svg>'
+      },
+      whatsapp: {
+        title: "WhatsApp Business Engine",
+        category: "Conversational Inbound Hub",
+        desc: "Direct Baileys socket & Cloud API integration: voice note Hebrew/English transcription, instant lead triage, and secure messaging dispatch.",
+        status: "14ms Latency • Live Active",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="11" fill="#25D366"/><path fill="#FFFFFF" d="M16.5 14.1c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.1-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4s-.5-1.2-.7-1.7c-.2-.4-.4-.4-.5-.4h-.4c-.2 0-.5.1-.7.3-.2.2-.8.8-.8 2 0 1.2.9 2.3 1 2.5.1.2 1.7 2.6 4.1 3.7.6.3 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.3-.5 1.5-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.1-.5-.2z"/></svg>'
+      },
+      google: {
+        title: "Google Workspace & Drive",
+        category: "Official Enterprise MCP",
+        desc: "Autonomous Gmail inbox triage, Google Sheets financial ledger updates, and Docs contract redlining under strict approval gates.",
+        status: "20ms Latency • Airgapped",
+        icon: '<svg viewBox="0 0 24 24" width="36" height="36"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>'
+      }
+    };
+
+    function selectHexTile(el, key) {
+      const data = MCP_DATA[key];
+      if (!data) return;
+      
+      document.querySelectorAll('.hex-tile').forEach(t => t.classList.remove('active-selected'));
+      el.classList.add('active-selected');
+      
+      const iconEl = document.getElementById('inspectorIcon');
+      const titleEl = document.getElementById('inspectorTitle');
+      const catEl = document.getElementById('inspectorCategory');
+      const descEl = document.getElementById('inspectorDesc');
+      const statusEl = document.getElementById('inspectorStatus');
+      
+      if (iconEl) iconEl.innerHTML = data.icon;
+      if (titleEl) titleEl.textContent = data.title;
+      if (catEl) catEl.textContent = data.category;
+      if (descEl) descEl.textContent = data.desc;
+      if (statusEl) statusEl.textContent = data.status;
+    }
+
+    function toggleFullCatalog() {
+      const content = document.getElementById('catalogExpandContent');
+      const icon = document.getElementById('catalogToggleIcon');
+      const text = document.getElementById('catalogToggleText');
+      if (!content) return;
+      
+      if (content.classList.contains('open')) {
+        content.classList.remove('open');
+        if (icon) icon.textContent = '▾';
+        if (text) text.textContent = 'View Categorized Registry & Schemas (40+ Connectors)';
+      } else {
+        content.classList.add('open');
+        if (icon) icon.textContent = '▴';
+        if (text) text.textContent = 'Hide Categorized Registry';
+      }
+    }
+
   </script>
 
 </body>
