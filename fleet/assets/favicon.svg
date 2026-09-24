@@ -1,19 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
   <rect width="32" height="32" rx="8" fill="#0F172A" />
-  <!-- Chevron 1 -->
-  <g transform="translate(-1, 0) scale(0.12)">
-    <polygon points="50,110 50,170 120,210 120,150" fill="#FF1E6A" />
-    <polygon points="50,110 50,170 10,147 10,87" fill="#E60050" />
-    <polygon points="120,150 120,210 170,181 170,121" fill="#7C3AED" />
-    <polygon points="100,80 100,140 170,181 170,121" fill="#4C1D95" />
-    <polygon points="100,80 170,121 120,150 50,110 10,87 60,58" fill="#FF8A00" stroke="#FFB347" stroke-width="2" />
-  </g>
-  <!-- Chevron 2 -->
-  <g transform="translate(13, 0) scale(0.12)">
-    <polygon points="50,110 50,170 120,210 120,150" fill="#FF1E6A" />
-    <polygon points="50,110 50,170 10,147 10,87" fill="#E60050" />
-    <polygon points="120,150 120,210 170,181 170,121" fill="#7C3AED" />
-    <polygon points="100,80 100,140 170,181 170,121" fill="#4C1D95" />
-    <polygon points="100,80 170,121 120,150 50,110 10,87 60,58" fill="#FF8A00" stroke="#FFB347" stroke-width="2" />
+  <g transform="translate(16, 16) scale(0.16)">
+    <!-- Central Core Glow -->
+    <circle cx="0" cy="0" r="28" fill="#06B6D4" opacity="0.4" />
+    <polygon points="0,-12 10,-6 0,0 -10,-6" fill="#FFFFFF" />
+    <polygon points="-10,-6 0,0 0,12 -10,6" fill="#A5F3FC" />
+    <polygon points="0,0 10,-6 10,6 0,12" fill="#38BDF8" />
+
+    <!-- Top Block (Amber) -->
+    <g transform="translate(0, -42)">
+      <polygon points="0,-24 28,-8 0,8 -28,-8" fill="#FF8A00" stroke="#FFB347" stroke-width="1.5" />
+      <polygon points="-28,-8 0,8 0,26 -28,10" fill="#FF5E36" />
+      <polygon points="0,8 28,-8 28,10 0,26" fill="#E65100" />
+    </g>
+
+    <!-- Bottom-Left Block (Magenta) -->
+    <g transform="translate(-36, 22)">
+      <polygon points="0,-16 20,-4 0,8 -20,-4" fill="#FF5E8A" />
+      <polygon points="-20,-4 0,8 0,32 -20,20" fill="#FF1E6A" />
+      <polygon points="0,8 20,-4 20,20 0,32" fill="#C2004D" />
+    </g>
+
+    <!-- Bottom-Right Block (Purple) -->
+    <g transform="translate(36, 22)">
+      <polygon points="0,-16 20,-4 0,8 -20,-4" fill="#A78BFA" />
+      <polygon points="-20,-4 0,8 0,32 -20,20" fill="#6D28D9" />
+      <polygon points="0,8 20,-4 20,20 0,32" fill="#5B21B6" />
+    </g>
   </g>
 </svg>
