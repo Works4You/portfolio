@@ -102,25 +102,57 @@
     }
 
     .nav-brand {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 800;
       color: var(--text-main);
       text-decoration: none;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      letter-spacing: -0.02em;
+      gap: 12px;
+      letter-spacing: -0.03em;
     }
     .brand-img-logo {
-      height: 34px;
+      height: 38px;
       width: auto;
-      max-width: 52px;
+      max-width: 58px;
       object-fit: contain;
-      filter: drop-shadow(0 4px 10px rgba(255, 138, 0, 0.35));
+      filter: drop-shadow(0 4px 12px rgba(255, 138, 0, 0.38));
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .nav-brand:hover .brand-img-logo {
-      transform: scale(1.15) translateX(2px);
+      transform: scale(1.12) rotate(-2deg);
+    }
+    .brand-num-accent {
+      background: linear-gradient(135deg, #FF8A00 0%, #FF1E6A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+      margin: 0 1px;
+      display: inline-block;
+      filter: drop-shadow(0 2px 8px rgba(255, 30, 106, 0.3));
+    }
+    .brand-ai-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-left: 6px;
+      padding: 3px 9px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+      color: #FFFFFF;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35);
+      line-height: 1;
+      vertical-align: middle;
+    }
+    .brand-ai-chip .chip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      box-shadow: 0 0 6px #FFFFFF;
     }
     .brand-emblem {
       width: 28px;
@@ -1438,8 +1470,9 @@
   <!-- Navbar -->
   <nav>
     <a href="#" class="nav-brand">
-      <img src="assets/logo_brand_primary.png" alt="Works4you AI" class="brand-img-logo">
-      Works4you AI
+      <img src="assets/logo_brand_primary_tight.png" alt="Works4you AI" class="brand-img-logo">
+      <span>Works<span class="brand-num-accent">4</span>you</span>
+      <span class="brand-ai-chip"><span class="chip-dot"></span>AI</span>
     </a>
     <ul class="nav-links">
       <li><a href="#fleet">Agent Fleet</a></li>

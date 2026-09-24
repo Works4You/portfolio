@@ -287,6 +287,54 @@
     @media (max-width: 680px) {
       .mock-links { display: none; }
     }
+
+    /* Wordmark Horizontal Stages */
+    .img-stage-horizontal {
+      width: 100%;
+      height: 180px;
+      border-radius: 16px;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      padding: 16px 24px;
+      transition: background 0.3s ease;
+      position: relative;
+    }
+    .img-stage-horizontal.stage-dark {
+      background: #0B0F19;
+      border-color: #1F2937;
+    }
+    .img-stage-horizontal img {
+      max-width: 95%;
+      max-height: 90%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+    .img-stage-horizontal:hover img {
+      transform: scale(1.03);
+    }
+    .stage-toggle-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text-muted);
+      z-index: 2;
+    }
+    .stage-dark .stage-toggle-btn {
+      background: rgba(255,255,255,0.1);
+      color: #F8FAFC;
+    }
   </style>
 </head>
 <body>
@@ -320,9 +368,12 @@
       <p class="mockup-sub">Click "Preview in Header" on any variation below to see it live inside the Works4you AI navigation bar:</p>
       
       <div class="nav-mockup-bar">
-        <div class="mock-brand">
-          <img id="live-mock-img" src="assets/logo_brand_primary.png" alt="Works4you AI Logo" style="height:36px; width:auto; max-width:54px;">
-          <span id="live-mock-text">Works4you AI</span>
+        <div class="mock-brand" id="mock-brand-container">
+          <img id="live-mock-img" src="assets/logo_brand_primary_tight.png" alt="Works4you AI Logo" style="height:36px; width:auto; max-width:54px;">
+          <div id="live-mock-text-wrap" style="display:inline-flex; align-items:center; font-family:'Plus Jakarta Sans', sans-serif; font-size:20px; font-weight:800; letter-spacing:-0.03em;">
+            <span>Works<span style="background:linear-gradient(135deg, #FF8A00 0%, #FF1E6A 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:900; margin:0 1px;">4</span>you</span>
+            <span style="display:inline-flex; align-items:center; gap:5px; margin-left:8px; padding:3px 9px; border-radius:8px; background:linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%); color:#FFFFFF; font-size:11.5px; font-weight:800; letter-spacing:0.05em; box-shadow:0 2px 10px rgba(6,182,212,0.35);"><span style="width:5px; height:5px; border-radius:50%; background:#FFF;"></span>AI</span>
+          </div>
         </div>
         <div class="mock-links">
           <span>Agent Fleet</span>
@@ -333,6 +384,104 @@
         </div>
         <button class="btn btn-primary" style="padding:7px 18px;">Book Fleet Demo</button>
       </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- WORKS4YOU AI — WORDMARK & TYPOGRAPHIC STUDIO   -->
+    <!-- ============================================== -->
+    <div class="section-title-wrap" style="background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.1)); padding: 28px; border-radius: 24px; border: 2px solid rgba(124,58,237,0.25); margin-bottom: 32px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:8px;">
+        <span class="concept-tag" style="background:linear-gradient(135deg, #7C3AED, #06B6D4); color:#FFF; font-weight:800;">Brand Identity & Typography</span>
+        <span style="font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-muted); font-weight:700;">Official Wordmarks & Lockups</span>
+      </div>
+      <h2 style="font-size:26px; font-weight:800; letter-spacing:-0.02em;">Works4you AI — Wordmark & Logotype Design Studio</h2>
+      <p style="font-size:15px; color:var(--text-muted); margin-top:4px;">עיצוב טיפוגרפי ייעודי של שם המותג (Wordmark / Logotype) לצד סמל ה-3D Infinity Loop: שילוב אקסנטים במספר 4, צ'יפ AI קורן, ונעילת לוגו מאוזנת לשימוש בסרגלי ניווט, מסמכים, מצגות ורשתות.</p>
+    </div>
+
+    <div class="concepts-grid" style="margin-bottom:56px;">
+
+      <!-- Wordmark 1: Executive Tech Lockup -->
+      <div class="concept-card" style="border: 2px solid #7C3AED; box-shadow: 0 14px 40px -10px rgba(124, 58, 237, 0.22);">
+        <div class="card-top">
+          <span class="concept-tag" style="background:#7C3AED; color:#FFF;">Style 01 • The Executive Tech Lockup (מומלץ)</span>
+          <span style="font-size:12px; font-weight:700; color:var(--primary);">Active on Website</span>
+        </div>
+        <div class="img-stage-horizontal" id="stage-wm-1">
+          <button class="stage-toggle-btn" onclick="toggleStageBg('stage-wm-1', 'assets/style1_executive_lockup_light.png', 'assets/style1_executive_lockup_dark.png')">🌙 View Dark</button>
+          <img src="assets/style1_executive_lockup_light.png" alt="The Executive Tech Lockup">
+        </div>
+        <h2 class="concept-title">The Executive Tech Lockup</h2>
+        <p class="concept-desc">הנעילה האקזקוטיבית המלאה של המותג: סמל הלופ התלת-ממדי, המילה Works במשקל 800 יציב, הספרה 4 מודגשת בגרדיאנט אמבר-מג'נטה סולארי, צ'יפ AI קורן עם נקודת חיווי ציאן, וכותרת משנה מונוספייסית AUTONOMOUS ENTERPRISE FLEET. סמכותי, יוקרתי ומדויק.</p>
+        <div class="concept-actions">
+          <button class="btn btn-primary" onclick="setLockupHeader('assets/style1_executive_lockup_light.png', 'The Executive Tech Lockup')">👁️ Apply to Header</button>
+          <a href="assets/style1_executive_lockup_light.png" download class="btn">📥 Lockup (Light 2x)</a>
+          <a href="assets/style1_executive_lockup_dark.png" download class="btn">📥 Lockup (Dark 2x)</a>
+          <a href="assets/style1_executive_wordmark_light.png" download class="btn">📝 Text Only</a>
+          <a href="assets/lockup_style1_executive_light.svg" download class="btn">📐 Vector SVG</a>
+        </div>
+      </div>
+
+      <!-- Wordmark 2: Chromatic Gradient Flow -->
+      <div class="concept-card">
+        <div class="card-top">
+          <span class="concept-tag">Style 02 • Chromatic Flow</span>
+          <span style="font-size:12px; font-weight:700; color:var(--text-muted);">Vibrant Synergy</span>
+        </div>
+        <div class="img-stage-horizontal" id="stage-wm-2">
+          <button class="stage-toggle-btn" onclick="toggleStageBg('stage-wm-2', 'assets/style2_chromatic_lockup_light.png', 'assets/style2_chromatic_lockup_dark.png')">🌙 View Dark</button>
+          <img src="assets/style2_chromatic_lockup_light.png" alt="The Chromatic Gradient Flow">
+        </div>
+        <h2 class="concept-title">The Chromatic Gradient Flow</h2>
+        <p class="concept-desc">זרימת צבעים מתמשכת: Works בשחור אובסידיאן עמוק לצד 4you בגרדיאנט רציף תלת-שלבי (אמבר סולארי &larr; מג'נטה &larr; סגול עמוק), וסיומת ציאן חשמלי בולטת (· AI). מחבר ישירות בין צבעי הלופ האינסופי לטיפוגרפיה.</p>
+        <div class="concept-actions">
+          <button class="btn btn-primary" onclick="setLockupHeader('assets/style2_chromatic_lockup_light.png', 'The Chromatic Gradient Flow')">👁️ Apply to Header</button>
+          <a href="assets/style2_chromatic_lockup_light.png" download class="btn">📥 Lockup (Light 2x)</a>
+          <a href="assets/style2_chromatic_lockup_dark.png" download class="btn">📥 Lockup (Dark 2x)</a>
+          <a href="assets/style2_chromatic_wordmark_light.png" download class="btn">📝 Text Only</a>
+        </div>
+      </div>
+
+      <!-- Wordmark 3: Cyber-Architectural All-Caps -->
+      <div class="concept-card">
+        <div class="card-top">
+          <span class="concept-tag">Style 03 • Architectural</span>
+          <span style="font-size:12px; font-weight:700; color:var(--text-muted);">Industrial Tech</span>
+        </div>
+        <div class="img-stage-horizontal" id="stage-wm-3">
+          <button class="stage-toggle-btn" onclick="toggleStageBg('stage-wm-3', 'assets/style3_cyber_lockup_light.png', 'assets/style3_cyber_lockup_dark.png')">🌙 View Dark</button>
+          <img src="assets/style3_cyber_lockup_light.png" alt="The Cyber-Architectural All-Caps">
+        </div>
+        <h2 class="concept-title">The Cyber-Architectural All-Caps</h2>
+        <p class="concept-desc">אותיות רישיות גיאומטריות מדויקות (Space Grotesk) עם הספרה 4 מעוצבת כקוביה ארכיטקטונית משופעת בגוון אמבר, ותגית FLEET AI במסגרת ציאן חלבית. משדר עוצמת תשתית תעשייתית ואמינות רובוטית.</p>
+        <div class="concept-actions">
+          <button class="btn btn-primary" onclick="setLockupHeader('assets/style3_cyber_lockup_light.png', 'The Cyber-Architectural All-Caps')">👁️ Apply to Header</button>
+          <a href="assets/style3_cyber_lockup_light.png" download class="btn">📥 Lockup (Light 2x)</a>
+          <a href="assets/style3_cyber_lockup_dark.png" download class="btn">📥 Lockup (Dark 2x)</a>
+          <a href="assets/style3_cyber_wordmark_light.png" download class="btn">📝 Text Only</a>
+        </div>
+      </div>
+
+      <!-- Wordmark 4: Minimalist Modern Grotesk -->
+      <div class="concept-card">
+        <div class="card-top">
+          <span class="concept-tag">Style 04 • Minimal Grotesk</span>
+          <span style="font-size:12px; font-weight:700; color:var(--text-muted);">Silicon Valley Aesthetic</span>
+        </div>
+        <div class="img-stage-horizontal" id="stage-wm-4">
+          <button class="stage-toggle-btn" onclick="toggleStageBg('stage-wm-4', 'assets/style4_minimal_lockup_light.png', 'assets/style4_minimal_lockup_dark.png')">🌙 View Dark</button>
+          <img src="assets/style4_minimal_lockup_light.png" alt="The Minimalist Modern Grotesk">
+        </div>
+        <h2 class="concept-title">The Minimalist Modern Grotesk</h2>
+        <p class="concept-desc">סגנון מינימליסטי מעודן באותיות קטנות (Lowercase): אותיות sans-serif מלוטשות, הספרה 4 באדום מג'נטה מודגש, וגלולת ai עדינה בעלת מסגרת סגולה דקה. שפה עיצובית בסגנון Linear, Vercel ו-Stripe.</p>
+        <div class="concept-actions">
+          <button class="btn btn-primary" onclick="setLockupHeader('assets/style4_minimal_lockup_light.png', 'The Minimalist Modern Grotesk')">👁️ Apply to Header</button>
+          <a href="assets/style4_minimal_lockup_light.png" download class="btn">📥 Lockup (Light 2x)</a>
+          <a href="assets/style4_minimal_lockup_dark.png" download class="btn">📥 Lockup (Dark 2x)</a>
+          <a href="assets/style4_minimal_wordmark_light.png" download class="btn">📝 Text Only</a>
+        </div>
+      </div>
+
     </div>
 
     <!-- WORKS4YOU ORIGINAL EMBLEM 3D EVOLUTION -->
