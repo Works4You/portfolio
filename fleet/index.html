@@ -1782,6 +1782,612 @@
       font-size: 13.5px;
       color: var(--text-muted);
     }
+
+    /* ==========================================================================
+       UX/UI OVERHAUL: BENTO COMMAND CENTER, JOURNEY SIMULATOR & ROI CALCULATOR
+       ========================================================================== */
+
+    /* Hero Scenarios */
+    .hero-scenario-chips {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .scenario-chip {
+      background: #FFFFFF;
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: all 0.2s ease;
+    }
+    .scenario-chip:hover, .scenario-chip.active {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+    .scenario-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 6px #10B981;
+    }
+
+    /* Hero Live Routing Preview */
+    .hero-routing-preview {
+      background: #0F172A;
+      color: #E2E8F0;
+      border-radius: 16px;
+      padding: 14px 18px;
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 12.5px;
+      animation: fadeIn 0.3s ease;
+    }
+    .routing-pill-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .routing-agent-pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #38BDF8;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Bento Grid Roster */
+    .fleet-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+    @media (max-width: 1024px) {
+      .fleet-bento-grid { grid-template-columns: 1fr; }
+      .bento-card-jake, .bento-card-katie, .bento-card-claire, .bento-card-vance, .bento-card-warren, .bento-card-hunter, .bento-card-ops {
+        grid-column: span 1 !important;
+      }
+    }
+
+    /* Bento Card Base */
+    .bento-card {
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .bento-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* 1. Jake CTO Command Hub */
+    .bento-card-jake {
+      grid-column: span 8;
+      background: linear-gradient(135deg, #0B0F19 0%, #15102A 50%, #201335 100%);
+      border: 1.5px solid rgba(124, 58, 237, 0.35);
+      color: #FFFFFF;
+      padding: 32px;
+      box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.4);
+    }
+    .bento-card-jake:hover {
+      border-color: rgba(124, 58, 237, 0.65);
+      box-shadow: 0 30px 70px -10px rgba(124, 58, 237, 0.25);
+    }
+    .jake-header-split {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .jake-title-wrap {
+      flex: 1;
+    }
+    .jake-avatar-wrap {
+      width: 130px;
+      height: 130px;
+      border-radius: 20px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .jake-avatar {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+    }
+    .devops-telemetry-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin: 20px 0;
+    }
+    .telemetry-item-val {
+      font-size: 16px;
+      font-weight: 800;
+      color: #38BDF8;
+    }
+    .telemetry-item-lbl {
+      font-size: 11px;
+      font-weight: 600;
+      color: #94A3B8;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* 2. Katie Inbound Hub */
+    .bento-card-katie {
+      grid-column: span 4;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(37, 211, 102, 0.35);
+      padding: 28px;
+      box-shadow: 0 20px 40px -12px rgba(37, 211, 102, 0.12);
+    }
+    .bento-card-katie:hover {
+      border-color: #25D366;
+      box-shadow: 0 25px 50px -10px rgba(37, 211, 102, 0.22);
+    }
+    .chat-bubble-widget {
+      background: #E7FCE8;
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 16px 0;
+      font-size: 12.5px;
+      color: #0F172A;
+    }
+    .audio-waveform-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .audio-play-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      border: none;
+      cursor: pointer;
+    }
+    .waveform-bars {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      height: 16px;
+      flex: 1;
+    }
+    .waveform-bar {
+      width: 3px;
+      background: #059669;
+      border-radius: 2px;
+    }
+
+    /* 3. Claire Legal Counsel */
+    .bento-card-claire {
+      grid-column: span 6;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(124, 58, 237, 0.22);
+      padding: 28px;
+      box-shadow: 0 20px 40px -12px rgba(124, 58, 237, 0.08);
+    }
+    .bento-card-claire:hover {
+      border-color: var(--primary);
+      box-shadow: 0 25px 50px -10px rgba(124, 58, 237, 0.16);
+    }
+    .contract-diff-widget {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 14px;
+      margin: 16px 0;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .diff-old {
+      background: #FEE2E2;
+      color: #991B1B;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-decoration: line-through;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .diff-new {
+      background: #ECFDF5;
+      color: #065F46;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      display: block;
+    }
+
+    /* 4. Vance Cyber Officer */
+    .bento-card-vance {
+      grid-column: span 6;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F0F9FF 100%);
+      border: 1.5px solid rgba(14, 165, 233, 0.3);
+      padding: 28px;
+      box-shadow: 0 20px 40px -12px rgba(14, 165, 233, 0.1);
+    }
+    .bento-card-vance:hover {
+      border-color: #0EA5E9;
+      box-shadow: 0 25px 50px -10px rgba(14, 165, 233, 0.2);
+    }
+    .security-radar-widget {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 14px;
+      margin: 16px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: center;
+    }
+    .radar-score-pill {
+      font-size: 18px;
+      font-weight: 900;
+      color: #0EA5E9;
+    }
+    .radar-lbl {
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748B;
+    }
+
+    /* 5. Warren Treasury */
+    .bento-card-warren {
+      grid-column: span 4;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(245, 158, 11, 0.3);
+      padding: 28px;
+      box-shadow: 0 20px 40px -12px rgba(245, 158, 11, 0.1);
+    }
+    .bento-card-warren:hover {
+      border-color: #F59E0B;
+      box-shadow: 0 25px 50px -10px rgba(245, 158, 11, 0.2);
+    }
+    .fx-ticker-widget {
+      background: #FEF3C7;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 16px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #92400E;
+    }
+
+    /* 6. Hunter Headhunting */
+    .bento-card-hunter {
+      grid-column: span 4;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(99, 102, 241, 0.25);
+      padding: 28px;
+      box-shadow: 0 20px 40px -12px rgba(99, 102, 241, 0.1);
+    }
+    .bento-card-hunter:hover {
+      border-color: #6366F1;
+      box-shadow: 0 25px 50px -10px rgba(99, 102, 241, 0.2);
+    }
+    .candidate-score-widget {
+      background: #EEF2FF;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 16px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #3730A3;
+    }
+
+    /* 7. Chloe, Miles, Sierra Pod */
+    .bento-card-ops {
+      grid-column: span 4;
+      background: linear-gradient(135deg, #FAF5FF 0%, #F5F3FF 100%);
+      border: 1.5px solid rgba(168, 85, 247, 0.3);
+      padding: 28px;
+      box-shadow: 0 20px 40px -12px rgba(168, 85, 247, 0.1);
+    }
+    .bento-card-ops:hover {
+      border-color: #A855F7;
+      box-shadow: 0 25px 50px -10px rgba(168, 85, 247, 0.2);
+    }
+
+    /* Mini Avatar Header in Bento Cards */
+    .bento-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .bento-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      object-fit: cover;
+      background: #F1EEFE;
+      border: 1.5px solid rgba(124, 58, 237, 0.2);
+      flex-shrink: 0;
+    }
+    .bento-name-group {
+      flex: 1;
+    }
+    .bento-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .bento-role {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .bento-desc {
+      font-size: 13.5px;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+
+    /* ==========================================================================
+       CUSTOMER JOURNEY SIMULATOR STYLES
+       ========================================================================== */
+    .journey-simulator-wrap {
+      background: #FFFFFF;
+      border: 1.5px solid var(--card-border);
+      border-radius: 32px;
+      padding: 40px;
+      box-shadow: 0 25px 60px -20px rgba(124, 58, 237, 0.12);
+      margin-bottom: 90px;
+    }
+    .industry-nav-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .industry-tab-btn {
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      color: var(--text-main);
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .industry-tab-btn.active, .industry-tab-btn:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+    }
+    .simulator-split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+    @media (max-width: 960px) {
+      .simulator-split-layout { grid-template-columns: 1fr; }
+    }
+    .pipeline-steps-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .pipeline-step-node {
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 16px 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+    }
+    .pipeline-step-node.active {
+      background: #FFFFFF;
+      border-color: var(--primary);
+      box-shadow: 0 8px 24px -6px rgba(124, 58, 237, 0.16);
+      transform: translateX(6px);
+    }
+    .step-circle-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #EDE9FE;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .pipeline-step-node.active .step-circle-badge {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+    .step-node-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .step-node-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Live Simulator Console */
+    .simulator-console-panel {
+      background: #0B0F19;
+      border-radius: 20px;
+      border: 1.5px solid #1E293B;
+      color: #E2E8F0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .console-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 16px;
+    }
+    .console-indicator-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+    }
+
+    /* ==========================================================================
+       INTERACTIVE ROI & ECONOMIC CALCULATOR STYLES
+       ========================================================================== */
+    .roi-calculator-shell {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+      border: 1.5px solid var(--card-border);
+      border-radius: 32px;
+      padding: 48px;
+      box-shadow: 0 25px 60px -20px rgba(124, 58, 237, 0.12);
+      margin-bottom: 90px;
+    }
+    .roi-grid-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .roi-grid-layout { grid-template-columns: 1fr; }
+    }
+    .roi-control-group {
+      margin-bottom: 24px;
+    }
+    .roi-label-split {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .roi-value-pill {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .roi-slider {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #E2E8F0;
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+    .roi-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(124, 58, 237, 0.4);
+    }
+
+    .roi-metrics-output-card {
+      background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      border-radius: 24px;
+      padding: 32px;
+      color: #FFFFFF;
+      box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.4);
+      text-align: center;
+    }
+    .roi-big-stat-val {
+      font-size: 44px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #38BDF8 0%, #818CF8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .roi-big-stat-lbl {
+      font-size: 13px;
+      font-weight: 700;
+      color: #94A3B8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    .roi-sub-stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
   </style>
 </head>
 <body>
@@ -1801,12 +2407,11 @@
       <img src="assets/works4you_logo_official_light.png" alt="Works4you AI" class="brand-img-lockup">
     </a>
     <ul class="nav-links">
-      <li><a href="#fleet">Agent Fleet</a></li>
-      <li><a href="#matcher">Needs & Builder</a></li>
-      <li><a href="#workflow">How It Works</a></li>
-      <li><a href="#usecases">Use Cases</a></li>
-      <li><a href="#integrations">Integrations & MCP</a></li>
-      <li><a href="#compare">Why Works4you</a></li>
+      <li><a href="#fleet">Command Fleet</a></li>
+      <li><a href="#simulator">Journey Simulator</a></li>
+      <li><a href="#integrations">MCP Ecosystem</a></li>
+      <li><a href="#roi">ROI Calculator</a></li>
+      <li><a href="#security">Airgap Security</a></li>
     </ul>
     <div class="nav-actions">
       <a href="logo-showcase.html" class="btn-secondary nav-studio-btn" style="border-color:#F59E0B; color:#D97706; text-decoration:none; padding: 6px 13px; font-size: 12.5px;">🎨 3D Studio</a>
@@ -1840,16 +2445,34 @@
           </div>
         </div>
         <div class="command-input-group">
-          <input type="text" class="command-input" placeholder="e.g. Audit vendor agreements with Claire, qualify inbound leads with Katie..." value="Qualify incoming enterprise leads with Katie and review compliance requirements with Vance">
-          <button class="command-btn">
+          <input type="text" id="hero-command-input" class="command-input" placeholder="e.g. Audit vendor agreements with Claire, qualify inbound leads with Katie..." value="Audit 42 vendor MSAs for unlimited liability, extract intellectual property warranties, and stage redlines for general counsel sign-off.">
+          <button class="command-btn" onclick="triggerHeroWorkflow()">
             <svg class="btn-emblem" viewBox="0 0 24 24" fill="none"><path d="M12 2L20.66 7V17L12 22L3.34 17V7L12 2Z" stroke="#FFF" stroke-width="2" stroke-linejoin="round"/><path d="M12 12L20.66 7M12 12V22M12 12L3.34 7" stroke="#FFF" stroke-width="1.5"/><circle cx="12" cy="12" r="2" fill="#06B6D4"/></svg> Run Workflow
           </button>
+        </div>
+
+        <!-- Interactive Scenario Quick-Launch Chips -->
+        <div class="hero-scenario-chips" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:16px; padding-top:14px; border-top:1px solid rgba(0,0,0,0.06);">
+          <span style="font-size:12px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em;">Simulate Workflow:</span>
+          <button type="button" class="hero-chip active" id="scenario-chip-0" onclick="runHeroScenario(0)" style="background:#EDE9FE; color:var(--primary); border:1px solid rgba(124,58,237,0.25); border-radius:999px; padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.2s;">⚖️ M&A Legal Due Diligence</button>
+          <button type="button" class="hero-chip" id="scenario-chip-1" onclick="runHeroScenario(1)" style="background:#F1F5F9; color:#475569; border:1px solid #E2E8F0; border-radius:999px; padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.2s;">💬 WhatsApp Inbound Surge</button>
+          <button type="button" class="hero-chip" id="scenario-chip-2" onclick="runHeroScenario(2)" style="background:#F1F5F9; color:#475569; border:1px solid #E2E8F0; border-radius:999px; padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.2s;">💵 FX & Cashflow Rebalance</button>
+          <button type="button" class="hero-chip" id="scenario-chip-3" onclick="runHeroScenario(3)" style="background:#F1F5F9; color:#475569; border:1px solid #E2E8F0; border-radius:999px; padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.2s;">🎯 Executive Headhunt</button>
+        </div>
+
+        <!-- Live Routing Output -->
+        <div id="hero-routing-output" style="margin-top:14px; background:#0B0F19; border-radius:14px; padding:14px 18px; color:#E2E8F0; font-size:13px; display:flex; align-items:center; justify-content:space-between; font-family:ui-monospace, monospace; border:1px solid #1E293B;">
+          <span style="display:flex; align-items:center; gap:10px;">
+            <span style="width:8px; height:8px; border-radius:50%; background:#10B981; display:inline-block; box-shadow:0 0 8px #10B981;"></span>
+            <span id="hero-routing-text"><strong>Jake Conductor:</strong> Dispatched 42 agreements to Claire (Legal Pod) & Vance (SecOps). Flag: Uncapped liability detected in Clause 14.2. Staged for one-click human approval.</span>
+          </span>
+          <span id="hero-routing-latency" style="color:#38BDF8; font-weight:700; font-size:12px; white-space:nowrap; margin-inline-start:12px;">Latency: 142ms</span>
         </div>
       </div>
     </header>
 
     <!-- Airgap Security Callout -->
-    <div id="isolation" class="airgap-banner">
+    <div id="security" class="airgap-banner">
       <div class="airgap-left">
         <div class="airgap-icon">🔒</div>
         <div class="airgap-text">
@@ -1863,212 +2486,264 @@
     </div>
 
     <!-- Fleet Filter & Roster -->
+        <!-- Fleet Bento Command Center -->
     <section id="fleet">
       <div class="section-header">
-        <div class="section-badge">International Fleet Roster</div>
-        <h2 class="section-title">9 Specialized Agents. One Shared Brain.</h2>
-        <p class="section-subtitle">Every agent owns an executive domain with autonomous tools, strict approval gates, and continuous operational learning.</p>
+        <div class="section-badge">Command Center Fleet</div>
+        <h2 class="section-title">9 Autonomous Specialists. One Coordinated Brain.</h2>
+        <p class="section-subtitle">Break away from generic chatbots. Each agent controls an executive business domain with specialized tooling, airgapped memory, and real-time execution outputs.</p>
       </div>
 
-      <div class="filter-tabs">
-        <button class="filter-tab active">All 9 Agents</button>
-        <button class="filter-tab">Customer & Growth</button>
-        <button class="filter-tab">Dedicated Client Pods</button>
-        <button class="filter-tab">Executive Operations</button>
+      <div class="filter-tabs" style="margin-bottom:32px;">
+        <button class="filter-tab active" id="bento-filter-all" onclick="filterFleetBento('all')">All 9 Specialists</button>
+        <button class="filter-tab" id="bento-filter-growth" onclick="filterFleetBento('growth')">Customer & Inbound Growth</button>
+        <button class="filter-tab" id="bento-filter-pods" onclick="filterFleetBento('pods')">Dedicated Client Pods</button>
+        <button class="filter-tab" id="bento-filter-exec" onclick="filterFleetBento('exec')">Executive & Legal Operations</button>
       </div>
 
-      <div class="fleet-grid">
+      <div class="fleet-bento-grid">
 
-        <!-- 1. Jake -->
-        <div class="agent-card">
-          <div class="agent-img-wrap">
-            <img src="assets/transparent/jake_transparent.png" alt="Jake" class="agent-img">
-            <div class="agent-status-pill"><span class="status-dot"></span> Active Orchestrator</div>
+        <!-- 1. Jake (CTO & Chief Fleet Orchestrator) - Span 8 -->
+        <div class="bento-card bento-card-jake" data-category="exec">
+          <div class="jake-header-split">
+            <div class="jake-title-wrap">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                <span class="agent-status-pill" style="background:rgba(56, 189, 248, 0.15); border-color:#38BDF8; color:#38BDF8;"><span class="status-dot" style="background:#38BDF8; box-shadow:0 0 6px #38BDF8;"></span> Conductor Active</span>
+                <span style="font-size:11px; font-weight:700; color:#A78BFA; background:rgba(167, 139, 250, 0.12); padding:2px 8px; border-radius:999px;">Cloud Run Native</span>
+              </div>
+              <div class="bento-name" style="color:#FFFFFF; font-size:26px;">Jake — Chief Fleet Orchestrator & CTO</div>
+              <div class="bento-role" style="color:#94A3B8; font-size:14px; margin-top:2px;">Master multi-agent dependency router, autonomous DevOps, and self-healing cloud runtime.</div>
+            </div>
+            <div class="jake-avatar-wrap">
+              <img src="assets/transparent/jake_transparent.png" alt="Jake" class="jake-avatar">
+            </div>
           </div>
-          <div class="agent-info">
-            <div class="agent-meta">
-              <span class="agent-name">Jake</span>
-              <span class="agent-alias">Orchestrator</span>
+
+          <div class="devops-telemetry-strip">
+            <div>
+              <div class="telemetry-item-val">142ms</div>
+              <div class="telemetry-item-lbl">Cloud Run p99</div>
             </div>
-            <div class="agent-role">Chief Fleet Orchestrator & CTO</div>
-            <p class="agent-desc">Master system coordination, autonomous cloud deployments, multi-agent dependency routing, and continuous self-healing DevOps infrastructure.</p>
-            <div class="agent-tools">
-              <span class="tool-tag">Cloud Runtime</span>
-              <span class="tool-tag">CI/CD Engine</span>
-              <span class="tool-tag">Self-Healing</span>
+            <div>
+              <div class="telemetry-item-val" style="color:#10B981;">0 Downtime</div>
+              <div class="telemetry-item-lbl">Self-Healing Loop</div>
             </div>
+            <div>
+              <div class="telemetry-item-val" style="color:#A78BFA;">9/9 Active</div>
+              <div class="telemetry-item-lbl">Coordinated Pods</div>
+            </div>
+          </div>
+
+          <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px 16px; font-family:ui-monospace, monospace; font-size:12px; color:#E2E8F0; margin-bottom:18px;">
+            <div style="color:#94A3B8; font-size:11px; margin-bottom:4px;">● LIVE ORCHESTRATION STREAM</div>
+            <div><span style="color:#38BDF8;">[DISPATCH]</span> Multi-agent pipeline triggered: Incoming enterprise SLA -> Claire [Legal Pod] + Vance [SecOps]</div>
+            <div><span style="color:#10B981;">[STATUS]</span> Airgap pod verified &bull; Approval gate staged &bull; Zero human intervention required</div>
+          </div>
+
+          <div class="agent-tools">
+            <span class="tool-tag" style="background:rgba(255,255,255,0.08); color:#E2E8F0; border-color:rgba(255,255,255,0.12);">Cloud Run Container</span>
+            <span class="tool-tag" style="background:rgba(255,255,255,0.08); color:#E2E8F0; border-color:rgba(255,255,255,0.12);">GitHub Actions CI/CD</span>
+            <span class="tool-tag" style="background:rgba(255,255,255,0.08); color:#E2E8F0; border-color:rgba(255,255,255,0.12);">Self-Healing Loop</span>
+            <span class="tool-tag" style="background:rgba(255,255,255,0.08); color:#E2E8F0; border-color:rgba(255,255,255,0.12);">Task DAG Engine</span>
           </div>
         </div>
 
-        <!-- 2. Katie -->
-        <div class="agent-card">
-          <div class="agent-img-wrap">
-            <img src="assets/transparent/katie_transparent.png" alt="Katie" class="agent-img">
-            <div class="agent-status-pill"><span class="status-dot"></span> Inbound Hub</div>
+        <!-- 2. Katie (Omnichannel Inbound Hub) - Span 4 -->
+        <div class="bento-card bento-card-katie" data-category="growth">
+          <div class="bento-header">
+            <img src="assets/transparent/katie_transparent.png" alt="Katie" class="bento-avatar" style="background:#DCFCE7; border-color:rgba(37,211,102,0.4);">
+            <div class="bento-name-group">
+              <div class="bento-name" style="font-size:20px;">Katie</div>
+              <div class="bento-role" style="color:#15803D;">Inbound Experience Lead</div>
+            </div>
+            <span class="agent-status-pill" style="background:#DCFCE7; border-color:#22C55E; color:#15803D; font-size:11px; padding:3px 8px;"><span class="status-dot" style="background:#16A34A;"></span> Live Hub</span>
           </div>
-          <div class="agent-info">
-            <div class="agent-meta">
-              <span class="agent-name">Katie</span>
-              <span class="agent-alias">Inbound Hub</span>
+          <p class="bento-desc">First response line across WhatsApp, web chat, and email. Accurately transcribes voice notes, qualifies enterprise budgets, and stages meetings in Twenty CRM.</p>
+
+          <!-- WhatsApp Audio & Transcription Widget -->
+          <div class="chat-bubble-widget">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+              <span style="font-size:11px; font-weight:800; color:#166534; text-transform:uppercase;">WhatsApp Voice Note</span>
+              <span style="font-size:11px; color:#15803D; font-weight:700;">0:18 &bull; 97.4% Confidence</span>
             </div>
-            <div class="agent-role">Omnichannel Inbound Experience Lead</div>
-            <p class="agent-desc">Primary enterprise communication front: triages messaging channels, web chats, and social inboxes, qualifies business inquiries, and syncs opportunities directly into your CRM system.</p>
-            <div class="agent-tools">
-              <span class="tool-tag">Messaging APIs</span>
-              <span class="tool-tag">Omnichannel Desk</span>
-              <span class="tool-tag">CRM Systems</span>
+            <div style="background:#FFFFFF; border-radius:10px; padding:8px 10px; font-size:12px; color:#1E293B; border:1px solid rgba(37,211,102,0.25); line-height:1.4;">
+              <span style="color:#16A34A; font-weight:700;">Transcript:</span> "היי שמעון, מעוניינים להטמיע את הפליט ל-40 משתמשים בארגון, רוצים לבחון חוזים ו-CRM..."
             </div>
+          </div>
+
+          <div style="margin-top:auto; padding-top:14px;">
+            <a href="https://wa.me/972584742727?text=Hi%20Katie%2C%20I%20would%20like%20to%20test%20the%20Works4you%20AI%20fleet." target="_blank" class="btn-main" style="display:flex; align-items:center; justify-content:center; gap:8px; width:100%; text-decoration:none; padding:10px 14px; font-size:13px; background:#25D366; border-color:#25D366; color:#FFFFFF; border-radius:12px; font-weight:700; box-shadow:0 4px 14px rgba(37,211,102,0.35);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M16.5 14.1c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.1-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4s-.5-1.2-.7-1.7c-.2-.4-.4-.4-.5-.4h-.4c-.2 0-.5.1-.7.3-.2.2-.8.8-.8 2 0 1.2.9 2.3 1 2.5.1.2 1.7 2.6 4.1 3.7.6.3 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.3-.5 1.5-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.1-.5-.2z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.16-1.33C8.59 21.49 10.25 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.58 0-3.07-.44-4.36-1.21l-.31-.19-3.23.83.86-3.15-.2-.33C3.89 14.7 3.5 13.39 3.5 12c0-4.69 3.81-8.5 8.5-8.5s8.5 3.81 8.5 8.5-3.81 8.5-8.5 8.5z"/></svg> Test Katie on WhatsApp
+            </a>
           </div>
         </div>
 
-        <!-- 3. Hunter -->
-        <div class="agent-card">
-          <div class="agent-img-wrap">
-            <img src="assets/transparent/hunter_transparent.png" alt="Hunter" class="agent-img">
-            <div class="agent-status-pill"><span class="status-dot"></span> Active Scout</div>
+        <!-- 3. Claire (Legal & Regulatory Counsel) - Span 6 -->
+        <div class="bento-card bento-card-claire" data-category="exec">
+          <div class="bento-header">
+            <img src="assets/transparent/claire_transparent.png" alt="Claire" class="bento-avatar" style="background:#F3E8FF; border-color:rgba(147,51,234,0.3);">
+            <div class="bento-name-group">
+              <div class="bento-name">Claire</div>
+              <div class="bento-role" style="color:#7E22CE;">Corporate Counsel & Compliance</div>
+            </div>
+            <span class="agent-status-pill" style="background:#F3E8FF; border-color:#A855F7; color:#7E22CE; font-size:11px; padding:3px 8px;"><span class="status-dot" style="background:#9333EA;"></span> Legal Pod</span>
           </div>
-          <div class="agent-info">
-            <div class="agent-meta">
-              <span class="agent-name">Hunter</span>
-              <span class="agent-alias">Outbound Engine</span>
+          <p class="bento-desc">Audits vendor contracts, NDAs, and regulatory filings. Enforces playbook standards and stages redlines behind a cryptographic human sign-off gate.</p>
+
+          <!-- Interactive Contract Redline Diff Widget -->
+          <div class="contract-diff-widget">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-weight:800; font-size:11px; color:#581C87; text-transform:uppercase;">Contract Redline Diff &bull; Section 14.2</span>
+              <span style="font-size:11px; color:#9333EA; font-weight:700;">B2B Master Agreement</span>
             </div>
-            <div class="agent-role">Executive Talent & Sourcing Engine</div>
-            <p class="agent-desc">Autonomous executive intelligence and talent sourcing engine: scans enterprise registries, scores matching profiles, crafts bespoke positioning dossiers, and stages outreach.</p>
-            <div class="agent-tools">
-              <span class="tool-tag">Executive Portals</span>
-              <span class="tool-tag">Talent Matching</span>
-              <span class="tool-tag">Automated Staging</span>
+            <div style="background:#FFFFFF; border-radius:10px; padding:10px; border:1px solid rgba(147,51,234,0.2); font-family:ui-monospace, monospace; font-size:11.5px; line-height:1.5;">
+              <div style="color:#DC2626; background:#FEF2F2; padding:3px 6px; border-radius:4px; margin-bottom:4px;">
+                [-] 14.2 Supplier liability uncapped for all indirect and consequential losses.
+              </div>
+              <div style="color:#16A34A; background:#F0FDF4; padding:3px 6px; border-radius:4px;">
+                [+] 14.2 Mutual aggregate liability capped strictly at 12 months trailing fees.
+              </div>
             </div>
+            <div style="margin-top:8px; display:flex; align-items:center; gap:6px; font-size:11px; font-weight:700; color:#6B21A8;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg> Mandatory Human Sign-Off Gate Enforced
+            </div>
+          </div>
+
+          <div class="agent-tools">
+            <span class="tool-tag">Playbook Redliner</span>
+            <span class="tool-tag">Google Docs Sync</span>
+            <span class="tool-tag">Court Filing Gate</span>
           </div>
         </div>
 
-        <!-- 4. Claire -->
-        <div class="agent-card">
-          <div class="agent-img-wrap">
-            <img src="assets/transparent/claire_transparent.png" alt="Claire" class="agent-img">
-            <div class="agent-status-pill"><span class="status-dot"></span> Legal Gatekeeper</div>
-            <div class="tenant-badge">Legal & Compliance</div>
+        <!-- 4. Vance (Cybersecurity & SOC 2 Guard) - Span 6 -->
+        <div class="bento-card bento-card-vance" data-category="growth">
+          <div class="bento-header">
+            <img src="assets/transparent/vance_transparent.png" alt="Vance" class="bento-avatar" style="background:#CFFAFE; border-color:rgba(6,182,212,0.3);">
+            <div class="bento-name-group">
+              <div class="bento-name">Vance</div>
+              <div class="bento-role" style="color:#0891B2;">Cyber & Compliance Officer</div>
+            </div>
+            <span class="agent-status-pill" style="background:#CFFAFE; border-color:#06B6D4; color:#0891B2; font-size:11px; padding:3px 8px;"><span class="status-dot" style="background:#0891B2;"></span> SecOps Guard</span>
           </div>
-          <div class="agent-info">
-            <div class="agent-meta">
-              <span class="agent-name">Claire</span>
-              <span class="agent-alias">Legal Counsel</span>
+          <p class="bento-desc">Performs non-stop external penetration scans, attack surface surveillance, funding signal tracking, and automates SOC 2 Type II audit readiness.</p>
+
+          <!-- Security Radar Widget -->
+          <div class="security-radar-widget">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-weight:800; font-size:11px; color:#155E75; text-transform:uppercase;">Domain Security & Compliance Radar</span>
+              <span style="background:#06B6D4; color:#FFFFFF; font-size:11px; font-weight:800; padding:2px 8px; border-radius:999px;">A+ (99.4/100)</span>
             </div>
-            <div class="agent-role">Legal & Regulatory Counsel</div>
-            <p class="agent-desc">Dedicated enterprise legal intelligence: audits contracts, executes complex regulatory compliance analyses, verifies legal filings, and enforces strict approval gates.</p>
-            <div class="agent-tools">
-              <span class="tool-tag">Legal Audit</span>
-              <span class="tool-tag">Contract Analysis</span>
-              <span class="tool-tag">Compliance Gates</span>
+            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; text-align:center;">
+              <div style="background:#FFFFFF; border:1px solid rgba(6,182,212,0.25); border-radius:8px; padding:6px;">
+                <div style="font-size:13px; font-weight:800; color:#0891B2;">0 Open</div>
+                <div style="font-size:10px; color:#64748B;">CVE Alerts</div>
+              </div>
+              <div style="background:#FFFFFF; border:1px solid rgba(6,182,212,0.25); border-radius:8px; padding:6px;">
+                <div style="font-size:13px; font-weight:800; color:#10B981;">TLS 1.3</div>
+                <div style="font-size:10px; color:#64748B;">HSTS Strict</div>
+              </div>
+              <div style="background:#FFFFFF; border:1px solid rgba(6,182,212,0.25); border-radius:8px; padding:6px;">
+                <div style="font-size:13px; font-weight:800; color:#6366F1;">SOC 2</div>
+                <div style="font-size:10px; color:#64748B;">Type II Ready</div>
+              </div>
             </div>
+          </div>
+
+          <div class="agent-tools">
+            <span class="tool-tag">External PenTest</span>
+            <span class="tool-tag">Threat Recon</span>
+            <span class="tool-tag">SOC 2 Controls</span>
           </div>
         </div>
 
-        <!-- 5. Vance -->
-        <div class="agent-card">
-          <div class="agent-img-wrap">
-            <img src="assets/transparent/vance_transparent.png" alt="Vance" class="agent-img">
-            <div class="agent-status-pill"><span class="status-dot"></span> Cyber Scout</div>
-            <div class="tenant-badge">Cyber & Security</div>
+        <!-- 5. Warren (Treasury & Cashflow Analyst) - Span 4 -->
+        <div class="bento-card bento-card-warren" data-category="exec">
+          <div class="bento-header">
+            <img src="assets/transparent/warren_transparent.png" alt="Warren" class="bento-avatar" style="background:#FEF3C7; border-color:rgba(245,158,11,0.3);">
+            <div class="bento-name-group">
+              <div class="bento-name">Warren</div>
+              <div class="bento-role" style="color:#B45309;">Financial Controller & Treasury</div>
+            </div>
+            <span class="agent-status-pill" style="background:#FEF3C7; border-color:#F59E0B; color:#B45309; font-size:11px; padding:3px 8px;"><span class="status-dot" style="background:#D97706;"></span> Treasury</span>
           </div>
-          <div class="agent-info">
-            <div class="agent-meta">
-              <span class="agent-name">Vance</span>
-              <span class="agent-alias">Security Officer</span>
+          <p class="bento-desc">Extracts SaaS & cloud invoices from Gmail, executes live FX conversions (USD/EUR/ILS), and updates treasury ledgers with zero human data entry.</p>
+
+          <!-- FX Ticker Widget -->
+          <div class="fx-ticker-widget">
+            <div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
+              <span>$4,200 USD ⇄ ₪15,850 ILS</span>
+              <span style="font-size:11px; background:#FDE68A; padding:2px 6px; border-radius:6px; color:#92400E;">FX: 3.77</span>
             </div>
-            <div class="agent-role">Cyber & Compliance Growth Officer</div>
-            <p class="agent-desc">Enterprise cybersecurity and compliance acquisition engine: identifies high-growth companies requiring mandatory SOC 2 Type II, ISO 27001, Pentest (PT), and CISO-as-a-Service certifications.</p>
-            <div class="agent-tools">
-              <span class="tool-tag">Security Audits</span>
-              <span class="tool-tag">Compliance Pipeline</span>
-              <span class="tool-tag">CRM Systems</span>
+            <div style="font-size:11px; color:#78350F; margin-top:6px; font-weight:600;">
+              ✓ 28 Invoices Reconciled &bull; 0 Missing Tax Receipts
             </div>
+          </div>
+
+          <div class="agent-tools">
+            <span class="tool-tag">Gmail Receipt OCR</span>
+            <span class="tool-tag">Live FX Engine</span>
+            <span class="tool-tag">Sheets Auto-Ledger</span>
           </div>
         </div>
 
-        <!-- 6. Chloe -->
-        <div class="agent-card">
-          <div class="agent-img-wrap">
-            <img src="assets/transparent/chloe_transparent.png" alt="Chloe" class="agent-img">
-            <div class="agent-status-pill"><span class="status-dot"></span> Executive Ops</div>
-            <div class="tenant-badge">Executive Ops</div>
+        <!-- 6. Hunter (Executive Talent Sourcing) - Span 4 -->
+        <div class="bento-card bento-card-hunter" data-category="growth">
+          <div class="bento-header">
+            <img src="assets/transparent/hunter_transparent.png" alt="Hunter" class="bento-avatar" style="background:#EEF2FF; border-color:rgba(99,102,241,0.3);">
+            <div class="bento-name-group">
+              <div class="bento-name">Hunter</div>
+              <div class="bento-role" style="color:#4F46E5;">Executive Talent Engine</div>
+            </div>
+            <span class="agent-status-pill" style="background:#EEF2FF; border-color:#6366F1; color:#4F46E5; font-size:11px; padding:3px 8px;"><span class="status-dot" style="background:#6366F1;"></span> Talent Radar</span>
           </div>
-          <div class="agent-info">
-            <div class="agent-meta">
-              <span class="agent-name">Chloe</span>
-              <span class="agent-alias">Chief of Staff</span>
+          <p class="bento-desc">Scans executive networks, scores VP/C-level candidate compatibility, generates tailored 1-page briefings, and runs outbound campaigns.</p>
+
+          <!-- Candidate Score Widget -->
+          <div class="candidate-score-widget">
+            <div>
+              <div style="font-size:11px; color:#4338CA;">Target: VP R&D / AI Systems</div>
+              <div style="font-size:13px; font-weight:800; color:#312E81;">Match Score: 96%</div>
             </div>
-            <div class="agent-role">Executive Chief of Staff & Operations</div>
-            <p class="agent-desc">C-Suite operational right hand: manages calendar defense, communication triage, executive board briefing preparation, and daily operational standups.</p>
-            <div class="agent-tools">
-              <span class="tool-tag">Calendar Defense</span>
-              <span class="tool-tag">Inbox Triage</span>
-              <span class="tool-tag">Executive Briefs</span>
-            </div>
+            <span style="background:#4F46E5; color:#FFFFFF; font-size:11px; font-weight:700; padding:3px 8px; border-radius:6px;">1-Page Brief Ready</span>
+          </div>
+
+          <div class="agent-tools">
+            <span class="tool-tag">Network Graph Scout</span>
+            <span class="tool-tag">1-Page PDF Engine</span>
+            <span class="tool-tag">ATS Multi-Submit</span>
           </div>
         </div>
 
-        <!-- 7. Warren -->
-        <div class="agent-card">
-          <div class="agent-img-wrap">
-            <img src="assets/transparent/warren_transparent.png" alt="Warren" class="agent-img">
-            <div class="agent-status-pill"><span class="status-dot"></span> Zero Error</div>
-          </div>
-          <div class="agent-info">
-            <div class="agent-meta">
-              <span class="agent-name">Warren</span>
-              <span class="agent-alias">Financial Controller</span>
+        <!-- 7. Chloe, Miles, Sierra (Dedicated Client Pods) - Span 4 -->
+        <div class="bento-card bento-card-ops" data-category="pods">
+          <div class="bento-header">
+            <div style="display:flex; margin-inline-end:8px;">
+              <img src="assets/transparent/chloe_transparent.png" alt="Chloe" style="width:38px; height:38px; border-radius:12px; object-fit:cover; border:2px solid #FFFFFF; background:#F5F3FF;">
+              <img src="assets/transparent/miles_transparent.png" alt="Miles" style="width:38px; height:38px; border-radius:12px; object-fit:cover; border:2px solid #FFFFFF; background:#EDE9FE; margin-inline-start:-12px;">
+              <img src="assets/transparent/sierra_transparent.png" alt="Sierra" style="width:38px; height:38px; border-radius:12px; object-fit:cover; border:2px solid #FFFFFF; background:#DDD6FE; margin-inline-start:-12px;">
             </div>
-            <div class="agent-role">Financial Controller & Treasury</div>
-            <p class="agent-desc">Autonomous accounts ledger and cashflow intelligence: extracts corporate invoices and receipts, executes real-time multi-currency conversions, and reconciles financial spreadsheets.</p>
-            <div class="agent-tools">
-              <span class="tool-tag">Invoice Extraction</span>
-              <span class="tool-tag">Multi-Currency FX</span>
-              <span class="tool-tag">Financial Ledgers</span>
+            <div class="bento-name-group">
+              <div class="bento-name" style="font-size:18px;">Dedicated Client Pods</div>
+              <div class="bento-role" style="color:#7C3AED;">Chloe &bull; Miles &bull; Sierra</div>
             </div>
           </div>
-        </div>
+          <p class="bento-desc">Hermetically isolated containers deployed for specific client organizations (e.g. Edith Ltd, Twotone, Zohar). Zero prompt sharing, dedicated vector stores.</p>
 
-        <!-- 8. Sierra -->
-        <div class="agent-card">
-          <div class="agent-img-wrap">
-            <img src="assets/transparent/sierra_transparent.png" alt="Sierra" class="agent-img">
-            <div class="agent-status-pill"><span class="status-dot"></span> Multilingual</div>
-            <div class="tenant-badge">ESG & Impact</div>
-          </div>
-          <div class="agent-info">
-            <div class="agent-meta">
-              <span class="agent-name">Sierra</span>
-              <span class="agent-alias">Impact Advocate</span>
+          <div style="background:#FFFFFF; border:1px solid rgba(168,85,247,0.25); border-radius:12px; padding:10px 14px; margin:12px 0;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:11px; font-weight:800; color:#6B21A8; text-transform:uppercase;">Tenant Isolation</span>
+              <span style="font-size:11px; color:#10B981; font-weight:700;">● Active Airgap</span>
             </div>
-            <div class="agent-role">Global Impact & Stakeholder Advocate</div>
-            <p class="agent-desc">Multilingual stakeholder relations and institutional advocacy: drives global partner engagement, parses grant filings and field reports, and expands community discovery.</p>
-            <div class="agent-tools">
-              <span class="tool-tag">Multilingual RAG</span>
-              <span class="tool-tag">Grant Ingestion</span>
-              <span class="tool-tag">Audience Discovery</span>
+            <div style="font-size:12px; color:#475569; margin-top:4px;">
+              Dedicated memory banks, independent OAuth credentials, and zero cross-tenant bleed.
             </div>
           </div>
-        </div>
 
-        <!-- 9. Miles -->
-        <div class="agent-card">
-          <div class="agent-img-wrap">
-            <img src="assets/transparent/miles_transparent.png" alt="Miles" class="agent-img">
-            <div class="agent-status-pill"><span class="status-dot"></span> System Brain</div>
-          </div>
-          <div class="agent-info">
-            <div class="agent-meta">
-              <span class="agent-name">Miles</span>
-              <span class="agent-alias">Systems Architect</span>
-            </div>
-            <div class="agent-role">Systems & AI Architect</div>
-            <p class="agent-desc">Consolidates cross-agent operational memory, extracts reusable organizational Knowledge Items (KIs), and performs continuous intelligence scans on frontier AI models.</p>
-            <div class="agent-tools">
-              <span class="tool-tag">Knowledge Graphs</span>
-              <span class="tool-tag">Organizational Memory</span>
-              <span class="tool-tag">AI Radar</span>
-            </div>
+          <div class="agent-tools">
+            <span class="tool-tag">Isolated Memory Bank</span>
+            <span class="tool-tag">Multi-Tenant Vault</span>
+            <span class="tool-tag">Client RAG</span>
           </div>
         </div>
 
@@ -2076,373 +2751,196 @@
     </section>
 
     <!-- Needs Matcher & Custom Agent Builder Section -->
-    <section id="matcher" class="matcher-section">
+        <!-- Customer Journey Simulator Section -->
+    <section id="simulator" class="workflow-section">
       <div class="section-header">
-        <div class="section-tag">AI Fleet Orchestration</div>
-        <h2 class="section-title">Match Your Operations — Or Build a Custom Agent</h2>
-        <p class="section-subtitle">Select your enterprise bottleneck to see how our autonomous fleet resolves it end-to-end, or design a custom agent tailored to your tech stack.</p>
+        <div class="section-badge">Autonomous Lifecycle Simulator</div>
+        <h2 class="section-title">Experience the Customer Journey in Action</h2>
+        <p class="section-subtitle">Select an enterprise sector below to test how our multi-agent fleet executes the entire 5-stage lifecycle with airgapped isolation and human approval gates.</p>
       </div>
 
-      <div class="interactive-card-shell">
-        <div class="toggle-nav">
-          <button class="toggle-nav-btn active" id="tab-btn-matcher" onclick="switchMatcherTab('matcher')">
-            <span>⚡</span> Workflow Needs Matcher
+      <div class="journey-simulator-wrap">
+        <!-- Industry Selector Tabs -->
+        <div class="industry-nav-row">
+          <button class="industry-tab-btn active" id="ind-tab-legal" onclick="switchIndustryJourney('legal')">
+            <span>⚖️</span> Legal & Accounting Practice (Edith Ltd)
           </button>
-          <button class="toggle-nav-btn" id="tab-btn-builder" onclick="switchMatcherTab('builder')">
-            <span>🛠️</span> Build Your Custom Agent
+          <button class="industry-tab-btn" id="ind-tab-saas" onclick="switchIndustryJourney('saas')">
+            <span>🚀</span> B2B SaaS Enterprise Sales
+          </button>
+          <button class="industry-tab-btn" id="ind-tab-commerce" onclick="switchIndustryJourney('commerce')">
+            <span>📦</span> Global Commerce & Logistics (Twotone)
+          </button>
+          <button class="industry-tab-btn" id="ind-tab-talent" onclick="switchIndustryJourney('talent')">
+            <span>🎯</span> Executive Search & Staffing
           </button>
         </div>
 
-        <!-- Tab 1: Needs Matcher -->
-        <div id="tab-content-matcher" class="matcher-grid">
-          <div>
-            <h3 class="matcher-control-title">Select Your Operational Need</h3>
-            <p style="font-size:13.5px; color:#64748B; margin-bottom:14px;">Choose a common enterprise challenge or describe your specific workflow below:</p>
-            
-            <div class="preset-chips">
-              <div class="preset-chip active" id="chip-inbound" onclick="applyPreset('inbound')">Inbound Leads & CRM Sync</div>
-              <div class="preset-chip" id="chip-legal" onclick="applyPreset('legal')">Contract Audit & NDA Review</div>
-              <div class="preset-chip" id="chip-cyber" onclick="applyPreset('cyber')">SOC 2 & PenTesting Pipeline</div>
-              <div class="preset-chip" id="chip-finance" onclick="applyPreset('finance')">Multi-Currency FX & Ledger</div>
-              <div class="preset-chip" id="chip-talent" onclick="applyPreset('talent')">Executive Sourcing & Headhunting</div>
-            </div>
-
-            <textarea id="matcher-input" class="custom-textarea" placeholder="Or describe your custom workflow requirement in plain English...">We receive hundreds of inbound inquiries across WhatsApp and web chat. We need an autonomous agent to qualify them immediately, enrich CRM records, and stage calendar bookings for account executives.</textarea>
-            
-            <button class="match-action-btn" onclick="executeFleetMatch()">
-              <svg class="btn-emblem" viewBox="0 0 24 24" fill="none"><path d="M12 2L20.66 7V17L12 22L3.34 17V7L12 2Z" stroke="#FFF" stroke-width="2" stroke-linejoin="round"/><path d="M12 12L20.66 7M12 12V22M12 12L3.34 7" stroke="#FFF" stroke-width="1.5"/><circle cx="12" cy="12" r="2" fill="#06B6D4"/></svg> Analyze Fleet Compatibility & Map Agents
-            </button>
-          </div>
-
-          <div class="matcher-result-card" id="matcher-result">
-            <div class="result-header">
-              <div style="font-size:14px; font-weight:800; color:var(--text-main);" id="match-summary-title">Mapped Fleet Architecture</div>
-              <span class="result-badge" id="match-status-badge">100% Compatible</span>
-            </div>
-
-            <div style="font-size:12px; font-weight:700; color:#64748B; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px;">Assigned Autonomous Agents</div>
-            <div class="recommended-agents-row" id="match-agents-row">
-              <div class="rec-agent-badge">
-                <img src="assets/transparent/katie_transparent.png" alt="Katie">
-                <div>
-                  <div class="rec-agent-name">Katie</div>
-                  <div class="rec-agent-role">Inbound Experience</div>
-                </div>
-              </div>
-              <div class="rec-agent-badge">
-                <img src="assets/transparent/jake_transparent.png" alt="Jake">
-                <div>
-                  <div class="rec-agent-name">Jake</div>
-                  <div class="rec-agent-role">Fleet Orchestrator</div>
-                </div>
+        <div class="simulator-split-layout">
+          <!-- 5-Stage Visual Pipeline Nodes -->
+          <div class="pipeline-steps-col">
+            <div class="pipeline-step-node active" id="journey-node-1" onclick="activateJourneyStep(1)">
+              <div class="step-circle-badge">1</div>
+              <div>
+                <div class="step-node-title" id="node-title-1">1. Signal Ingestion & Lead Triage</div>
+                <div class="step-node-desc" id="node-desc-1">Inbound inquiry received via WhatsApp audio voice note with legal contract draft attached.</div>
               </div>
             </div>
 
-            <div style="font-size:12px; font-weight:700; color:#64748B; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px;">End-to-End Orchestration Plan</div>
-            <div class="orchestration-plan" id="match-plan-box">
-              <div class="orchestration-step">
-                <div class="step-num-dot">1</div>
-                <div><strong>Omnichannel Ingestion:</strong> Katie intercepts inbound prospects instantly across WhatsApp & web chat.</div>
-              </div>
-              <div class="orchestration-step">
-                <div class="step-num-dot">2</div>
-                <div><strong>Qualification & Data Enrichment:</strong> Prospect budget, timeline, and use cases validated against enterprise criteria.</div>
-              </div>
-              <div class="orchestration-step">
-                <div class="step-num-dot">3</div>
-                <div><strong>CRM & Calendar Dispatch:</strong> Jake writes structured records into the CRM system and alerts executive leadership.</div>
+            <div class="pipeline-step-node" id="journey-node-2" onclick="activateJourneyStep(2)">
+              <div class="step-circle-badge">2</div>
+              <div>
+                <div class="step-node-title" id="node-title-2">2. Conductor Routing & Pod Dispatch</div>
+                <div class="step-node-desc" id="node-desc-2">Jake analyzes intent, routes Katie for customer intake, and dispatches contract payload to Claire's pod.</div>
               </div>
             </div>
 
-            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-              <span style="font-size:12px; color:#64748B;">⚡ Execution speed: <strong>&lt; 30 seconds</strong></span>
-              <button class="btn-primary" style="padding:8px 16px; font-size:13px;" onclick="alert('Launching workflow demo with Katie & Jake...')">Deploy Mapped Fleet</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab 2: Custom Agent Builder -->
-        <div id="tab-content-builder" class="matcher-grid" style="display:none;">
-          <div>
-            <h3 class="matcher-control-title">Configure Custom Agent Specs</h3>
-            <p style="font-size:13.5px; color:#64748B; margin-bottom:14px;">Need an agent outside the core 9? Define custom tools, model engine, and isolation parameters:</p>
-
-            <div class="builder-form-grid">
-              <div class="form-group">
-                <label>Agent Codename</label>
-                <input type="text" id="builder-name" class="form-input" value="Nova" oninput="updateBuilderPreview()">
-              </div>
-              <div class="form-group">
-                <label>Executive Role</label>
-                <input type="text" id="builder-role" class="form-input" value="Supply Chain Risk Auditor" oninput="updateBuilderPreview()">
+            <div class="pipeline-step-node" id="journey-node-3" onclick="activateJourneyStep(3)">
+              <div class="step-circle-badge">3</div>
+              <div>
+                <div class="step-node-title" id="node-title-3">3. Deep Domain Execution & Redlining</div>
+                <div class="step-node-desc" id="node-desc-3">Claire redlines 14.2 indemnification clause while Vance runs passive domain security scan.</div>
               </div>
             </div>
 
-            <div class="builder-form-grid">
-              <div class="form-group">
-                <label>Intelligence Engine</label>
-                <select id="builder-model" class="form-select" onchange="updateBuilderPreview()">
-                  <option value="Gemini 2.5 Flash">Gemini 2.5 Flash (Ultra-Low Latency)</option>
-                  <option value="Claude 3.5 Sonnet">Claude 3.5 Sonnet (Deep Reasoning)</option>
-                  <option value="Gemini 3.0 Pro">Gemini 3.0 Pro (Multimodal Core)</option>
-                  <option value="Airgapped Local Weights">Airgapped Local Weights (Zero Cloud)</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Data Isolation Level</label>
-                <select id="builder-airgap" class="form-select" onchange="updateBuilderPreview()">
-                  <option value="Sovereign Hermetic Airgap (Dedicated Pod)">Sovereign Hermetic Airgap (Dedicated Pod)</option>
-                  <option value="Multi-Tenant High Security">Multi-Tenant High Security</option>
-                  <option value="Ephemeral Session Only">Ephemeral Session Only</option>
-                </select>
+            <div class="pipeline-step-node" id="journey-node-4" onclick="activateJourneyStep(4)">
+              <div class="step-circle-badge">4</div>
+              <div>
+                <div class="step-node-title" id="node-title-4">4. Cryptographic Human Approval Gate</div>
+                <div class="step-node-desc" id="node-desc-4">Zero unauthorized dispatches: Staging redline summary awaiting digital executive signature.</div>
               </div>
             </div>
 
-            <div class="form-group" style="margin-bottom:8px;">
-              <label>Integrated Tools & MCP Connectors</label>
-            </div>
-            <div class="tools-checkbox-grid">
-              <label class="tool-checkbox-item"><input type="checkbox" checked onchange="updateBuilderPreview()" value="Google Drive"> Google Drive</label>
-              <label class="tool-checkbox-item"><input type="checkbox" checked onchange="updateBuilderPreview()" value="WhatsApp API"> WhatsApp API</label>
-              <label class="tool-checkbox-item"><input type="checkbox" checked onchange="updateBuilderPreview()" value="CRM Systems"> CRM Systems</label>
-              <label class="tool-checkbox-item"><input type="checkbox" onchange="updateBuilderPreview()" value="GitHub Actions"> GitHub Actions</label>
-              <label class="tool-checkbox-item"><input type="checkbox" onchange="updateBuilderPreview()" value="Stripe API"> Stripe Payments</label>
-              <label class="tool-checkbox-item"><input type="checkbox" checked onchange="updateBuilderPreview()" value="Custom MCP"> Custom MCP</label>
-            </div>
-
-            <div class="form-group">
-              <label>Primary Directive / Objective</label>
-              <textarea id="builder-desc" class="custom-textarea" style="height:70px;" oninput="updateBuilderPreview()">Monitors global freight tracking manifests, correlates weather delay signals, and updates ERP purchase orders automatically.</textarea>
-            </div>
-
-            <button class="match-action-btn" onclick="generateCustomAgentBlueprint()">
-              <svg class="btn-emblem" viewBox="0 0 24 24" fill="none"><path d="M12 2L20.66 7V17L12 22L3.34 17V7L12 2Z" stroke="#FFF" stroke-width="2" stroke-linejoin="round"/><path d="M12 12L20.66 7M12 12V22M12 12L3.34 7" stroke="#FFF" stroke-width="1.5"/><circle cx="12" cy="12" r="2" fill="#06B6D4"/></svg> Generate Agent Blueprint & Deploy Spec
-            </button>
-          </div>
-
-          <div class="custom-agent-card-preview">
-            <div class="preview-avatar-wrap" id="preview-avatar">🤖</div>
-            <div class="preview-name" id="preview-name-display">Nova</div>
-            <div class="preview-role" id="preview-role-display">Supply Chain Risk Auditor</div>
-            <p class="preview-desc" id="preview-desc-display">Monitors global freight tracking manifests, correlates weather delay signals, and updates ERP purchase orders automatically.</p>
-            
-            <div style="font-size:11px; font-weight:700; color:#64748B; text-transform:uppercase; margin-bottom:8px;">Equipped MCP Tools & Runtimes</div>
-            <div class="preview-tools" id="preview-tools-display">
-              <span class="tool-tag">Google Drive</span>
-              <span class="tool-tag">WhatsApp API</span>
-              <span class="tool-tag">CRM Systems</span>
-              <span class="tool-tag">Custom MCP</span>
-            </div>
-
-            <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:12px; width:100%; box-sizing:border-box; text-align:left; margin-top:auto;">
-              <div style="font-size:11px; color:#64748B;">Architecture & Isolation:</div>
-              <div style="font-size:12.5px; font-weight:800; color:#0F172A;" id="preview-airgap-display">Sovereign Hermetic Airgap (Dedicated Pod)</div>
-              <div style="font-size:11px; color:var(--primary); margin-top:3px;" id="preview-model-display">Engine: Gemini 2.5 Flash</div>
+            <div class="pipeline-step-node" id="journey-node-5" onclick="activateJourneyStep(5)">
+              <div class="step-circle-badge">5</div>
+              <div>
+                <div class="step-node-title" id="node-title-5">5. Downstream Reconciliation & CRM Sync</div>
+                <div class="step-node-desc" id="node-desc-5">Warren updates financial ledger, CRM deal status is updated, and immutable audit trace is stored.</div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Live Workflow Walkthrough & Interactive Simulation Section -->
-    <section id="workflow" class="workflow-section">
-      <div class="section-header">
-        <div class="section-tag">Under the Hood</div>
-        <h2 class="section-title">How It Works: An Autonomous Day in Action</h2>
-        <p class="section-subtitle">Click through the live execution lifecycle to observe how our multi-agent fleet coordinates, enforces strict airgaps, and surfaces critical approval gates.</p>
-      </div>
-
-      <div class="workflow-container">
-        <!-- Interactive Step Selector -->
-        <div class="timeline-steps">
-          <div class="timeline-step-card active" id="step-card-1" onclick="activateWorkflowStep(1)">
-            <span class="step-time-badge">09:00 AM • Event Ingestion</span>
-            <div class="step-card-title"><span>📥</span> 1. Inbound Signal Ingestion</div>
-            <p class="step-card-desc">An inbound WhatsApp lead arrives with a multi-page enterprise vendor contract attached for review.</p>
-          </div>
-
-          <div class="timeline-step-card" id="step-card-2" onclick="activateWorkflowStep(2)">
-            <span class="step-time-badge">09:01 AM • Orchestrator Routing</span>
-            <div class="step-card-title"><span>⚡</span> 2. Intent Triage & Spoke Dispatch</div>
-            <p class="step-card-desc">Jake evaluates intent, triggers Katie for customer qualification, and passes the contract to Claire's legal pod.</p>
-          </div>
-
-          <div class="timeline-step-card" id="step-card-3" onclick="activateWorkflowStep(3)">
-            <span class="step-time-badge">09:02 AM • Deep Autonomous Audit</span>
-            <div class="step-card-title"><span>⚖️</span> 3. Airgapped Execution & PenTest Check</div>
-            <p class="step-card-desc">Claire redlines indemnification clauses in an isolated runtime while Vance verifies the vendor's domain security posture.</p>
-          </div>
-
-          <div class="timeline-step-card" id="step-card-4" onclick="activateWorkflowStep(4)">
-            <span class="step-time-badge">09:04 AM • Mandatory Approval Gate</span>
-            <div class="step-card-title"><span>🛡️</span> 4. Cryptographic Human Sign-Off</div>
-            <p class="step-card-desc">Zero unauthorized dispatches: The system generates an executive summary awaiting digital approval before sending redlines.</p>
-          </div>
-
-          <div class="timeline-step-card" id="step-card-5" onclick="activateWorkflowStep(5)">
-            <span class="step-time-badge">09:05 AM • Multi-System Sync</span>
-            <div class="step-card-title"><span>📊</span> 5. Ledger & CRM Auto-Reconciliation</div>
-            <p class="step-card-desc">Warren records the retainer invoice in the treasury ledger, CRM status is marked "Contract Approved", and the audit log is archived.</p>
-          </div>
-        </div>
-
-        <!-- Live Agent Terminal / Console -->
-        <div class="terminal-mockup">
-          <div class="terminal-topbar">
-            <div class="terminal-dots">
-              <div class="terminal-dot dot-red"></div>
-              <div class="terminal-dot dot-yellow"></div>
-              <div class="terminal-dot dot-green"></div>
+          <!-- Live Interactive Simulation Console -->
+          <div class="simulator-console-panel">
+            <div class="console-header-bar">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span class="console-indicator-dot"></span>
+                <span style="font-size:12px; font-weight:800; letter-spacing:0.04em;" id="sim-console-step-title">STEP 1: OMNICHANNEL INGESTION</span>
+              </div>
+              <div style="font-size:11px; color:#38BDF8; font-weight:700; font-family:monospace;" id="sim-console-timestamp">09:00:14 UTC &bull; ACTIVE</div>
             </div>
-            <div class="terminal-title" id="terminal-step-indicator">EXECUTION_LOG: STEP 1 (09:00:14 UTC)</div>
-            <div style="font-size:11px; color:#10B981; font-weight:700;">● STREAMING LIVE</div>
-          </div>
-          <div class="terminal-body" id="terminal-content">
-            <!-- Dynamic terminal lines rendered via JS -->
+
+            <div id="sim-console-body" style="flex:1; font-family:ui-monospace, monospace; font-size:12.5px; line-height:1.6; color:#E2E8F0; overflow-y:auto; max-height:360px; margin-bottom:16px;">
+              <!-- Dynamic Console Output -->
+            </div>
+
+            <div id="sim-action-container" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:14px; display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-size:11.5px; color:#94A3B8;" id="sim-action-hint">Stage 1 executing automatically</span>
+              <button class="btn-primary" id="sim-advance-btn" onclick="advanceJourneyNext()" style="padding:8px 18px; font-size:13px;">Advance to Step 2 &rarr;</button>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Enterprise Use Cases Section -->
+        <!-- Quantified Enterprise Impact Dossiers -->
     <section id="usecases" class="usecase-section">
       <div class="section-header">
-        <div class="section-tag">Proven Deployments</div>
-        <h2 class="section-title">Autonomous Workflows in Action</h2>
-        <p class="section-subtitle">Real-world enterprise operations solved end-to-end by specialized agents with zero human intervention and strict data isolation.</p>
+        <div class="section-badge">Enterprise Impact Dossiers</div>
+        <h2 class="section-title">Real-World Case Studies. Measurable ROI.</h2>
+        <p class="section-subtitle">See how our specialized multi-agent fleet executes end-to-end client operations with zero data leakage and concrete operational metrics.</p>
       </div>
 
-      <div class="usecase-grid">
-        <!-- 1. Lead Qualification -->
-        <div class="usecase-card">
-          <div class="usecase-header">
-            <div class="usecase-icon">💬</div>
-            <span class="usecase-domain">Inbound Growth</span>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:24px; margin-bottom:60px;">
+        
+        <!-- Case Study 1: Edith Ltd (Legal & Accounting) -->
+        <div style="background:linear-gradient(135deg, #FAF5FF 0%, #FFFFFF 100%); border:1.5px solid rgba(147, 51, 234, 0.25); border-radius:24px; padding:32px; box-shadow:0 20px 40px -15px rgba(147, 51, 234, 0.08); display:flex; flex-direction:column;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
+            <span style="background:#F3E8FF; color:#7E22CE; font-weight:800; font-size:11.5px; padding:4px 12px; border-radius:999px;">Legal & Accounting Practice</span>
+            <span style="font-size:12px; font-weight:700; color:#10B981;">● Production Deployed</span>
           </div>
-          <h3 class="usecase-title">Real-Time Lead Qualification & CRM Sync</h3>
-          <div class="usecase-block">
-            <span class="usecase-label">Problem</span>
-            <p class="usecase-desc">High-intent inbound inquiries across WhatsApp, Instagram, and web chat went unanswered for hours, causing over 40% qualified deal drop-off.</p>
+          <h3 style="font-size:20px; font-weight:800; color:var(--text-main); margin-bottom:12px;">Edith Ltd: Court Filings & High-Liability Contract Redlining</h3>
+          <p style="font-size:13.5px; color:#475569; line-height:1.6; margin-bottom:18px;">
+            Boutique law and accounting practice facing high volumes of vendor NDAs, liability retainers, and strict court filing deadlines.
+          </p>
+          <div style="background:#FFFFFF; border:1px solid rgba(147, 51, 234, 0.15); border-radius:14px; padding:16px; margin-bottom:18px;">
+            <div style="font-size:11px; font-weight:800; color:#6B21A8; text-transform:uppercase; margin-bottom:6px;">Autonomous Fleet Solution</div>
+            <div style="font-size:13px; color:#1E293B; line-height:1.5;">Claire audits contracts against liability playbooks, flags uncapped indemnification, and enforces a strict human sign-off gate before filing.</div>
           </div>
-          <div class="usecase-block">
-            <span class="usecase-label">Autonomous Execution</span>
-            <p class="usecase-desc">Inbound agent engages immediately in conversational dialogue, validates budget and requirements, writes enriched records to the CRM system, and stages meetings for account executives.</p>
-          </div>
-          <div class="usecase-metric">⚡ &lt;15s First Response &bull; 3.2x Lead-to-Meeting Conversion</div>
-          <div class="usecase-agents">
-            <span class="agent-pill"><img src="assets/transparent/katie_transparent.png" alt="Katie"> Katie</span>
-            <span class="agent-pill"><img src="assets/transparent/jake_transparent.png" alt="Jake"> Jake</span>
-          </div>
-        </div>
-
-        <!-- 2. Cyber & Compliance -->
-        <div class="usecase-card">
-          <div class="usecase-header">
-            <div class="usecase-icon">🛡️</div>
-            <span class="usecase-domain">Cyber & Compliance</span>
-          </div>
-          <h3 class="usecase-title">Continuous Penetration Testing & SOC 2 Pipeline</h3>
-          <div class="usecase-block">
-            <span class="usecase-label">Problem</span>
-            <p class="usecase-desc">Growing B2B startups required fast SOC 2 Type II readiness and quarterly pentests, but security consultancies demanded 6-figure retainers and weeks of onboarding.</p>
-          </div>
-          <div class="usecase-block">
-            <span class="usecase-label">Autonomous Execution</span>
-            <p class="usecase-desc">Dedicated cyber agent performs continuous external asset discovery, scans funding and compliance signals across target accounts, and drafts structured compliance audit plans automatically.</p>
-          </div>
-          <div class="usecase-metric">🛡️ 100% Audit Readiness &bull; 240+ Live Threat Signals Monitored</div>
-          <div class="usecase-agents">
-            <span class="agent-pill"><img src="assets/transparent/vance_transparent.png" alt="Vance"> Vance</span>
+          <div style="margin-top:auto; padding-top:14px; border-top:1px solid rgba(147, 51, 234, 0.15); display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-size:18px; font-weight:900; color:#7E22CE;">85% Faster</div>
+              <div style="font-size:11px; color:#64748B;">Turnaround Time</div>
+            </div>
+            <div>
+              <div style="font-size:18px; font-weight:900; color:#10B981;">100%</div>
+              <div style="font-size:11px; color:#64748B;">Pre-Filing Approval Gate</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <img src="assets/transparent/claire_transparent.png" alt="Claire" style="width:34px; height:34px; border-radius:10px; background:#F3E8FF;">
+            </div>
           </div>
         </div>
 
-        <!-- 3. Legal Contract Audit -->
-        <div class="usecase-card">
-          <div class="usecase-header">
-            <div class="usecase-icon">⚖️</div>
-            <span class="usecase-domain">Legal Counsel</span>
+        <!-- Case Study 2: B2B Enterprise SaaS -->
+        <div style="background:linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%); border:1.5px solid rgba(34, 197, 94, 0.25); border-radius:24px; padding:32px; box-shadow:0 20px 40px -15px rgba(34, 197, 94, 0.08); display:flex; flex-direction:column;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
+            <span style="background:#DCFCE7; color:#15803D; font-weight:800; font-size:11.5px; padding:4px 12px; border-radius:999px;">Enterprise Inbound Growth</span>
+            <span style="font-size:12px; font-weight:700; color:#10B981;">● Production Deployed</span>
           </div>
-          <h3 class="usecase-title">Automated Contract Review & Filing Sign-off Gate</h3>
-          <div class="usecase-block">
-            <span class="usecase-label">Problem</span>
-            <p class="usecase-desc">Boutique legal practice facing overwhelming volumes of NDAs, vendor retainers, and regulatory filings with acute risk of missing high-liability indemnification clauses.</p>
+          <h3 style="font-size:20px; font-weight:800; color:var(--text-main); margin-bottom:12px;">Omnichannel WhatsApp & Web Lead Acceleration</h3>
+          <p style="font-size:13.5px; color:#475569; line-height:1.6; margin-bottom:18px;">
+            High-growth SaaS business experiencing 40%+ drop-off on inbound inquiries due to multi-hour human response lag across time zones.
+          </p>
+          <div style="background:#FFFFFF; border:1px solid rgba(34, 197, 94, 0.15); border-radius:14px; padding:16px; margin-bottom:18px;">
+            <div style="font-size:11px; font-weight:800; color:#166534; text-transform:uppercase; margin-bottom:6px;">Autonomous Fleet Solution</div>
+            <div style="font-size:13px; color:#1E293B; line-height:1.5;">Katie intercepts leads in &lt;15 seconds on WhatsApp, transcribes Hebrew voice memos, qualifies budget, and writes enriched deals into Twenty CRM.</div>
           </div>
-          <div class="usecase-block">
-            <span class="usecase-label">Autonomous Execution</span>
-            <p class="usecase-desc">Legal counsel agent redlines agreements against standard playbooks, flags asymmetric clauses, and enforces a mandatory cryptographic human approval gate prior to formal submission.</p>
-          </div>
-          <div class="usecase-metric">⚖️ 85% Faster Turnaround &bull; 100% Pre-Filing Review Gate</div>
-          <div class="usecase-agents">
-            <span class="agent-pill"><img src="assets/transparent/claire_transparent.png" alt="Claire"> Claire</span>
-            <span class="agent-pill"><img src="assets/transparent/chloe_transparent.png" alt="Chloe"> Chloe</span>
-          </div>
-        </div>
-
-        <!-- 4. Executive Sourcing -->
-        <div class="usecase-card">
-          <div class="usecase-header">
-            <div class="usecase-icon">🎯</div>
-            <span class="usecase-domain">Executive Search</span>
-          </div>
-          <h3 class="usecase-title">Hyper-Tailored Talent Sourcing & Outreach</h3>
-          <div class="usecase-block">
-            <span class="usecase-label">Problem</span>
-            <p class="usecase-desc">Manual sourcing for senior executive and technical leadership roles yielded low response rates and exhausted weeks of partner time per vacancy.</p>
-          </div>
-          <div class="usecase-block">
-            <span class="usecase-label">Autonomous Execution</span>
-            <p class="usecase-desc">Talent engine scans professional networks, applies multi-criterion qualification scoring, crafts tailored 1-page briefings, and manages personalized multi-channel outreach campaigns.</p>
-          </div>
-          <div class="usecase-metric">🎯 4.8x Candidate Pipeline &bull; 68% Outreach Response Rate</div>
-          <div class="usecase-agents">
-            <span class="agent-pill"><img src="assets/transparent/hunter_transparent.png" alt="Hunter"> Hunter</span>
-            <span class="agent-pill"><img src="assets/transparent/jake_transparent.png" alt="Jake"> Jake</span>
+          <div style="margin-top:auto; padding-top:14px; border-top:1px solid rgba(34, 197, 94, 0.15); display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-size:18px; font-weight:900; color:#15803D;">&lt; 15 Sec</div>
+              <div style="font-size:11px; color:#64748B;">First Response Speed</div>
+            </div>
+            <div>
+              <div style="font-size:18px; font-weight:900; color:#10B981;">3.2x</div>
+              <div style="font-size:11px; color:#64748B;">Lead-to-Meeting Rate</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <img src="assets/transparent/katie_transparent.png" alt="Katie" style="width:34px; height:34px; border-radius:10px; background:#DCFCE7;">
+            </div>
           </div>
         </div>
 
-        <!-- 5. Treasury & Multi-Currency Expense -->
-        <div class="usecase-card">
-          <div class="usecase-header">
-            <div class="usecase-icon">📊</div>
-            <span class="usecase-domain">Finance & Treasury</span>
+        <!-- Case Study 3: Global Commerce (Twotone & Zohar) -->
+        <div style="background:linear-gradient(135deg, #FFFBEB 0%, #FFFFFF 100%); border:1.5px solid rgba(245, 158, 11, 0.25); border-radius:24px; padding:32px; box-shadow:0 20px 40px -15px rgba(245, 158, 11, 0.08); display:flex; flex-direction:column;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
+            <span style="background:#FEF3C7; color:#B45309; font-weight:800; font-size:11.5px; padding:4px 12px; border-radius:999px;">Global Commerce & Finance</span>
+            <span style="font-size:12px; font-weight:700; color:#10B981;">● Production Deployed</span>
           </div>
-          <h3 class="usecase-title">Autonomous Multi-Currency Expense & FX Ledger</h3>
-          <div class="usecase-block">
-            <span class="usecase-label">Problem</span>
-            <p class="usecase-desc">SaaS tool subscriptions, vendor invoices, and cross-border disbursements spread across multiple currencies resulted in delayed month-end closes and book discrepancies.</p>
+          <h3 style="font-size:20px; font-weight:800; color:var(--text-main); margin-bottom:12px;">Multi-Currency FX & Autonomous Inventory Health</h3>
+          <p style="font-size:13.5px; color:#475569; line-height:1.6; margin-bottom:18px;">
+            Cross-border retail operations with dozens of suppliers billing in USD, EUR, and ILS, requiring continuous inventory synchronization.
+          </p>
+          <div style="background:#FFFFFF; border:1px solid rgba(245, 158, 11, 0.15); border-radius:14px; padding:16px; margin-bottom:18px;">
+            <div style="font-size:11px; font-weight:800; color:#92400E; text-transform:uppercase; margin-bottom:6px;">Autonomous Fleet Solution</div>
+            <div style="font-size:13px; color:#1E293B; line-height:1.5;">Warren extracts tax invoices from billing mailboxes, executes live FX conversions, and reconciles cash flows directly into Google Sheets.</div>
           </div>
-          <div class="usecase-block">
-            <span class="usecase-label">Autonomous Execution</span>
-            <p class="usecase-desc">Finance agent scans incoming billing streams, extracts tax receipts, applies real-time FX conversion rates, and updates ledger spreadsheets with zero human touch.</p>
-          </div>
-          <div class="usecase-metric">💰 Zero Manual Entry &bull; Real-Time FX Multi-Currency Audit</div>
-          <div class="usecase-agents">
-            <span class="agent-pill"><img src="assets/transparent/warren_transparent.png" alt="Warren"> Warren</span>
+          <div style="margin-top:auto; padding-top:14px; border-top:1px solid rgba(245, 158, 11, 0.15); display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-size:18px; font-weight:900; color:#B45309;">100%</div>
+              <div style="font-size:11px; color:#64748B;">Reconciliation Rate</div>
+            </div>
+            <div>
+              <div style="font-size:18px; font-weight:900; color:#10B981;">0 Manual</div>
+              <div style="font-size:11px; color:#64748B;">Data Entry Hours</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <img src="assets/transparent/warren_transparent.png" alt="Warren" style="width:34px; height:34px; border-radius:10px; background:#FEF3C7;">
+            </div>
           </div>
         </div>
 
-        <!-- 6. Hermetic Multi-Tenant Airgap -->
-        <div class="usecase-card">
-          <div class="usecase-header">
-            <div class="usecase-icon">🔒</div>
-            <span class="usecase-domain">Data Governance</span>
-          </div>
-          <h3 class="usecase-title">Hermetic Multi-Tenant Airgap & Sovereign Isolation</h3>
-          <div class="usecase-block">
-            <span class="usecase-label">Problem</span>
-            <p class="usecase-desc">Advisory and service organizations serving sensitive accounts cannot tolerate shared context vectors, collective fine-tuning, or accidental cross-client data exposure.</p>
-          </div>
-          <div class="usecase-block">
-            <span class="usecase-label">Autonomous Execution</span>
-            <p class="usecase-desc">Fleet architecture partitions client data into isolated virtual memory environments, preventing cross-tenant leakage while allowing central orchestrators to dispatch workloads securely.</p>
-          </div>
-          <div class="usecase-metric">🔒 Zero Cross-Tenant Leakage &bull; Sovereign Vault Isolation</div>
-          <div class="usecase-agents">
-            <span class="agent-pill"><img src="assets/transparent/miles_transparent.png" alt="Miles"> Miles</span>
-            <span class="agent-pill"><img src="assets/transparent/vance_transparent.png" alt="Vance"> Vance</span>
-            <span class="agent-pill"><img src="assets/transparent/claire_transparent.png" alt="Claire"> Claire</span>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -2991,7 +3489,89 @@
     </section>
 
     <!-- Why Works4you vs Generic AI -->
-    <section id="compare" class="compare-section">
+        <!-- Interactive Enterprise Impact & ROI Calculator -->
+    <section id="roi" class="roi-section" style="margin-bottom:80px;">
+      <div class="section-header">
+        <div class="section-badge">Economic Value Model</div>
+        <h2 class="section-title">Calculate Your Enterprise Autonomous ROI</h2>
+        <p class="section-subtitle">Adjust your monthly operational volumes to see projected executive hours reclaimed and annual financial savings delivered by Works4you.</p>
+      </div>
+
+      <div class="roi-calculator-shell">
+        <div class="roi-grid-layout">
+          <!-- Interactive Sliders -->
+          <div>
+            <div class="roi-control-group">
+              <div class="roi-label-split">
+                <span>Monthly Inbound Inquiries (WhatsApp / Web)</span>
+                <span class="roi-value-pill" id="val-leads">2,500 inquiries</span>
+              </div>
+              <input type="range" min="100" max="10000" step="100" value="2500" class="roi-slider" id="slider-leads" oninput="calculateROI()">
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:#94A3B8; margin-top:4px;">
+                <span>100</span>
+                <span>5,000</span>
+                <span>10,000+</span>
+              </div>
+            </div>
+
+            <div class="roi-control-group">
+              <div class="roi-label-split">
+                <span>Vendor Contracts & NDAs Audited / Month</span>
+                <span class="roi-value-pill" id="val-contracts">35 agreements</span>
+              </div>
+              <input type="range" min="5" max="200" step="5" value="35" class="roi-slider" id="slider-contracts" oninput="calculateROI()">
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:#94A3B8; margin-top:4px;">
+                <span>5</span>
+                <span>100</span>
+                <span>200+</span>
+              </div>
+            </div>
+
+            <div class="roi-control-group">
+              <div class="roi-label-split">
+                <span>Monthly SaaS & Vendor Invoices Reconciled</span>
+                <span class="roi-value-pill" id="val-invoices">120 receipts</span>
+              </div>
+              <input type="range" min="20" max="500" step="10" value="120" class="roi-slider" id="slider-invoices" oninput="calculateROI()">
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:#94A3B8; margin-top:4px;">
+                <span>20</span>
+                <span>250</span>
+                <span>500+</span>
+              </div>
+            </div>
+
+            <div style="background:#F1F5F9; border-radius:12px; padding:12px 16px; font-size:12px; color:#475569; display:flex; align-items:center; gap:8px;">
+              <span>💡</span>
+              <span>Model benchmarked on conservative $75/hr blended enterprise knowledge worker cost.</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Output Card -->
+          <div class="roi-metrics-output-card">
+            <div style="font-size:12px; font-weight:800; color:#38BDF8; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:12px;">PROJECTED ANNUAL SAVINGS</div>
+            <div class="roi-big-stat-val" id="output-annual-savings">$184,800</div>
+            <div class="roi-big-stat-lbl">Direct Operating Value / Year</div>
+
+            <div class="roi-sub-stats-row">
+              <div>
+                <div style="font-size:22px; font-weight:900; color:#34D399;" id="output-hours-saved">245 hrs</div>
+                <div style="font-size:11px; color:#94A3B8; margin-top:2px;">Reclaimed / Month</div>
+              </div>
+              <div>
+                <div style="font-size:22px; font-weight:900; color:#A78BFA;" id="output-payback">&lt; 14 Days</div>
+                <div style="font-size:11px; color:#94A3B8; margin-top:2px;">Payback Period</div>
+              </div>
+            </div>
+
+            <div style="margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1); font-size:11.5px; color:#CBD5E1;">
+              ⚡ <strong>99.8% Human Error Reduction:</strong> Eliminates overlooked liability clauses and missed receipts.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="compare" class="compare-section">
       <h2 class="compare-title">Why Works4you Outperforms Single-Purpose SaaS</h2>
       <table class="compare-table">
         <thead>
@@ -3490,6 +4070,495 @@
         if (text) text.textContent = 'Hide Categorized Registry';
       }
     }
+
+  
+    // ==========================================================================
+    // HERO SCENARIO QUICK-LAUNCH & ROUTING
+    // ==========================================================================
+    const HERO_SCENARIOS = [
+      {
+        input: "Audit 42 vendor MSAs for unlimited liability, extract intellectual property warranties, and stage redlines for general counsel sign-off.",
+        routing: "<strong>Jake Conductor:</strong> Dispatched 42 agreements to Claire (Legal Pod) & Vance (SecOps). Flag: Uncapped liability detected in Clause 14.2. Staged for one-click human approval.",
+        latency: "Latency: 142ms"
+      },
+      {
+        input: "Triage 120 incoming WhatsApp inquiries, transcribe audio voice notes, score enterprise deal size, and stage calendar bookings in Twenty CRM.",
+        routing: "<strong>Katie Hub:</strong> Intercepted 120 inbound conversations. 18 qualified enterprise leads scored > 80. Synced to Twenty CRM; staged calendar bookings for account executives.",
+        latency: "Latency: 88ms"
+      },
+      {
+        input: "Ingest SaaS invoices across USD/EUR from Gmail, normalize currency rates via live Bank of Israel/ECB feed, and sync monthly cash flow.",
+        routing: "<strong>Warren Finance:</strong> 28 receipts reconciled ($14,200 ⇄ ₪53,534). 0 missing VAT tax invoices detected. Forecast cash balance updated in Google Sheets.",
+        latency: "Latency: 64ms"
+      },
+      {
+        input: "Source VP R&D candidates with AI infrastructure experience in Israel, generate tailored 1-page briefings, and trigger outreach.",
+        routing: "<strong>Hunter Talent:</strong> Screened 184 profiles. Top 3 matched with 96%+ radar score. Personalized executive one-pagers staged for outreach.",
+        latency: "Latency: 195ms"
+      }
+    ];
+
+    function runHeroScenario(index) {
+      document.querySelectorAll(".hero-chip").forEach((btn, idx) => {
+        if (idx === index) {
+          btn.classList.add("active");
+          btn.style.background = "#EDE9FE";
+          btn.style.color = "var(--primary)";
+          btn.style.borderColor = "rgba(124,58,237,0.25)";
+        } else {
+          btn.classList.remove("active");
+          btn.style.background = "#F1F5F9";
+          btn.style.color = "#475569";
+          btn.style.borderColor = "#E2E8F0";
+        }
+      });
+
+      const s = HERO_SCENARIOS[index];
+      if (!s) return;
+
+      const input = document.getElementById("hero-command-input");
+      if (input) input.value = s.input;
+
+      const routingText = document.getElementById("hero-routing-text");
+      if (routingText) routingText.innerHTML = s.routing;
+
+      const routingLat = document.getElementById("hero-routing-latency");
+      if (routingLat) routingLat.textContent = s.latency;
+    }
+
+    function triggerHeroWorkflow() {
+      const input = document.getElementById("hero-command-input");
+      const val = input ? input.value : "";
+      alert("⚡ Jake Conductor received workflow command:\n\n" + val + "\n\nRouting multi-agent pod execution...");
+    }
+
+    // ==========================================================================
+    // BENTO GRID FILTERING
+    // ==========================================================================
+    function filterFleetBento(category) {
+      document.querySelectorAll(".filter-tabs .filter-tab").forEach(tab => tab.classList.remove("active"));
+      const tabId = "bento-filter-" + category;
+      const activeTab = document.getElementById(tabId);
+      if (activeTab) activeTab.classList.add("active");
+
+      const cards = document.querySelectorAll(".fleet-bento-grid .bento-card");
+      cards.forEach(card => {
+        const cardCat = card.getAttribute("data-category");
+        if (category === "all" || cardCat === category) {
+          card.style.display = "flex";
+          card.style.opacity = "1";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // ==========================================================================
+    // CUSTOMER JOURNEY SIMULATOR LOGIC
+    // ==========================================================================
+    const JOURNEY_DATA = {
+      legal: {
+        title: "Legal & Accounting (Edith Ltd)",
+        steps: [
+          {
+            title: "STEP 1: SIGNAL INGESTION & LEAD TRIAGE",
+            timestamp: "09:00:14 UTC",
+            nodeTitle: "1. Signal Ingestion & Lead Triage",
+            nodeDesc: "Inbound inquiry received via WhatsApp audio voice note with legal contract draft attached.",
+            lines: [
+              { prompt: "09:00:12", agent: "SYS_INGEST", msg: "Inbound webhook triggered via WhatsApp Business API (+972-58-***-2727)." },
+              { prompt: "09:00:13", agent: "SYS_PARSER", msg: "Voice note received (0:18): Transcribed to: 'היי, אנחנו צריכים לחתום על הסכם ספק ומבקשים לבדוק סעיפי שיפוי...'" },
+              { prompt: "09:00:14", agent: "SYS_VAULT", msg: "Attachment 'Vendor_MSA_Draft.docx' (1.4MB) locked in ephemeral vault <span class='term-badge-airgap'>AIRGAP OK</span>." }
+            ],
+            hint: "Step 1 executed automatically",
+            btnText: "Advance to Step 2 &rarr;"
+          },
+          {
+            title: "STEP 2: CONDUCTOR ROUTING & POD DISPATCH",
+            timestamp: "09:01:05 UTC",
+            nodeTitle: "2. Conductor Routing & Pod Dispatch",
+            nodeDesc: "Jake analyzes intent, routes Katie for customer intake, and dispatches contract payload to Claire's pod.",
+            lines: [
+              { prompt: "09:01:02", agent: "JAKE [CTO]", msg: "Classifying multi-tag payload: [COMMERCIAL_ONBOARDING + LEGAL_REVIEW + CYBER_VERIFY]." },
+              { prompt: "09:01:03", agent: "JAKE [CTO]", msg: "Routing Katie to confirm client jurisdiction & billing entity." },
+              { prompt: "09:01:04", agent: "JAKE [CTO]", msg: "Dispatching 'Vendor_MSA_Draft.docx' to Claire (Edith Ltd Legal Pod) and domain audit to Vance." }
+            ],
+            hint: "Multi-agent coordination in progress",
+            btnText: "Advance to Step 3 &rarr;"
+          },
+          {
+            title: "STEP 3: DEEP DOMAIN EXECUTION & REDLINING",
+            timestamp: "09:02:40 UTC",
+            nodeTitle: "3. Deep Domain Execution & Redlining",
+            nodeDesc: "Claire redlines 14.2 indemnification clause while Vance runs passive domain security scan.",
+            lines: [
+              { prompt: "09:02:10", agent: "CLAIRE", msg: "Auditing 24 clauses against standard corporate liability playbooks." },
+              { prompt: "09:02:25", agent: "CLAIRE", msg: "⚠️ FLAG: Section 14.2 uncapped liability. Proposed redline: Strict 12-month trailing fee cap." },
+              { prompt: "09:02:30", agent: "VANCE", msg: "Counterparty domain scanned: TLS 1.3 verified, Grade A+, 0 public CVEs found." },
+              { prompt: "09:02:40", agent: "CLAIRE", msg: "Redlined document generated. Enforcing mandatory executive sign-off gate..." }
+            ],
+            hint: "Gate required for dispatch",
+            btnText: "Advance to Step 4 &rarr;"
+          },
+          {
+            title: "STEP 4: CRYPTOGRAPHIC HUMAN APPROVAL GATE",
+            timestamp: "09:04:15 UTC",
+            nodeTitle: "4. Cryptographic Human Approval Gate",
+            nodeDesc: "Zero unauthorized dispatches: Staging redline summary awaiting digital executive signature.",
+            hasGate: true,
+            lines: [
+              { prompt: "09:04:02", agent: "SYS_GATE", msg: "Approval gate locked. Redlined contract requires general counsel sign-off." },
+              { prompt: "09:04:05", agent: "SYS_GATE", msg: "Executive Summary: Section 14.2 liability capped at 12 months fees ($100k cap). Ready for digital dispatch." }
+            ],
+            hint: "Digital sign-off required to proceed",
+            btnText: "✓ Approve & Dispatch Redline"
+          },
+          {
+            title: "STEP 5: RECONCILIATION & CRM SYNC",
+            timestamp: "09:05:22 UTC",
+            nodeTitle: "5. Downstream Reconciliation & CRM Sync",
+            nodeDesc: "Warren updates financial ledger, CRM deal status is updated, and immutable audit trace is stored.",
+            lines: [
+              { prompt: "09:05:01", agent: "JAKE [CTO]", msg: "Signature confirmed. Dispatching approved redline to counterparty on WhatsApp & email." },
+              { prompt: "09:05:08", agent: "KATIE", msg: "Message delivered to client: 'Redlined agreement sent for signature.' Deal stage: [STAGE_4_SIGNING]." },
+              { prompt: "09:05:14", agent: "WARREN", msg: "Retainer invoice record staged in Google Sheets cashflow ledger. FX normalized (USD)." },
+              { prompt: "09:05:22", agent: "SYS_AUDIT", msg: "Workflow trace ID #8f921 saved to immutable ledger. Ephemeral memory wiped <span class='term-badge-airgap'>AIRGAP CLEAN</span>." }
+            ],
+            hint: "Lifecycle completed successfully",
+            btnText: "↺ Restart Simulator"
+          }
+        ]
+      },
+      saas: {
+        title: "B2B SaaS Enterprise Sales",
+        steps: [
+          {
+            title: "STEP 1: INBOUND HIGH-INTENT SIGNAL",
+            timestamp: "14:15:02 UTC",
+            nodeTitle: "1. Inbound High-Intent Signal",
+            nodeDesc: "VP Engineering visits pricing page and asks about custom security airgaps on Intercom.",
+            lines: [
+              { prompt: "14:15:00", agent: "SYS_INGEST", msg: "High-intent web visitor identified: Enterprise domain @cloudscale.io." },
+              { prompt: "14:15:02", agent: "KATIE", msg: "Conversational intake triggered: 'Hi! Let me connect you with our technical architecture team for 500+ seat pricing.'" }
+            ],
+            hint: "First response &lt;15s",
+            btnText: "Advance to Step 2 &rarr;"
+          },
+          {
+            title: "STEP 2: ENRICHMENT & SCORING",
+            timestamp: "14:15:30 UTC",
+            nodeTitle: "2. Intent Enrichment & Scoring",
+            nodeDesc: "Jake triggers Vance to pull funding round, tech stack, and SOC 2 requirements.",
+            lines: [
+              { prompt: "14:15:10", agent: "JAKE [CTO]", msg: "Executing company intelligence: CloudScale raised $25M Series B, uses AWS + Supabase." },
+              { prompt: "14:15:30", agent: "JAKE [CTO]", msg: "Opportunity score: 94/100 (Tier 1 Strategic Enterprise)." }
+            ],
+            hint: "Autonomous enrichment complete",
+            btnText: "Advance to Step 3 &rarr;"
+          },
+          {
+            title: "STEP 3: BESPOKE PROPOSAL GENERATION",
+            timestamp: "14:16:15 UTC",
+            nodeTitle: "3. Bespoke Architecture Proposal",
+            nodeDesc: "Dedicated pod compiles customized security compliance deck and pricing tier.",
+            lines: [
+              { prompt: "14:16:00", agent: "VANCE", msg: "Drafted custom security whitepaper: 'Works4you Dedicated AWS Airgap Specifications'." },
+              { prompt: "14:16:15", agent: "WARREN", msg: "Calculated multi-tenant ROI: 310 hours saved / mo ($279,000 ARR value)." }
+            ],
+            hint: "Proposal staged",
+            btnText: "Advance to Step 4 &rarr;"
+          },
+          {
+            title: "STEP 4: EXECUTIVE REVIEW GATE",
+            timestamp: "14:17:00 UTC",
+            nodeTitle: "4. Human Sign-Off Gate",
+            nodeDesc: "Enterprise AE reviews bespoke proposal before dispatching to prospect.",
+            hasGate: true,
+            lines: [
+              { prompt: "14:17:00", agent: "SYS_GATE", msg: "Proposal staged for AE review. Custom pricing: $4,500/mo on annual commitment." }
+            ],
+            hint: "Sign-off required",
+            btnText: "✓ Approve & Send to Prospect"
+          },
+          {
+            title: "STEP 5: TWENTY CRM AUTOMATION",
+            timestamp: "14:18:10 UTC",
+            nodeTitle: "5. Twenty CRM & Calendar Staged",
+            nodeDesc: "Meeting staged in Google Calendar, deal created in Twenty CRM with full telemetry.",
+            lines: [
+              { prompt: "14:18:00", agent: "KATIE", msg: "Proposal delivered. Prospect accepted demo booking for Tuesday 10:00 AM." },
+              { prompt: "14:18:10", agent: "JAKE [CTO]", msg: "Synced to Twenty CRM. Deal: 'CloudScale 500 Seats' ($54,000 ACV)." }
+            ],
+            hint: "Deal closed pipeline",
+            btnText: "↺ Restart Simulator"
+          }
+        ]
+      },
+      commerce: {
+        title: "Global Commerce & Logistics",
+        steps: [
+          {
+            title: "STEP 1: INVENTORY & BILLING INGESTION",
+            timestamp: "08:30:10 UTC",
+            nodeTitle: "1. Inventory & Billing Ingestion",
+            nodeDesc: "Overseas supplier submits 14 raw PDF invoices across EUR and USD.",
+            lines: [
+              { prompt: "08:30:10", agent: "SYS_INGEST", msg: "Extracted 14 invoices from supplier email thread." }
+            ],
+            hint: "Invoices parsed",
+            btnText: "Advance to Step 2 &rarr;"
+          },
+          {
+            title: "STEP 2: FX NORMALIZATION",
+            timestamp: "08:31:00 UTC",
+            nodeTitle: "2. FX Normalization",
+            nodeDesc: "Warren normalizes EUR/USD rates via real-time exchange rates.",
+            lines: [
+              { prompt: "08:31:00", agent: "WARREN", msg: "Normalized 14 invoices totaling €18,400 to $19,872 USD (Rate: 1.08)." }
+            ],
+            hint: "Currency balanced",
+            btnText: "Advance to Step 3 &rarr;"
+          },
+          {
+            title: "STEP 3: STOCK HEALTH VERIFICATION",
+            timestamp: "08:31:45 UTC",
+            nodeTitle: "3. Stock Health Verification",
+            nodeDesc: "Dedicated commerce pod checks stock levels against warehouse logistics.",
+            lines: [
+              { prompt: "08:31:45", agent: "SYS_OPS", msg: "SKU 9942 matched inventory stock. 0 discrepancy found." }
+            ],
+            hint: "Logistics verified",
+            btnText: "Advance to Step 4 &rarr;"
+          },
+          {
+            title: "STEP 4: WIRE DISBURSEMENT GATE",
+            timestamp: "08:32:30 UTC",
+            nodeTitle: "4. Treasury Approval Gate",
+            nodeDesc: "CFO sign-off required for supplier wire transfer authorization.",
+            hasGate: true,
+            lines: [
+              { prompt: "08:32:30", agent: "SYS_GATE", msg: "Disbursement $19,872 USD staged for CFO wire sign-off." }
+            ],
+            hint: "Wire sign-off required",
+            btnText: "✓ Authorize Wire Release"
+          },
+          {
+            title: "STEP 5: LEDGER & TAX ARCHIVE",
+            timestamp: "08:33:15 UTC",
+            nodeTitle: "5. Ledger & Tax Archive",
+            nodeDesc: "Google Sheets cashflow ledger reconciled with tax VAT receipts attached.",
+            lines: [
+              { prompt: "08:33:15", agent: "WARREN", msg: "Reconciled with zero human data entry. Tax receipt archived to GDrive." }
+            ],
+            hint: "Books 100% reconciled",
+            btnText: "↺ Restart Simulator"
+          }
+        ]
+      },
+      talent: {
+        title: "Executive Search & Staffing",
+        steps: [
+          {
+            title: "STEP 1: MANDATE INGESTION",
+            timestamp: "11:00:00 UTC",
+            nodeTitle: "1. Mandate Ingestion",
+            nodeDesc: "Client requests VP R&D search with deep generative AI infrastructure background.",
+            lines: [
+              { prompt: "11:00:00", agent: "SYS_INGEST", msg: "Parsed role spec: 'VP R&D / Head of AI, Tel Aviv or Remote'." }
+            ],
+            hint: "Spec analyzed",
+            btnText: "Advance to Step 2 &rarr;"
+          },
+          {
+            title: "STEP 2: NETWORK GRAPH SCAN",
+            timestamp: "11:00:45 UTC",
+            nodeTitle: "2. Network Graph Scan",
+            nodeDesc: "Hunter evaluates 184 profiles, filtering for production AI scale.",
+            lines: [
+              { prompt: "11:00:45", agent: "HUNTER", msg: "Scanned executive networks: 184 profiles analyzed, top 5 isolated with 95%+ radar." }
+            ],
+            hint: "Radar scored",
+            btnText: "Advance to Step 3 &rarr;"
+          },
+          {
+            title: "STEP 3: 1-PAGE TAILORED BRIEF",
+            timestamp: "11:01:30 UTC",
+            nodeTitle: "3. 1-Page Tailored Brief",
+            nodeDesc: "Generates custom executive dossier highlighting matching track record.",
+            lines: [
+              { prompt: "11:01:30", agent: "HUNTER", msg: "Generated tailored 1-page briefing PDF for top 3 candidates." }
+            ],
+            hint: "Dossier ready",
+            btnText: "Advance to Step 4 &rarr;"
+          },
+          {
+            title: "STEP 4: PARTNER OUTREACH GATE",
+            timestamp: "11:02:15 UTC",
+            nodeTitle: "4. Partner Outreach Sign-Off",
+            nodeDesc: "Managing partner approves tailored outreach messages before dispatch.",
+            hasGate: true,
+            lines: [
+              { prompt: "11:02:15", agent: "SYS_GATE", msg: "Outreach messages staged for top candidates. Review tone & terms." }
+            ],
+            hint: "Approval required",
+            btnText: "✓ Approve & Send Outreach"
+          },
+          {
+            title: "STEP 5: CANDIDATE ENGAGEMENT SYNC",
+            timestamp: "11:03:00 UTC",
+            nodeTitle: "5. Candidate Engagement Sync",
+            nodeDesc: "Candidate responses tracked, interviews staged in executive calendar.",
+            lines: [
+              { prompt: "11:03:00", agent: "KATIE", msg: "Candidate A responded positively. Screening call booked for Thursday." }
+            ],
+            hint: "Talent pipeline active",
+            btnText: "↺ Restart Simulator"
+          }
+        ]
+      }
+    };
+
+    let currentIndustry = 'legal';
+    let currentJourneyStep = 1;
+    let simGateApproved = false;
+
+    function switchIndustryJourney(ind) {
+      currentIndustry = ind;
+      currentJourneyStep = 1;
+      simGateApproved = false;
+
+      document.querySelectorAll(".industry-tab-btn").forEach(btn => btn.classList.remove("active"));
+      const btn = document.getElementById("ind-tab-" + ind);
+      if (btn) btn.classList.add("active");
+
+      // Update node titles and descriptions
+      const data = JOURNEY_DATA[ind];
+      if (data && data.steps) {
+        data.steps.forEach((s, idx) => {
+          const tEl = document.getElementById("node-title-" + (idx + 1));
+          const dEl = document.getElementById("node-desc-" + (idx + 1));
+          if (tEl) tEl.textContent = s.nodeTitle;
+          if (dEl) dEl.textContent = s.nodeDesc;
+        });
+      }
+
+      activateJourneyStep(1);
+    }
+
+    function activateJourneyStep(stepIndex) {
+      currentJourneyStep = stepIndex;
+
+      document.querySelectorAll(".pipeline-step-node").forEach((node, idx) => {
+        if (idx + 1 === stepIndex) {
+          node.classList.add("active");
+        } else {
+          node.classList.remove("active");
+        }
+      });
+
+      const data = JOURNEY_DATA[currentIndustry];
+      if (!data) return;
+      const step = data.steps[stepIndex - 1];
+      if (!step) return;
+
+      const titleEl = document.getElementById("sim-console-step-title");
+      const timeEl = document.getElementById("sim-console-timestamp");
+      const bodyEl = document.getElementById("sim-console-body");
+      const hintEl = document.getElementById("sim-action-hint");
+      const btnEl = document.getElementById("sim-advance-btn");
+
+      if (titleEl) titleEl.textContent = step.title;
+      if (timeEl) timeEl.textContent = step.timestamp + " • ACTIVE";
+      if (hintEl) hintEl.textContent = step.hint;
+      if (btnEl) btnEl.innerHTML = step.btnText;
+
+      let html = step.lines.map(l => `
+        <div style="margin-bottom:8px; display:flex; gap:10px;">
+          <span style="color:#64748B; font-size:11px; white-space:nowrap;">[${l.prompt}]</span>
+          <span style="color:#38BDF8; font-weight:700; white-space:nowrap;">${l.agent}:</span>
+          <span style="color:#F1F5F9;">${l.msg}</span>
+        </div>
+      `).join("");
+
+      if (step.hasGate) {
+        if (!simGateApproved) {
+          html += `
+            <div style="margin-top:14px; background:rgba(245, 158, 11, 0.12); border:1.5px solid #F59E0B; border-radius:12px; padding:14px; color:#FDE68A;">
+              <div style="font-weight:800; font-size:12px; display:flex; align-items:center; gap:6px;">
+                <span>🔒</span> MANDATORY HUMAN APPROVAL GATE
+              </div>
+              <div style="font-size:11.5px; color:#E2E8F0; margin-top:4px;">
+                Review redline clauses and terms before autonomous dispatch. Click the button below to sign off.
+              </div>
+            </div>
+          `;
+        } else {
+          html += `
+            <div style="margin-top:14px; background:rgba(16, 185, 129, 0.15); border:1.5px solid #10B981; border-radius:12px; padding:14px; color:#6EE7B7;">
+              ✓ CRYPTOGRAPHIC APPROVAL SIGNED (Executive ID validated &bull; Dispatching downstream...)
+            </div>
+          `;
+        }
+      }
+
+      if (bodyEl) bodyEl.innerHTML = html;
+    }
+
+    function advanceJourneyNext() {
+      const data = JOURNEY_DATA[currentIndustry];
+      const step = data.steps[currentJourneyStep - 1];
+
+      if (step && step.hasGate && !simGateApproved) {
+        simGateApproved = true;
+        activateJourneyStep(4);
+        setTimeout(() => {
+          activateJourneyStep(5);
+        }, 1000);
+        return;
+      }
+
+      if (currentJourneyStep >= 5) {
+        currentJourneyStep = 1;
+        simGateApproved = false;
+        activateJourneyStep(1);
+      } else {
+        activateJourneyStep(currentJourneyStep + 1);
+      }
+    }
+
+    // ==========================================================================
+    // INTERACTIVE ENTERPRISE ROI CALCULATOR
+    // ==========================================================================
+    function calculateROI() {
+      const leads = parseInt(document.getElementById("slider-leads").value, 10) || 2500;
+      const contracts = parseInt(document.getElementById("slider-contracts").value, 10) || 35;
+      const invoices = parseInt(document.getElementById("slider-invoices").value, 10) || 120;
+
+      // Update pills
+      document.getElementById("val-leads").textContent = leads.toLocaleString() + " inquiries";
+      document.getElementById("val-contracts").textContent = contracts + " agreements";
+      document.getElementById("val-invoices").textContent = invoices + " receipts";
+
+      // Hours calculation:
+      // Leads: 0.25 hrs (15 min each)
+      // Contracts: 2.5 hrs each
+      // Invoices: 0.35 hrs (20 min each)
+      const hoursSavedMonth = Math.round((leads * 0.05) + (contracts * 2.2) + (invoices * 0.35));
+      const blendedRate = 75; // $75/hr
+      const annualSavings = Math.round(hoursSavedMonth * blendedRate * 12);
+
+      const savingsEl = document.getElementById("output-annual-savings");
+      const hoursEl = document.getElementById("output-hours-saved");
+
+      if (savingsEl) savingsEl.textContent = "$" + annualSavings.toLocaleString();
+      if (hoursEl) hoursEl.textContent = hoursSavedMonth.toLocaleString() + " hrs";
+    }
+
+    // Run on startup
+    document.addEventListener("DOMContentLoaded", () => {
+      calculateROI();
+      activateJourneyStep(1);
+    });
 
   </script>
 
