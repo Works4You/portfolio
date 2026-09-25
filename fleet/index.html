@@ -39,7 +39,7 @@
 
     html {
       scroll-behavior: smooth;
-      overflow-x: hidden;
+      overflow-x: clip;
       width: 100%;
     }
     section {
@@ -50,7 +50,7 @@
       background: var(--bg-gradient);
       color: var(--text-main);
       min-height: 100vh;
-      overflow-x: hidden;
+      overflow-x: clip;
       width: 100%;
       position: relative;
       line-height: 1.6;
@@ -167,7 +167,7 @@
       left: 0;
       right: 0;
       width: 100%;
-      z-index: 100;
+      z-index: 1000;
       background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -175,6 +175,15 @@
       padding: 0;
       margin: 0;
       box-sizing: border-box;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, box-shadow 0.25s ease;
+      transform: translateY(0);
+    }
+    nav.nav-hidden {
+      transform: translateY(-100%);
+    }
+    nav.nav-scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
     .nav-inner {
       max-width: 1380px;
@@ -278,6 +287,240 @@
       transform: translateY(-1px);
     }
 
+    /* Hamburger Menu Button */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      cursor: pointer;
+      padding: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: all 0.25s ease;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+    .nav-hamburger:hover {
+      border-color: var(--primary);
+      background: #FAF5FF;
+    }
+    .hamburger-bar {
+      width: 20px;
+      height: 2px;
+      background: var(--text-main);
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: center;
+    }
+    .nav-hamburger.active .hamburger-bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-hamburger.active .hamburger-bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .nav-hamburger.active .hamburger-bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Drawer Backdrop */
+    .mobile-drawer-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .mobile-drawer-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Mobile Navigation Drawer */
+    .mobile-nav-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 320px;
+      max-width: 86vw;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.18);
+      z-index: 1999;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 20px;
+      box-sizing: border-box;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+    }
+    .mobile-nav-drawer.active {
+      transform: translateX(0);
+    }
+    .mobile-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #E2E8F0;
+      margin-bottom: 14px;
+    }
+    .mobile-drawer-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .mobile-drawer-close:hover {
+      background: #E2E8F0;
+    }
+    .mobile-drawer-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #065F46;
+      margin-bottom: 18px;
+    }
+    .mobile-nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .mobile-nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      transition: background 0.2s, color 0.2s;
+    }
+    .mobile-nav-links a:hover, .mobile-nav-links a:active {
+      background: #F5F3FF;
+      color: var(--primary);
+    }
+    .m-link-icon {
+      font-size: 18px;
+      width: 24px;
+      text-align: center;
+    }
+    .mobile-drawer-cta {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid #E2E8F0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mobile-drawer-footer {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 11.5px;
+      color: #64748B;
+      font-weight: 600;
+    }
+
+    /* Mobile Sticky Bottom Action Bar */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(124, 58, 237, 0.18);
+      padding: 10px 16px;
+      z-index: 990;
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08);
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      transition: transform 0.3s ease;
+    }
+    @media (max-width: 768px) {
+      .mobile-sticky-bar {
+        display: flex;
+      }
+      body {
+        padding-bottom: 64px;
+      }
+    }
+    .mobile-sticky-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-sticky-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #059669;
+    }
+    .mobile-sticky-sub {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .mobile-sticky-btn {
+      background: var(--primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .mobile-sticky-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
     /* Navbar Responsive Scaling */
     @media (max-width: 1200px) {
       nav {
@@ -303,15 +546,24 @@
         font-size: 12px;
       }
     }
-    @media (max-width: 980px) {
+    @media (max-width: 900px) {
       .nav-links {
-        gap: 10px;
-      }
-      .nav-links a {
-        font-size: 12px;
+        display: none !important;
       }
       .nav-actions .nav-studio-btn {
-        display: none;
+        display: none !important;
+      }
+      .nav-hamburger {
+        display: flex !important;
+      }
+      .nav-demo-btn {
+        padding: 7px 14px !important;
+        font-size: 12.5px !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .nav-demo-btn {
+        display: none !important;
       }
     }
 
@@ -331,9 +583,6 @@
       }
       .nav-inner {
         padding: 10px 16px;
-      }
-      .nav-links {
-        display: none;
       }
       .nav-brand {
         margin-right: auto;
@@ -1716,17 +1965,44 @@
     }
 
     @media (max-width: 768px) {
-      .honeycomb-cloud {
-        transform: scale(0.78);
-        transform-origin: top center;
-      }
       .honeycomb-section-wrap {
-        margin-bottom: -40px;
+        margin: 20px auto 25px auto;
+        overflow: visible;
+      }
+      .honeycomb-cloud {
+        transform: none !important;
+        padding: 0;
+      }
+      .hex-tile.ghost {
+        display: none !important;
+      }
+      .hex-row {
+        gap: 8px;
+        margin-top: -14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hex-row:first-child {
+        margin-top: 0;
+      }
+      .hex-tile {
+        width: 64px;
+        height: 74px;
+        filter: drop-shadow(0 4px 12px rgba(0,0,0,0.06));
+      }
+      .hex-logo-wrap {
+        width: 32px;
+        height: 32px;
+      }
+      .hex-logo-wrap svg, .hex-logo-wrap img {
+        max-width: 28px;
+        max-height: 28px;
       }
       .mcp-inspector-card {
         flex-direction: column;
         align-items: flex-start;
-        padding: 16px;
+        padding: 18px 16px;
+        margin-top: 20px;
       }
       .inspector-tags {
         width: 100%;
@@ -1734,11 +2010,25 @@
       }
     }
     @media (max-width: 480px) {
-      .honeycomb-cloud {
-        transform: scale(0.62);
+      .hex-tile {
+        width: 52px;
+        height: 60px;
       }
-      .honeycomb-section-wrap {
-        margin-bottom: -80px;
+      .hex-row {
+        gap: 6px;
+        margin-top: -12px;
+      }
+      .hex-logo-wrap {
+        width: 24px;
+        height: 24px;
+      }
+      .hex-logo-wrap svg, .hex-logo-wrap img {
+        max-width: 22px;
+        max-height: 22px;
+      }
+      .honeycomb-ambient-glow {
+        width: 320px;
+        height: 280px;
       }
     }
 
@@ -1892,14 +2182,303 @@
       color: #4C1D95;
     }
 
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--card-border);
-      background: rgba(255, 255, 255, 0.7);
-      padding: 40px 24px;
+    @media (max-width: 768px) {
+      .compare-table-responsive-wrap {
+        overflow-x: visible !important;
+      }
+      .compare-table, 
+      .compare-table tbody, 
+      .compare-table tr, 
+      .compare-table td {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .compare-table thead {
+        display: none !important;
+      }
+      .compare-table tr {
+        background: #FFFFFF;
+        border: 1.5px solid var(--card-border);
+        border-radius: 18px;
+        padding: 16px;
+        margin-bottom: 16px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      }
+      .compare-table td {
+        padding: 6px 0 !important;
+        border: none !important;
+      }
+      .compare-table td:nth-child(1) {
+        font-size: 15px !important;
+        font-weight: 800 !important;
+        color: var(--text-main) !important;
+        border-bottom: 1px solid #E2E8F0 !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 10px !important;
+      }
+      .compare-table td:nth-child(2) {
+        background: #F8FAFC !important;
+        border-radius: 10px !important;
+        padding: 10px 12px !important;
+        font-size: 13px !important;
+        color: #64748B !important;
+        margin-bottom: 8px !important;
+        border: 1px dashed #CBD5E1 !important;
+      }
+      .compare-table td:nth-child(2)::before {
+        content: "Conventional Single-Task Bots:";
+        font-weight: 700;
+        color: #94A3B8;
+        display: block;
+        font-size: 10.5px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 3px;
+      }
+      .compare-table td:nth-child(3) {
+        background: #F5F3FF !important;
+        border: 1.5px solid rgba(124, 58, 237, 0.25) !important;
+        border-radius: 10px !important;
+        padding: 10px 12px !important;
+        font-size: 13.5px !important;
+        color: var(--primary) !important;
+        font-weight: 600 !important;
+      }
+      .compare-table td:nth-child(3)::before {
+        content: "⚡ Works4you Autonomous Fleet:";
+        font-weight: 800;
+        color: var(--primary);
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 3px;
+      }
+    }
+
+    /* Pre-Footer Banner */
+    .pre-footer-cta-banner {
+      background: linear-gradient(135deg, #1E1B4B 0%, #311042 50%, #0F172A 100%);
+      border: 1.5px solid rgba(168, 85, 247, 0.35);
+      border-radius: 32px;
+      padding: 60px 40px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin: 40px auto 60px;
+      box-shadow: 0 25px 60px -15px rgba(124, 58, 237, 0.35);
+      color: #FFFFFF;
+      box-sizing: border-box;
+    }
+    .pre-footer-glow {
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+    }
+    .pre-footer-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .pre-footer-title {
+      font-size: clamp(28px, 4.5vw, 42px);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 16px 0;
+      color: #FFFFFF;
+    }
+    .pre-footer-desc {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #CBD5E1;
+      max-width: 650px;
+      margin: 0 auto 30px;
+    }
+    .pre-footer-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .pre-footer-btn-primary {
+      background: linear-gradient(135deg, #7C3AED 0%, #6366F1 100%);
+      color: #FFFFFF;
+      padding: 15px 32px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 999px;
+      border: none;
+      box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pre-footer-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(124, 58, 237, 0.55);
+    }
+    .pre-footer-btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 15px 28px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .pre-footer-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    .pre-footer-trust-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 12.5px;
+      color: #94A3B8;
+      font-weight: 600;
+    }
+    .trust-check {
+      color: #10B981;
+      font-weight: 800;
+      margin-right: 4px;
+    }
+
+    /* Enterprise 4-Column Footer */
+    .site-footer {
+      background: #0B0F19;
+      color: #94A3B8;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 70px 24px 30px;
       font-size: 13.5px;
-      color: var(--text-muted);
+      position: relative;
+    }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .footer-col-brand .footer-tagline {
+      line-height: 1.6;
+      margin: 16px 0 20px;
+      color: #94A3B8;
+      max-width: 380px;
+    }
+    .footer-compliance-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .footer-badge {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #CBD5E1;
+    }
+    .footer-col-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 18px;
+      letter-spacing: 0.02em;
+    }
+    .footer-links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links-list a {
+      color: #94A3B8;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links-list a:hover {
+      color: #FFFFFF;
+    }
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12.5px;
+      color: #64748B;
+    }
+    .footer-bottom-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .telemetry-pill {
+      color: #10B981;
+      font-weight: 700;
+    }
+    .telemetry-divider {
+      color: #334155;
+    }
+
+    @media (max-width: 992px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+      .footer-col-brand {
+        grid-column: span 2;
+      }
+    }
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .footer-col-brand {
+        grid-column: span 1;
+      }
+      .pre-footer-cta-banner {
+        padding: 40px 20px;
+        border-radius: 24px;
+      }
+      .pre-footer-actions {
+        flex-direction: column;
+      }
+      .pre-footer-btn-primary, .pre-footer-btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+      .footer-bottom-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     /* ==========================================================================
@@ -2964,15 +3543,50 @@
     /* ==========================================================================
        SPECIALIST ROSTER COMMAND STRIP (Directly Under Squad Stage)
        ========================================================================== */
+    .roster-strip-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1040px;
+      margin: -20px auto 24px;
+      z-index: 4;
+    }
+    .roster-mobile-hint {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      padding: 4px 12px;
+      background: rgba(124, 58, 237, 0.06);
+      border-radius: 999px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .roster-mobile-hint .hint-pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 6px var(--primary);
+      animation: pulseGlow 1.5s infinite;
+    }
+    .roster-mobile-hint .hint-swipe {
+      color: #64748B;
+      font-size: 10.5px;
+    }
+
     .fleet-roster-strip {
       display: grid;
       grid-template-columns: repeat(9, 1fr);
       gap: 8px;
       width: 100%;
-      max-width: 1040px;
-      margin: -20px auto 24px;
       position: relative;
-      z-index: 4;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -3050,31 +3664,42 @@
       color: var(--primary);
     }
     @media (max-width: 900px) {
+      .roster-mobile-hint {
+        display: flex;
+      }
+      .roster-strip-wrapper {
+        margin: -10px auto 20px;
+        mask-image: linear-gradient(to right, transparent 0%, black 16px, black calc(100% - 24px), transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 16px, black calc(100% - 24px), transparent 100%);
+      }
       .fleet-roster-strip {
         display: flex;
         overflow-x: auto;
-        padding: 8px;
+        padding: 10px 18px;
         justify-content: flex-start;
         scroll-snap-type: x mandatory;
+        scroll-padding: 18px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        margin: -10px auto 20px;
+        margin: 0 auto;
+        gap: 10px;
       }
       .fleet-roster-strip::-webkit-scrollbar {
         display: none;
       }
       .roster-node {
-        flex: 0 0 92px;
+        flex: 0 0 96px;
+        min-width: 96px;
         scroll-snap-align: start;
-        padding: 6px 4px;
+        padding: 8px 6px;
       }
       .roster-avatar-wrap {
-        width: 32px;
-        height: 32px;
+        width: 36px;
+        height: 36px;
         margin-bottom: 4px;
       }
       .roster-name {
-        font-size: 11px;
+        font-size: 11.5px;
       }
       .roster-badge {
         font-size: 8.5px;
@@ -3330,54 +3955,93 @@
       margin-bottom: 60px;
     }
 
+    /* Constrain button emblem SVG so it never expands into a giant shape */
+    .btn-emblem {
+      width: 18px !important;
+      height: 18px !important;
+      min-width: 18px !important;
+      max-width: 18px !important;
+      flex-shrink: 0 !important;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
     @media (max-width: 640px) {
       .orchestration-node {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
       }
       .orchestration-avatar-wrap {
-        align-self: center;
-        margin-bottom: 2px;
+        width: 44px;
+        height: 44px;
+        align-self: flex-start;
+        margin-bottom: 0;
+        flex-shrink: 0;
+      }
+      .orchestration-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+      }
+      .orchestration-status-dot {
+        width: 9px;
+        height: 9px;
+        bottom: -1px;
+        right: -1px;
       }
       .orchestration-content-bubble {
-        padding: 16px 14px;
+        padding: 14px 14px;
         border-radius: 18px;
+        flex: 1;
+        min-width: 0;
       }
       .orchestration-content-bubble::before {
-        display: none;
+        display: block !important;
+        left: -6px;
+        top: 14px;
+        width: 12px;
+        height: 12px;
       }
       .bubble-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 6px;
+        gap: 4px;
+        margin-bottom: 6px;
       }
       .bubble-sender {
-        font-size: 14px;
+        font-size: 13.5px;
+        line-height: 1.25;
       }
       .bubble-badge {
-        font-size: 10px;
-        padding: 2px 8px;
+        font-size: 9.5px;
+        padding: 2px 7px;
       }
       .bubble-prompt {
-        font-size: 13.5px;
+        font-size: 12.5px;
+        line-height: 1.45;
       }
       .command-input-group {
         flex-direction: column;
-        border-radius: 16px;
-        padding: 10px 12px;
+        border-radius: 14px;
+        padding: 8px 10px;
         gap: 8px;
         align-items: stretch;
       }
       .command-input {
         width: 100%;
-        font-size: 13.5px;
+        font-size: 13px;
+        line-height: 1.4;
       }
       .command-btn {
         width: 100%;
+        height: 40px;
         justify-content: center;
-        padding: 10px 16px;
+        padding: 8px 14px;
         font-size: 13px;
+        border-radius: 10px;
       }
       .hero-scenario-chips {
         overflow-x: auto;
@@ -3386,40 +4050,47 @@
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         width: 100%;
+        gap: 6px;
       }
       .hero-scenario-chips::-webkit-scrollbar {
         display: none;
       }
       .hero-chip {
         flex-shrink: 0;
-        font-size: 11.5px;
-        padding: 6px 10px;
+        font-size: 11px;
+        padding: 5px 10px;
+        white-space: nowrap;
       }
       .vertical-axis-connector {
-        margin-left: 0;
-        height: 48px;
+        align-self: flex-start;
+        margin-left: 21px;
+        height: 44px;
       }
       .axis-flow-beacon {
         padding: 3px 10px;
+        white-space: nowrap;
+        transform: translateY(-50%) translateX(25px);
       }
       .beacon-label {
-        font-size: 9.5px;
+        font-size: 9px;
       }
       .bubble-speech-text {
-        font-size: 13px;
-        padding: 12px 14px;
-        line-height: 1.55;
+        font-size: 12.5px;
+        padding: 10px 12px;
+        line-height: 1.5;
       }
       .bubble-footer-actions {
         flex-direction: column;
         align-items: stretch;
-        gap: 10px;
+        gap: 8px;
       }
       .bubble-action-btn {
         width: 100%;
         text-align: center;
         padding: 9px 14px;
         font-size: 12px;
+        box-sizing: border-box;
+      }
         box-sizing: border-box;
       }
       .airgap-banner {
@@ -3580,22 +4251,76 @@
   </div>
 
   <!-- Navbar -->
-  <nav><div class="nav-inner">
-    <a href="#" class="nav-brand">
-      <img src="assets/works4you_logo_official_light.png" alt="Works4you AI" class="brand-img-lockup">
-    </a>
-    <ul class="nav-links">
-      <li><a href="#fleet">Command Fleet</a></li>
-      <li><a href="#simulator">Journey Simulator</a></li>
-      <li><a href="#integrations">MCP Ecosystem</a></li>
-      <li><a href="#roi">ROI Calculator</a></li>
-      <li><a href="#security">Airgap Security</a></li>
-    </ul>
-    <div class="nav-actions">
-      <a href="logo-showcase.html" class="btn-secondary nav-studio-btn" style="border-color:#F59E0B; color:#D97706; text-decoration:none; padding: 6px 13px; font-size: 12.5px;">🎨 3D Studio</a>
-      <button class="btn-primary" onclick="openDemoModal()">Book Fleet Demo</button>
+  <nav id="siteNav">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <img src="assets/works4you_logo_official_light.png" alt="Works4you AI" class="brand-img-lockup">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#fleet">Command Fleet</a></li>
+        <li><a href="#simulator">Journey Simulator</a></li>
+        <li><a href="#integrations">MCP Ecosystem</a></li>
+        <li><a href="#roi">ROI Calculator</a></li>
+        <li><a href="#security">Airgap Security</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="logo-showcase.html" class="btn-secondary nav-studio-btn" style="border-color:#F59E0B; color:#D97706; text-decoration:none; padding: 6px 13px; font-size: 12.5px;">🎨 3D Studio</a>
+        <button class="btn-primary nav-demo-btn" onclick="openDemoModal()">Book Fleet Demo</button>
+        <button class="nav-hamburger" id="navHamburgerBtn" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
     </div>
-  </div></nav>
+  </nav>
+
+  <!-- Mobile Drawer Backdrop & Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <img src="assets/works4you_logo_official_light.png" alt="Works4you AI" style="height: 28px; width: auto;">
+      <button class="mobile-drawer-close" onclick="closeMobileMenu()" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-drawer-status">
+      <span class="status-pulse-dot"></span>
+      <span>9 Autonomous Pods Active &bull; SOC 2 Ready</span>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#fleet" onclick="closeMobileMenu()"><span class="m-link-icon">🤖</span> Command Fleet</a></li>
+      <li><a href="#simulator" onclick="closeMobileMenu()"><span class="m-link-icon">⚡</span> Journey Simulator</a></li>
+      <li><a href="#integrations" onclick="closeMobileMenu()"><span class="m-link-icon">🔌</span> MCP Ecosystem</a></li>
+      <li><a href="#roi" onclick="closeMobileMenu()"><span class="m-link-icon">📊</span> ROI Calculator</a></li>
+      <li><a href="#security" onclick="closeMobileMenu()"><span class="m-link-icon">🛡️</span> Airgap Security</a></li>
+      <li><a href="logo-showcase.html" onclick="closeMobileMenu()"><span class="m-link-icon">🎨</span> 3D Studio Showcase</a></li>
+    </ul>
+    <div class="mobile-drawer-cta">
+      <button class="btn-primary" style="width: 100%; justify-content: center; padding: 13px 18px; font-size: 14px;" onclick="closeMobileMenu(); openDemoModal();">
+        Book Fleet Demo
+      </button>
+      <button class="btn-secondary" style="width: 100%; justify-content: center; padding: 12px 18px; font-size: 13.5px; margin-top: 10px;" onclick="closeMobileMenu(); openAirgapModal();">
+        🛡️ Explore Airgap Security
+      </button>
+    </div>
+    <div class="mobile-drawer-footer">
+      <div>Zero Operational Latency</div>
+      <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Hermetic Cloud Run Native Pods</div>
+    </div>
+  </aside>
+
+  <!-- Mobile Sticky Bottom Action Bar -->
+  <div class="mobile-sticky-bar" id="mobileStickyBar">
+    <div class="mobile-sticky-info">
+      <div class="mobile-sticky-status">
+        <span class="status-pulse-dot"></span> 9 Pods Active
+      </div>
+      <div class="mobile-sticky-sub">Zero Operational Latency</div>
+    </div>
+    <button class="mobile-sticky-btn" onclick="openDemoModal()">
+      <span>Book Fleet Demo</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
 
   <div class="container">
 
@@ -3627,7 +4352,13 @@
         </div>
 
         <!-- Interactive Specialist Quick-Dock -->
-        <div class="fleet-roster-strip">
+        <div class="roster-strip-wrapper">
+          <div class="roster-mobile-hint">
+            <span class="hint-pulse"></span>
+            <span>9 Specialized Pods &bull; Tap to view dossier</span>
+            <span class="hint-swipe">Swipe &rarr;</span>
+          </div>
+          <div class="fleet-roster-strip">
           <div class="roster-node" onclick="openAgentDossier('jake')" title="Jake — Chief Fleet Orchestrator & CTO">
             <div class="roster-avatar-wrap">
               <img src="assets/transparent/jake_transparent.png" alt="Jake" class="roster-avatar">
@@ -3709,6 +4440,7 @@
             <div class="roster-badge">Pod Success</div>
           </div>
         </div>
+      </div>
       </div>
 
       <!-- Vertical Interactive Autonomous Orchestration Pipeline -->
@@ -4917,13 +5649,121 @@
       </div>
     </section>
 
-  </div>
+    <!-- ==========================================================================
+         PRE-FOOTER HIGH-CONVERTING ENTERPRISE CTA BANNER
+         ========================================================================== -->
+    <section class="pre-footer-cta-banner">
+      <div class="pre-footer-glow"></div>
+      <div class="pre-footer-content">
+        <div class="section-badge" style="background: rgba(255,255,255,0.18); color:#FFFFFF; border: 1px solid rgba(255,255,255,0.3); margin-bottom: 16px;">
+          ⚡ Production Multi-Agent Pods Ready in 48h
+        </div>
+        <h2 class="pre-footer-title">
+          Nine Autonomous Minds.<br>Zero Operational Latency.
+        </h2>
+        <p class="pre-footer-desc">
+          Eliminate enterprise bottlenecks across legal due diligence, cybersecurity incident response, multi-currency treasury reconciliation, and omnichannel inbound conversations with strict human approval gates.
+        </p>
+        
+        <div class="pre-footer-actions">
+          <button class="pre-footer-btn-primary" onclick="openDemoModal()">
+            <span>Book Fleet Demo</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="pre-footer-btn-secondary" onclick="openAirgapModal()">
+            <span>🛡️ Explore Airgap Security</span>
+          </button>
+        </div>
 
-  <footer>
-    <div style="margin-bottom: 16px;">
-      <img src="assets/works4you_logo_official_light.png" alt="Works4you AI" style="height: 38px; width: auto; opacity: 0.95;">
+        <div class="pre-footer-trust-grid">
+          <div class="trust-item"><span class="trust-check">✓</span> SOC 2 Type II Architecture</div>
+          <div class="trust-item"><span class="trust-check">✓</span> Zero Data Leakage (Airgap Pods)</div>
+          <div class="trust-item"><span class="trust-check">✓</span> Multi-Channel: Slack, WhatsApp, Teams</div>
+          <div class="trust-item"><span class="trust-check">✓</span> Cloud Run Native &bull; 99.99% SLA</div>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- End .container -->
+
+  <!-- ==========================================================================
+       ENTERPRISE 4-COLUMN FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Column 1: Brand & Certification -->
+        <div class="footer-col footer-col-brand">
+          <a href="#" class="footer-brand-logo">
+            <img src="assets/works4you_logo_official_light.png" alt="Works4you AI" style="height: 36px; width: auto;">
+          </a>
+          <p class="footer-tagline">
+            The Autonomous Multi-Agent Operating System for Enterprise Scale. Orchestrating 9 specialized AI minds with zero shared prompts, hermetic memory isolation, and strict human oversight gates.
+          </p>
+          <div class="footer-compliance-badges">
+            <span class="footer-badge">🔒 SOC 2 Ready</span>
+            <span class="footer-badge">🛡️ Airgapped Memory</span>
+            <span class="footer-badge">⚡ Cloud Run Native</span>
+          </div>
+        </div>
+
+        <!-- Column 2: The 9 Autonomous Specialists -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">The 9 Specialists</h4>
+          <ul class="footer-links-list">
+            <li><a href="javascript:void(0)" onclick="openAgentDossier('jake')">Jake &mdash; CTO & Orchestrator</a></li>
+            <li><a href="javascript:void(0)" onclick="openAgentDossier('katie')">Katie &mdash; Inbound Gateway</a></li>
+            <li><a href="javascript:void(0)" onclick="openAgentDossier('claire')">Claire &mdash; Corporate Counsel</a></li>
+            <li><a href="javascript:void(0)" onclick="openAgentDossier('vance')">Vance &mdash; SecOps Guard</a></li>
+            <li><a href="javascript:void(0)" onclick="openAgentDossier('warren')">Warren &mdash; Treasury & FX</a></li>
+            <li><a href="javascript:void(0)" onclick="openAgentDossier('hunter')">Hunter &mdash; Executive Talent</a></li>
+            <li><a href="javascript:void(0)" onclick="openAgentDossier('chloe')">Chloe &mdash; Chief of Staff</a></li>
+            <li><a href="javascript:void(0)" onclick="openAgentDossier('miles')">Miles &mdash; Systems Architect</a></li>
+            <li><a href="javascript:void(0)" onclick="openAgentDossier('sierra')">Sierra &mdash; Pod Success</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Platform Architecture -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Platform Architecture</h4>
+          <ul class="footer-links-list">
+            <li><a href="javascript:void(0)" onclick="openAirgapModal()">Airgap Isolation Engine</a></li>
+            <li><a href="#integrations">MCP Protocol Ecosystem</a></li>
+            <li><a href="#simulator">Dynamic DAG Pipeline Simulator</a></li>
+            <li><a href="#fleet">Omnichannel Inbound (Slack/WA/Teams)</a></li>
+            <li><a href="#roi">Enterprise ROI Modeling</a></li>
+            <li><a href="javascript:void(0)" onclick="triggerHeroWorkflow()">Autonomous Self-Healing CI/CD</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Enterprise Deployment -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Enterprise Deployment</h4>
+          <ul class="footer-links-list">
+            <li><a href="javascript:void(0)" onclick="openDemoModal()" style="font-weight: 700; color: #C084FC;">Book Fleet Demo &rarr;</a></li>
+            <li><a href="javascript:void(0)" onclick="openAirgapModal()">Schedule Architecture Review</a></li>
+            <li><a href="logo-showcase.html">3D Studio & Brand Assets</a></li>
+            <li><a href="javascript:void(0)" onclick="alert('Enterprise SOC 2 Type II audit package available under mutual NDA.')">SOC 2 Type II Audit Package</a></li>
+            <li><a href="javascript:void(0)" onclick="alert('Hermetic data retention: Zero prompt training, dedicated private tenant vector stores.')">Privacy & Hermetic Data Policy</a></li>
+            <li><a href="javascript:void(0)" onclick="alert('All 9 autonomous pods operational with 99.99% uptime across US-Central and EU clusters.')">Fleet Health: 🟢 99.99% Operational</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div class="footer-bottom-left">
+          &copy; 2026 Works4you AI Inc. All rights reserved. Built for Shimon Ezekiel.
+        </div>
+        <div class="footer-bottom-right">
+          <span class="telemetry-pill">🟢 9 Pods Operational</span>
+          <span class="telemetry-divider">&bull;</span>
+          <span>Zero Operational Latency</span>
+        </div>
+      </div>
     </div>
-    <p>&copy; 2026 Works4you AI. The Autonomous Multi-Agent Operating System for Enterprise Scale.</p>
   </footer>
 
   <script>
@@ -6261,6 +7101,120 @@
         btn.setAttribute("onclick", `openAgentDossier('${r.agentKey}')`);
       }
     }
+
+    // ==========================================================================
+    // SMART HIDE-ON-SCROLL-DOWN & SHOW-ON-SCROLL-UP NAVBAR (HEADROOM)
+    // ==========================================================================
+    let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+    const siteNavEl = document.getElementById("siteNav");
+    const mobileStickyBar = document.getElementById("mobileStickyBar");
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (siteNavEl) {
+        if (currentScrollY > 60) {
+          siteNavEl.classList.add("nav-scrolled");
+          // If scrolling down and past 120px, hide navbar
+          if (currentScrollY > lastScrollY && currentScrollY > 120) {
+            siteNavEl.classList.add("nav-hidden");
+          } else {
+            // If scrolling up, immediately show navbar
+            siteNavEl.classList.remove("nav-hidden");
+          }
+        } else {
+          siteNavEl.classList.remove("nav-scrolled");
+          siteNavEl.classList.remove("nav-hidden");
+        }
+      }
+
+      // Hide mobile sticky bar when near bottom pre-footer banner so they don't clash
+      if (mobileStickyBar && window.innerWidth <= 768) {
+        const docHeight = document.documentElement.scrollHeight;
+        const windowHeight = window.innerHeight;
+        if (currentScrollY + windowHeight > docHeight - 350) {
+          mobileStickyBar.style.transform = "translateY(100%)";
+        } else {
+          mobileStickyBar.style.transform = "translateY(0)";
+        }
+      }
+
+      lastScrollY = Math.max(0, currentScrollY);
+    }, { passive: true });
+
+    // ==========================================================================
+    // MOBILE HAMBURGER MENU & DRAWER CONTROLLER
+    // ==========================================================================
+    function toggleMobileMenu() {
+      const drawer = document.getElementById("mobileNavDrawer");
+      const backdrop = document.getElementById("mobileDrawerBackdrop");
+      const btn = document.getElementById("navHamburgerBtn");
+      if (!drawer) return;
+      const isOpen = drawer.classList.contains("active");
+
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    }
+
+    function openMobileMenu() {
+      const drawer = document.getElementById("mobileNavDrawer");
+      const backdrop = document.getElementById("mobileDrawerBackdrop");
+      const btn = document.getElementById("navHamburgerBtn");
+      if (drawer) drawer.classList.add("active");
+      if (backdrop) backdrop.classList.add("active");
+      if (btn) btn.classList.add("active");
+      document.body.style.overflow = "hidden";
+      if (mobileStickyBar) mobileStickyBar.style.display = "none";
+    }
+
+    function closeMobileMenu() {
+      const drawer = document.getElementById("mobileNavDrawer");
+      const backdrop = document.getElementById("mobileDrawerBackdrop");
+      const btn = document.getElementById("navHamburgerBtn");
+      if (drawer) drawer.classList.remove("active");
+      if (backdrop) backdrop.classList.remove("active");
+      if (btn) btn.classList.remove("active");
+      document.body.style.overflow = "";
+      if (mobileStickyBar && window.innerWidth <= 768) mobileStickyBar.style.display = "flex";
+    }
+
+    // Modal sticky bar integration
+    const origOpenModal = window.openModal;
+    window.openModal = function(modalId) {
+      if (origOpenModal) origOpenModal(modalId);
+      else {
+        const m = document.getElementById(modalId);
+        if (m) {
+          m.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+      }
+      if (mobileStickyBar) mobileStickyBar.style.display = "none";
+    };
+
+    const origCloseModal = window.closeModal;
+    window.closeModal = function(modalId) {
+      if (origCloseModal) origCloseModal(modalId);
+      else {
+        const m = document.getElementById(modalId);
+        if (m) {
+          m.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+      }
+      if (mobileStickyBar && window.innerWidth <= 768) mobileStickyBar.style.display = "flex";
+    };
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeMobileMenu();
+        if (mobileStickyBar && window.innerWidth <= 768) mobileStickyBar.style.display = "flex";
+      }
+    });
 
   </script>
 
