@@ -39,6 +39,8 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
     }
     section {
       scroll-margin-top: 85px;
@@ -49,6 +51,8 @@
       color: var(--text-main);
       min-height: 100vh;
       overflow-x: hidden;
+      width: 100%;
+      position: relative;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
@@ -61,6 +65,8 @@
       z-index: 0;
       pointer-events: none;
       opacity: 0.55;
+      max-width: 100vw;
+      overflow: hidden;
     }
     .sphere-1 {
       width: 550px;
@@ -75,6 +81,23 @@
       background: radial-gradient(circle, rgba(6, 182, 212, 0.35) 0%, rgba(243, 232, 255, 0) 70%);
       top: 550px;
       left: -120px;
+    }
+    @media (max-width: 768px) {
+      .ambient-sphere {
+        opacity: 0.35;
+      }
+      .sphere-1 {
+        width: 280px;
+        height: 280px;
+        right: 0;
+        top: -40px;
+      }
+      .sphere-2 {
+        width: 240px;
+        height: 240px;
+        left: 0;
+        top: 400px;
+      }
     }
 
     /* Top Banner */
@@ -253,6 +276,9 @@
     }
     @media (max-width: 768px) {
       nav {
+        padding: 0;
+      }
+      .nav-inner {
         padding: 10px 16px;
       }
       .nav-links {
@@ -260,6 +286,13 @@
       }
       .nav-brand {
         margin-right: auto;
+      }
+      .brand-img-lockup {
+        height: 26px;
+        max-width: 145px;
+      }
+      .container {
+        padding: 0 16px;
       }
     }
 
@@ -320,6 +353,16 @@
       gap: 16px;
       margin-bottom: 50px;
     }
+    @media (max-width: 640px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 30px auto;
+      }
+    }
     .btn-main {
       background: #0F172A;
       color: #FFFFFF;
@@ -352,6 +395,15 @@
     }
     .btn-video:hover {
       border-color: var(--primary);
+    }
+    @media (max-width: 640px) {
+      .btn-main, .btn-video {
+        width: 100%;
+        justify-content: center;
+        padding: 13px 20px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
     }
 
     /* Works4you Autonomous Command Bar */
@@ -1301,9 +1353,6 @@
       gap: 16px;
       margin-bottom: 40px;
     }
-    @media (max-width: 800px) {
-      .integration-metrics-row { grid-template-columns: repeat(2, 1fr); }
-    }
     .integration-metrics-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1313,6 +1362,16 @@
       max-width: 860px;
       position: relative;
       z-index: 2;
+      box-sizing: border-box;
+    }
+    @media (max-width: 800px) {
+      .integration-metrics-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      .integration-metrics-row { grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 16px auto; }
+      .int-metric-card { padding: 12px 8px; border-radius: 14px; }
+      .int-metric-val { font-size: 22px; }
+      .int-metric-lbl { font-size: 10px; }
     }
     .int-metric-card {
       background: rgba(255, 255, 255, 0.88);
@@ -1321,6 +1380,7 @@
       border-radius: 18px;
       padding: 20px;
       text-align: center;
+      box-sizing: border-box;
     }
     .int-metric-val {
       font-size: 28px;
@@ -1343,6 +1403,7 @@
       align-items: center;
       position: relative;
       width: 100%;
+      overflow: hidden;
     }
     .honeycomb-ambient-glow {
       position: absolute;
@@ -2269,6 +2330,9 @@
       gap: 32px;
       align-items: stretch;
     }
+    .simulator-split-layout > * {
+      min-width: 0;
+    }
     @media (max-width: 960px) {
       .simulator-split-layout { grid-template-columns: 1fr; }
     }
@@ -2276,6 +2340,7 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
+      min-width: 0;
     }
     .pipeline-step-node {
       background: #F8FAFC;
@@ -2288,12 +2353,53 @@
       align-items: center;
       gap: 16px;
       position: relative;
+      min-width: 0;
+    }
+    .pipeline-step-node > div:last-child {
+      min-width: 0;
+      flex: 1;
     }
     .pipeline-step-node.active {
       background: #FFFFFF;
       border-color: var(--primary);
       box-shadow: 0 8px 24px -6px rgba(124, 58, 237, 0.16);
       transform: translateX(6px);
+    }
+    @media (max-width: 640px) {
+      .journey-simulator-wrap {
+        padding: 20px 14px;
+        border-radius: 20px;
+        margin-bottom: 50px;
+      }
+      .industry-nav-row {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 0 4px 8px 4px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin-bottom: 20px;
+      }
+      .industry-nav-row::-webkit-scrollbar {
+        display: none;
+      }
+      .industry-tab-btn {
+        flex-shrink: 0;
+        font-size: 12px;
+        padding: 8px 14px;
+      }
+      .pipeline-step-node {
+        padding: 12px 14px;
+        gap: 12px;
+      }
+      .pipeline-step-node.active {
+        transform: none;
+        border-left: 4px solid var(--primary);
+      }
+      .simulator-console-panel {
+        padding: 16px 14px;
+        border-radius: 16px;
+      }
     }
     .step-circle-badge {
       width: 36px;
@@ -2369,6 +2475,20 @@
     }
     @media (max-width: 900px) {
       .roi-grid-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .roi-calculator-shell {
+        padding: 24px 16px;
+        border-radius: 20px;
+        margin-bottom: 50px;
+      }
+      .roi-metrics-output-card {
+        padding: 20px 16px;
+        border-radius: 18px;
+      }
+      .roi-big-stat-val {
+        font-size: 34px;
+      }
     }
     .roi-control-group {
       margin-bottom: 24px;
@@ -2883,14 +3003,32 @@
       .fleet-roster-strip {
         display: flex;
         overflow-x: auto;
-        padding: 10px;
+        padding: 8px;
         justify-content: flex-start;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin: -10px auto 20px;
+      }
+      .fleet-roster-strip::-webkit-scrollbar {
+        display: none;
       }
       .roster-node {
-        flex: 0 0 100px;
+        flex: 0 0 92px;
         scroll-snap-align: start;
+        padding: 6px 4px;
+      }
+      .roster-avatar-wrap {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 4px;
+      }
+      .roster-name {
+        font-size: 11px;
+      }
+      .roster-badge {
+        font-size: 8.5px;
+        padding: 1px 4px;
       }
     }
 
@@ -3099,16 +3237,240 @@
       box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
     }
 
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      border: 1px solid #E2E8F0;
+      background: #F1F5F9;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .hero-chip:hover {
+      border-color: rgba(124, 58, 237, 0.3);
+      color: var(--primary);
+      background: #F5F3FF;
+    }
+    .hero-chip.active {
+      background: #EDE9FE;
+      color: var(--primary);
+      border-color: rgba(124, 58, 237, 0.35);
+      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.15);
+    }
+
+    .compare-table-responsive-wrap {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 14px;
+      margin-top: 10px;
+    }
+
+    .impact-dossiers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
     @media (max-width: 640px) {
       .orchestration-node {
         flex-direction: column;
         align-items: stretch;
+        gap: 12px;
+      }
+      .orchestration-avatar-wrap {
+        align-self: center;
+        margin-bottom: 2px;
+      }
+      .orchestration-content-bubble {
+        padding: 16px 14px;
+        border-radius: 18px;
       }
       .orchestration-content-bubble::before {
         display: none;
       }
+      .bubble-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .bubble-sender {
+        font-size: 14px;
+      }
+      .bubble-badge {
+        font-size: 10px;
+        padding: 2px 8px;
+      }
+      .bubble-prompt {
+        font-size: 13.5px;
+      }
+      .command-input-group {
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 10px 12px;
+        gap: 8px;
+        align-items: stretch;
+      }
+      .command-input {
+        width: 100%;
+        font-size: 13.5px;
+      }
+      .command-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+      .hero-scenario-chips {
+        overflow-x: auto;
+        flex-wrap: nowrap !important;
+        padding: 8px 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        width: 100%;
+      }
+      .hero-scenario-chips::-webkit-scrollbar {
+        display: none;
+      }
+      .hero-chip {
+        flex-shrink: 0;
+        font-size: 11.5px;
+        padding: 6px 10px;
+      }
       .vertical-axis-connector {
         margin-left: 0;
+        height: 48px;
+      }
+      .axis-flow-beacon {
+        padding: 3px 10px;
+      }
+      .beacon-label {
+        font-size: 9.5px;
+      }
+      .bubble-speech-text {
+        font-size: 13px;
+        padding: 12px 14px;
+        line-height: 1.55;
+      }
+      .bubble-footer-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .bubble-action-btn {
+        width: 100%;
+        text-align: center;
+        padding: 9px 14px;
+        font-size: 12px;
+        box-sizing: border-box;
+      }
+      .airgap-banner {
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        border-radius: 16px;
+        margin: 24px auto 36px auto;
+      }
+      .airgap-right {
+        width: 100%;
+      }
+      .airgap-right .btn-secondary {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+      .section-title {
+        font-size: 26px;
+        line-height: 1.25;
+      }
+      .section-subtitle {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .filter-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 0 4px 8px 4px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin-bottom: 24px;
+      }
+      .filter-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .filter-tab {
+        flex-shrink: 0;
+        font-size: 12px;
+        padding: 7px 14px;
+      }
+      .bento-card {
+        padding: 20px 16px;
+        border-radius: 20px;
+      }
+      .jake-header-split {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+      .jake-avatar-wrap {
+        width: 90px;
+        height: 90px;
+        align-self: center;
+        margin: 0 auto;
+      }
+      .jake-avatar {
+        width: 80px;
+        height: 80px;
+      }
+      .devops-telemetry-strip {
+        gap: 6px;
+        padding: 10px 12px;
+      }
+      .telemetry-item-val {
+        font-size: 13.5px;
+      }
+      .telemetry-item-lbl {
+        font-size: 9.5px;
+      }
+      .squad-quick-dock {
+        border-radius: 16px;
+        padding: 6px 8px;
+        gap: 6px;
+      }
+      .compare-section {
+        padding: 24px 14px;
+        border-radius: 20px;
+        margin-bottom: 45px;
+      }
+      .compare-title {
+        font-size: 22px;
+        margin-bottom: 18px;
+      }
+      .compare-table {
+        min-width: 520px;
+        font-size: 12.5px;
+      }
+      .compare-table th, .compare-table td {
+        padding: 10px 12px;
+      }
+      .impact-dossiers-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 36px;
+      }
+      .impact-card {
+        padding: 20px 16px !important;
+        border-radius: 18px !important;
       }
     }
 
@@ -3726,10 +4088,10 @@
         <p class="section-subtitle">See how our specialized multi-agent fleet executes end-to-end client operations with zero data leakage and concrete operational metrics.</p>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:24px; margin-bottom:60px;">
+      <div class="impact-dossiers-grid">
         
         <!-- Case Study 1: Edith Ltd (Legal & Accounting) -->
-        <div style="background:linear-gradient(135deg, #FAF5FF 0%, #FFFFFF 100%); border:1.5px solid rgba(147, 51, 234, 0.25); border-radius:24px; padding:32px; box-shadow:0 20px 40px -15px rgba(147, 51, 234, 0.08); display:flex; flex-direction:column;">
+        <div class="impact-card" style="background:linear-gradient(135deg, #FAF5FF 0%, #FFFFFF 100%); border:1.5px solid rgba(147, 51, 234, 0.25);">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <span style="background:#F3E8FF; color:#7E22CE; font-weight:800; font-size:11.5px; padding:4px 12px; border-radius:999px;">Legal & Accounting Practice</span>
             <span style="font-size:12px; font-weight:700; color:#10B981;">● Production Deployed</span>
@@ -3758,7 +4120,7 @@
         </div>
 
         <!-- Case Study 2: B2B Enterprise SaaS -->
-        <div style="background:linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%); border:1.5px solid rgba(34, 197, 94, 0.25); border-radius:24px; padding:32px; box-shadow:0 20px 40px -15px rgba(34, 197, 94, 0.08); display:flex; flex-direction:column;">
+        <div class="impact-card" style="background:linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%); border:1.5px solid rgba(34, 197, 94, 0.25);">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <span style="background:#DCFCE7; color:#15803D; font-weight:800; font-size:11.5px; padding:4px 12px; border-radius:999px;">Enterprise Inbound Growth</span>
             <span style="font-size:12px; font-weight:700; color:#10B981;">● Production Deployed</span>
@@ -3787,7 +4149,7 @@
         </div>
 
         <!-- Case Study 3: Global Commerce (Twotone & Zohar) -->
-        <div style="background:linear-gradient(135deg, #FFFBEB 0%, #FFFFFF 100%); border:1.5px solid rgba(245, 158, 11, 0.25); border-radius:24px; padding:32px; box-shadow:0 20px 40px -15px rgba(245, 158, 11, 0.08); display:flex; flex-direction:column;">
+        <div class="impact-card" style="background:linear-gradient(135deg, #FFFBEB 0%, #FFFFFF 100%); border:1.5px solid rgba(245, 158, 11, 0.25);">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <span style="background:#FEF3C7; color:#B45309; font-weight:800; font-size:11.5px; padding:4px 12px; border-radius:999px;">Global Commerce & Finance</span>
             <span style="font-size:12px; font-weight:700; color:#10B981;">● Production Deployed</span>
@@ -4341,25 +4703,6 @@
       </div>
         </div>
       </div>
-
-      <div class="integration-metrics-row">
-        <div class="int-metric-card">
-          <div class="int-metric-val">40+</div>
-          <div class="int-metric-lbl">Production Connectors</div>
-        </div>
-        <div class="int-metric-card">
-          <div class="int-metric-val">24</div>
-          <div class="int-metric-lbl">MCP Servers Active</div>
-        </div>
-        <div class="int-metric-card">
-          <div class="int-metric-val">&lt; 50ms</div>
-          <div class="int-metric-lbl">Tool Execution Latency</div>
-        </div>
-        <div class="int-metric-card">
-          <div class="int-metric-val">100%</div>
-          <div class="int-metric-lbl">Zero-Data-Retention Airgap</div>
-        </div>
-      </div>
     </section>
 
     <!-- Why Works4you vs Generic AI -->
@@ -4447,37 +4790,39 @@
 
 <section id="compare" class="compare-section">
       <h2 class="compare-title">Why Works4you Outperforms Single-Purpose SaaS</h2>
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>Dimension</th>
-            <th>Conventional Single-Task SaaS Bots</th>
-            <th class="highlight-cell">Works4you Autonomous Fleet</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Functional Scope</strong></td>
-            <td>GTM & Sales prospecting only (SDR/BDR).</td>
-            <td class="highlight-cell">Full business operating system: Legal, Cyber, Finance, Sourcing & Support.</td>
-          </tr>
-          <tr>
-            <td><strong>Client Data Privacy</strong></td>
-            <td>Multi-tenant shared cloud database.</td>
-            <td class="highlight-cell">Strict Hermetic Airgap: dedicated memory per organization with zero cross-tenant bleed.</td>
-          </tr>
-          <tr>
-            <td><strong>Execution Mode</strong></td>
-            <td>Suggests drafts; human must copy & paste.</td>
-            <td class="highlight-cell">Zero-touch execution: signs off filings, reconciles books, deploys Cloud Run.</td>
-          </tr>
-          <tr>
-            <td><strong>Self-Healing DevOps</strong></td>
-            <td>Fails on API timeout or schema changes.</td>
-            <td class="highlight-cell">Autonomous self-healing loop: reads error logs, fixes code, pushes to main.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="compare-table-responsive-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Conventional Single-Task SaaS Bots</th>
+              <th class="highlight-cell">Works4you Autonomous Fleet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Functional Scope</strong></td>
+              <td>GTM & Sales prospecting only (SDR/BDR).</td>
+              <td class="highlight-cell">Full business operating system: Legal, Cyber, Finance, Sourcing & Support.</td>
+            </tr>
+            <tr>
+              <td><strong>Client Data Privacy</strong></td>
+              <td>Multi-tenant shared cloud database.</td>
+              <td class="highlight-cell">Strict Hermetic Airgap: dedicated memory per organization with zero cross-tenant bleed.</td>
+            </tr>
+            <tr>
+              <td><strong>Execution Mode</strong></td>
+              <td>Suggests drafts; human must copy & paste.</td>
+              <td class="highlight-cell">Zero-touch execution: signs off filings, reconciles books, deploys Cloud Run.</td>
+            </tr>
+            <tr>
+              <td><strong>Self-Healing DevOps</strong></td>
+              <td>Fails on API timeout or schema changes.</td>
+              <td class="highlight-cell">Autonomous self-healing loop: reads error logs, fixes code, pushes to main.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
   </div>
@@ -5347,9 +5692,9 @@
       if (btnEl) btnEl.innerHTML = step.btnText;
 
       let html = step.lines.map(l => `
-        <div style="margin-bottom:8px; display:flex; gap:10px;">
-          <span style="color:#64748B; font-size:11px; white-space:nowrap;">[${l.prompt}]</span>
-          <span style="color:#38BDF8; font-weight:700; white-space:nowrap;">${l.agent}:</span>
+        <div class="sim-log-line" style="margin-bottom:8px; line-height:1.5;">
+          <span style="color:#64748B; font-size:11px; margin-right:6px; font-family:monospace;">[${l.prompt}]</span>
+          <span style="color:#38BDF8; font-weight:700; margin-right:6px; font-family:monospace;">${l.agent}:</span>
           <span style="color:#F1F5F9;">${l.msg}</span>
         </div>
       `).join("");
