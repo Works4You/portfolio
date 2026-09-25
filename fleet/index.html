@@ -2388,6 +2388,163 @@
       border-top: 1px solid rgba(255,255,255,0.1);
     }
 
+  
+    /* ==========================================================================
+       HERO SQUAD SHOWCASE & CATCHPHRASE
+       ========================================================================== */
+    .hero-catchphrase-banner {
+      margin: 40px auto 16px;
+      max-width: 920px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-catchphrase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(56, 189, 248, 0.12) 100%);
+      border: 1px solid rgba(124, 58, 237, 0.25);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .hero-catchphrase-title {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.22;
+      background: linear-gradient(135deg, #0F172A 0%, #4C1D95 50%, #1E1B4B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    .hero-catchphrase-sub {
+      font-size: 15.5px;
+      color: #475569;
+      max-width: 740px;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+
+    .hero-squad-stage {
+      position: relative;
+      max-width: 1040px;
+      margin: 12px auto 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
+    .squad-stage-halo {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translate(-50%, -15%);
+      width: 90%;
+      height: 80%;
+      background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.25) 0%, rgba(56, 189, 248, 0.15) 45%, transparent 75%);
+      filter: blur(45px);
+      z-index: -1;
+      pointer-events: none;
+    }
+    .squad-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 980px;
+      display: flex;
+      justify-content: center;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .squad-image-wrapper:hover {
+      transform: translateY(-4px) scale(1.012);
+    }
+    .squad-main-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 20px 35px rgba(124, 58, 237, 0.18)) drop-shadow(0 8px 16px rgba(15, 23, 42, 0.1));
+    }
+
+    .squad-quick-dock {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-top: -16px;
+      position: relative;
+      z-index: 3;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(124, 58, 237, 0.2);
+      border-radius: 999px;
+      padding: 4px 10px;
+      box-shadow: 0 12px 30px -10px rgba(124, 58, 237, 0.18);
+      max-width: 960px;
+    }
+    .squad-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 11px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .squad-chip:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.16);
+    }
+    .chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .chip-name {
+      font-weight: 800;
+    }
+    .chip-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748B;
+      background: #F1F5F9;
+      padding: 1px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .squad-chip:hover .chip-tag {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    @media (max-width: 860px) {
+      .hero-catchphrase-title {
+        font-size: 25px;
+      }
+      .squad-quick-dock {
+        border-radius: 20px;
+        padding: 8px 10px;
+        gap: 6px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2434,6 +2591,75 @@
           Enterprise Airgap Security
         </a>
       </div>
+
+      <!-- Hero Catchphrase Banner -->
+      <div class="hero-catchphrase-banner">
+        <div class="hero-catchphrase-badge">
+          <span>⚡</span> The Autonomous Executive Fleet
+        </div>
+        <h2 class="hero-catchphrase-title">Nine Autonomous Minds. Zero Operational Latency. One Unstoppable Enterprise.</h2>
+        <p class="hero-catchphrase-sub">
+          Every critical executive domain — from legal liability and cyber posture to cash flow and talent acquisition — executed 24/7 with zero human bottleneck.
+        </p>
+      </div>
+
+      <!-- Hero Squad Stage (All 9 Specialists Standing Together) -->
+      <div class="hero-squad-stage">
+        <div class="squad-stage-halo"></div>
+        <div class="squad-image-wrapper">
+          <img src="assets/fleet_squad_composite.png" alt="Works4you Autonomous AI Fleet — All 9 Specialists" class="squad-main-img">
+        </div>
+
+        <!-- Interactive Specialist Dock -->
+        <div class="squad-quick-dock">
+          <a href="#fleet" class="squad-chip" title="Jake — Chief Fleet Orchestrator & CTO">
+            <span class="chip-dot" style="background:#38BDF8;"></span>
+            <span class="chip-name">Jake</span>
+            <span class="chip-tag">CTO</span>
+          </a>
+          <a href="#fleet" class="squad-chip" title="Katie — Inbound Experience Lead">
+            <span class="chip-dot" style="background:#22C55E;"></span>
+            <span class="chip-name">Katie</span>
+            <span class="chip-tag">Inbound</span>
+          </a>
+          <a href="#fleet" class="squad-chip" title="Claire — Corporate Counsel & Compliance">
+            <span class="chip-dot" style="background:#A855F7;"></span>
+            <span class="chip-name">Claire</span>
+            <span class="chip-tag">Legal</span>
+          </a>
+          <a href="#fleet" class="squad-chip" title="Vance — Cybersecurity & SOC 2 Guard">
+            <span class="chip-dot" style="background:#06B6D4;"></span>
+            <span class="chip-name">Vance</span>
+            <span class="chip-tag">Cyber</span>
+          </a>
+          <a href="#fleet" class="squad-chip" title="Warren — Treasury & Cashflow Analyst">
+            <span class="chip-dot" style="background:#F59E0B;"></span>
+            <span class="chip-name">Warren</span>
+            <span class="chip-tag">Finance</span>
+          </a>
+          <a href="#fleet" class="squad-chip" title="Hunter — Executive Talent Sourcing">
+            <span class="chip-dot" style="background:#6366F1;"></span>
+            <span class="chip-name">Hunter</span>
+            <span class="chip-tag">Talent</span>
+          </a>
+          <a href="#fleet" class="squad-chip" title="Chloe — Operations & Chief of Staff">
+            <span class="chip-dot" style="background:#EC4899;"></span>
+            <span class="chip-name">Chloe</span>
+            <span class="chip-tag">Ops</span>
+          </a>
+          <a href="#fleet" class="squad-chip" title="Miles — Systems & AI Architect">
+            <span class="chip-dot" style="background:#8B5CF6;"></span>
+            <span class="chip-name">Miles</span>
+            <span class="chip-tag">Systems</span>
+          </a>
+          <a href="#fleet" class="squad-chip" title="Sierra — Dedicated Pod Success Lead">
+            <span class="chip-dot" style="background:#14B8A6;"></span>
+            <span class="chip-name">Sierra</span>
+            <span class="chip-tag">Pods</span>
+          </a>
+        </div>
+      </div>
+
 
       <!-- Autonomous Command Input Bar -->
       <div class="command-card">
