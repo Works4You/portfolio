@@ -101,20 +101,28 @@
     nav {
       position: sticky;
       top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--card-border);
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .nav-inner {
+      max-width: 1380px;
+      margin: 0 auto;
       padding: 12px 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: nowrap;
       gap: 16px;
-      max-width: 1440px;
       width: 100%;
-      margin: 0 auto;
       box-sizing: border-box;
     }
 
@@ -2782,6 +2790,328 @@
       .modal-header-section, .modal-body-section { padding: 20px; }
     }
 
+  
+    /* ==========================================================================
+       SPECIALIST ROSTER COMMAND STRIP (Directly Under Squad Stage)
+       ========================================================================== */
+    .fleet-roster-strip {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 8px;
+      width: 100%;
+      max-width: 1040px;
+      margin: -20px auto 24px;
+      position: relative;
+      z-index: 4;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(124, 58, 237, 0.2);
+      border-radius: 20px;
+      padding: 10px;
+      box-shadow: 0 16px 36px -10px rgba(124, 58, 237, 0.16);
+      box-sizing: border-box;
+    }
+    .roster-node {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 8px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      color: var(--text-main);
+      box-sizing: border-box;
+    }
+    .roster-node:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 8px 20px -4px rgba(124, 58, 237, 0.25);
+      background: #FAF8FF;
+    }
+    .roster-avatar-wrap {
+      position: relative;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 6px;
+    }
+    .roster-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      background: #F1EEFE;
+      border: 1.5px solid rgba(124, 58, 237, 0.2);
+    }
+    .roster-status-dot {
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1.5px solid #FFFFFF;
+    }
+    .roster-name {
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text-main);
+      margin-bottom: 2px;
+      white-space: nowrap;
+    }
+    .roster-badge {
+      font-size: 9.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 1px 5px;
+      border-radius: 4px;
+      background: #F1F5F9;
+      color: #64748B;
+      white-space: nowrap;
+    }
+    .roster-node:hover .roster-badge {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    @media (max-width: 900px) {
+      .fleet-roster-strip {
+        display: flex;
+        overflow-x: auto;
+        padding: 10px;
+        justify-content: flex-start;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .roster-node {
+        flex: 0 0 100px;
+        scroll-snap-align: start;
+      }
+    }
+
+  
+    /* ==========================================================================
+       VERTICAL ORCHESTRATION PIPELINE & CONVERSATIONAL SPEECH BUBBLES
+       ========================================================================== */
+    .vertical-orchestration-console {
+      max-width: 980px;
+      margin: 10px auto 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .orchestration-node {
+      width: 100%;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      box-sizing: border-box;
+    }
+    .orchestration-avatar-wrap {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+    }
+    .orchestration-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      object-fit: cover;
+      background: #F1EEFE;
+      border: 2px solid var(--primary);
+      box-shadow: 0 8px 20px -5px rgba(124, 58, 237, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .orchestration-status-dot {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid #FFFFFF;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+    }
+
+    /* Speech Bubble Base */
+    .orchestration-content-bubble {
+      flex: 1;
+      background: #FFFFFF;
+      border: 1.5px solid var(--card-border);
+      border-radius: 22px;
+      padding: 22px 26px;
+      position: relative;
+      box-shadow: 0 16px 36px -10px rgba(124, 58, 237, 0.12);
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+    /* Bubble Pointer Tail for Left-Aligned Avatars */
+    .orchestration-content-bubble::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 24px;
+      width: 16px;
+      height: 16px;
+      background: #FFFFFF;
+      border-left: 1.5px solid var(--card-border);
+      border-bottom: 1.5px solid var(--card-border);
+      transform: rotate(45deg);
+    }
+
+    .bubble-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .bubble-sender {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .bubble-badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(124, 58, 237, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+    }
+    .bubble-prompt {
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* Vertical Connecting Axis */
+    .vertical-axis-connector {
+      position: relative;
+      height: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: -50px;
+    }
+    .axis-line {
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary) 0%, #06B6D4 100%);
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+    }
+    .axis-flow-beacon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #0B0F19;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 999px;
+      padding: 5px 16px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      white-space: nowrap;
+      z-index: 2;
+    }
+    .beacon-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #38BDF8;
+      box-shadow: 0 0 8px #38BDF8;
+      animation: pulseGlow 1.5s infinite;
+      flex-shrink: 0;
+    }
+    .beacon-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #38BDF8;
+      letter-spacing: 0.05em;
+      font-family: ui-monospace, monospace;
+      white-space: nowrap;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Responding Agent Bubble (Bottom Node) */
+    .responder-bubble {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+      border: 1.5px solid rgba(124, 58, 237, 0.25);
+    }
+    .bubble-speech-text {
+      font-size: 14.5px;
+      color: #1E293B;
+      line-height: 1.6;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin: 12px 0;
+      font-family: inherit;
+    }
+    .bubble-footer-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 6px;
+    }
+    .bubble-meta {
+      font-size: 12px;
+      font-weight: 700;
+      color: #64748B;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .bubble-action-btn {
+      background: var(--primary-light);
+      border: 1px solid rgba(124, 58, 237, 0.25);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .bubble-action-btn:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+    }
+
+    @media (max-width: 640px) {
+      .orchestration-node {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .orchestration-content-bubble::before {
+        display: none;
+      }
+      .vertical-axis-connector {
+        margin-left: 0;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2796,7 +3126,7 @@
   </div>
 
   <!-- Navbar -->
-  <nav>
+  <nav><div class="nav-inner">
     <a href="#" class="nav-brand">
       <img src="assets/works4you_logo_official_light.png" alt="Works4you AI" class="brand-img-lockup">
     </a>
@@ -2811,7 +3141,7 @@
       <a href="logo-showcase.html" class="btn-secondary nav-studio-btn" style="border-color:#F59E0B; color:#D97706; text-decoration:none; padding: 6px 13px; font-size: 12.5px;">🎨 3D Studio</a>
       <button class="btn-primary" onclick="openDemoModal()">Book Fleet Demo</button>
     </div>
-  </nav>
+  </div></nav>
 
   <div class="container">
 
@@ -2843,88 +3173,165 @@
         </div>
 
         <!-- Interactive Specialist Quick-Dock -->
-        <div class="squad-quick-dock">
-          <button type="button" class="squad-chip" onclick="openAgentDossier('jake')" title="Click for Jake's Technical Dossier">
-            <span class="chip-dot" style="background:#38BDF8;"></span>
-            <span class="chip-name">Jake</span>
-            <span class="chip-tag">CTO</span>
-          </button>
-          <button type="button" class="squad-chip" onclick="openAgentDossier('katie')" title="Click for Katie's Technical Dossier">
-            <span class="chip-dot" style="background:#22C55E;"></span>
-            <span class="chip-name">Katie</span>
-            <span class="chip-tag">Inbound</span>
-          </button>
-          <button type="button" class="squad-chip" onclick="openAgentDossier('claire')" title="Click for Claire's Technical Dossier">
-            <span class="chip-dot" style="background:#A855F7;"></span>
-            <span class="chip-name">Claire</span>
-            <span class="chip-tag">Legal</span>
-          </button>
-          <button type="button" class="squad-chip" onclick="openAgentDossier('vance')" title="Click for Vance's Technical Dossier">
-            <span class="chip-dot" style="background:#06B6D4;"></span>
-            <span class="chip-name">Vance</span>
-            <span class="chip-tag">Cyber</span>
-          </button>
-          <button type="button" class="squad-chip" onclick="openAgentDossier('warren')" title="Click for Warren's Technical Dossier">
-            <span class="chip-dot" style="background:#F59E0B;"></span>
-            <span class="chip-name">Warren</span>
-            <span class="chip-tag">Finance</span>
-          </button>
-          <button type="button" class="squad-chip" onclick="openAgentDossier('hunter')" title="Click for Hunter's Technical Dossier">
-            <span class="chip-dot" style="background:#6366F1;"></span>
-            <span class="chip-name">Hunter</span>
-            <span class="chip-tag">Talent</span>
-          </button>
-          <button type="button" class="squad-chip" onclick="openAgentDossier('chloe')" title="Click for Chloe's Technical Dossier">
-            <span class="chip-dot" style="background:#EC4899;"></span>
-            <span class="chip-name">Chloe</span>
-            <span class="chip-tag">Ops</span>
-          </button>
-          <button type="button" class="squad-chip" onclick="openAgentDossier('miles')" title="Click for Miles' Technical Dossier">
-            <span class="chip-dot" style="background:#8B5CF6;"></span>
-            <span class="chip-name">Miles</span>
-            <span class="chip-tag">Systems</span>
-          </button>
-          <button type="button" class="squad-chip" onclick="openAgentDossier('sierra')" title="Click for Sierra's Technical Dossier">
-            <span class="chip-dot" style="background:#14B8A6;"></span>
-            <span class="chip-name">Sierra</span>
-            <span class="chip-tag">Pods</span>
-          </button>
+        <div class="fleet-roster-strip">
+          <div class="roster-node" onclick="openAgentDossier('jake')" title="Jake — Chief Fleet Orchestrator & CTO">
+            <div class="roster-avatar-wrap">
+              <img src="assets/transparent/jake_transparent.png" alt="Jake" class="roster-avatar">
+              <span class="roster-status-dot" style="background:#38BDF8;"></span>
+            </div>
+            <div class="roster-name">Jake</div>
+            <div class="roster-badge">CTO & Conductor</div>
+          </div>
+
+          <div class="roster-node" onclick="openAgentDossier('katie')" title="Katie — Omnichannel Inbound Gateway">
+            <div class="roster-avatar-wrap">
+              <img src="assets/transparent/katie_transparent.png" alt="Katie" class="roster-avatar">
+              <span class="roster-status-dot" style="background:#22C55E;"></span>
+            </div>
+            <div class="roster-name">Katie</div>
+            <div class="roster-badge">Inbound Hub</div>
+          </div>
+
+          <div class="roster-node" onclick="openAgentDossier('claire')" title="Claire — Corporate Counsel & Compliance">
+            <div class="roster-avatar-wrap">
+              <img src="assets/transparent/claire_transparent.png" alt="Claire" class="roster-avatar">
+              <span class="roster-status-dot" style="background:#A855F7;"></span>
+            </div>
+            <div class="roster-name">Claire</div>
+            <div class="roster-badge">Legal Counsel</div>
+          </div>
+
+          <div class="roster-node" onclick="openAgentDossier('vance')" title="Vance — Cybersecurity & SOC 2 Guard">
+            <div class="roster-avatar-wrap">
+              <img src="assets/transparent/vance_transparent.png" alt="Vance" class="roster-avatar">
+              <span class="roster-status-dot" style="background:#06B6D4;"></span>
+            </div>
+            <div class="roster-name">Vance</div>
+            <div class="roster-badge">SecOps Guard</div>
+          </div>
+
+          <div class="roster-node" onclick="openAgentDossier('warren')" title="Warren — Treasury & Financial Controller">
+            <div class="roster-avatar-wrap">
+              <img src="assets/transparent/warren_transparent.png" alt="Warren" class="roster-avatar">
+              <span class="roster-status-dot" style="background:#F59E0B;"></span>
+            </div>
+            <div class="roster-name">Warren</div>
+            <div class="roster-badge">Treasury & FX</div>
+          </div>
+
+          <div class="roster-node" onclick="openAgentDossier('hunter')" title="Hunter — Executive Talent Sourcing">
+            <div class="roster-avatar-wrap">
+              <img src="assets/transparent/hunter_transparent.png" alt="Hunter" class="roster-avatar">
+              <span class="roster-status-dot" style="background:#6366F1;"></span>
+            </div>
+            <div class="roster-name">Hunter</div>
+            <div class="roster-badge">Talent Engine</div>
+          </div>
+
+          <div class="roster-node" onclick="openAgentDossier('chloe')" title="Chloe — Chief of Staff & Operations">
+            <div class="roster-avatar-wrap">
+              <img src="assets/transparent/chloe_transparent.png" alt="Chloe" class="roster-avatar">
+              <span class="roster-status-dot" style="background:#EC4899;"></span>
+            </div>
+            <div class="roster-name">Chloe</div>
+            <div class="roster-badge">Chief of Staff</div>
+          </div>
+
+          <div class="roster-node" onclick="openAgentDossier('miles')" title="Miles — Systems & AI Architect">
+            <div class="roster-avatar-wrap">
+              <img src="assets/transparent/miles_transparent.png" alt="Miles" class="roster-avatar">
+              <span class="roster-status-dot" style="background:#8B5CF6;"></span>
+            </div>
+            <div class="roster-name">Miles</div>
+            <div class="roster-badge">Systems Arch</div>
+          </div>
+
+          <div class="roster-node" onclick="openAgentDossier('sierra')" title="Sierra — Dedicated Pod Success Lead">
+            <div class="roster-avatar-wrap">
+              <img src="assets/transparent/sierra_transparent.png" alt="Sierra" class="roster-avatar">
+              <span class="roster-status-dot" style="background:#14B8A6;"></span>
+            </div>
+            <div class="roster-name">Sierra</div>
+            <div class="roster-badge">Pod Success</div>
+          </div>
         </div>
       </div>
 
-      <!-- Autonomous Command Input Bar -->
-      <div class="command-card">
-        <div class="command-header">
-          <img src="assets/transparent/jake_transparent.png" alt="Jake" class="command-avatar">
-          <div>
-            <div class="command-title">Jake — Chief Fleet Orchestrator</div>
-            <div class="command-prompt">Hi, which autonomous workflow should we execute today?</div>
+      <!-- Vertical Interactive Autonomous Orchestration Pipeline -->
+      <div class="vertical-orchestration-console">
+
+        <!-- 1. Top Node: Jake The Conductor -->
+        <div class="orchestration-node jake-conductor-node">
+          <div class="orchestration-avatar-wrap">
+            <img src="assets/transparent/jake_transparent.png" alt="Jake" class="orchestration-avatar">
+            <span class="orchestration-status-dot conductor-dot" style="background:#38BDF8; box-shadow:0 0 8px #38BDF8;"></span>
+          </div>
+          <div class="orchestration-content-bubble jake-bubble">
+            <div class="bubble-header">
+              <span class="bubble-sender">Jake — Chief Fleet Orchestrator & CTO</span>
+              <span class="bubble-badge" style="background:rgba(56, 189, 248, 0.12); color:#0284C7; border-color:rgba(56, 189, 248, 0.25);">Conductor Active &bull; Cloud Run Native</span>
+            </div>
+            <div class="bubble-prompt">
+              "Hi, which autonomous workflow should we execute today? Select an enterprise scenario or enter your directive below:"
+            </div>
+            
+            <!-- Command Input Bar -->
+            <div class="command-input-group" style="margin-top: 14px;">
+              <input type="text" id="hero-command-input" class="command-input" placeholder="e.g. Audit vendor agreements with Claire, qualify inbound leads with Katie..." value="Audit 42 vendor MSAs for unlimited liability, extract intellectual property warranties, and stage redlines for general counsel sign-off.">
+              <button class="command-btn" onclick="triggerHeroWorkflow()">
+                <svg class="btn-emblem" viewBox="0 0 24 24" fill="none"><path d="M12 2L20.66 7V17L12 22L3.34 17V7L12 2Z" stroke="#FFF" stroke-width="2" stroke-linejoin="round"/><path d="M12 12L20.66 7M12 12V22M12 12L3.34 7" stroke="#FFF" stroke-width="1.5"/><circle cx="12" cy="12" r="2" fill="#06B6D4"/></svg> Run Workflow
+              </button>
+            </div>
+
+            <!-- Workflow Scenario Switcher Chips -->
+            <div class="hero-scenario-chips" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:14px; padding-top:12px; border-top:1px solid rgba(0,0,0,0.06);">
+              <span style="font-size:11.5px; font-weight:800; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em;">Simulate Workflow:</span>
+              <button type="button" class="hero-chip active" id="scenario-chip-0" onclick="runHeroScenario(0)">⚖️ M&A Legal Due Diligence</button>
+              <button type="button" class="hero-chip" id="scenario-chip-1" onclick="runHeroScenario(1)">💬 Omnichannel Lead Surge</button>
+              <button type="button" class="hero-chip" id="scenario-chip-2" onclick="runHeroScenario(2)">💵 FX & Cashflow Rebalance</button>
+              <button type="button" class="hero-chip" id="scenario-chip-3" onclick="runHeroScenario(3)">🎯 Executive Headhunt</button>
+            </div>
           </div>
         </div>
-        <div class="command-input-group">
-          <input type="text" id="hero-command-input" class="command-input" placeholder="e.g. Audit vendor agreements with Claire, qualify inbound leads with Katie..." value="Audit 42 vendor MSAs for unlimited liability, extract intellectual property warranties, and stage redlines for general counsel sign-off.">
-          <button class="command-btn" onclick="triggerHeroWorkflow()">
-            <svg class="btn-emblem" viewBox="0 0 24 24" fill="none"><path d="M12 2L20.66 7V17L12 22L3.34 17V7L12 2Z" stroke="#FFF" stroke-width="2" stroke-linejoin="round"/><path d="M12 12L20.66 7M12 12V22M12 12L3.34 7" stroke="#FFF" stroke-width="1.5"/><circle cx="12" cy="12" r="2" fill="#06B6D4"/></svg> Run Workflow
-          </button>
+
+        <!-- 2. The Vertical Connecting Axis -->
+        <div class="vertical-axis-connector">
+          <div class="axis-line"></div>
+          <div class="axis-flow-beacon">
+            <span class="beacon-pulse"></span>
+            <span class="beacon-label" id="axis-action-label">DISPATCHING DIRECTIVE &rarr;</span>
+          </div>
         </div>
 
-        <!-- Interactive Scenario Quick-Launch Chips -->
-        <div class="hero-scenario-chips" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:16px; padding-top:14px; border-top:1px solid rgba(0,0,0,0.06);">
-          <span style="font-size:12px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em;">Simulate Workflow:</span>
-          <button type="button" class="hero-chip active" id="scenario-chip-0" onclick="runHeroScenario(0)" style="background:#EDE9FE; color:var(--primary); border:1px solid rgba(124,58,237,0.25); border-radius:999px; padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.2s;">⚖️ M&A Legal Due Diligence</button>
-          <button type="button" class="hero-chip" id="scenario-chip-1" onclick="runHeroScenario(1)" style="background:#F1F5F9; color:#475569; border:1px solid #E2E8F0; border-radius:999px; padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.2s;">💬 Omnichannel Lead Surge</button>
-          <button type="button" class="hero-chip" id="scenario-chip-2" onclick="runHeroScenario(2)" style="background:#F1F5F9; color:#475569; border:1px solid #E2E8F0; border-radius:999px; padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.2s;">💵 FX & Cashflow Rebalance</button>
-          <button type="button" class="hero-chip" id="scenario-chip-3" onclick="runHeroScenario(3)" style="background:#F1F5F9; color:#475569; border:1px solid #E2E8F0; border-radius:999px; padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.2s;">🎯 Executive Headhunt</button>
+        <!-- 3. Bottom Node: Dynamic Responding Specialist Agent -->
+        <div class="orchestration-node responding-specialist-node" id="responding-agent-node">
+          <div class="orchestration-avatar-wrap" id="responder-avatar-wrap">
+            <img src="assets/transparent/claire_transparent.png" id="responder-avatar" alt="Claire" class="orchestration-avatar">
+            <span class="orchestration-status-dot responder-dot" id="responder-status-dot" style="background:#A855F7; box-shadow:0 0 8px #A855F7;"></span>
+          </div>
+          <div class="orchestration-content-bubble responder-bubble" id="responder-bubble">
+            <div class="bubble-header">
+              <span class="bubble-sender" id="responder-title">Claire — Corporate Counsel & Regulatory Compliance</span>
+              <span class="bubble-badge" id="responder-badge" style="background:#F3E8FF; color:#7E22CE; border-color:rgba(147,51,234,0.3);">
+                Legal Pod Active &bull; Latency: 142ms
+              </span>
+            </div>
+            <!-- Conversational Speech Bubble Message -->
+            <div class="bubble-speech-text" id="responder-speech">
+              "I've audited all 42 vendor agreements against corporate playbooks. Flagged uncapped liability in Section 14.2 of the Cloud Services MSA. Staged redline with 12-month trailing fee cap for your 1-click digital sign-off."
+            </div>
+            <div class="bubble-footer-actions">
+              <span class="bubble-meta" id="responder-meta">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                <span id="responder-gate-status">Strict Human Approval Gate Staged</span>
+              </span>
+              <button type="button" class="bubble-action-btn" id="responder-action-btn" onclick="openAgentDossier('claire')">
+                View Claire's Technical Dossier &rarr;
+              </button>
+            </div>
+          </div>
         </div>
 
-        <!-- Live Routing Output -->
-        <div id="hero-routing-output" style="margin-top:14px; background:#0B0F19; border-radius:14px; padding:14px 18px; color:#E2E8F0; font-size:13px; display:flex; align-items:center; justify-content:space-between; font-family:ui-monospace, monospace; border:1px solid #1E293B; flex-wrap:wrap; gap:10px;">
-          <span style="display:flex; align-items:center; gap:10px; flex:1; min-width:240px;">
-            <span style="width:8px; height:8px; border-radius:50%; background:#10B981; display:inline-block; box-shadow:0 0 8px #10B981; flex-shrink:0;"></span>
-            <span id="hero-routing-text"><strong>Jake Conductor:</strong> Dispatched 42 agreements to Claire (Legal Pod) & Vance (SecOps). Flag: Uncapped liability detected in Clause 14.2. Staged for one-click human approval.</span>
-          </span>
-          <span id="hero-routing-latency" style="color:#38BDF8; font-weight:700; font-size:12px; white-space:nowrap;">Latency: 142ms</span>
-        </div>
       </div>
     </header>
 
@@ -5308,6 +5715,114 @@
         `;
       }
       openModal("workflowRunModal");
+    }
+
+  
+    // ==========================================================================
+    // UPDATED HERO SCENARIO SWITCHER (DYNAMIC CHARACTERS & SPEECH BUBBLE)
+    // ==========================================================================
+    const HERO_WORKFLOW_RESPONDERS = [
+      {
+        agentKey: 'claire',
+        avatar: 'assets/transparent/claire_transparent.png',
+        dotColor: '#A855F7',
+        title: 'Claire — Corporate Counsel & Regulatory Compliance',
+        badge: 'Legal Pod Active • Latency: 142ms',
+        badgeStyle: 'background:#F3E8FF; color:#7E22CE; border-color:rgba(147,51,234,0.3);',
+        input: 'Audit 42 vendor MSAs for unlimited liability, extract intellectual property warranties, and stage redlines for general counsel sign-off.',
+        speech: '"I\'ve audited all 42 vendor agreements against corporate playbooks. Flagged uncapped liability in Section 14.2 of the Cloud Services MSA. Staged redline with 12-month trailing fee cap for your 1-click digital sign-off."',
+        gateStatus: 'Strict Human Approval Gate Staged',
+        beacon: 'DISPATCHING TO CLAIRE [LEGAL] &rarr;'
+      },
+      {
+        agentKey: 'katie',
+        avatar: 'assets/transparent/katie_transparent.png',
+        dotColor: '#22C55E',
+        title: 'Katie — Omnichannel Inbound Gateway',
+        badge: 'Inbound Gateway • Latency: 88ms',
+        badgeStyle: 'background:#DCFCE7; color:#15803D; border-color:rgba(34,197,94,0.3);',
+        input: 'Triage 120 incoming inquiries across Slack & WhatsApp, transcribe audio memos, score enterprise deal size, and stage calendar bookings in Twenty CRM.',
+        speech: '"Intercepted 120 inbound conversations across Slack, WhatsApp, and Telegram. Transcribed 14 audio voice memos with 97.4% accuracy. Qualified 18 enterprise leads (>$50k ARR) and staged calendar bookings in Twenty CRM."',
+        gateStatus: 'Twenty CRM Record Sync Active',
+        beacon: 'DISPATCHING TO KATIE [INBOUND] &rarr;'
+      },
+      {
+        agentKey: 'warren',
+        avatar: 'assets/transparent/warren_transparent.png',
+        dotColor: '#F59E0B',
+        title: 'Warren — Treasury & Financial Controller',
+        badge: 'Treasury & FX Active • Latency: 64ms',
+        badgeStyle: 'background:#FEF3C7; color:#B45309; border-color:rgba(245,158,11,0.3);',
+        input: 'Ingest SaaS invoices across USD/EUR from Gmail, normalize currency rates via live Bank FX feed, and sync monthly cash flow.',
+        speech: '"Extracted 28 vendor receipts from Gmail. Executed real-time currency normalization ($14,200 USD ⇄ ₪53,534 ILS at live 3.77 FX). Zero missing tax invoices. Cashflow forecast reconciled in Google Sheets."',
+        gateStatus: 'Zero-Touch Ledger Reconciliation',
+        beacon: 'DISPATCHING TO WARREN [TREASURY] &rarr;'
+      },
+      {
+        agentKey: 'hunter',
+        avatar: 'assets/transparent/hunter_transparent.png',
+        dotColor: '#6366F1',
+        title: 'Hunter — Executive Talent Engine',
+        badge: 'Talent Radar Active • Latency: 195ms',
+        badgeStyle: 'background:#EEF2FF; color:#4338CA; border-color:rgba(99,102,241,0.3);',
+        input: 'Source VP R&D candidates with generative AI infrastructure experience, generate tailored 1-page briefings, and trigger outreach.',
+        speech: '"Scanned executive networks across 184 profiles. Isolated top 3 candidates matching 96%+ on technical leadership and AI systems. Generated bespoke 1-page briefings ready for personalized outreach."',
+        gateStatus: 'ATS & Sourcing Pipeline Ready',
+        beacon: 'DISPATCHING TO HUNTER [TALENT] &rarr;'
+      }
+    ];
+
+    function runHeroScenario(index) {
+      document.querySelectorAll(".hero-chip").forEach((btn, idx) => {
+        if (idx === index) {
+          btn.classList.add("active");
+          btn.style.background = "#EDE9FE";
+          btn.style.color = "var(--primary)";
+          btn.style.borderColor = "rgba(124,58,237,0.25)";
+        } else {
+          btn.classList.remove("active");
+          btn.style.background = "#F1F5F9";
+          btn.style.color = "#475569";
+          btn.style.borderColor = "#E2E8F0";
+        }
+      });
+
+      const r = HERO_WORKFLOW_RESPONDERS[index];
+      if (!r) return;
+
+      // Update input
+      const input = document.getElementById("hero-command-input");
+      if (input) input.value = r.input;
+
+      // Update beacon
+      const beacon = document.getElementById("axis-action-label");
+      if (beacon) beacon.innerHTML = r.beacon;
+
+      // Update Responding Agent
+      const avatar = document.getElementById("responder-avatar");
+      const dot = document.getElementById("responder-status-dot");
+      const title = document.getElementById("responder-title");
+      const badge = document.getElementById("responder-badge");
+      const speech = document.getElementById("responder-speech");
+      const gate = document.getElementById("responder-gate-status");
+      const btn = document.getElementById("responder-action-btn");
+
+      if (avatar) avatar.src = r.avatar;
+      if (dot) {
+        dot.style.background = r.dotColor;
+        dot.style.boxShadow = `0 0 8px ${r.dotColor}`;
+      }
+      if (title) title.textContent = r.title;
+      if (badge) {
+        badge.textContent = r.badge;
+        badge.style.cssText = r.badgeStyle;
+      }
+      if (speech) speech.textContent = r.speech;
+      if (gate) gate.textContent = r.gateStatus;
+      if (btn) {
+        btn.textContent = `View ${r.title.split('—')[0].trim()}'s Technical Dossier →`;
+        btn.setAttribute("onclick", `openAgentDossier('${r.agentKey}')`);
+      }
     }
 
   </script>
