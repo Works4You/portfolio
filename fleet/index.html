@@ -100,6 +100,66 @@
       }
     }
 
+    /* Ambient Layered Brand Watermarks */
+    .ambient-brand-watermark {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url('assets/logo_vector_infinity_loop.svg');
+      opacity: 0.048;
+      filter: blur(0.3px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .watermark-hero {
+      width: 780px;
+      height: 480px;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.055;
+    }
+    .watermark-simulator {
+      width: 660px;
+      height: 420px;
+      top: 60px;
+      right: -80px;
+      opacity: 0.042;
+      transform: rotate(-10deg);
+    }
+    .watermark-integrations {
+      width: 700px;
+      height: 440px;
+      top: 40px;
+      left: -100px;
+      opacity: 0.038;
+      transform: rotate(12deg);
+    }
+    .watermark-prefooter {
+      width: 560px;
+      height: 350px;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%) rotate(-6deg);
+      opacity: 0.075;
+    }
+    @media (max-width: 768px) {
+      .watermark-hero {
+        width: 330px;
+        height: 210px;
+        top: 60px;
+        opacity: 0.045;
+      }
+      .watermark-simulator,
+      .watermark-integrations,
+      .watermark-prefooter {
+        display: none;
+      }
+    }
+
     /* Top Banner */
     .top-banner {
       background: linear-gradient(90deg, #7C3AED 0%, #6366F1 50%, #06B6D4 100%);
@@ -4325,7 +4385,8 @@
   <div class="container">
 
     <!-- Hero -->
-    <header class="hero" style="padding-top: 24px; padding-bottom: 28px;">
+    <header class="hero" style="padding-top: 24px; padding-bottom: 28px; position: relative;">
+      <div class="ambient-brand-watermark watermark-hero"></div>
       <div class="section-badge" style="margin-bottom: 12px;">⚡ Autonomous Multi-Agent C-Suite</div>
       <h1 style="font-size: clamp(32px, 5vw, 46px); font-weight: 900; line-height: 1.16; letter-spacing: -0.03em; max-width: 980px; margin: 0 auto 12px;">
         Nine Autonomous Minds. <span style="background: linear-gradient(135deg, var(--primary) 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Zero Operational Latency.</span>
@@ -4444,7 +4505,8 @@
       </div>
 
       <!-- Vertical Interactive Autonomous Orchestration Pipeline -->
-      <div class="vertical-orchestration-console">
+      <div class="vertical-orchestration-console" style="position: relative;">
+        <div class="ambient-brand-watermark watermark-simulator"></div>
 
         <!-- 1. Top Node: Jake The Conductor -->
         <div class="orchestration-node jake-conductor-node">
@@ -5005,7 +5067,8 @@
     </section>
 
     <!-- Enterprise Integrations & MCP Ecosystem Section -->
-    <section id="integrations" class="integrations-section">
+    <section id="integrations" class="integrations-section" style="position: relative;">
+      <div class="ambient-brand-watermark watermark-integrations"></div>
       <div class="section-header">
         <div class="section-tag">Enterprise Ecosystem</div>
         <h2 class="section-title">Connected MCP Protocols & Production Integrations</h2>
@@ -5654,6 +5717,7 @@
          ========================================================================== -->
     <section class="pre-footer-cta-banner">
       <div class="pre-footer-glow"></div>
+      <div class="ambient-brand-watermark watermark-prefooter"></div>
       <div class="pre-footer-content">
         <div class="section-badge" style="background: rgba(255,255,255,0.18); color:#FFFFFF; border: 1px solid rgba(255,255,255,0.3); margin-bottom: 16px;">
           ⚡ Production Multi-Agent Pods Ready in 48h
