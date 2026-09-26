@@ -4151,8 +4151,6 @@
         font-size: 12px;
         box-sizing: border-box;
       }
-        box-sizing: border-box;
-      }
       .airgap-banner {
         padding: 16px 14px;
         flex-direction: column;
@@ -4297,6 +4295,614 @@
       }
     }
 
+    /* ==========================================================================
+       AI VIDEO, UGC REELS & MARKETING ANIMATION SUITE (WHISK, FLOW & FIREBASE)
+       ========================================================================== */
+    .btn-video-glow {
+      position: relative;
+      background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%) !important;
+      color: #FFFFFF !important;
+      border: 1.5px solid rgba(168, 85, 247, 0.4) !important;
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.35);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-video-glow:hover {
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+      transform: translateY(-2px);
+      border-color: #C084FC !important;
+    }
+    .video-badge-hot {
+      background: #EF4444;
+      color: #FFFFFF;
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      animation: pulseRec 1.6s infinite ease-in-out;
+    }
+    @keyframes pulseRec {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.92); }
+    }
+    .hero-video-badge-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .video-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(124, 58, 237, 0.18);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+    .video-pill:hover {
+      background: #FFFFFF;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+    }
+    .video-pill.pipeline-pill {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(6, 182, 212, 0.12) 100%);
+      border-color: rgba(6, 182, 212, 0.35);
+      color: #0369A1;
+    }
+    .pulse-red-rec {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #EF4444;
+      display: inline-block;
+      animation: pulseRec 1.2s infinite ease-in-out;
+      box-shadow: 0 0 6px #EF4444;
+    }
+
+    /* UGC Video Showcase Section */
+    .ugc-section {
+      padding: 70px 0 40px;
+      position: relative;
+    }
+    .ugc-reels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 36px;
+      margin-bottom: 20px;
+    }
+    .ugc-phone-frame {
+      position: relative;
+      background: #090D16;
+      border-radius: 36px;
+      border: 4px solid #1E293B;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      aspect-ratio: 9 / 16;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+    .ugc-phone-frame:hover {
+      transform: translateY(-8px) scale(1.015);
+      box-shadow: 0 35px 70px -10px rgba(124, 58, 237, 0.35), 0 0 30px rgba(6, 182, 212, 0.2);
+      border-color: #475569;
+    }
+    .ugc-phone-speaker {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: #334155;
+      border-radius: 999px;
+      z-index: 10;
+    }
+    .ugc-video-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .ugc-video-element {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+    .ugc-overlay-top {
+      position: absolute;
+      top: 18px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 5;
+      pointer-events: none;
+    }
+    .ugc-creator-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 4px 10px 4px 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .ugc-creator-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .ugc-creator-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .ugc-creator-name {
+      font-size: 11px;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+    .ugc-creator-tag {
+      font-size: 9px;
+      color: #94A3B8;
+    }
+    .ugc-sound-btn {
+      pointer-events: auto;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .ugc-sound-btn:hover {
+      background: rgba(124, 58, 237, 0.8);
+      transform: scale(1.08);
+    }
+    .ugc-overlay-actions {
+      position: absolute;
+      right: 12px;
+      bottom: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      z-index: 5;
+    }
+    .ugc-action-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-family: inherit;
+      gap: 3px;
+      transition: transform 0.2s;
+    }
+    .ugc-action-btn:hover {
+      transform: scale(1.15);
+    }
+    .ugc-action-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .ugc-action-count {
+      font-size: 10px;
+      font-weight: 700;
+      color: #E2E8F0;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    }
+    .ugc-overlay-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px 16px 14px 16px;
+      background: linear-gradient(180deg, transparent 0%, rgba(10, 15, 29, 0.95) 75%);
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .ugc-caption-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+    .ugc-caption-sub {
+      font-size: 11.5px;
+      color: #CBD5E1;
+      line-height: 1.4;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+    .ugc-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+    .ugc-audio-track {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10.5px;
+      color: #94A3B8;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 75%;
+    }
+    .ugc-waveform-bars {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .ugc-wave-bar {
+      width: 2.5px;
+      height: 8px;
+      background: #38BDF8;
+      border-radius: 1px;
+      animation: waveBar 0.8s infinite ease-in-out;
+    }
+    .ugc-wave-bar:nth-child(2) { animation-delay: 0.15s; }
+    .ugc-wave-bar:nth-child(3) { animation-delay: 0.3s; }
+    .ugc-wave-bar:nth-child(4) { animation-delay: 0.45s; }
+    @keyframes waveBar {
+      0%, 100% { height: 4px; }
+      50% { height: 14px; }
+    }
+    .ugc-play-indicator {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 24px;
+      z-index: 6;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .ugc-phone-frame.is-paused .ugc-play-indicator {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    .ugc-expand-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(124, 58, 237, 0.25);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #E2E8F0;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .ugc-expand-pill:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    /* Whisk, Flow & Firebase Architecture Section */
+    .pipeline-section {
+      padding: 70px 0 50px;
+      position: relative;
+    }
+    .pipeline-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .pipeline-pillar-card {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1.5px solid var(--card-border);
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pipeline-pillar-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 50px -12px rgba(124, 58, 237, 0.15);
+      border-color: var(--primary);
+    }
+    .pillar-badge-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .pillar-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pillar-tech-badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(124, 58, 237, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+    }
+    .pillar-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .pillar-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+    .pillar-diagram-box {
+      background: #0F172A;
+      border-radius: 16px;
+      padding: 16px;
+      color: #E2E8F0;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 11.5px;
+      margin-top: auto;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+    .pillar-interactive-btn {
+      margin-top: 14px;
+      width: 100%;
+      padding: 9px 14px;
+      border-radius: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .pillar-interactive-btn:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+
+    /* Flow Engine Interactive DAG Simulator */
+    .flow-dag-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .flow-dag-node {
+      background: #1E293B;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #94A3B8;
+      white-space: nowrap;
+      transition: all 0.3s;
+    }
+    .flow-dag-node.active-node {
+      background: rgba(124, 58, 237, 0.4);
+      border-color: #A855F7;
+      color: #FFFFFF;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    }
+    .flow-dag-arrow {
+      color: #475569;
+      font-size: 10px;
+    }
+
+    /* Floating Live Fleet Activity Ticker */
+    .fleet-live-ticker {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 990;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(124, 58, 237, 0.4);
+      border-radius: 999px;
+      padding: 8px 18px 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: 440px;
+    }
+    .fleet-live-ticker:hover {
+      background: rgba(15, 23, 42, 0.98);
+      border-color: #38BDF8;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.25);
+    }
+    .ticker-pulse-ring {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #22C55E;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .ticker-pulse-ring::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1.5px solid #22C55E;
+      animation: pulseRec 1.4s infinite ease-out;
+    }
+    .ticker-content {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .ticker-label {
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #38BDF8;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .ticker-text {
+      font-size: 12px;
+      color: #F8FAFC;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: opacity 0.25s ease;
+    }
+
+    /* Cinematic UGC Video Modal */
+    .ugc-modal-dialog {
+      background: #090D16;
+      border: 1.5px solid #334155;
+      border-radius: 28px;
+      max-width: 900px;
+      width: 95%;
+      box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7), 0 0 50px rgba(124, 58, 237, 0.25);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      color: #FFFFFF;
+      position: relative;
+    }
+    .ugc-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(15, 23, 42, 0.8);
+    }
+    .ugc-modal-body-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 24px;
+    }
+    .ugc-modal-video-box {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000000;
+      aspect-ratio: 9 / 16;
+      max-height: 520px;
+      margin: 0 auto;
+      border: 2px solid #1E293B;
+    }
+    .ugc-modal-telemetry-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .ugc-reels-grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .pipeline-pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .ugc-modal-body-split {
+        grid-template-columns: 1fr;
+      }
+      .ugc-modal-video-box {
+        max-height: 380px;
+      }
+      .fleet-live-ticker {
+        bottom: 80px;
+        left: 12px;
+        right: 12px;
+        max-width: calc(100% - 24px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -4318,6 +4924,8 @@
       </a>
       <ul class="nav-links">
         <li><a href="#fleet">Command Fleet</a></li>
+        <li><a href="#ugc-video">AI Video & UGC</a></li>
+        <li><a href="#pipeline">Whisk & Flow Engine</a></li>
         <li><a href="#simulator">Journey Simulator</a></li>
         <li><a href="#integrations">MCP Ecosystem</a></li>
         <li><a href="#roi">ROI Calculator</a></li>
@@ -4348,6 +4956,8 @@
     </div>
     <ul class="mobile-nav-links">
       <li><a href="#fleet" onclick="closeMobileMenu()"><span class="m-link-icon">🤖</span> Command Fleet</a></li>
+      <li><a href="#ugc-video" onclick="closeMobileMenu()"><span class="m-link-icon">🎬</span> AI Video & UGC</a></li>
+      <li><a href="#pipeline" onclick="closeMobileMenu()"><span class="m-link-icon">⚡</span> Whisk & Flow Engine</a></li>
       <li><a href="#simulator" onclick="closeMobileMenu()"><span class="m-link-icon">⚡</span> Journey Simulator</a></li>
       <li><a href="#integrations" onclick="closeMobileMenu()"><span class="m-link-icon">🔌</span> MCP Ecosystem</a></li>
       <li><a href="#roi" onclick="closeMobileMenu()"><span class="m-link-icon">📊</span> ROI Calculator</a></li>
@@ -4395,14 +5005,35 @@
         A coordinated fleet of 9 specialized AI agents executing legal compliance, cybersecurity, omnichannel inbound, and treasury reconciliation 24/7 with strict human approval gates.
       </p>
 
-      <div class="hero-actions" style="margin-bottom: 26px;">
+      <div class="hero-actions" style="margin-bottom: 20px;">
         <button class="btn-main" onclick="openDemoModal()">
           Book Fleet Demo
         </button>
-        <button class="btn-video" onclick="openAirgapModal()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
-          Enterprise Airgap Security
+        <button class="btn-video btn-video-glow" onclick="openUgcVideoModal('overview')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span>Watch 60s Fleet Reel</span>
+          <span class="video-badge-hot">AI VIDEO</span>
         </button>
+        <button class="btn-secondary" onclick="openAirgapModal()" style="padding: 10px 18px; font-size: 13.5px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          Enterprise Airgap
+        </button>
+      </div>
+
+      <!-- Quick Video & Pipeline Pill Strip -->
+      <div class="hero-video-badge-strip">
+        <div class="video-pill" onclick="openUgcVideoModal('edith')">
+          <span class="pulse-red-rec"></span> ⚖️ Edith Legal Reel
+        </div>
+        <div class="video-pill" onclick="openUgcVideoModal('4rest')">
+          <span class="pulse-red-rec"></span> 🌿 4rest Multilingual
+        </div>
+        <div class="video-pill" onclick="openUgcVideoModal('founder')">
+          <span class="pulse-red-rec"></span> 💵 Cashflow & FX
+        </div>
+        <div class="video-pill pipeline-pill" onclick="document.getElementById('pipeline').scrollIntoView({behavior:'smooth'})">
+          <span>✨ Whisk + Flow + Firebase Engine</span>
+        </div>
       </div>
 
       <!-- Hero Squad Stage (Featured Prominently at the Top) -->
@@ -4867,6 +5498,334 @@
             <span class="tool-tag">Multi-Tenant Vault</span>
             <span class="tool-tag">Client RAG</span>
           </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: AUTONOMOUS AI VIDEO & UGC OPERATIONS SHOWCASE
+         ========================================================================== -->
+    <section id="ugc-video" class="ugc-section">
+      <div class="section-header">
+        <div class="section-badge" style="background: rgba(239, 68, 68, 0.1); color: #EF4444; border-color: rgba(239, 68, 68, 0.25);">
+          <span class="pulse-red-rec" style="margin-inline-end: 4px;"></span> 🎬 Autonomous AI Video & UGC Operations
+        </div>
+        <h2 class="section-title">Real AI In The Wild. See The Autonomous Fleet Execute Live.</h2>
+        <p class="section-subtitle">
+          Watch authentic UGC operational reels recorded directly from enterprise client pods. Rendered with Google Labs Whisk character identity consistency, orchestrated via Flow engine, and streamed with sub-50ms latency across Firebase Edge CDN.
+        </p>
+      </div>
+
+      <!-- 3-Reel Interactive Vertical Smartphone Grid -->
+      <div class="ugc-reels-grid">
+
+        <!-- Reel 1: Edith Ltd Legal (Idit Snir & Maya) -->
+        <div class="ugc-phone-frame" id="ugc-card-edith">
+          <div class="ugc-phone-speaker"></div>
+          
+          <div class="ugc-video-container" onclick="toggleUgcVideo('edith')">
+            <video class="ugc-video-element" id="ugc-video-edith" src="assets/video/ugc_edith_legal.mp4" poster="assets/video/ugc_edith_poster.jpg" autoplay loop muted playsinline preload="auto"></video>
+            
+            <div class="ugc-play-indicator" id="ugc-play-edith">▶</div>
+
+            <!-- Top Header Overlay -->
+            <div class="ugc-overlay-top">
+              <div class="ugc-creator-info">
+                <img src="assets/idit_avatar.jpg" alt="Idit Snir" class="ugc-creator-avatar">
+                <div class="ugc-creator-meta">
+                  <span class="ugc-creator-name">Idit Snir</span>
+                  <span class="ugc-creator-tag">@edith_snir_law &bull; Legal Partner</span>
+                </div>
+              </div>
+              <button type="button" class="ugc-sound-btn" onclick="event.stopPropagation(); toggleUgcAudio('edith')" title="Toggle Audio">
+                <span id="ugc-sound-icon-edith">🔇</span>
+              </button>
+            </div>
+
+            <!-- Right Side UGC Reactions -->
+            <div class="ugc-overlay-actions">
+              <button type="button" class="ugc-action-btn" onclick="event.stopPropagation(); incrementReaction('edith-like')">
+                <div class="ugc-action-circle">❤️</div>
+                <span class="ugc-action-count" id="edith-like-count">2.8k</span>
+              </button>
+              <button type="button" class="ugc-action-btn" onclick="event.stopPropagation(); openUgcVideoModal('edith')">
+                <div class="ugc-action-circle">💬</div>
+                <span class="ugc-action-count">342</span>
+              </button>
+              <button type="button" class="ugc-action-btn" onclick="event.stopPropagation(); openUgcVideoModal('edith')">
+                <div class="ugc-action-circle">⛶</div>
+                <span class="ugc-action-count">Zoom</span>
+              </button>
+            </div>
+
+            <!-- Bottom Caption & Audio Wave -->
+            <div class="ugc-overlay-bottom">
+              <div class="ugc-caption-title">⚖️ Maya Actuarial Court Draft #2049</div>
+              <div class="ugc-caption-sub">"Maya audited 42 alimony clauses in 1.4s, corrected CPI deviation, and staged court redlines for my 1-click digital sign-off!"</div>
+              
+              <div class="ugc-meta-row">
+                <div class="ugc-audio-track">
+                  <div class="ugc-waveform-bars">
+                    <span class="ugc-wave-bar"></span>
+                    <span class="ugc-wave-bar"></span>
+                    <span class="ugc-wave-bar"></span>
+                    <span class="ugc-wave-bar"></span>
+                  </div>
+                  <span>🎵 Works4you Voice • Maya Legal 2.8</span>
+                </div>
+                <span style="font-size:10px; font-weight:800; color:#38BDF8;">142ms SLA</span>
+              </div>
+
+              <button type="button" class="ugc-expand-pill" onclick="event.stopPropagation(); openUgcVideoModal('edith')">
+                <span>View Full Telemetry & Breakdown &rarr;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reel 2: Forest for All (4rest4all & Uzi) -->
+        <div class="ugc-phone-frame" id="ugc-card-4rest">
+          <div class="ugc-phone-speaker"></div>
+          
+          <div class="ugc-video-container" onclick="toggleUgcVideo('4rest')">
+            <video class="ugc-video-element" id="ugc-video-4rest" src="assets/video/ugc_4rest4all.mp4" poster="assets/video/ugc_4rest_poster.jpg" autoplay loop muted playsinline preload="auto"></video>
+            
+            <div class="ugc-play-indicator" id="ugc-play-4rest">▶</div>
+
+            <!-- Top Header Overlay -->
+            <div class="ugc-overlay-top">
+              <div class="ugc-creator-info">
+                <img src="assets/transparent/katie_transparent.png" alt="4rest Advocate" class="ugc-creator-avatar">
+                <div class="ugc-creator-meta">
+                  <span class="ugc-creator-name">Forest for All</span>
+                  <span class="ugc-creator-tag">@4rest4all_org &bull; Amazon NGO</span>
+                </div>
+              </div>
+              <button type="button" class="ugc-sound-btn" onclick="event.stopPropagation(); toggleUgcAudio('4rest')" title="Toggle Audio">
+                <span id="ugc-sound-icon-4rest">🔇</span>
+              </button>
+            </div>
+
+            <!-- Right Side UGC Reactions -->
+            <div class="ugc-overlay-actions">
+              <button type="button" class="ugc-action-btn" onclick="event.stopPropagation(); incrementReaction('4rest-like')">
+                <div class="ugc-action-circle">❤️</div>
+                <span class="ugc-action-count" id="4rest-like-count">3.4k</span>
+              </button>
+              <button type="button" class="ugc-action-btn" onclick="event.stopPropagation(); openUgcVideoModal('4rest')">
+                <div class="ugc-action-circle">💬</div>
+                <span class="ugc-action-count">512</span>
+              </button>
+              <button type="button" class="ugc-action-btn" onclick="event.stopPropagation(); openUgcVideoModal('4rest')">
+                <div class="ugc-action-circle">⛶</div>
+                <span class="ugc-action-count">Zoom</span>
+              </button>
+            </div>
+
+            <!-- Bottom Caption & Audio Wave -->
+            <div class="ugc-overlay-bottom">
+              <div class="ugc-caption-title">🌿 Multilingual Donor Engagement</div>
+              <div class="ugc-caption-sub">"Autonomous agent engaged 1,400 donors in 4 languages and dispatched Stripe checkout while field team planted 20K trees!"</div>
+              
+              <div class="ugc-meta-row">
+                <div class="ugc-audio-track">
+                  <div class="ugc-waveform-bars">
+                    <span class="ugc-wave-bar"></span>
+                    <span class="ugc-wave-bar"></span>
+                    <span class="ugc-wave-bar"></span>
+                    <span class="ugc-wave-bar"></span>
+                  </div>
+                  <span>🎵 Portuguese RAG • Stripe Sync</span>
+                </div>
+                <span style="font-size:10px; font-weight:800; color:#34D399;">140ms SLA</span>
+              </div>
+
+              <button type="button" class="ugc-expand-pill" onclick="event.stopPropagation(); openUgcVideoModal('4rest')">
+                <span>View Full Telemetry & Breakdown &rarr;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reel 3: Founder Operations & Treasury (Shimon & Warren) -->
+        <div class="ugc-phone-frame" id="ugc-card-founder">
+          <div class="ugc-phone-speaker"></div>
+          
+          <div class="ugc-video-container" onclick="toggleUgcVideo('founder')">
+            <video class="ugc-video-element" id="ugc-video-founder" src="assets/video/ugc_founder_cashflow.mp4" poster="assets/video/ugc_founder_poster.jpg" autoplay loop muted playsinline preload="auto"></video>
+            
+            <div class="ugc-play-indicator" id="ugc-play-founder">▶</div>
+
+            <!-- Top Header Overlay -->
+            <div class="ugc-overlay-top">
+              <div class="ugc-creator-info">
+                <img src="assets/shimon_avatar.jpg" alt="Shimon Ezekiel" class="ugc-creator-avatar">
+                <div class="ugc-creator-meta">
+                  <span class="ugc-creator-name">Shimon Ezekiel</span>
+                  <span class="ugc-creator-tag">@shimon_ezekiel &bull; Founder</span>
+                </div>
+              </div>
+              <button type="button" class="ugc-sound-btn" onclick="event.stopPropagation(); toggleUgcAudio('founder')" title="Toggle Audio">
+                <span id="ugc-sound-icon-founder">🔇</span>
+              </button>
+            </div>
+
+            <!-- Right Side UGC Reactions -->
+            <div class="ugc-overlay-actions">
+              <button type="button" class="ugc-action-btn" onclick="event.stopPropagation(); incrementReaction('founder-like')">
+                <div class="ugc-action-circle">❤️</div>
+                <span class="ugc-action-count" id="founder-like-count">4.1k</span>
+              </button>
+              <button type="button" class="ugc-action-btn" onclick="event.stopPropagation(); openUgcVideoModal('founder')">
+                <div class="ugc-action-circle">💬</div>
+                <span class="ugc-action-count">488</span>
+              </button>
+              <button type="button" class="ugc-action-btn" onclick="event.stopPropagation(); openUgcVideoModal('founder')">
+                <div class="ugc-action-circle">⛶</div>
+                <span class="ugc-action-count">Zoom</span>
+              </button>
+            </div>
+
+            <!-- Bottom Caption & Audio Wave -->
+            <div class="ugc-overlay-bottom">
+              <div class="ugc-caption-title">💵 Automated Multi-Currency Cashflow</div>
+              <div class="ugc-caption-sub">"14 multi-currency invoices arrived today. Warren converted EUR/ILS to USD and reconciled our cashflow without human touch!"</div>
+              
+              <div class="ugc-meta-row">
+                <div class="ugc-audio-track">
+                  <div class="ugc-waveform-bars">
+                    <span class="ugc-wave-bar"></span>
+                    <span class="ugc-wave-bar"></span>
+                    <span class="ugc-wave-bar"></span>
+                    <span class="ugc-wave-bar"></span>
+                  </div>
+                  <span>🎵 Treasury Matrix • FX Engine 2.8</span>
+                </div>
+                <span style="font-size:10px; font-weight:800; color:#F59E0B;">180ms SLA</span>
+              </div>
+
+              <button type="button" class="ugc-expand-pill" onclick="event.stopPropagation(); openUgcVideoModal('founder')">
+                <span>View Full Telemetry & Breakdown &rarr;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Animated Operational Stat Counter Ribbon -->
+      <div style="background: rgba(255,255,255,0.85); border: 1.5px solid var(--card-border); border-radius: 20px; padding: 20px 28px; margin-top: 24px; box-shadow: var(--card-shadow); display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; text-align: center;">
+        <div>
+          <div style="font-size: 28px; font-weight: 900; color: var(--primary);" id="stat-sla">99.8%</div>
+          <div style="font-size: 12px; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Autonomous Accuracy</div>
+        </div>
+        <div>
+          <div style="font-size: 28px; font-weight: 900; color: #06B6D4;" id="stat-latency">142ms</div>
+          <div style="font-size: 12px; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Median Pod Latency</div>
+        </div>
+        <div>
+          <div style="font-size: 28px; font-weight: 900; color: #10B981;" id="stat-velocity">10x</div>
+          <div style="font-size: 12px; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Operational Velocity</div>
+        </div>
+        <div>
+          <div style="font-size: 28px; font-weight: 900; color: #F59E0B;" id="stat-drift">$0</div>
+          <div style="font-size: 12px; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Prompt Drift / Waste</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: WHISK, FLOW & FIREBASE AI VIDEO & MEDIA ARCHITECTURE
+         ========================================================================== -->
+    <section id="pipeline" class="pipeline-section">
+      <div class="section-header">
+        <div class="section-badge" style="background: rgba(124, 58, 237, 0.1); color: var(--primary); border-color: rgba(124, 58, 237, 0.25);">
+          ⚡ Multi-Modal Video & CDN Infrastructure
+        </div>
+        <h2 class="section-title">How Whisk, Flow & Firebase Power Autonomous Media</h2>
+        <p class="section-subtitle">
+          The three-layer engineering architecture enabling persistent multi-agent identity consistency, autonomous video compilation, and zero-buffering global edge streaming.
+        </p>
+      </div>
+
+      <!-- 3 Pillars Grid -->
+      <div class="pipeline-pillars-grid">
+
+        <!-- Pillar 1: Google Labs Whisk -->
+        <div class="pipeline-pillar-card">
+          <div class="pillar-badge-strip">
+            <span class="pillar-step-num">1</span>
+            <span class="pillar-tech-badge">Google Labs Whisk</span>
+          </div>
+          <h3 class="pillar-title">Persistent Character & Scene Identity</h3>
+          <p class="pillar-desc">
+            Whisk locks latent keypoints across all 9 autonomous agents, preserving consistent facial geometry, styling, and brand identity across every video cut without hallucination or prompt drift.
+          </p>
+          <div class="pillar-diagram-box">
+            <div style="color: #38BDF8; font-weight: 800; margin-bottom: 6px;">// Whisk Latent Lock v3.8</div>
+            <div>&gt; Subject Anchor: Jake, Katie, Claire, Warren</div>
+            <div>&gt; Face Keypoint Variance: &lt; 0.18%</div>
+            <div>&gt; Style Alignment: 99.4% Latent Fidelity</div>
+            <div style="color: #4ADE80; margin-top: 4px;">&gt; Morphing Hallucination: 0.00% [VERIFIED]</div>
+          </div>
+          <button type="button" class="pillar-interactive-btn" onclick="toggleWhiskDemo()">
+            <span>✨ Compare Whisk vs Raw GenAI Drift</span>
+          </button>
+        </div>
+
+        <!-- Pillar 2: Google Flow Video Engine -->
+        <div class="pipeline-pillar-card">
+          <div class="pillar-badge-strip">
+            <span class="pillar-step-num">2</span>
+            <span class="pillar-tech-badge">Flow Orchestrator</span>
+          </div>
+          <h3 class="pillar-title">Autonomous Video DAG Pipeline</h3>
+          <p class="pillar-desc">
+            Flow connects Gemini 3.8 Flash multi-turn reasoning to ElevenLabs neural speech diarization, kinetic subtitle burn-in, and automated 60fps B-roll cuts with zero human editing.
+          </p>
+          
+          <div class="pillar-diagram-box">
+            <div style="color: #A855F7; font-weight: 800; margin-bottom: 6px;">// Flow DAG Execution Matrix</div>
+            <div class="flow-dag-row" id="flow-dag-nodes">
+              <span class="flow-dag-node active-node" id="fnode-1">1. Script</span>
+              <span class="flow-dag-arrow">&rarr;</span>
+              <span class="flow-dag-node" id="fnode-2">2. Audio</span>
+              <span class="flow-dag-arrow">&rarr;</span>
+              <span class="flow-dag-node" id="fnode-3">3. Whisk</span>
+              <span class="flow-dag-arrow">&rarr;</span>
+              <span class="flow-dag-node" id="fnode-4">4. Cut</span>
+              <span class="flow-dag-arrow">&rarr;</span>
+              <span class="flow-dag-node" id="fnode-5">5. Export</span>
+            </div>
+            <div id="flow-sim-log" style="color: #94A3B8; font-size: 11px; margin-top: 8px;">Status: Flow DAG ready for automated execution.</div>
+          </div>
+
+          <button type="button" class="pillar-interactive-btn" onclick="simulateFlowPipeline()">
+            <span>⚡ Simulate Flow Video Generation</span>
+          </button>
+        </div>
+
+        <!-- Pillar 3: Firebase Edge Streaming -->
+        <div class="pipeline-pillar-card">
+          <div class="pillar-badge-strip">
+            <span class="pillar-step-num">3</span>
+            <span class="pillar-tech-badge">Firebase Edge CDN</span>
+          </div>
+          <h3 class="pillar-title">Sub-50ms Global Byte-Range Stream</h3>
+          <p class="pillar-desc">
+            Firebase Hosting and Cloud Storage deliver byte-range video streaming (Accept-Ranges: bytes) with HTTP/3 multiplexing, SSD edge caching, and zero layout shift.
+          </p>
+          <div class="pillar-diagram-box">
+            <div style="color: #F59E0B; font-weight: 800; margin-bottom: 6px;">// Firebase CDN Edge Status</div>
+            <div>&gt; Tel Aviv (Edge): 18ms TTFF</div>
+            <div>&gt; Frankfurt (EU-West): 24ms TTFF</div>
+            <div>&gt; Virginia (US-East): 32ms TTFF</div>
+            <div style="color: #4ADE80; margin-top: 4px;">&gt; Cache Hit Ratio: 99.2% • Zero Buffering</div>
+          </div>
+          <button type="button" class="pillar-interactive-btn" onclick="checkFirebaseTelemetry()">
+            <span>🌐 Ping Firebase Edge Telemetry</span>
+          </button>
         </div>
 
       </div>
@@ -5831,315 +6790,6 @@
   </footer>
 
   <script>
-    // --- Data Presets for Matcher ---
-    const PRESETS = {
-      inbound: {
-        title: "Omnichannel Lead Qualification & CRM Sync",
-        input: "We receive hundreds of inbound inquiries across WhatsApp and web chat. We need an autonomous agent to qualify them immediately, enrich CRM records, and stage calendar bookings for account executives.",
-        agents: [
-          { name: "Katie", role: "Inbound Experience Lead", img: "assets/transparent/katie_transparent.png" },
-          { name: "Jake", role: "Fleet Orchestrator", img: "assets/transparent/jake_transparent.png" }
-        ],
-        steps: [
-          "Omnichannel Ingestion: Katie intercepts inbound prospects instantly across WhatsApp & web chat.",
-          "Qualification & Data Enrichment: Prospect budget, timeline, and use cases validated against enterprise criteria.",
-          "CRM & Calendar Dispatch: Jake writes structured records into the CRM system and alerts executive leadership."
-        ],
-        speed: "< 25 seconds"
-      },
-      legal: {
-        title: "Contract Review & Indemnity Clause Audit",
-        input: "Our corporate counsel spends 15+ hours weekly reviewing vendor NDAs, master services agreements, and liability terms. We need automated clause auditing with a strict human approval sign-off gate.",
-        agents: [
-          { name: "Claire", role: "Legal & Regulatory Counsel", img: "assets/transparent/claire_transparent.png" },
-          { name: "Chloe", role: "Chief of Staff & Ops", img: "assets/transparent/chloe_transparent.png" }
-        ],
-        steps: [
-          "Document Ingestion: Contract drafts uploaded to Google Drive or received via email trigger Claire's legal engine.",
-          "Automated Redlining: Asymmetric liability, IP clauses, and GDPR/privacy terms flagged against corporate playbooks.",
-          "Cryptographic Approval Gate: Executive summary staged for digital human sign-off before dispatch."
-        ],
-        speed: "< 45 seconds"
-      },
-      cyber: {
-        title: "External Threat Recon & Continuous SOC 2 Readiness",
-        input: "We need continuous external penetration testing, funding signal surveillance across target enterprise accounts, and automated SOC 2 audit readiness checklists.",
-        agents: [
-          { name: "Vance", role: "Cyber & Compliance Officer", img: "assets/transparent/vance_transparent.png" }
-        ],
-        steps: [
-          "Domain & Cloud Posture Scan: Vance executes passive external asset discovery and maps public attack surfaces.",
-          "Funding & Growth Signal Correlation: Detects expansion signals and correlates required security controls.",
-          "Audit Plan Generation: Produces structured remediation roadmaps mapped to SOC 2 Type II controls."
-        ],
-        speed: "Continuous Live Scan"
-      },
-      finance: {
-        title: "Multi-Currency Billing, FX & Autonomous Ledger",
-        input: "Our team pays for dozens of SaaS and cloud tools across USD, EUR, and local currency. We need automated invoice extraction from inboxes, real-time FX conversion, and instant ledger sync.",
-        agents: [
-          { name: "Warren", role: "Financial Controller & Treasury", img: "assets/transparent/warren_transparent.png" }
-        ],
-        steps: [
-          "Mailbox Billing Scan: Warren extracts PDF receipts and tax invoices from billing email streams.",
-          "Real-Time FX Conversion: Normalizes transactions across currencies using live mid-market exchange rates.",
-          "Zero-Touch Ledger Sync: Reconciles bank statements against Google Sheets ledger with zero human data entry."
-        ],
-        speed: "< 10 seconds / invoice"
-      },
-      talent: {
-        title: "Executive Search & Tailored Candidate Outreach",
-        input: "We need to identify, score, and reach out to high-caliber VP and C-level candidates across technical and operations disciplines with bespoke 1-page briefings.",
-        agents: [
-          { name: "Hunter", role: "Executive Talent Engine", img: "assets/transparent/hunter_transparent.png" },
-          { name: "Jake", role: "Chief Fleet Orchestrator", img: "assets/transparent/jake_transparent.png" }
-        ],
-        steps: [
-          "Candidate Graph Discovery: Hunter scans executive directories and talent networks matching scoring matrices.",
-          "Bespoke Briefing Synthesis: Generates personalized 1-page executive pitch decks tailored to candidate backgrounds.",
-          "Multi-Channel Outreach: Orchestrates respectful multi-touch engagement sequences with automated tracking."
-        ],
-        speed: "< 60 seconds / pipeline"
-      }
-    };
-
-    function switchMatcherTab(tab) {
-      const matcherBtn = document.getElementById("tab-btn-matcher");
-      const builderBtn = document.getElementById("tab-btn-builder");
-      const matcherContent = document.getElementById("tab-content-matcher");
-      const builderContent = document.getElementById("tab-content-builder");
-
-      if (tab === "matcher") {
-        matcherBtn.classList.add("active");
-        builderBtn.classList.remove("active");
-        matcherContent.style.display = "grid";
-        builderContent.style.display = "none";
-      } else {
-        builderBtn.classList.add("active");
-        matcherBtn.classList.remove("active");
-        matcherContent.style.display = "none";
-        builderContent.style.display = "grid";
-        updateBuilderPreview();
-      }
-    }
-
-    function applyPreset(key) {
-      document.querySelectorAll(".preset-chip").forEach(el => el.classList.remove("active"));
-      const chip = document.getElementById("chip-" + key);
-      if (chip) chip.classList.add("active");
-
-      const preset = PRESETS[key];
-      if (preset) {
-        document.getElementById("matcher-input").value = preset.input;
-        renderMatcherResult(preset);
-      }
-    }
-
-    function executeFleetMatch() {
-      const val = document.getElementById("matcher-input").value.toLowerCase();
-      
-      let matchedKey = "inbound";
-      if (val.includes("contract") || val.includes("nda") || val.includes("legal") || val.includes("law") || val.includes("agreement")) {
-        matchedKey = "legal";
-      } else if (val.includes("cyber") || val.includes("soc") || val.includes("pentest") || val.includes("security") || val.includes("threat")) {
-        matchedKey = "cyber";
-      } else if (val.includes("finance") || val.includes("invoice") || val.includes("fx") || val.includes("currency") || val.includes("receipt") || val.includes("ledger")) {
-        matchedKey = "finance";
-      } else if (val.includes("talent") || val.includes("hire") || val.includes("recruiting") || val.includes("candidate") || val.includes("sourcing")) {
-        matchedKey = "talent";
-      }
-
-      applyPreset(matchedKey);
-    }
-
-    function renderMatcherResult(data) {
-      document.getElementById("match-summary-title").textContent = data.title;
-      
-      // Render agents
-      const agentRow = document.getElementById("match-agents-row");
-      agentRow.innerHTML = data.agents.map(a => `
-        <div class="rec-agent-badge">
-          <img src="${a.img}" alt="${a.name}">
-          <div>
-            <div class="rec-agent-name">${a.name}</div>
-            <div class="rec-agent-role">${a.role}</div>
-          </div>
-        </div>
-      `).join("");
-
-      // Render plan
-      const planBox = document.getElementById("match-plan-box");
-      planBox.innerHTML = data.steps.map((s, idx) => `
-        <div class="orchestration-step">
-          <div class="step-num-dot">${idx + 1}</div>
-          <div>${s}</div>
-        </div>
-      `).join("");
-    }
-
-    // --- Custom Builder Preview Logic ---
-    function updateBuilderPreview() {
-      const name = document.getElementById("builder-name").value || "Custom Agent";
-      const role = document.getElementById("builder-role").value || "Operations Specialist";
-      const model = document.getElementById("builder-model").value;
-      const airgap = document.getElementById("builder-airgap").value;
-      const desc = document.getElementById("builder-desc").value || "Autonomous agent executing custom directives.";
-
-      document.getElementById("preview-name-display").textContent = name;
-      document.getElementById("preview-role-display").textContent = role;
-      document.getElementById("preview-desc-display").textContent = desc;
-      document.getElementById("preview-airgap-display").textContent = airgap;
-      document.getElementById("preview-model-display").textContent = "Engine: " + model;
-
-      // Collect checked tools
-      const checkboxes = document.querySelectorAll(".tools-checkbox-grid input[type='checkbox']");
-      const selectedTools = [];
-      checkboxes.forEach(cb => {
-        if (cb.checked) selectedTools.push(cb.value);
-      });
-
-      const toolsDisplay = document.getElementById("preview-tools-display");
-      if (selectedTools.length === 0) {
-        toolsDisplay.innerHTML = '<span class="tool-tag" style="color:#94A3B8;">No external tools equipped</span>';
-      } else {
-        toolsDisplay.innerHTML = selectedTools.map(t => `<span class="tool-tag">${t}</span>`).join("");
-      }
-
-      // Dynamic Avatar Emoji
-      const emojis = ["🤖", "🚀", "⚡", "🛡️", "🔮", "💼", "🧠", "🎯"];
-      const charCode = name.charCodeAt(0) || 0;
-      document.getElementById("preview-avatar").textContent = emojis[charCode % emojis.length];
-    }
-
-    function generateCustomAgentBlueprint() {
-      const name = document.getElementById("builder-name").value;
-      const role = document.getElementById("builder-role").value;
-      const model = document.getElementById("builder-model").value;
-      const airgap = document.getElementById("builder-airgap").value;
-      
-      const checkboxes = document.querySelectorAll(".tools-checkbox-grid input[type='checkbox']");
-      const tools = [];
-      checkboxes.forEach(cb => { if (cb.checked) tools.push(cb.value); });
-
-      const blueprint = {
-        agent_id: name.toLowerCase().replace(/[^a-z0-9]/g, "_") + "_v1",
-        codename: name,
-        role: role,
-        intelligence_runtime: model,
-        data_airgap: airgap,
-        equipped_mcp_servers: tools,
-        status: "STAGED_READY_FOR_DEPLOY"
-      };
-
-      const jsonStr = JSON.stringify(blueprint, null, 2);
-      alert("✅ Custom Agent Blueprint Generated:\n\n" + jsonStr + "\n\nReady for single-click deployment to your isolated pod!");
-    }
-
-    // --- Workflow Live Terminal Simulation ---
-    const WORKFLOW_STEPS = {
-      1: {
-        indicator: "EXECUTION_LOG: STEP 1 (09:00:14 UTC)",
-        lines: [
-          { prompt: "09:00:12", agent: "SYS_INGEST", msg: "Inbound webhook triggered via WhatsApp Business API (+1-415-***-8820)." },
-          { prompt: "09:00:13", agent: "SYS_PARSER", msg: "Message payload: 'Hello, looking to sign an enterprise SLA for 500 seats. Master agreement attached for review.'" },
-          { prompt: "09:00:14", agent: "SYS_VAULT", msg: "Attachment 'Enterprise_SLA_Master.pdf' (1.4MB) encrypted and deposited in ephemeral vault <span class='term-badge-airgap'>AIRGAP LOCKED</span>." }
-        ]
-      },
-      2: {
-        indicator: "EXECUTION_LOG: STEP 2 (09:01:05 UTC)",
-        lines: [
-          { prompt: "09:01:02", agent: "JAKE [CTO]", msg: "Evaluating intent graph: Domain multi-tag classified as [HIGH_VALUE_COMMERCIAL + LEGAL_REVIEW + DOMAIN_SECURITY]." },
-          { prompt: "09:01:03", agent: "JAKE [CTO]", msg: "Routing conversational lead qualification to KATIE (Port 3186)." },
-          { prompt: "09:01:04", agent: "JAKE [CTO]", msg: "Dispatching PDF analysis payload to CLAIRE (Legal Pod) and domain audit to VANCE." },
-          { prompt: "09:01:05", agent: "KATIE", msg: "Generating conversational greeting: 'Hi there! Received your SLA draft. While our legal team audits terms, let\\'s align on rollout timing.'" }
-        ]
-      },
-      3: {
-        indicator: "EXECUTION_LOG: STEP 3 (09:02:40 UTC)",
-        lines: [
-          { prompt: "09:02:10", agent: "CLAIRE", msg: "Parsing 24 contractual clauses against standard B2B liability playbooks..." },
-          { prompt: "09:02:25", agent: "CLAIRE", msg: "⚠️ FLAG DETECTED in Section 14.2 (Uncapped Consequential Damages). Redline proposed: Standard 12-month trailing fee cap." },
-          { prompt: "09:02:30", agent: "VANCE", msg: "Passive cyber reconnaissance executed on client domain: SSL Grade A+, SOC 2 Type II active on file." },
-          { prompt: "09:02:40", agent: "CLAIRE", msg: "Redlined document generated: 'Enterprise_SLA_Master_Redlined.docx'. Staging approval gate..." }
-        ]
-      },
-      4: {
-        indicator: "EXECUTION_LOG: STEP 4 (09:04:15 UTC)",
-        lines: [
-          { prompt: "09:04:02", agent: "CHLOE", msg: "Executive approval gate triggered. Enforcing human-in-the-loop compliance standard." },
-          { prompt: "09:04:05", agent: "GATEWAY", msg: "Awaiting digital sign-off on redlined agreement terms..." }
-        ],
-        hasGate: true
-      },
-      5: {
-        indicator: "EXECUTION_LOG: STEP 5 (09:05:22 UTC)",
-        lines: [
-          { prompt: "09:05:01", agent: "JAKE [CTO]", msg: "Cryptographic approval signature confirmed. Authorizing multi-system dispatch." },
-          { prompt: "09:05:08", agent: "KATIE", msg: "Transmitting redlined agreement and executive briefing to enterprise counterparty on WhatsApp." },
-          { prompt: "09:05:14", agent: "WARREN", msg: "Updating treasury forecast: Added $60,000 ARR opportunity at 90% probability. Currency FX normalized (USD)." },
-          { prompt: "09:05:22", agent: "SYS_AUDIT", msg: "Full trace ID 8c92a-fa1 archived to immutable security ledger. Ephemeral memory wiped <span class='term-badge-airgap'>CLEAN</span>." }
-        ]
-      }
-    };
-
-    let gateApproved = false;
-
-    function activateWorkflowStep(stepNum) {
-      document.querySelectorAll(".timeline-step-card").forEach(el => el.classList.remove("active"));
-      const card = document.getElementById("step-card-" + stepNum);
-      if (card) card.classList.add("active");
-
-      const step = WORKFLOW_STEPS[stepNum];
-      if (!step) return;
-
-      document.getElementById("terminal-step-indicator").textContent = step.indicator;
-      
-      const body = document.getElementById("terminal-body");
-      let html = step.lines.map(l => `
-        <div class="term-line">
-          <span class="term-prompt">${l.prompt}</span>
-          <span class="term-agent">${l.agent}:</span>
-          <span class="term-msg">${l.msg}</span>
-        </div>
-      `).join("");
-
-      if (step.hasGate) {
-        if (!gateApproved) {
-          html += `
-            <div class="approval-gate-box" id="gate-interactive-box">
-              <div style="font-weight:700; color:#F59E0B; font-size:12px;">🔒 MANDATORY HUMAN APPROVAL GATE: Redlined Contract Dispatch</div>
-              <div style="font-size:11.5px; color:#E2E8F0; margin-top:4px;">Clause 14.2 capped liability to $100,000. Counterparty recipient: legal@enterprise.com</div>
-              <div class="approval-btn-row">
-                <button class="gate-btn-approve" onclick="approveGate()">✓ Approve & Sign Dispatch</button>
-                <button class="gate-btn-reject" onclick="alert('Revision requested. Claire re-evaluating terms...')">✕ Request Revision</button>
-              </div>
-            </div>
-          `;
-        } else {
-          html += `
-            <div style="margin:16px 0; padding:12px 16px; background:rgba(16, 185, 129, 0.15); border:1px solid #10B981; border-radius:10px; color:#34D399; font-weight:700;">
-              ✓ APPROVED BY EXECUTIVE SIGN-OFF (Digital Signature Validated)
-            </div>
-          `;
-        }
-      }
-
-      document.getElementById("terminal-content").innerHTML = html;
-    }
-
-    function approveGate() {
-      gateApproved = true;
-      activateWorkflowStep(4);
-      setTimeout(() => {
-        activateWorkflowStep(5);
-      }, 1200);
-    }
-
-    // Initialize on DOM load
-    document.addEventListener("DOMContentLoaded", () => {
-      activateWorkflowStep(1);
-    });
-
     // --- MCP Interactive Inspector Data ---
     const MCP_DATA = {
       github: {
@@ -6287,67 +6937,6 @@
     }
 
   
-    // ==========================================================================
-    // HERO SCENARIO QUICK-LAUNCH & ROUTING
-    // ==========================================================================
-    const HERO_SCENARIOS = [
-      {
-        input: "Audit 42 vendor MSAs for unlimited liability, extract intellectual property warranties, and stage redlines for general counsel sign-off.",
-        routing: "<strong>Jake Conductor:</strong> Dispatched 42 agreements to Claire (Legal Pod) & Vance (SecOps). Flag: Uncapped liability detected in Clause 14.2. Staged for one-click human approval.",
-        latency: "Latency: 142ms"
-      },
-      {
-        input: "Triage 120 incoming WhatsApp inquiries, transcribe audio voice notes, score enterprise deal size, and stage calendar bookings in Twenty CRM.",
-        routing: "<strong>Katie Hub:</strong> Intercepted 120 inbound conversations. 18 qualified enterprise leads scored > 80. Synced to Twenty CRM; staged calendar bookings for account executives.",
-        latency: "Latency: 88ms"
-      },
-      {
-        input: "Ingest SaaS invoices across USD/EUR from Gmail, normalize currency rates via live Bank of Israel/ECB feed, and sync monthly cash flow.",
-        routing: "<strong>Warren Finance:</strong> 28 receipts reconciled ($14,200 ⇄ ₪53,534). 0 missing VAT tax invoices detected. Forecast cash balance updated in Google Sheets.",
-        latency: "Latency: 64ms"
-      },
-      {
-        input: "Source VP R&D candidates with AI infrastructure experience in Israel, generate tailored 1-page briefings, and trigger outreach.",
-        routing: "<strong>Hunter Talent:</strong> Screened 184 profiles. Top 3 matched with 96%+ radar score. Personalized executive one-pagers staged for outreach.",
-        latency: "Latency: 195ms"
-      }
-    ];
-
-    function runHeroScenario(index) {
-      document.querySelectorAll(".hero-chip").forEach((btn, idx) => {
-        if (idx === index) {
-          btn.classList.add("active");
-          btn.style.background = "#EDE9FE";
-          btn.style.color = "var(--primary)";
-          btn.style.borderColor = "rgba(124,58,237,0.25)";
-        } else {
-          btn.classList.remove("active");
-          btn.style.background = "#F1F5F9";
-          btn.style.color = "#475569";
-          btn.style.borderColor = "#E2E8F0";
-        }
-      });
-
-      const s = HERO_SCENARIOS[index];
-      if (!s) return;
-
-      const input = document.getElementById("hero-command-input");
-      if (input) input.value = s.input;
-
-      const routingText = document.getElementById("hero-routing-text");
-      if (routingText) routingText.innerHTML = s.routing;
-
-      const routingLat = document.getElementById("hero-routing-latency");
-      if (routingLat) routingLat.textContent = s.latency;
-    }
-
-    function triggerHeroWorkflow() {
-      const input = document.getElementById("hero-command-input");
-      const val = input ? input.value : "";
-      alert("⚡ Jake Conductor received workflow command:\n\n" + val + "\n\nRouting multi-agent pod execution...");
-    }
-
-    // ==========================================================================
     // BENTO GRID FILTERING
     // ==========================================================================
     function filterFleetBento(category) {
@@ -6745,19 +7334,24 @@
     // INTERACTIVE ENTERPRISE ROI CALCULATOR
     // ==========================================================================
     function calculateROI() {
-      const leads = parseInt(document.getElementById("slider-leads").value, 10) || 2500;
-      const contracts = parseInt(document.getElementById("slider-contracts").value, 10) || 35;
-      const invoices = parseInt(document.getElementById("slider-invoices").value, 10) || 120;
+      const sliderLeads = document.getElementById("slider-leads");
+      const sliderContracts = document.getElementById("slider-contracts");
+      const sliderInvoices = document.getElementById("slider-invoices");
+      if (!sliderLeads || !sliderContracts || !sliderInvoices) return;
+
+      const leads = parseInt(sliderLeads.value, 10) || 2500;
+      const contracts = parseInt(sliderContracts.value, 10) || 35;
+      const invoices = parseInt(sliderInvoices.value, 10) || 120;
 
       // Update pills
-      document.getElementById("val-leads").textContent = leads.toLocaleString() + " inquiries";
-      document.getElementById("val-contracts").textContent = contracts + " agreements";
-      document.getElementById("val-invoices").textContent = invoices + " receipts";
+      const valLeads = document.getElementById("val-leads");
+      const valContracts = document.getElementById("val-contracts");
+      const valInvoices = document.getElementById("val-invoices");
+      if (valLeads) valLeads.textContent = leads.toLocaleString() + " inquiries";
+      if (valContracts) valContracts.textContent = contracts + " agreements";
+      if (valInvoices) valInvoices.textContent = invoices + " receipts";
 
       // Hours calculation:
-      // Leads: 0.25 hrs (15 min each)
-      // Contracts: 2.5 hrs each
-      // Invoices: 0.35 hrs (20 min each)
       const hoursSavedMonth = Math.round((leads * 0.05) + (contracts * 2.2) + (invoices * 0.35));
       const blendedRate = 75; // $75/hr
       const annualSavings = Math.round(hoursSavedMonth * blendedRate * 12);
@@ -7276,12 +7870,321 @@
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeMobileMenu();
+        closeUgcModal();
         if (mobileStickyBar && window.innerWidth <= 768) mobileStickyBar.style.display = "flex";
       }
     });
 
-  </script>
+    // ==========================================================================
+    // AI VIDEO, UGC REELS & MARKETING ANIMATION CONTROLLER (WHISK & FLOW)
+    // ==========================================================================
 
+    // Video Audio Synthesizer (Web Audio API)
+    let audioCtx = null;
+    function playSyntheticTone(freq = 440, type = 'sine', duration = 0.15) {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    // Toggle UGC Reel Play/Pause
+    function toggleUgcVideo(reelKey) {
+      const vid = document.getElementById(`ugc-video-${reelKey}`);
+      const card = document.getElementById(`ugc-card-${reelKey}`);
+      if (!vid || !card) return;
+
+      if (vid.paused) {
+        vid.play().catch(() => {});
+        card.classList.remove('is-paused');
+        playSyntheticTone(520, 'sine', 0.1);
+      } else {
+        vid.pause();
+        card.classList.add('is-paused');
+        playSyntheticTone(330, 'sine', 0.1);
+      }
+    }
+
+    // Toggle Audio on Reel Card
+    function toggleUgcAudio(reelKey) {
+      const vid = document.getElementById(`ugc-video-${reelKey}`);
+      const icon = document.getElementById(`ugc-sound-icon-${reelKey}`);
+      if (!vid || !icon) return;
+
+      vid.muted = !vid.muted;
+      if (vid.muted) {
+        icon.textContent = "🔇";
+        playSyntheticTone(280, 'sine', 0.12);
+      } else {
+        icon.textContent = "🔊";
+        playSyntheticTone(660, 'sine', 0.15);
+      }
+    }
+
+    // Increment Reaction Counter
+    function incrementReaction(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      playSyntheticTone(880, 'sine', 0.08);
+      let val = parseFloat(el.textContent);
+      if (!isNaN(val)) {
+        val = (val + 0.1).toFixed(1);
+        el.textContent = val + "k";
+        el.parentElement.style.transform = "scale(1.3)";
+        setTimeout(() => {
+          el.parentElement.style.transform = "";
+        }, 200);
+      }
+    }
+
+    // UGC Modal Lightbox
+    const UGC_MODAL_DATA = {
+      edith: {
+        title: "Maya Legal Actuarial Pod #2049 — Edith Ltd Legal",
+        agent: "Agent: Maya (Corporate Counsel & Actuarial Pod)",
+        sla: "142ms Latency • SOC 2 Airgap",
+        videoSrc: "assets/video/ugc_edith_legal.mp4",
+        posterSrc: "assets/video/ugc_edith_poster.jpg",
+        logs: [
+          "[00:00] INGEST: Supreme Court Family Mandate #2049.pdf (14 pages)",
+          "[00:01] OCR SCAN: Extracted 42 liability & retroactive clauses",
+          "[00:02] CPI ENGINE: 3.8% compound inflation drift identified in §14.2",
+          "[00:03] ARREARS REBALANCED: ₪184,250 ILS calculated ($49,850 USD)",
+          "[00:04] DRAFTING: Annex G-4 drafted with Israeli legal precedence code",
+          "[00:05] STAGING: Cryptographic approval gate ready for Idit Snir sign-off"
+        ]
+      },
+      '4rest': {
+        title: "4rest Advocate & Scout — Amazon Conservation NGO",
+        agent: "Agent: 4rest Advocate (Multilingual Inbound & Stripe)",
+        sla: "140ms Latency • Multilingual RAG",
+        videoSrc: "assets/video/ugc_4rest4all.mp4",
+        posterSrc: "assets/video/ugc_4rest_poster.jpg",
+        logs: [
+          "[00:00] INBOUND: Instagram DM received in Portuguese from São Paulo",
+          "[00:01] RAG INGESTION: Pará Native Land Parcel #782 matched",
+          "[00:02] QUALIFICATION: Donor intent confirmed: High Impact ($500 USD)",
+          "[00:03] STRIPE API: Localized checkout token generated with receipt routing",
+          "[00:04] CRM DISPATCH: Twenty CRM deal stage set to [Active Donor]",
+          "[00:05] FIELD TELEMETRY: 20,000 trees planting schedule validated"
+        ]
+      },
+      founder: {
+        title: "Warren Treasury & FX Controller — Founder Operations",
+        agent: "Agent: Warren (Treasury & Cashflow Matrix)",
+        sla: "180ms Latency • Vertex AI & Sheets",
+        videoSrc: "assets/video/ugc_founder_cashflow.mp4",
+        posterSrc: "assets/video/ugc_founder_poster.jpg",
+        logs: [
+          "[00:00] INGEST: tecktitans111@gmail.com AWS & Vertex AI invoice (€3,420.00 EUR)",
+          "[00:01] SPOT FX: Real-time EUR/USD 1.0842 applied → $3,707.96 USD",
+          "[00:02] LEDGER UPDATE: Google Sheets 'Cost Detail' Row #142 reconciled",
+          "[00:03] BURN RATE: Runway recalculated: 14.8 Months (+14.2% Cash Buffer)",
+          "[00:04] NOTIFICATION: Structured executive summary routed to Chatwoot",
+          "[00:05] ZERO-TOUCH: Complete operational run executed with 0 human clicks"
+        ]
+      },
+      overview: {
+        title: "Works4you Autonomous Fleet Overview — 9 Specialists",
+        agent: "Chief Orchestrator: Jake (CTO & Conductor)",
+        sla: "180ms Median • US-Central & EU Edge",
+        videoSrc: "assets/video/hero_ambient_stream.mp4",
+        posterSrc: "assets/video/hero_ambient_poster.jpg",
+        logs: [
+          "[00:00] ORCHESTRATION: 9 autonomous specialist pods online",
+          "[00:01] AIRGAP GUARANTEE: Dedicated per-client vector vaults initialized",
+          "[00:02] MCP SERVERS: GitHub, HubSpot, Twenty CRM, Gmail, Stripe connected",
+          "[00:03] SELF-HEALING CI/CD: Cloud Run deployment status green (99.99%)",
+          "[00:04] ZERO LEAKAGE: Strict human cryptographic approval gates active"
+        ]
+      }
+    };
+
+    function openUgcVideoModal(reelKey) {
+      const data = UGC_MODAL_DATA[reelKey] || UGC_MODAL_DATA['overview'];
+      const modal = document.getElementById('ugcModal');
+      const video = document.getElementById('ugc-modal-video-elem');
+      const title = document.getElementById('ugc-modal-title');
+      const agent = document.getElementById('ugc-modal-agent-name');
+      const sla = document.getElementById('ugc-modal-sla-badge');
+      const logBox = document.getElementById('ugc-modal-log-terminal');
+
+      if (title) title.textContent = data.title;
+      if (agent) agent.textContent = data.agent;
+      if (sla) sla.textContent = data.sla;
+      if (logBox) {
+        logBox.innerHTML = data.logs.map(l => `<div>${l}</div>`).join('');
+      }
+
+      if (video) {
+        if (data.posterSrc) video.poster = data.posterSrc;
+        video.src = data.videoSrc;
+        video.muted = true;
+        video.play().catch(() => {});
+        video.ontimeupdate = () => {
+          const cur = Math.floor(video.currentTime);
+          const dur = Math.floor(video.duration) || 6;
+          const timeDisplay = document.getElementById('modal-time-display');
+          if (timeDisplay) timeDisplay.textContent = `0:0${cur} / 0:0${dur}`;
+        };
+      }
+
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      if (mobileStickyBar) mobileStickyBar.style.display = "none";
+      playSyntheticTone(580, 'sine', 0.15);
+    }
+
+    function closeUgcModal() {
+      const modal = document.getElementById('ugcModal');
+      const video = document.getElementById('ugc-modal-video-elem');
+      if (video) video.pause();
+      if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      if (mobileStickyBar && window.innerWidth <= 768) mobileStickyBar.style.display = "flex";
+      playSyntheticTone(380, 'sine', 0.1);
+    }
+
+    function toggleModalVideoPlay() {
+      const video = document.getElementById('ugc-modal-video-elem');
+      const btn = document.getElementById('modal-play-btn');
+      const indicator = document.getElementById('ugc-modal-play-indicator');
+      if (!video) return;
+
+      if (video.paused) {
+        video.play().catch(() => {});
+        if (btn) btn.textContent = "⏸";
+        if (indicator) indicator.style.opacity = "0";
+      } else {
+        video.pause();
+        if (btn) btn.textContent = "▶";
+        if (indicator) indicator.style.opacity = "1";
+      }
+    }
+
+    function toggleModalAudio() {
+      const video = document.getElementById('ugc-modal-video-elem');
+      const btn = document.getElementById('modal-audio-btn');
+      if (!video || !btn) return;
+      video.muted = !video.muted;
+      btn.textContent = video.muted ? "🔇" : "🔊";
+      playSyntheticTone(video.muted ? 280 : 600, 'sine', 0.1);
+    }
+
+    // Pillar 1: Whisk Compare Interactive Demo
+    let whiskMode = true;
+    function toggleWhiskDemo() {
+      whiskMode = !whiskMode;
+      playSyntheticTone(whiskMode ? 640 : 440, 'triangle', 0.15);
+      if (whiskMode) {
+        alert("✨ Google Labs Whisk Anchor Mode: ACTIVE\n\n• Identity Consistency: 99.4% (All 9 agents lock exact facial geometry & style)\n• Morphing Drift: 0.00%\n• Consistent lighting & vector camera angles across all 60fps video reels.");
+      } else {
+        alert("⚠️ Raw GenAI Diffusion (Without Whisk):\n\n• Face Drift: >34% variation per generated shot\n• Style inconsistencies between scenes\n• Works4you uses Whisk to ensure your brand's AI faces remain permanent and recognizable!");
+      }
+    }
+
+    // Pillar 2: Flow DAG Simulation
+    function simulateFlowPipeline() {
+      const nodes = [
+        document.getElementById('fnode-1'),
+        document.getElementById('fnode-2'),
+        document.getElementById('fnode-3'),
+        document.getElementById('fnode-4'),
+        document.getElementById('fnode-5')
+      ];
+      const log = document.getElementById('flow-sim-log');
+      const steps = [
+        "Step 1: Gemini 3.8 Flash generating multi-agent storyboard & dialogue...",
+        "Step 2: ElevenLabs neural voice synthesis & pitch diarization in Hebrew/English...",
+        "Step 3: Whisk rendering consistent 3D keyframe avatar latents...",
+        "Step 4: Automated 60fps kinetic motion graphics & subtitle burn-in...",
+        "Step 5: H.264 FastStart export completed & streamed via Firebase Edge!"
+      ];
+
+      let current = 0;
+      nodes.forEach(n => n && n.classList.remove('active-node'));
+      if (nodes[0]) nodes[0].classList.add('active-node');
+      playSyntheticTone(440, 'sine', 0.1);
+
+      const interval = setInterval(() => {
+        if (current < nodes.length) {
+          nodes.forEach(n => n && n.classList.remove('active-node'));
+          if (nodes[current]) nodes[current].classList.add('active-node');
+          if (log) log.textContent = steps[current];
+          playSyntheticTone(440 + current * 80, 'sine', 0.1);
+          current++;
+        } else {
+          clearInterval(interval);
+          nodes.forEach(n => n && n.classList.add('active-node'));
+          if (log) log.innerHTML = "<span style='color:#4ADE80; font-weight:800;'>✓ Flow 15s Video Reel generated in 1.8 seconds!</span>";
+          playSyntheticTone(880, 'sine', 0.25);
+        }
+      }, 500);
+    }
+
+    // Pillar 3: Firebase Edge Telemetry Ping
+    function checkFirebaseTelemetry() {
+      playSyntheticTone(700, 'sine', 0.12);
+      const pingMs = Math.floor(18 + Math.random() * 12);
+      alert(`🌐 Firebase Global Edge Telemetry:\n\n• Point of Presence: Tel Aviv / Frankfurt Edge Nodes\n• Time to First Frame (TTFF): ${pingMs}ms\n• Video Stream Byte-Range: 206 Partial Content (Supported)\n• Cache-Control: public, max-age=31536000, immutable\n• Availability: 99.99% Global CDN SLA`);
+    }
+
+    // Floating Live Fleet Activity Ticker Animation
+    const TICKER_MESSAGES = [
+      "⚖️ Maya audited 42 alimony clauses for Edith Ltd Legal (142ms)",
+      "🌿 4rest engaged Portuguese donor, staged $500 Stripe checkout (140ms)",
+      "💵 Warren reconciled €3,420 invoice in tecktitans111@gmail.com (180ms)",
+      "💬 Katie qualified enterprise inquiry from London → Twenty CRM (98ms)",
+      "🔒 Vance blocked unauthorized webhook scan — SOC 2 audit logged",
+      "⚡ Jake routed multi-agent M&A review DAG across 3 pods in 14ms"
+    ];
+    let tickerIdx = 0;
+    setInterval(() => {
+      const tickerText = document.getElementById('liveTickerText');
+      if (tickerText) {
+        tickerText.style.opacity = '0';
+        setTimeout(() => {
+          tickerIdx = (tickerIdx + 1) % TICKER_MESSAGES.length;
+          tickerText.textContent = TICKER_MESSAGES[tickerIdx];
+          tickerText.style.opacity = '1';
+        }, 300);
+      }
+    }, 7000);
+
+    // IntersectionObserver for video autoplay pause when offscreen (Conserves CPU & Battery)
+    if ('IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            if (video.paused && !video.closest('.ugc-phone-frame.is-paused')) {
+              video.play().catch(() => {});
+            }
+          } else {
+            if (!video.paused) {
+              video.pause();
+            }
+          }
+        });
+      }, { threshold: 0.25 });
+
+      document.querySelectorAll('.ugc-video-element').forEach(v => videoObserver.observe(v));
+    }
+  </script>
 
   <!-- 1. BOOK FLEET DEMO MODAL -->
   <div class="modal-backdrop" id="demoModal" onclick="handleBackdropClick(event, 'demoModal')">
@@ -7474,6 +8377,83 @@
           Request Security Whitepaper & Demo &rarr;
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- 5. CINEMATIC UGC VIDEO LIGHTBOX & TELEMETRY MODAL -->
+  <div class="modal-backdrop" id="ugcModal" onclick="handleBackdropClick(event, 'ugcModal')">
+    <div class="ugc-modal-dialog">
+      <div class="ugc-modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="ticker-pulse-ring"></span>
+          <div>
+            <div style="font-size:11px; font-weight:800; color:#38BDF8; letter-spacing:0.06em; text-transform:uppercase;">Autonomous Fleet Telemetry</div>
+            <div style="font-size:15px; font-weight:800; color:#FFFFFF;" id="ugc-modal-title">Maya Legal Actuarial Pod #2049</div>
+          </div>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeUgcModal()" style="position:static; margin:0;">✕</button>
+      </div>
+
+      <div class="ugc-modal-body-split">
+        <!-- Left: Video Player Box -->
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div class="ugc-modal-video-box">
+            <video id="ugc-modal-video-elem" src="assets/video/ugc_edith_legal.mp4" poster="assets/video/ugc_edith_poster.jpg" playsinline loop style="width:100%; height:100%; object-fit:cover; display:block;"></video>
+            <div class="ugc-play-indicator" id="ugc-modal-play-indicator" style="cursor:pointer;" onclick="toggleModalVideoPlay()">▶</div>
+          </div>
+
+          <!-- Video Controls Bar -->
+          <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(30,41,59,0.7); padding:8px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.08);">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <button type="button" onclick="toggleModalVideoPlay()" id="modal-play-btn" style="background:transparent; border:none; color:#FFFFFF; font-size:16px; cursor:pointer;">⏸</button>
+              <button type="button" onclick="toggleModalAudio()" id="modal-audio-btn" style="background:transparent; border:none; color:#FFFFFF; font-size:16px; cursor:pointer;">🔊</button>
+              <span style="font-size:11px; color:#94A3B8; font-family:monospace;" id="modal-time-display">0:00 / 0:06</span>
+            </div>
+            <div style="font-size:11px; color:#38BDF8; font-weight:700;">60 FPS &bull; H.264 FastStart</div>
+          </div>
+        </div>
+
+        <!-- Right: Execution Telemetry & Pod Inspection -->
+        <div class="ugc-modal-telemetry-col">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-size:12px; font-weight:800; color:#E2E8F0;" id="ugc-modal-agent-name">Agent: Maya Legal Executive</span>
+            <span style="font-size:11px; padding:3px 8px; border-radius:999px; background:rgba(56,189,248,0.15); color:#38BDF8; border:1px solid rgba(56,189,248,0.3);" id="ugc-modal-sla-badge">142ms Latency</span>
+          </div>
+
+          <div style="background:#0F172A; border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:14px; font-family:ui-monospace, monospace; font-size:11.5px; line-height:1.6; color:#94A3B8; max-height:220px; overflow-y:auto;" id="ugc-modal-log-terminal">
+            <div style="color:#38BDF8;">[WHISK_LATENT_LOCK] Latent identity validated (Drift: 0.08%)</div>
+            <div style="color:#E2E8F0;">[FLOW_DAG_ENGINE] Multi-speaker diarization synchronized at 60fps</div>
+            <div style="color:#4ADE80;">[FIREBASE_STREAM] Range request byte chunks cached: 200 OK (22ms)</div>
+            <div style="color:#FBBF24;">[EXECUTION_TRACE] §14.2 CPI deviation verified: ₪184,250 ILS calculated</div>
+            <div style="color:#C084FC;">[GATE] Human approval token staged for digital executive sign-off</div>
+          </div>
+
+          <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:14px;">
+            <div style="font-size:12px; font-weight:800; color:#FFFFFF; margin-bottom:4px;">Enterprise Deployment Readiness</div>
+            <div style="font-size:11.5px; color:#94A3B8; line-height:1.4;">
+              This autonomous pod runs hermetically inside Cloud Run containers with zero prompt training or shared memory.
+            </div>
+          </div>
+
+          <div style="margin-top:auto; display:flex; gap:10px;">
+            <button type="button" class="btn-main" style="flex:1; justify-content:center; padding:11px 16px; font-size:13px;" onclick="closeUgcModal(); openDemoModal();">
+              Deploy This Pod &rarr;
+            </button>
+            <button type="button" class="btn-secondary" style="background:transparent; border-color:#475569; color:#E2E8F0; padding:11px 16px; font-size:13px;" onclick="closeUgcModal()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING LIVE FLEET ACTIVITY TICKER -->
+  <div class="fleet-live-ticker" id="fleetLiveTicker" onclick="openUgcVideoModal('overview')" title="Click to view live execution telemetry">
+    <div class="ticker-pulse-ring"></div>
+    <div class="ticker-content">
+      <div class="ticker-label">Live Fleet Operation</div>
+      <div class="ticker-text" id="liveTickerText">⚖️ Maya audited 42 alimony clauses for Edith Ltd Legal (142ms)</div>
     </div>
   </div>
 
