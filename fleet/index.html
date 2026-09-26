@@ -3842,7 +3842,7 @@
 
     .fleet-roster-strip {
       display: grid;
-      grid-template-columns: repeat(9, 1fr);
+      grid-template-columns: repeat(10, 1fr);
       gap: 8px;
       width: 100%;
       position: relative;
@@ -5191,7 +5191,7 @@
   <div class="mobile-sticky-bar" id="mobileStickyBar">
     <div class="mobile-sticky-info">
       <div class="mobile-sticky-status">
-        <span class="status-pulse-dot"></span> 9 Pods Active
+        <span class="status-pulse-dot"></span> 10 Pods Active
       </div>
       <div class="mobile-sticky-sub">Zero Operational Latency</div>
     </div>
@@ -5208,10 +5208,10 @@
       <div class="ambient-brand-watermark watermark-hero"></div>
       <div class="section-badge" style="margin-bottom: 12px;">⚡ Autonomous Multi-Agent C-Suite</div>
       <h1 style="font-size: clamp(32px, 5vw, 46px); font-weight: 900; line-height: 1.16; letter-spacing: -0.03em; max-width: 980px; margin: 0 auto 12px;">
-        Nine Autonomous Minds. <span style="background: linear-gradient(135deg, var(--primary) 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Zero Operational Latency.</span>
+        Ten Autonomous Minds. <span style="background: linear-gradient(135deg, var(--primary) 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Zero Operational Latency.</span>
       </h1>
       <p style="font-size: 16px; color: #475569; max-width: 740px; margin: 0 auto 20px; line-height: 1.55;">
-        A coordinated fleet of 9 specialized AI agents executing legal compliance, cybersecurity, omnichannel inbound, and treasury reconciliation 24/7 with strict human approval gates.
+        A coordinated fleet of 10 specialized AI agents led by Jake and Jev, executing legal compliance, cybersecurity, omnichannel inbound, and treasury reconciliation 24/7 with strict human approval gates.
       </p>
 
       <div class="hero-actions" style="margin-bottom: 20px;">
@@ -5296,7 +5296,7 @@
 
           <!-- Static Lineup Frame (Toggled) -->
           <div class="squad-lineup-frame" id="squadLineupFrame" style="display:none;">
-            <img src="assets/fleet_squad_composite.png" alt="Works4you Autonomous AI Fleet — All 9 Specialists" class="squad-main-img">
+            <img src="assets/fleet_squad_composite.png" alt="Works4you Autonomous AI Fleet — All 10 Specialists" class="squad-main-img">
           </div>
         </div>
 
@@ -5304,7 +5304,7 @@
         <div class="roster-strip-wrapper">
           <div class="roster-mobile-hint">
             <span class="hint-pulse"></span>
-            <span>9 Specialized Pods &bull; Tap to view dossier</span>
+            <span>10 Specialized Pods &bull; Tap to view dossier</span>
             <span class="hint-swipe">Swipe &rarr;</span>
           </div>
           <div class="fleet-roster-strip">
@@ -5315,6 +5315,15 @@
             </div>
             <div class="roster-name">Jake</div>
             <div class="roster-badge">CTO & Conductor</div>
+          </div>
+
+          <div class="roster-node" onclick="openAgentDossier('jev')" title="Jev — System 1 Decision Coprocessor & Co-Worker to Jake">
+            <div class="roster-avatar-wrap">
+              <img src="assets/transparent/jev_transparent.png" alt="Jev" class="roster-avatar">
+              <span class="roster-status-dot" style="background:#00F0FF; box-shadow:0 0 8px #00F0FF;"></span>
+            </div>
+            <div class="roster-name">Jev</div>
+            <div class="roster-badge" style="background:rgba(0, 240, 255, 0.12); color:#0284C7; border-color:rgba(0, 240, 255, 0.3);">System 1 Co-Pilot</div>
           </div>
 
           <div class="roster-node" onclick="openAgentDossier('katie')" title="Katie — Omnichannel Inbound Gateway">
@@ -5396,19 +5405,28 @@
       <div class="vertical-orchestration-console" style="position: relative;">
         <div class="ambient-brand-watermark watermark-simulator"></div>
 
-        <!-- 1. Top Node: Jake The Conductor -->
+        <!-- 1. Top Node: Jake & Jev Dual Command Core -->
         <div class="orchestration-node jake-conductor-node">
-          <div class="orchestration-avatar-wrap">
-            <img src="assets/transparent/jake_transparent.png" alt="Jake" class="orchestration-avatar">
-            <span class="orchestration-status-dot conductor-dot" style="background:#38BDF8; box-shadow:0 0 8px #38BDF8;"></span>
+          <div class="orchestration-dual-avatars" style="display:flex; align-items:center; position:relative;">
+            <div class="orchestration-avatar-wrap" style="position:relative; z-index:2;" title="Jake — Chief Fleet Orchestrator & CTO">
+              <img src="assets/transparent/jake_transparent.png" alt="Jake" class="orchestration-avatar">
+              <span class="orchestration-status-dot conductor-dot" style="background:#38BDF8; box-shadow:0 0 8px #38BDF8;"></span>
+            </div>
+            <div class="orchestration-avatar-wrap" style="margin-left:-22px; position:relative; z-index:1;" title="Jev — System 1 Decision Coprocessor & Co-Worker">
+              <img src="assets/transparent/jev_transparent.png" alt="Jev" class="orchestration-avatar">
+              <span class="orchestration-status-dot" style="background:#00F0FF; box-shadow:0 0 8px #00F0FF;"></span>
+            </div>
           </div>
           <div class="orchestration-content-bubble jake-bubble">
-            <div class="bubble-header">
-              <span class="bubble-sender">Jake — Chief Fleet Orchestrator & CTO</span>
-              <span class="bubble-badge" style="background:rgba(56, 189, 248, 0.12); color:#0284C7; border-color:rgba(56, 189, 248, 0.25);">Conductor Active &bull; Cloud Run Native</span>
+            <div class="bubble-header" style="flex-wrap:wrap; gap:8px;">
+              <span class="bubble-sender">Jake & Jev — Dual-Brain Command Core</span>
+              <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                <span class="bubble-badge" style="background:rgba(0, 240, 255, 0.12); color:#0284C7; border-color:rgba(0, 240, 255, 0.3);">⚡ Jev: Sub-35ms Semantic Triage</span>
+                <span class="bubble-badge" style="background:rgba(56, 189, 248, 0.12); color:#0284C7; border-color:rgba(56, 189, 248, 0.25);">Jake: DAG Conductor</span>
+              </div>
             </div>
             <div class="bubble-prompt">
-              "Hi, which autonomous workflow should we execute today? Select an enterprise scenario or enter your directive below:"
+              "Hi, I'm Jake, working alongside Jev. Jev handles sub-second semantic triage and sentinel checks in &lt;35ms with zero token cost, while I orchestrate the full multi-agent DAG. Select an enterprise scenario or enter your directive below:"
             </div>
             
             <!-- Command Input Bar -->
@@ -5435,7 +5453,7 @@
           <div class="axis-line"></div>
           <div class="axis-flow-beacon">
             <span class="beacon-pulse"></span>
-            <span class="beacon-label" id="axis-action-label">DISPATCHING DIRECTIVE &rarr;</span>
+            <span class="beacon-label" id="axis-action-label">⚡ JEV TRIAGE (32ms) &rarr; JAKE DISPATCHING &rarr;</span>
           </div>
         </div>
 
@@ -5490,12 +5508,12 @@
     <section id="fleet">
       <div class="section-header">
         <div class="section-badge">Command Center Fleet</div>
-        <h2 class="section-title">9 Autonomous Specialists. One Coordinated Brain.</h2>
+        <h2 class="section-title">10 Autonomous Specialists. One Coordinated Brain.</h2>
         <p class="section-subtitle">Break away from generic chatbots. Each agent controls an executive business domain with specialized tooling, airgapped memory, and real-time execution outputs.</p>
       </div>
 
       <div class="filter-tabs" style="margin-bottom:32px;">
-        <button class="filter-tab active" id="bento-filter-all" onclick="filterFleetBento('all')">All 9 Specialists</button>
+        <button class="filter-tab active" id="bento-filter-all" onclick="filterFleetBento('all')">All 10 Specialists</button>
         <button class="filter-tab" id="bento-filter-growth" onclick="filterFleetBento('growth')">Customer & Inbound Growth</button>
         <button class="filter-tab" id="bento-filter-pods" onclick="filterFleetBento('pods')">Dedicated Client Pods</button>
         <button class="filter-tab" id="bento-filter-exec" onclick="filterFleetBento('exec')">Executive & Legal Operations</button>
@@ -5503,23 +5521,29 @@
 
       <div class="fleet-bento-grid">
 
-        <!-- 1. Jake (CTO & Chief Fleet Orchestrator) - Span 8 -->
+        <!-- 1. Jake & Jev (Dual Command Core & CTO) - Span 8 -->
         <div class="bento-card bento-card-jake" data-category="exec">
           <div class="jake-header-split">
             <div class="jake-title-wrap">
-              <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;">
                 <span class="agent-status-pill" style="background:rgba(56, 189, 248, 0.15); border-color:#38BDF8; color:#38BDF8;"><span class="status-dot" style="background:#38BDF8; box-shadow:0 0 6px #38BDF8;"></span> Conductor Active</span>
+                <span class="agent-status-pill" style="background:rgba(0, 240, 255, 0.15); border-color:#00F0FF; color:#0284C7; font-weight:700;"><span class="status-dot" style="background:#00F0FF; box-shadow:0 0 6px #00F0FF;"></span> ⚡ Jev: System 1 Coprocessor</span>
                 <span style="font-size:11px; font-weight:700; color:#A78BFA; background:rgba(167, 139, 250, 0.12); padding:2px 8px; border-radius:999px;">Cloud Run Native</span>
               </div>
-              <div class="bento-name" style="color:#FFFFFF; font-size:26px;">Jake — Chief Fleet Orchestrator & CTO</div>
-              <div class="bento-role" style="color:#94A3B8; font-size:14px; margin-top:2px;">Master multi-agent dependency router, autonomous DevOps, and self-healing cloud runtime.</div>
+              <div class="bento-name" style="color:#FFFFFF; font-size:26px;">Jake & Jev — Dual-Brain Command Core</div>
+              <div class="bento-role" style="color:#94A3B8; font-size:14px; margin-top:2px;">Jake (System 2 Orchestrator & CTO) & Jev (System 1 Decision Coprocessor). Sub-35ms semantic triage, master multi-agent DAGs, and self-healing cloud runtime.</div>
             </div>
-            <div class="jake-avatar-wrap">
-              <img src="assets/transparent/jake_transparent.png" alt="Jake" class="jake-avatar">
+            <div class="jake-avatar-wrap" style="display:flex; align-items:center; position:relative;">
+              <img src="assets/transparent/jake_transparent.png" alt="Jake" class="jake-avatar" style="position:relative; z-index:2; cursor:pointer;" onclick="openAgentDossier('jake')" title="Click for Jake Dossier">
+              <img src="assets/transparent/jev_transparent.png" alt="Jev" class="jake-avatar" style="position:relative; z-index:1; margin-left:-28px; border-color:#00F0FF; cursor:pointer;" onclick="openAgentDossier('jev')" title="Click for Jev Dossier">
             </div>
           </div>
 
           <div class="devops-telemetry-strip">
+            <div>
+              <div class="telemetry-item-val" style="color:#00F0FF;">32ms</div>
+              <div class="telemetry-item-lbl">Jev Triage (p99)</div>
+            </div>
             <div>
               <div class="telemetry-item-val">142ms</div>
               <div class="telemetry-item-lbl">Cloud Run p99</div>
@@ -5529,19 +5553,22 @@
               <div class="telemetry-item-lbl">Self-Healing Loop</div>
             </div>
             <div>
-              <div class="telemetry-item-val" style="color:#A78BFA;">9/9 Active</div>
+              <div class="telemetry-item-val" style="color:#A78BFA;">10/10 Active</div>
               <div class="telemetry-item-lbl">Coordinated Pods</div>
             </div>
           </div>
 
           <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px 16px; font-family:ui-monospace, monospace; font-size:12px; color:#E2E8F0; margin-bottom:18px;">
             <div style="color:#94A3B8; font-size:11px; margin-bottom:4px;">● LIVE ORCHESTRATION STREAM</div>
-            <div><span style="color:#38BDF8;">[DISPATCH]</span> Multi-agent pipeline triggered: Incoming enterprise SLA -> Claire [Legal Pod] + Vance [SecOps]</div>
+            <div><span style="color:#00F0FF;">[JEV SYSTEM 1]</span> Micro-latency intent classification &amp; airgap verification: 24ms &bull; Free token outputs</div>
+            <div><span style="color:#38BDF8;">[JAKE DISPATCH]</span> Multi-agent pipeline triggered: Incoming enterprise SLA -&gt; Claire [Legal Pod] + Vance [SecOps]</div>
             <div><span style="color:#10B981;">[STATUS]</span> Airgap pod verified &bull; Approval gate staged &bull; Zero human intervention required</div>
           </div>
 
           <div class="agent-tools">
             <span class="tool-tag" style="background:rgba(255,255,255,0.08); color:#E2E8F0; border-color:rgba(255,255,255,0.12);">Cloud Run Container</span>
+            <span class="tool-tag" style="background:rgba(0,240,255,0.1); color:#00F0FF; border-color:rgba(0,240,255,0.25);">TypeSafe AI SDK</span>
+            <span class="tool-tag" style="background:rgba(0,240,255,0.1); color:#00F0FF; border-color:rgba(0,240,255,0.25);">Sub-35ms Semantic Router</span>
             <span class="tool-tag" style="background:rgba(255,255,255,0.08); color:#E2E8F0; border-color:rgba(255,255,255,0.12);">GitHub Actions CI/CD</span>
             <span class="tool-tag" style="background:rgba(255,255,255,0.08); color:#E2E8F0; border-color:rgba(255,255,255,0.12);">Self-Healing Loop</span>
             <span class="tool-tag" style="background:rgba(255,255,255,0.08); color:#E2E8F0; border-color:rgba(255,255,255,0.12);">Task DAG Engine</span>
@@ -6939,7 +6966,7 @@
           ⚡ Production Multi-Agent Pods Ready in 48h
         </div>
         <h2 class="pre-footer-title">
-          Nine Autonomous Minds.<br>Zero Operational Latency.
+          Ten Autonomous Minds.<br>Zero Operational Latency.
         </h2>
         <p class="pre-footer-desc">
           Eliminate enterprise bottlenecks across legal due diligence, cybersecurity incident response, multi-currency treasury reconciliation, and omnichannel inbound conversations with strict human approval gates.
@@ -6979,7 +7006,7 @@
             <img src="assets/works4you_logo_official_light.png" alt="Works4you AI" style="height: 36px; width: auto;">
           </a>
           <p class="footer-tagline">
-            The Autonomous Multi-Agent Operating System for Enterprise Scale. Orchestrating 9 specialized AI minds with zero shared prompts, hermetic memory isolation, and strict human oversight gates.
+            The Autonomous Multi-Agent Operating System for Enterprise Scale. Orchestrating 10 specialized AI minds led by Jake &amp; Jev with zero shared prompts, hermetic memory isolation, and strict human oversight gates.
           </p>
           <div class="footer-compliance-badges">
             <span class="footer-badge">🔒 SOC 2 Ready</span>
@@ -6988,11 +7015,12 @@
           </div>
         </div>
 
-        <!-- Column 2: The 9 Autonomous Specialists -->
+        <!-- Column 2: The 10 Autonomous Specialists -->
         <div class="footer-col">
-          <h4 class="footer-col-title">The 9 Specialists</h4>
+          <h4 class="footer-col-title">The 10 Specialists</h4>
           <ul class="footer-links-list">
             <li><a href="javascript:void(0)" onclick="openAgentDossier('jake')">Jake &mdash; CTO & Orchestrator</a></li>
+            <li><a href="javascript:void(0)" onclick="openAgentDossier('jev')">Jev &mdash; System 1 Coprocessor</a></li>
             <li><a href="javascript:void(0)" onclick="openAgentDossier('katie')">Katie &mdash; Inbound Gateway</a></li>
             <li><a href="javascript:void(0)" onclick="openAgentDossier('claire')">Claire &mdash; Corporate Counsel</a></li>
             <li><a href="javascript:void(0)" onclick="openAgentDossier('vance')">Vance &mdash; SecOps Guard</a></li>
@@ -7026,7 +7054,7 @@
             <li><a href="logo-showcase.html">3D Studio & Brand Assets</a></li>
             <li><a href="javascript:void(0)" onclick="alert('Enterprise SOC 2 Type II audit package available under mutual NDA.')">SOC 2 Type II Audit Package</a></li>
             <li><a href="javascript:void(0)" onclick="alert('Hermetic data retention: Zero prompt training, dedicated private tenant vector stores.')">Privacy & Hermetic Data Policy</a></li>
-            <li><a href="javascript:void(0)" onclick="alert('All 9 autonomous pods operational with 99.99% uptime across US-Central and EU clusters.')">Fleet Health: 🟢 99.99% Operational</a></li>
+            <li><a href="javascript:void(0)" onclick="alert('All 10 autonomous pods operational with 99.99% uptime across US-Central and EU clusters.')">Fleet Health: 🟢 99.99% Operational</a></li>
           </ul>
         </div>
 
@@ -7038,7 +7066,7 @@
           &copy; 2026 Works4you AI Inc. All rights reserved. Built for Shimon Ezekiel.
         </div>
         <div class="footer-bottom-right">
-          <span class="telemetry-pill">🟢 9 Pods Operational</span>
+          <span class="telemetry-pill">🟢 10 Pods Operational</span>
           <span class="telemetry-divider">&bull;</span>
           <span>Zero Operational Latency</span>
         </div>
@@ -7697,7 +7725,16 @@
         airgap: "● Dedicated Orchestrator Pod (Clearance Level 5)",
         model: "Gemini 2.5 Flash + Claude 3.5 Sonnet",
         tools: ["Cloud Run Container", "GitHub Actions CI/CD", "Self-Healing Loop", "Task DAG Engine", "Memory Vector Bank"],
-        stream: "[RUN] Jake Conductor initialized. 9 specialized pods active. Latency: 142ms. Zero downtime self-healing loop active."
+        stream: "[RUN] Jake & Jev Command Core initialized. 10 specialized pods active. System 1 triage: 32ms. Zero downtime self-healing loop active."
+      },
+      jev: {
+        name: "Jev — System 1 Decision Coprocessor & Co-Worker to Jake",
+        role: "Sub-50ms Semantic Routing, Micro-Latency Sentiment Sentinel & Rigid Airgap Validator",
+        img: "assets/transparent/jev_transparent.png",
+        airgap: "● Dedicated System 1 Enclave (Clearance Level 5)",
+        model: "TypeSafe Jev + Gemini 2.5 Flash-Lite",
+        tools: ["TypeSafe AI SDK", "Sub-35ms Semantic Router", "Frustration Sentinel", "Probabilistic Choice Engine", "Airgap Leakage Interceptor"],
+        stream: "[ROUTER] Jev active alongside Jake. Sub-35ms semantic triage: 99.8% precision. Cross-pod leakage probability: 0.00%."
       },
       katie: {
         name: "Katie — Omnichannel Inbound Gateway",
@@ -7899,7 +7936,8 @@
       const modalLogs = document.getElementById("workflow-modal-logs");
       if (modalLogs) {
         modalLogs.innerHTML = `
-          <div>[00:01] Jake Conductor parsed command: "${val}"</div>
+          <div>[00:00:15] <span style="color:#00F0FF; font-weight:800;">JEV (System 1):</span> Fast semantic triage in 24ms &bull; Zero prompt token cost &bull; Strict airgap verified</div>
+          <div>[00:01] <span style="color:#38BDF8; font-weight:800;">Jake Conductor:</span> Parsed command DAG: "${val}"</div>
           <div>[00:02] Identified dependency graph: Inbound Triage &rarr; Claire Legal &rarr; Vance SecOps.</div>
           <div>[00:04] 42 agreements deposited into hermetic ephemeral vault (256-bit AES).</div>
           <div>[00:06] Clause 14.2 flag raised: Unlimited consequential liability.</div>
@@ -8253,26 +8291,26 @@
       },
       superhero: {
         title: "Works4you Autonomous Fleet — Superhero Hallway Formation",
-        agent: "Commander: Jake (Chief Architect) & 9 Autonomous Specialists",
+        agent: "Commander: Jake (Chief Architect) & 10 Autonomous Specialists",
         sla: "Cinematic 60 FPS • Autonomous Stride • Zero Latency",
         videoSrc: "assets/video/fleet_superhero_hallway.mp4",
         posterSrc: "assets/video/fleet_superhero_poster.jpg",
         logs: [
-          "[00:00] MISSION INITIATION: Jake leads formation down central glass corridor",
+          "[00:00] MISSION INITIATION: Jake & Jev lead formation down central glass corridor",
           "[00:03] DEPLOYMENT SYNC: Specialists step out of sliding glass pods into stride",
           "[00:06] DUAL-AXIS LOCK: Katie, Claire, Warren & Vance assemble into synchronized flank",
-          "[00:09] CLIMAX HALT: Full 9-member superhero formation locks eyes with camera lens",
+          "[00:09] CLIMAX HALT: Full 10-member superhero formation locks eyes with camera lens",
           "[00:12] READINESS: 100% autonomous capability. Zero human latency."
         ]
       },
       overview: {
-        title: "Works4you Autonomous Fleet Overview — 9 Specialists",
-        agent: "Chief Orchestrator: Jake (CTO & Conductor)",
+        title: "Works4you Autonomous Fleet Overview — 10 Specialists",
+        agent: "Chief Orchestrators: Jake (CTO & Conductor) & Jev (System 1 Coprocessor)",
         sla: "Cinematic 60 FPS • US-Central & EU Edge",
         videoSrc: "assets/video/fleet_superhero_hallway.mp4",
         posterSrc: "assets/video/fleet_superhero_poster.jpg",
         logs: [
-          "[00:00] ORCHESTRATION: 9 autonomous specialist pods online",
+          "[00:00] ORCHESTRATION: 10 autonomous specialist pods online",
           "[00:01] AIRGAP GUARANTEE: Dedicated per-client vector vaults initialized",
           "[00:02] MCP SERVERS: GitHub, HubSpot, Twenty CRM, Gmail, Stripe connected",
           "[00:03] SELF-HEALING CI/CD: Cloud Run deployment status green (99.99%)",
@@ -8353,7 +8391,7 @@
         } else if (ct < 7.5) {
           tracker.innerHTML = '<strong>[STAGE 2/3]</strong> Katie, Claire, Warren & Vance join from glass offices &bull; Synchronized power walk';
         } else {
-          tracker.innerHTML = '<strong>[STAGE 3/3]</strong> Superhero formation halts &bull; 9 Specialists locked &bull; Full confidence';
+          tracker.innerHTML = '<strong>[STAGE 3/3]</strong> Superhero formation halts &bull; 10 Specialists locked &bull; Full confidence';
         }
       });
     }
@@ -8457,7 +8495,7 @@
       whiskMode = !whiskMode;
       playSyntheticTone(whiskMode ? 640 : 440, 'triangle', 0.15);
       if (whiskMode) {
-        alert("✨ Google Labs Whisk Anchor Mode: ACTIVE\n\n• Identity Consistency: 99.4% (All 9 agents lock exact facial geometry & style)\n• Morphing Drift: 0.00%\n• Consistent lighting & vector camera angles across all 60fps video reels.");
+        alert("✨ Google Labs Whisk Anchor Mode: ACTIVE\n\n• Identity Consistency: 99.4% (All 10 agents lock exact facial geometry & style)\n• Morphing Drift: 0.00%\n• Consistent lighting & vector camera angles across all 60fps video reels.");
       } else {
         alert("⚠️ Raw GenAI Diffusion (Without Whisk):\n\n• Face Drift: >34% variation per generated shot\n• Style inconsistencies between scenes\n• Works4you uses Whisk to ensure your brand's AI faces remain permanent and recognizable!");
       }
