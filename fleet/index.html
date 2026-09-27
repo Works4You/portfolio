@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Works4you AI — Autonomous Agent Fleet & Enterprise Brain</title>
+  <title>Works4you AI - Autonomous Agent Fleet & Enterprise Brain</title>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-  <meta name="description" content="Works4you AI — Autonomous Multi-Agent Operating System for Enterprise Scale. 9 Specialized Autonomous Agents engineered for zero-touch execution.">
-  <meta property="og:title" content="Works4you AI — Autonomous Agent Fleet & Enterprise Brain">
+  <meta name="description" content="Works4you AI - Autonomous Multi-Agent Operating System for Enterprise Scale. 9 Specialized Autonomous Agents engineered for zero-touch execution.">
+  <meta property="og:title" content="Works4you AI - Autonomous Agent Fleet & Enterprise Brain">
   <meta property="og:description" content="Autonomous Multi-Agent Operating System for Enterprise Scale.">
   <meta property="og:image" content="assets/works4you_logo_official_light.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -3332,16 +3332,455 @@
       filter: drop-shadow(0 20px 35px rgba(124, 58, 237, 0.18)) drop-shadow(0 8px 16px rgba(15, 23, 42, 0.1));
     }
 
+    
+    /* ==========================================================================
+       APPLE-STYLE CINEMATIC FLOW STORYBOARD FRAME (GOOGLE FLOW & VEO ENGINE)
+       ========================================================================== */
+    .cinema-flow-frame {
+      position: relative;
+      width: 100%;
+      border-radius: 26px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(249, 248, 255, 0.95) 45%, rgba(243, 232, 255, 0.88) 100%);
+      border: 1.5px solid rgba(124, 58, 237, 0.24);
+      box-shadow: 0 25px 60px -15px rgba(124, 58, 237, 0.16), 0 10px 30px rgba(15, 23, 42, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      display: flex;
+      flex-direction: column;
+      padding: 26px;
+      box-sizing: border-box;
+      color: #0F172A;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .flow-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .flow-badge-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .flow-pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(124, 58, 237, 0.08);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 5px 13px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #6D28D9;
+    }
+    .flow-pill-tag.active-pill {
+      background: rgba(124, 58, 237, 0.14);
+      border-color: rgba(124, 58, 237, 0.38);
+      color: #7C3AED;
+    }
+    .flow-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #7C3AED;
+      box-shadow: 0 0 10px rgba(124, 58, 237, 0.7);
+      animation: pulseRecord 1.5s infinite;
+    }
+    .flow-stage-grid {
+      display: grid;
+      grid-template-columns: 390px 1fr 80px;
+      gap: 28px;
+      align-items: center;
+      min-height: 440px;
+      margin-bottom: 22px;
+    }
+    .flow-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+      z-index: 2;
+    }
+    .flow-scene-number-label {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #7C3AED;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .flow-scene-title-heading {
+      font-size: clamp(22px, 2.8vw, 30px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #0F172A;
+      margin: 0;
+    }
+    .flow-scene-loc-tag {
+      font-size: 10.5px;
+      font-family: monospace;
+      font-weight: 700;
+      color: #7C3AED;
+      letter-spacing: 0.06em;
+      background: rgba(124, 58, 237, 0.09);
+      border: 1px solid rgba(124, 58, 237, 0.24);
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      width: fit-content;
+    }
+    .flow-scene-narrative-text {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: #475569;
+      margin: 0;
+    }
+    .flow-speech-card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1.5px solid rgba(124, 58, 237, 0.22);
+      border-radius: 16px;
+      padding: 13px 15px;
+      backdrop-filter: blur(16px);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 4px;
+      box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.12), 0 3px 10px rgba(15, 23, 42, 0.03);
+    }
+    .flow-char-avatar-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: #F8FAFC;
+      border: 1.5px solid rgba(124, 58, 237, 0.3);
+      flex-shrink: 0;
+      box-shadow: 0 3px 8px rgba(124, 58, 237, 0.15);
+    }
+    .flow-speech-content {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .flow-char-name-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #7C3AED;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .flow-char-quote-text {
+      font-size: 13px;
+      font-style: italic;
+      color: #1E293B;
+      line-height: 1.45;
+    }
+    .flow-telemetry-badge-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .flow-telemetry-pill {
+      font-size: 10px;
+      font-weight: 700;
+      background: rgba(248, 250, 252, 0.9);
+      border: 1px solid rgba(124, 58, 237, 0.16);
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: #64748B;
+    }
+    .flow-actions-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+    .flow-btn-primary {
+      background: linear-gradient(135deg, #7C3AED 0%, #9333EA 100%);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.32);
+      transition: all 0.2s ease;
+    }
+    .flow-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(124, 58, 237, 0.48);
+    }
+    .flow-btn-secondary {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1.5px solid rgba(124, 58, 237, 0.24);
+      color: #0F172A;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+      transition: all 0.2s ease;
+    }
+    .flow-btn-secondary:hover {
+      background: rgba(124, 58, 237, 0.08);
+      border-color: #7C3AED;
+      color: #7C3AED;
+      transform: translateY(-2px);
+    }
+
+    /* 3D Visual Box */
+    .flow-visual-box {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1200px;
+    }
+    .flow-img-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid rgba(124, 58, 237, 0.25);
+      box-shadow: 0 25px 60px -15px rgba(124, 58, 237, 0.22), 0 10px 30px rgba(15, 23, 42, 0.08);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      cursor: pointer;
+      background: #FFFFFF;
+    }
+    .flow-img-wrapper:hover {
+      box-shadow: 0 30px 70px -10px rgba(124, 58, 237, 0.32), 0 0 40px rgba(124, 58, 237, 0.2);
+    }
+    .flow-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, opacity 0.3s ease;
+    }
+    .flow-img-wrapper:hover .flow-hero-img {
+      transform: scale(1.025);
+    }
+    .flow-zoom-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(124, 58, 237, 0.25);
+      backdrop-filter: blur(10px);
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #4B5563;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+    .flow-img-wrapper:hover .flow-zoom-hint {
+      opacity: 1;
+    }
+
+    /* Apple-Style Variant Scrubber Column (Right) */
+    .flow-scrubber-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      z-index: 2;
+    }
+    .flow-arrow-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1.5px solid rgba(124, 58, 237, 0.2);
+      color: #7C3AED;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .flow-arrow-btn:hover {
+      background: #7C3AED;
+      border-color: #7C3AED;
+      color: #FFFFFF;
+      transform: scale(1.08);
+      box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
+    }
+    .flow-variant-num-giant {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: #7C3AED;
+      opacity: 0.9;
+      text-shadow: 0 4px 20px rgba(124, 58, 237, 0.25);
+      user-select: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .flow-pills-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+    .flow-pill-dot {
+      width: 6px;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(124, 58, 237, 0.2);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .flow-pill-dot.active {
+      background: #7C3AED;
+      height: 28px;
+      box-shadow: 0 0 12px rgba(124, 58, 237, 0.5);
+    }
+    .flow-pill-dot:hover:not(.active) {
+      background: rgba(124, 58, 237, 0.45);
+    }
+
+    /* Bottom Filmstrip Bar */
+    .flow-filmstrip-bar {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      width: 100%;
+      border-top: 1px solid rgba(124, 58, 237, 0.15);
+      padding-top: 18px;
+      box-sizing: border-box;
+    }
+    .flow-thumb-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1.5px solid rgba(124, 58, 237, 0.18);
+      background: #FFFFFF;
+      aspect-ratio: 16 / 9;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .flow-thumb-card:hover {
+      border-color: #7C3AED;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.18);
+    }
+    .flow-thumb-card.active-thumb {
+      border-color: #7C3AED;
+      box-shadow: 0 0 0 2px #7C3AED, 0 8px 24px rgba(124, 58, 237, 0.3);
+      transform: translateY(-3px) scale(1.02);
+    }
+    .flow-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.8;
+      transition: opacity 0.25s;
+    }
+    .flow-thumb-card.active-thumb .flow-thumb-img,
+    .flow-thumb-card:hover .flow-thumb-img {
+      opacity: 1;
+    }
+    .flow-thumb-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 3px 6px;
+      background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.85) 100%);
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #FFFFFF;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .flow-stage-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .flow-scrubber-col {
+        flex-direction: row;
+        gap: 12px;
+        order: 2;
+      }
+      .flow-pills-vertical {
+        flex-direction: row;
+      }
+      .flow-pill-dot {
+        width: 16px;
+        height: 6px;
+      }
+      .flow-pill-dot.active {
+        width: 28px;
+        height: 6px;
+      }
+      .flow-info-col {
+        order: 3;
+      }
+      .flow-filmstrip-bar {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .cinema-flow-frame {
+        padding: 14px 10px;
+      }
+      .flow-filmstrip-bar {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+      .flow-scene-title-heading {
+        font-size: 19px;
+      }
+    }
+
     /* Apple-Style Cinema Showcase Stage */
     .cinema-stage-wrapper {
       position: relative;
       width: 100%;
-      max-width: 1040px;
+      max-width: 100%;
       margin: 0 auto;
-      border-radius: 24px;
+      border-radius: 26px;
       padding: 3px;
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.5) 0%, rgba(124, 58, 237, 0.5) 50%, rgba(236, 72, 153, 0.35) 100%);
-      box-shadow: 0 25px 65px -12px rgba(124, 58, 237, 0.28), 0 12px 28px -6px rgba(6, 182, 212, 0.22);
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.45) 0%, rgba(124, 58, 237, 0.45) 50%, rgba(236, 72, 153, 0.3) 100%);
+      box-shadow: 0 25px 65px -12px rgba(124, 58, 237, 0.22), 0 12px 28px -6px rgba(6, 182, 212, 0.16);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
       z-index: 2;
     }
@@ -5121,7 +5560,7 @@
 
   <!-- Announcement Bar -->
   <div class="top-banner">
-    <span><img src="assets/favicon-32x32.png" alt="Works4you" style="width:16px; height:16px; vertical-align:middle; margin-inline-end:6px;"> Works4you AI — Autonomous Enterprise Agent Fleet</span>
+    <span><img src="assets/favicon-32x32.png" alt="Works4you" style="width:16px; height:16px; vertical-align:middle; margin-inline-end:6px;"> Works4you AI - Autonomous Enterprise Agent Fleet</span>
     <a href="#fleet">Meet the 9 Autonomous Agents &rarr;</a>
   </div>
 
@@ -5129,7 +5568,7 @@
   <nav id="siteNav">
     <div class="nav-inner">
       <a href="#" class="nav-brand">
-        <img src="assets/works4you_logo_official_light.png" alt="Works4you AI" class="brand-img-lockup">
+        <img src="assets/brand/works4you_brand_lockup_light.png" alt="Works4you Multi-Agent Cognitive System" class="brand-img-lockup" style="height:38px; width:auto;">
       </a>
       <ul class="nav-links">
         <li><a href="#fleet">Command Fleet</a></li>
@@ -5141,6 +5580,7 @@
         <li><a href="#security">Airgap Security</a></li>
       </ul>
       <div class="nav-actions">
+        <a href="brand.html" class="btn-secondary nav-studio-btn" style="border-color:#00C2FF; color:#0077B6; text-decoration:none; padding: 6px 13px; font-size: 12.5px; font-weight:600;">📘 Brand Book</a>
         <a href="logo-showcase.html" class="btn-secondary nav-studio-btn" style="border-color:#F59E0B; color:#D97706; text-decoration:none; padding: 6px 13px; font-size: 12.5px;">🎨 3D Studio</a>
         <button class="btn-primary nav-demo-btn" onclick="openDemoModal()">Book Fleet Demo</button>
         <button class="nav-hamburger" id="navHamburgerBtn" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
@@ -5156,7 +5596,7 @@
   <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="closeMobileMenu()"></div>
   <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
     <div class="mobile-drawer-header">
-      <img src="assets/works4you_logo_official_light.png" alt="Works4you AI" style="height: 28px; width: auto;">
+      <img src="assets/brand/works4you_brand_lockup_light.png" alt="Works4you Multi-Agent Cognitive System" style="height: 32px; width: auto;">
       <button class="mobile-drawer-close" onclick="closeMobileMenu()" aria-label="Close menu">&times;</button>
     </div>
     <div class="mobile-drawer-status">
@@ -5164,6 +5604,7 @@
       <span>9 Autonomous Pods Active &bull; SOC 2 Ready</span>
     </div>
     <ul class="mobile-nav-links">
+      <li><a href="brand.html" onclick="closeMobileMenu()"><span class="m-link-icon">📘</span> Brand Book & Guidelines</a></li>
       <li><a href="#fleet" onclick="closeMobileMenu()"><span class="m-link-icon">🤖</span> Command Fleet</a></li>
       <li><a href="#ugc-video" onclick="closeMobileMenu()"><span class="m-link-icon">🎬</span> AI Video & UGC</a></li>
       <li><a href="#pipeline" onclick="closeMobileMenu()"><span class="m-link-icon">⚡</span> Whisk & Flow Engine</a></li>
@@ -5254,8 +5695,133 @@
         
         <!-- Apple-Style Interactive Cinema Showcase Stage -->
         <div class="cinema-stage-wrapper" id="cinemaStageWrapper">
-          <!-- Video Frame (Default Mode) -->
-          <div class="cinema-video-frame" id="cinemaVideoFrame">
+          
+          <!-- STAGE MODE 1: Google Flow Storyboard (Apple-Style Interactive Showcase) -->
+          <div class="cinema-flow-frame" id="cinemaFlowFrame">
+            <!-- Top Bar -->
+            <div class="flow-top-bar">
+              <div class="flow-badge-group">
+                <span class="flow-pill-tag active-pill">
+                  <span class="flow-pulse-dot"></span>
+                  <span>GOOGLE FLOW STORYBOARD // VEO &amp; IMAGEN 3</span>
+                </span>
+                <span class="flow-pill-tag">
+                  SCENE <strong id="flowSceneNumBadge" style="color:#FFF; margin-left:3px;">01</strong>&nbsp;/ 06
+                </span>
+              </div>
+
+              <!-- Mode Switcher in Flow Frame -->
+              <div class="cinema-mode-toggle">
+                <button type="button" class="mode-btn active" id="btn-showcase-flow" onclick="switchStageMode('flow')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> ✨ Storyboard Scenes
+                </button>
+                <button type="button" class="mode-btn" id="btn-showcase-video" onclick="switchStageMode('video')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> 🎬 Superhero Walk
+                </button>
+                <button type="button" class="mode-btn" id="btn-showcase-lineup" onclick="switchStageMode('lineup')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> 👥 Lineup
+                </button>
+              </div>
+            </div>
+
+            <!-- Main Stage Grid -->
+            <div class="flow-stage-grid">
+              <!-- Left Column: Story Details & Technical Spec -->
+              <div class="flow-info-col">
+                <span class="flow-scene-number-label" id="flowSceneEyebrow">SCENE 01 &bull; COMMAND CENTER</span>
+                <h3 class="flow-scene-title-heading" id="flowSceneTitle">Awakening the Core</h3>
+                <div class="flow-scene-loc-tag" id="flowSceneLoc">INT. EXECUTIVE ATRIUM - DAYLIGHT</div>
+                <p class="flow-scene-narrative-text" id="flowSceneNarrative">
+                  Sunlit white marble atrium with architectural glass walls and purple LED accents. In the center hovers our signature 3D segmented infinity core, casting luminous purple and magenta reflections across the white marble floor. Jake tracks nine synchronized autonomous fleet nodes with zero latency.
+                </p>
+
+                <!-- Speech Bubble Directive -->
+                <div class="flow-speech-card">
+                  <img id="flowCharAvatar" src="assets/transparent/jake_transparent.png" alt="Jake" class="flow-char-avatar-img">
+                  <div class="flow-speech-content">
+                    <div class="flow-char-name-label" id="flowCharName">JAKE &bull; CTO &amp; CONDUCTOR</div>
+                    <div class="flow-char-quote-text" id="flowCharQuote">"Run orchestration cycle. Nine nodes, absolute parity."</div>
+                  </div>
+                </div>
+
+                <!-- Live Technical Telemetry -->
+                <div class="flow-telemetry-badge-row">
+                  <span class="flow-telemetry-pill" id="flowTel1">⚡ 0ms Latency</span>
+                  <span class="flow-telemetry-pill" id="flowTel2">🔒 Clearance Lvl 5</span>
+                  <span class="flow-telemetry-pill" id="flowTel3">🛡️ Human Gate Armed</span>
+                </div>
+
+                <!-- CTA Actions -->
+                <div class="flow-actions-row">
+                  <button type="button" class="flow-btn-primary" onclick="openDemoModal()">
+                    <span>Book Fleet Demo</span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                  <button type="button" class="flow-btn-secondary" onclick="openScreenplayModal()">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    <span>Read Screenplay</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Center Column: 3D Perspective Visual Box -->
+              <div class="flow-visual-box" id="flowVisualBox">
+                <div class="flow-img-wrapper" id="flowImgWrapper" onclick="openFlowShotZoom()">
+                  <img id="flowSceneImage" src="assets/cinematic/flow_awakening_the_core.png" alt="Awakening the Core" class="flow-hero-img">
+                  <div class="flow-zoom-hint">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <span>Inspect Shot</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Apple-Style Variant Scrubber -->
+              <div class="flow-scrubber-col">
+                <button type="button" class="flow-arrow-btn" onclick="flowPrevScene()" title="Previous Scene (↑)">↑</button>
+                <div class="flow-variant-num-giant" id="flowVariantNumGiant">01</div>
+                <button type="button" class="flow-arrow-btn" onclick="flowNextScene()" title="Next Scene (↓)">↓</button>
+                <div class="flow-pills-vertical" id="flowPillsCol">
+                  <div class="flow-pill-dot active" onclick="jumpToFlowScene(0)" title="01 Awakening the Core"></div>
+                  <div class="flow-pill-dot" onclick="jumpToFlowScene(1)" title="02 Stream Ingestion"></div>
+                  <div class="flow-pill-dot" onclick="jumpToFlowScene(2)" title="03 Cryptographic Seal"></div>
+                  <div class="flow-pill-dot" onclick="jumpToFlowScene(3)" title="04 Treasury Ledger"></div>
+                  <div class="flow-pill-dot" onclick="jumpToFlowScene(4)" title="05 Perimeter Defense"></div>
+                  <div class="flow-pill-dot" onclick="jumpToFlowScene(5)" title="06 Parity Deployment"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Filmstrip Bar -->
+            <div class="flow-filmstrip-bar" id="flowFilmstripBar">
+              <div class="flow-thumb-card active-thumb" onclick="jumpToFlowScene(0)">
+                <img src="assets/cinematic/flow_awakening_the_core.png" alt="01 Awakening" class="flow-thumb-img">
+                <div class="flow-thumb-label">01 Awakening</div>
+              </div>
+              <div class="flow-thumb-card" onclick="jumpToFlowScene(1)">
+                <img src="assets/cinematic/flow_omnichannel_stream_ingestion.png" alt="02 Omnichannel" class="flow-thumb-img">
+                <div class="flow-thumb-label">02 Ingestion</div>
+              </div>
+              <div class="flow-thumb-card" onclick="jumpToFlowScene(2)">
+                <img src="assets/cinematic/flow_cryptographic_verification_seal.png" alt="03 Cryptographic" class="flow-thumb-img">
+                <div class="flow-thumb-label">03 Crypto Seal</div>
+              </div>
+              <div class="flow-thumb-card" onclick="jumpToFlowScene(3)">
+                <img src="assets/cinematic/flow_treasury_ledger_balance.png" alt="04 Treasury" class="flow-thumb-img">
+                <div class="flow-thumb-label">04 Treasury</div>
+              </div>
+              <div class="flow-thumb-card" onclick="jumpToFlowScene(4)">
+                <img src="assets/cinematic/flow_enclave_perimeter_defense.png" alt="05 Perimeter" class="flow-thumb-img">
+                <div class="flow-thumb-label">05 Perimeter</div>
+              </div>
+              <div class="flow-thumb-card" onclick="jumpToFlowScene(5)">
+                <img src="assets/cinematic/flow_absolute_parity_deployment.png" alt="06 Deployment" class="flow-thumb-img">
+                <div class="flow-thumb-label">06 Parity Deploy</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STAGE MODE 2: Video Frame -->
+          <div class="cinema-video-frame" id="cinemaVideoFrame" style="display:none;">
             <video id="heroHallwayVideo" class="hero-cinema-video" src="assets/video/fleet_superhero_hallway.mp4" playsinline muted autoplay loop preload="auto" poster="assets/video/fleet_superhero_poster.jpg"></video>
 
             <!-- Floating Top Glass Badges & Switcher -->
@@ -5265,6 +5831,9 @@
                 <span>AUTONOMOUS FLEET STRIDE &bull; 60 FPS</span>
               </div>
               <div class="cinema-mode-toggle">
+                <button type="button" class="mode-btn" id="btn-showcase-flow-v" onclick="switchStageMode('flow')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> ✨ Storyboard Scenes
+                </button>
                 <button type="button" class="mode-btn active" id="btn-showcase-video" onclick="switchStageMode('video')">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> 🎬 Superhero Walk
                 </button>
@@ -5294,9 +5863,26 @@
             </div>
           </div>
 
-          <!-- Static Lineup Frame (Toggled) -->
+          <!-- STAGE MODE 3: Static Lineup Frame -->
           <div class="squad-lineup-frame" id="squadLineupFrame" style="display:none;">
-            <img src="assets/fleet_squad_composite.png" alt="Works4you Autonomous AI Fleet — All 10 Specialists" class="squad-main-img">
+            <div class="cinema-top-overlay" style="top:14px; left:14px; right:14px; position:absolute;">
+              <div class="cinema-live-pill">
+                <span class="live-rec-dot" style="background:#10B981; box-shadow:0 0 10px #10B981;"></span>
+                <span>AUTONOMOUS FORMATION &bull; 10 SPECIALISTS</span>
+              </div>
+              <div class="cinema-mode-toggle">
+                <button type="button" class="mode-btn" id="btn-showcase-flow-l" onclick="switchStageMode('flow')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> ✨ Storyboard Scenes
+                </button>
+                <button type="button" class="mode-btn" id="btn-showcase-video-l" onclick="switchStageMode('video')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> 🎬 Superhero Walk
+                </button>
+                <button type="button" class="mode-btn active" id="btn-showcase-lineup-l" onclick="switchStageMode('lineup')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> 👥 Lineup
+                </button>
+              </div>
+            </div>
+            <img src="assets/fleet_squad_composite.png" alt="Works4you Autonomous AI Fleet - All 10 Specialists" class="squad-main-img" style="margin-top:30px;">
           </div>
         </div>
 
@@ -5308,7 +5894,7 @@
             <span class="hint-swipe">Swipe &rarr;</span>
           </div>
           <div class="fleet-roster-strip">
-          <div class="roster-node" onclick="openAgentDossier('jake')" title="Jake — Chief Fleet Orchestrator & CTO">
+          <div class="roster-node" onclick="openAgentDossier('jake')" title="Jake - Chief Fleet Orchestrator & CTO">
             <div class="roster-avatar-wrap">
               <img src="assets/transparent/jake_transparent.png" alt="Jake" class="roster-avatar">
               <span class="roster-status-dot" style="background:#38BDF8;"></span>
@@ -5317,7 +5903,7 @@
             <div class="roster-badge">CTO & Conductor</div>
           </div>
 
-          <div class="roster-node" onclick="openAgentDossier('jev')" title="Jev — System 1 Decision Coprocessor & Co-Worker to Jake">
+          <div class="roster-node" onclick="openAgentDossier('jev')" title="Jev - System 1 Decision Coprocessor & Co-Worker to Jake">
             <div class="roster-avatar-wrap">
               <img src="assets/transparent/jev_transparent.png" alt="Jev" class="roster-avatar">
               <span class="roster-status-dot" style="background:#00F0FF; box-shadow:0 0 8px #00F0FF;"></span>
@@ -5326,7 +5912,7 @@
             <div class="roster-badge" style="background:rgba(0, 240, 255, 0.12); color:#0284C7; border-color:rgba(0, 240, 255, 0.3);">System 1 Co-Pilot</div>
           </div>
 
-          <div class="roster-node" onclick="openAgentDossier('katie')" title="Katie — Omnichannel Inbound Gateway">
+          <div class="roster-node" onclick="openAgentDossier('katie')" title="Katie - Omnichannel Inbound Gateway">
             <div class="roster-avatar-wrap">
               <img src="assets/transparent/katie_transparent.png" alt="Katie" class="roster-avatar">
               <span class="roster-status-dot" style="background:#22C55E;"></span>
@@ -5335,7 +5921,7 @@
             <div class="roster-badge">Inbound Hub</div>
           </div>
 
-          <div class="roster-node" onclick="openAgentDossier('claire')" title="Claire — Corporate Counsel & Compliance">
+          <div class="roster-node" onclick="openAgentDossier('claire')" title="Claire - Corporate Counsel & Compliance">
             <div class="roster-avatar-wrap">
               <img src="assets/transparent/claire_transparent.png" alt="Claire" class="roster-avatar">
               <span class="roster-status-dot" style="background:#A855F7;"></span>
@@ -5344,7 +5930,7 @@
             <div class="roster-badge">Legal Counsel</div>
           </div>
 
-          <div class="roster-node" onclick="openAgentDossier('vance')" title="Vance — Cybersecurity & SOC 2 Guard">
+          <div class="roster-node" onclick="openAgentDossier('vance')" title="Vance - Cybersecurity & SOC 2 Guard">
             <div class="roster-avatar-wrap">
               <img src="assets/transparent/vance_transparent.png" alt="Vance" class="roster-avatar">
               <span class="roster-status-dot" style="background:#06B6D4;"></span>
@@ -5353,7 +5939,7 @@
             <div class="roster-badge">SecOps Guard</div>
           </div>
 
-          <div class="roster-node" onclick="openAgentDossier('warren')" title="Warren — Treasury & Financial Controller">
+          <div class="roster-node" onclick="openAgentDossier('warren')" title="Warren - Treasury & Financial Controller">
             <div class="roster-avatar-wrap">
               <img src="assets/transparent/warren_transparent.png" alt="Warren" class="roster-avatar">
               <span class="roster-status-dot" style="background:#F59E0B;"></span>
@@ -5362,7 +5948,7 @@
             <div class="roster-badge">Treasury & FX</div>
           </div>
 
-          <div class="roster-node" onclick="openAgentDossier('hunter')" title="Hunter — Executive Talent Sourcing">
+          <div class="roster-node" onclick="openAgentDossier('hunter')" title="Hunter - Executive Talent Sourcing">
             <div class="roster-avatar-wrap">
               <img src="assets/transparent/hunter_transparent.png" alt="Hunter" class="roster-avatar">
               <span class="roster-status-dot" style="background:#6366F1;"></span>
@@ -5371,7 +5957,7 @@
             <div class="roster-badge">Talent Engine</div>
           </div>
 
-          <div class="roster-node" onclick="openAgentDossier('chloe')" title="Chloe — Chief of Staff & Operations">
+          <div class="roster-node" onclick="openAgentDossier('chloe')" title="Chloe - Chief of Staff & Operations">
             <div class="roster-avatar-wrap">
               <img src="assets/transparent/chloe_transparent.png" alt="Chloe" class="roster-avatar">
               <span class="roster-status-dot" style="background:#EC4899;"></span>
@@ -5380,7 +5966,7 @@
             <div class="roster-badge">Chief of Staff</div>
           </div>
 
-          <div class="roster-node" onclick="openAgentDossier('miles')" title="Miles — Systems & AI Architect">
+          <div class="roster-node" onclick="openAgentDossier('miles')" title="Miles - Systems & AI Architect">
             <div class="roster-avatar-wrap">
               <img src="assets/transparent/miles_transparent.png" alt="Miles" class="roster-avatar">
               <span class="roster-status-dot" style="background:#8B5CF6;"></span>
@@ -5389,7 +5975,7 @@
             <div class="roster-badge">Systems Arch</div>
           </div>
 
-          <div class="roster-node" onclick="openAgentDossier('sierra')" title="Sierra — Dedicated Pod Success Lead">
+          <div class="roster-node" onclick="openAgentDossier('sierra')" title="Sierra - Dedicated Pod Success Lead">
             <div class="roster-avatar-wrap">
               <img src="assets/transparent/sierra_transparent.png" alt="Sierra" class="roster-avatar">
               <span class="roster-status-dot" style="background:#14B8A6;"></span>
@@ -5408,18 +5994,18 @@
         <!-- 1. Top Node: Jake & Jev Dual Command Core -->
         <div class="orchestration-node jake-conductor-node">
           <div class="orchestration-dual-avatars" style="display:flex; align-items:center; position:relative;">
-            <div class="orchestration-avatar-wrap" style="position:relative; z-index:2;" title="Jake — Chief Fleet Orchestrator & CTO">
+            <div class="orchestration-avatar-wrap" style="position:relative; z-index:2;" title="Jake - Chief Fleet Orchestrator & CTO">
               <img src="assets/transparent/jake_transparent.png" alt="Jake" class="orchestration-avatar">
               <span class="orchestration-status-dot conductor-dot" style="background:#38BDF8; box-shadow:0 0 8px #38BDF8;"></span>
             </div>
-            <div class="orchestration-avatar-wrap" style="margin-left:-22px; position:relative; z-index:1;" title="Jev — System 1 Decision Coprocessor & Co-Worker">
+            <div class="orchestration-avatar-wrap" style="margin-left:-22px; position:relative; z-index:1;" title="Jev - System 1 Decision Coprocessor & Co-Worker">
               <img src="assets/transparent/jev_transparent.png" alt="Jev" class="orchestration-avatar">
               <span class="orchestration-status-dot" style="background:#00F0FF; box-shadow:0 0 8px #00F0FF;"></span>
             </div>
           </div>
           <div class="orchestration-content-bubble jake-bubble">
             <div class="bubble-header" style="flex-wrap:wrap; gap:8px;">
-              <span class="bubble-sender">Jake & Jev — Dual-Brain Command Core</span>
+              <span class="bubble-sender">Jake & Jev - Dual-Brain Command Core</span>
               <div style="display:flex; gap:6px; flex-wrap:wrap;">
                 <span class="bubble-badge" style="background:rgba(0, 240, 255, 0.12); color:#0284C7; border-color:rgba(0, 240, 255, 0.3);">⚡ Jev: Sub-35ms Semantic Triage</span>
                 <span class="bubble-badge" style="background:rgba(56, 189, 248, 0.12); color:#0284C7; border-color:rgba(56, 189, 248, 0.25);">Jake: DAG Conductor</span>
@@ -5465,7 +6051,7 @@
           </div>
           <div class="orchestration-content-bubble responder-bubble" id="responder-bubble">
             <div class="bubble-header">
-              <span class="bubble-sender" id="responder-title">Claire — Corporate Counsel & Regulatory Compliance</span>
+              <span class="bubble-sender" id="responder-title">Claire - Corporate Counsel & Regulatory Compliance</span>
               <span class="bubble-badge" id="responder-badge" style="background:#F3E8FF; color:#7E22CE; border-color:rgba(147,51,234,0.3);">
                 Legal Pod Active &bull; Latency: 142ms
               </span>
@@ -5530,7 +6116,7 @@
                 <span class="agent-status-pill" style="background:rgba(0, 240, 255, 0.15); border-color:#00F0FF; color:#0284C7; font-weight:700;"><span class="status-dot" style="background:#00F0FF; box-shadow:0 0 6px #00F0FF;"></span> ⚡ Jev: System 1 Coprocessor</span>
                 <span style="font-size:11px; font-weight:700; color:#A78BFA; background:rgba(167, 139, 250, 0.12); padding:2px 8px; border-radius:999px;">Cloud Run Native</span>
               </div>
-              <div class="bento-name" style="color:#FFFFFF; font-size:26px;">Jake & Jev — Dual-Brain Command Core</div>
+              <div class="bento-name" style="color:#FFFFFF; font-size:26px;">Jake & Jev - Dual-Brain Command Core</div>
               <div class="bento-role" style="color:#94A3B8; font-size:14px; margin-top:2px;">Jake (System 2 Orchestrator & CTO) & Jev (System 1 Decision Coprocessor). Sub-35ms semantic triage, master multi-agent DAGs, and self-healing cloud runtime.</div>
             </div>
             <div class="jake-avatar-wrap" style="display:flex; align-items:center; position:relative;">
@@ -7719,7 +8305,7 @@
     // ==========================================================================
     const AGENT_DOSSIERS = {
       jake: {
-        name: "Jake — Chief Fleet Orchestrator & CTO",
+        name: "Jake - Chief Fleet Orchestrator & CTO",
         role: "Autonomous DevOps, DAG Dependency Routing & Self-Healing Cloud Runtime",
         img: "assets/transparent/jake_transparent.png",
         airgap: "● Dedicated Orchestrator Pod (Clearance Level 5)",
@@ -7728,7 +8314,7 @@
         stream: "[RUN] Jake & Jev Command Core initialized. 10 specialized pods active. System 1 triage: 32ms. Zero downtime self-healing loop active."
       },
       jev: {
-        name: "Jev — System 1 Decision Coprocessor & Co-Worker to Jake",
+        name: "Jev - System 1 Decision Coprocessor & Co-Worker to Jake",
         role: "Sub-50ms Semantic Routing, Micro-Latency Sentiment Sentinel & Rigid Airgap Validator",
         img: "assets/transparent/jev_transparent.png",
         airgap: "● Dedicated System 1 Enclave (Clearance Level 5)",
@@ -7737,7 +8323,7 @@
         stream: "[ROUTER] Jev active alongside Jake. Sub-35ms semantic triage: 99.8% precision. Cross-pod leakage probability: 0.00%."
       },
       katie: {
-        name: "Katie — Omnichannel Inbound Gateway",
+        name: "Katie - Omnichannel Inbound Gateway",
         role: "Conversational Desk across Slack, WhatsApp, Telegram & Teams",
         img: "assets/transparent/katie_transparent.png",
         airgap: "● Dedicated Inbound Enclave (Clearance Level 3)",
@@ -7746,7 +8332,7 @@
         stream: "[INGEST] Katie listening across Slack, WhatsApp, Telegram. Audio transcription engine ready (Whisper / Gemini 97.4% confidence)."
       },
       claire: {
-        name: "Claire — Corporate Counsel & Compliance",
+        name: "Claire - Corporate Counsel & Compliance",
         role: "Contract Redlining, Liability Audits & Regulatory Filings",
         img: "assets/transparent/claire_transparent.png",
         airgap: "● Isolated Legal Vault (Clearance Level 4)",
@@ -7755,7 +8341,7 @@
         stream: "[AUDIT] Claire standby. 24 contractual clause playbooks loaded. Strict human approval sign-off gate enforced."
       },
       vance: {
-        name: "Vance — Cybersecurity & SOC 2 Guard",
+        name: "Vance - Cybersecurity & SOC 2 Guard",
         role: "Continuous PenTesting, Attack Surface Recon & SOC 2 Readiness",
         img: "assets/transparent/vance_transparent.png",
         airgap: "● Hermetic SecOps Enclave (Clearance Level 5)",
@@ -7764,7 +8350,7 @@
         stream: "[RECON] Vance scanner active. Zero public CVE alerts detected. Domain TLS 1.3 verified. SOC 2 Type II readiness: 100%."
       },
       warren: {
-        name: "Warren — Treasury & Financial Controller",
+        name: "Warren - Treasury & Financial Controller",
         role: "Invoice Extraction, Multi-Currency FX & Ledger Reconciliation",
         img: "assets/transparent/warren_transparent.png",
         airgap: "● Encrypted Financial Ledger (Clearance Level 4)",
@@ -7773,7 +8359,7 @@
         stream: "[LEDGER] Warren connected to billing mailbox. Live FX conversion feed online ($4,200 USD ⇄ ₪15,850 ILS at 3.77). 28 invoices reconciled."
       },
       hunter: {
-        name: "Hunter — Executive Talent Sourcing",
+        name: "Hunter - Executive Talent Sourcing",
         role: "C-Level Talent Graph Discovery & 1-Page Tailored Briefs",
         img: "assets/transparent/hunter_transparent.png",
         airgap: "● Isolated Talent Vault (Clearance Level 3)",
@@ -7782,7 +8368,7 @@
         stream: "[TALENT] Hunter radar active. Target: VP R&D / AI Systems. Scanned 184 profiles, top 3 matched at 96% suitability."
       },
       chloe: {
-        name: "Chloe — Chief of Staff & Operations Pod",
+        name: "Chloe - Chief of Staff & Operations Pod",
         role: "Client Operations, Cross-Department Escalation & Standup Digests",
         img: "assets/transparent/chloe_transparent.png",
         airgap: "● Client Dedicated Pod (Clearance Level 4)",
@@ -7791,7 +8377,7 @@
         stream: "[OPS] Chloe monitoring executive priorities. 0 unresolved escalations. Standup digest staged."
       },
       miles: {
-        name: "Miles — Systems & AI Architect",
+        name: "Miles - Systems & AI Architect",
         role: "Knowledge Graphs, Operational Memory & AI Frontier Radar",
         img: "assets/transparent/miles_transparent.png",
         airgap: "● Vault-Wide Memory Mesh (Clearance Level 4)",
@@ -7800,7 +8386,7 @@
         stream: "[SYSTEMS] Miles synchronized cross-agent operational learnings into Graphify knowledge mesh."
       },
       sierra: {
-        name: "Sierra — Client Success & Dedicated Pod Lead",
+        name: "Sierra - Client Success & Dedicated Pod Lead",
         role: "Enterprise SLA Assurance, Pod Telemetry & Quality Gates",
         img: "assets/transparent/sierra_transparent.png",
         airgap: "● Client Success Vault (Clearance Level 4)",
@@ -7844,7 +8430,7 @@
         stream.innerHTML += "[RECEIVED] Container responded: HTTP 200 OK (Latency: 18ms)<br>";
         stream.innerHTML += "[VERIFIED] Output validated against schema. Ephemeral vault cleared. Status: 100% OPERATIONAL.<br>";
         btn.disabled = false;
-        btn.textContent = "✓ Test Call Succeeded — Execute Again";
+        btn.textContent = "✓ Test Call Succeeded - Execute Again";
       }, 700);
     }
 
@@ -7956,7 +8542,7 @@
         agentKey: 'claire',
         avatar: 'assets/transparent/claire_transparent.png',
         dotColor: '#A855F7',
-        title: 'Claire — Corporate Counsel & Regulatory Compliance',
+        title: 'Claire - Corporate Counsel & Regulatory Compliance',
         badge: 'Legal Pod Active • Latency: 142ms',
         badgeStyle: 'background:#F3E8FF; color:#7E22CE; border-color:rgba(147,51,234,0.3);',
         input: 'Audit 42 vendor MSAs for unlimited liability, extract intellectual property warranties, and stage redlines for general counsel sign-off.',
@@ -7968,7 +8554,7 @@
         agentKey: 'katie',
         avatar: 'assets/transparent/katie_transparent.png',
         dotColor: '#22C55E',
-        title: 'Katie — Omnichannel Inbound Gateway',
+        title: 'Katie - Omnichannel Inbound Gateway',
         badge: 'Inbound Gateway • Latency: 88ms',
         badgeStyle: 'background:#DCFCE7; color:#15803D; border-color:rgba(34,197,94,0.3);',
         input: 'Triage 120 incoming inquiries across Slack & WhatsApp, transcribe audio memos, score enterprise deal size, and stage calendar bookings in Twenty CRM.',
@@ -7980,7 +8566,7 @@
         agentKey: 'warren',
         avatar: 'assets/transparent/warren_transparent.png',
         dotColor: '#F59E0B',
-        title: 'Warren — Treasury & Financial Controller',
+        title: 'Warren - Treasury & Financial Controller',
         badge: 'Treasury & FX Active • Latency: 64ms',
         badgeStyle: 'background:#FEF3C7; color:#B45309; border-color:rgba(245,158,11,0.3);',
         input: 'Ingest SaaS invoices across USD/EUR from Gmail, normalize currency rates via live Bank FX feed, and sync monthly cash flow.',
@@ -7992,7 +8578,7 @@
         agentKey: 'hunter',
         avatar: 'assets/transparent/hunter_transparent.png',
         dotColor: '#6366F1',
-        title: 'Hunter — Executive Talent Engine',
+        title: 'Hunter - Executive Talent Engine',
         badge: 'Talent Radar Active • Latency: 195ms',
         badgeStyle: 'background:#EEF2FF; color:#4338CA; border-color:rgba(99,102,241,0.3);',
         input: 'Source VP R&D candidates with generative AI infrastructure experience, generate tailored 1-page briefings, and trigger outreach.',
@@ -8050,7 +8636,7 @@
       if (speech) speech.textContent = r.speech;
       if (gate) gate.textContent = r.gateStatus;
       if (btn) {
-        btn.textContent = `View ${r.title.split('—')[0].trim()}'s Technical Dossier →`;
+        btn.textContent = `View ${r.title.split('-')[0].trim()}'s Technical Dossier →`;
         btn.setAttribute("onclick", `openAgentDossier('${r.agentKey}')`);
       }
     }
@@ -8245,7 +8831,7 @@
     // UGC Modal Lightbox
     const UGC_MODAL_DATA = {
       edith: {
-        title: "Maya Legal Actuarial Pod #2049 — Edith Ltd Legal",
+        title: "Maya Legal Actuarial Pod #2049 - Edith Ltd Legal",
         agent: "Agent: Maya (Corporate Counsel & Actuarial Pod)",
         sla: "142ms Latency • SOC 2 Airgap",
         videoSrc: "assets/video/ugc_edith_legal.mp4",
@@ -8260,7 +8846,7 @@
         ]
       },
       '4rest': {
-        title: "4rest Advocate & Scout — Amazon Conservation NGO",
+        title: "4rest Advocate & Scout - Amazon Conservation NGO",
         agent: "Agent: 4rest Advocate (Multilingual Inbound & Stripe)",
         sla: "140ms Latency • Multilingual RAG",
         videoSrc: "assets/video/ugc_4rest4all.mp4",
@@ -8275,7 +8861,7 @@
         ]
       },
       founder: {
-        title: "Warren Treasury & FX Controller — Founder Operations",
+        title: "Warren Treasury & FX Controller - Founder Operations",
         agent: "Agent: Warren (Treasury & Cashflow Matrix)",
         sla: "180ms Latency • Vertex AI & Sheets",
         videoSrc: "assets/video/ugc_founder_cashflow.mp4",
@@ -8290,7 +8876,7 @@
         ]
       },
       superhero: {
-        title: "Works4you Autonomous Fleet — Superhero Hallway Formation",
+        title: "Works4you Autonomous Fleet - Superhero Hallway Formation",
         agent: "Commander: Jake (Chief Architect) & 10 Autonomous Specialists",
         sla: "Cinematic 60 FPS • Autonomous Stride • Zero Latency",
         videoSrc: "assets/video/fleet_superhero_hallway.mp4",
@@ -8304,7 +8890,7 @@
         ]
       },
       overview: {
-        title: "Works4you Autonomous Fleet Overview — 10 Specialists",
+        title: "Works4you Autonomous Fleet Overview - 10 Specialists",
         agent: "Chief Orchestrators: Jake (CTO & Conductor) & Jev (System 1 Coprocessor)",
         sla: "Cinematic 60 FPS • US-Central & EU Edge",
         videoSrc: "assets/video/fleet_superhero_hallway.mp4",
@@ -8319,25 +8905,291 @@
       }
     };
 
+
+    // ==========================================================================
+    // GOOGLE FLOW STORYBOARD SCENE CONTROLLER (APPLE-STYLE INTERACTIVE STAGE)
+    // ==========================================================================
+    const flowScenesData = [
+      {
+        id: 1,
+        num: "01",
+        title: "Awakening the Core",
+        eyebrow: "SCENE 01 • EXECUTIVE ATRIUM",
+        loc: "INT. EXECUTIVE ATRIUM - DAYLIGHT",
+        narrative: "Sunlit white marble atrium with architectural glass walls and purple LED accents. In the center hovers our signature 3D segmented infinity core, casting luminous purple and magenta reflections across the white marble floor. Jake tracks nine synchronized autonomous fleet nodes with zero latency.",
+        charName: "JAKE • CTO & CONDUCTOR",
+        charAvatar: "assets/transparent/jake_transparent.png",
+        charQuote: '"Run orchestration cycle. Nine nodes, absolute parity."',
+        img: "assets/cinematic/flow_awakening_the_core.png",
+        accent: "#7C3AED",
+        tel1: "⚡ 0.00ms Latency",
+        tel2: "🔒 Clearance Lvl 5",
+        tel3: "🛡️ Human Gate Armed"
+      },
+      {
+        id: 2,
+        num: "02",
+        title: "Omnichannel Stream Ingestion",
+        eyebrow: "SCENE 02 • INBOUND HUB",
+        loc: "COMMUNICATION INGESTION PERIMETER",
+        narrative: "Katie leans into a cascading arc of holographic data ribbons. Real-time voice waveforms, WhatsApp chats, Telegram dispatches, and Slack notifications flicker around her fingertips as she routes thousands of packets directly into the central core.",
+        charName: "KATIE • INBOUND GATEWAY",
+        charAvatar: "assets/transparent/katie_transparent.png",
+        charQuote: '"Omnichannel ingestion stabilized. Seven thousand inquiries triaged across voice, text, WhatsApp, Telegram, Slack, and direct sync."',
+        img: "assets/cinematic/flow_omnichannel_stream_ingestion.png",
+        accent: "#10B981",
+        tel1: "⚡ 7,420 msgs/min Ingestion",
+        tel2: "🌐 WhatsApp • Telegram • Slack",
+        tel3: "🎯 100% Intent Accuracy"
+      },
+      {
+        id: 3,
+        num: "03",
+        title: "Cryptographic Verification Seal",
+        eyebrow: "SCENE 03 • LEGAL ENCLAVE",
+        loc: "CORPORATE COUNSEL & COMPLIANCE VAULT",
+        narrative: "Claire stands before an unfurling lattice of dense contract clauses. Redline discrepancies shimmer in amber. Rotating her wrist, a floating cryptographic approval seal snaps together like interlocking glass gears, flashing bright green.",
+        charName: "CLAIRE • CORPORATE COUNSEL",
+        charAvatar: "assets/transparent/claire_transparent.png",
+        charQuote: '"Jurisdictional compliance verified across three international frameworks. Cryptographic seal locked. Executed."',
+        img: "assets/cinematic/flow_cryptographic_verification_seal.png",
+        accent: "#A855F7",
+        tel1: "📜 Liability Capped",
+        tel2: "⚖️ EU AI Act & GDPR",
+        tel3: "🔒 1-Click Cryptographic Seal"
+      },
+      {
+        id: 4,
+        num: "04",
+        title: "Treasury Ledger Balance",
+        eyebrow: "SCENE 04 • TREASURY VAULT",
+        loc: "FINANCIAL CONTROLLER HUB",
+        narrative: "Warren tracks towering vertical cylinders of numeric telemetry. Disparate fiat feeds and decentralized tokens stream past his eyes in gold and silver digits. Tapping an ethereal node, he collapses the streams into a single, perfectly balanced baseline.",
+        charName: "WARREN • TREASURY CONTROLLER",
+        charAvatar: "assets/transparent/warren_transparent.png",
+        charQuote: '"Treasury reconciliation complete across twelve currencies. Ledger variance zero point zero zero percent."',
+        img: "assets/cinematic/flow_treasury_ledger_balance.png",
+        accent: "#F59E0B",
+        tel1: "💵 12 Currencies Synced",
+        tel2: "📊 0.00% Ledger Variance",
+        tel3: "📬 Auto-Scanned Invoices: 48"
+      },
+      {
+        id: 5,
+        num: "05",
+        title: "Enclave Perimeter Defense",
+        eyebrow: "SCENE 05 • SECOPS RADAR",
+        loc: "SOC 2 ISOLATION PERIMETER",
+        narrative: "Vance watches an intricate geodesic sphere mapped with defensive perimeters. Blue defensive rings shift beneath microsecond probe attempts, isolating microservices in hermetic memory enclaves with zero public CVE exposure.",
+        charName: "VANCE • SECOPS GUARD",
+        charAvatar: "assets/transparent/vance_transparent.png",
+        charQuote: '"SOC 2 perimeter holding. Enclave isolation intact. Zero anomalous telemetry across all microservices."',
+        img: "assets/cinematic/flow_enclave_perimeter_defense.png",
+        accent: "#06B6D4",
+        tel1: "🛡️ 0 Open CVE Alerts",
+        tel2: "🔐 TLS 1.3 Strict HSTS",
+        tel3: "✅ SOC 2 Type II Ready"
+      },
+      {
+        id: 6,
+        num: "06",
+        title: "Absolute Parity Deployment",
+        eyebrow: "SCENE 06 • FULL FLEET NEXUS",
+        loc: "EXECUTIVE ATRIUM - DAYLIGHT FINALE",
+        narrative: "All ten operators stand united in the sunlit white and purple executive atrium before the blazing 3D segmented infinity core. Holographic telemetry rings align seamlessly with zero drift across all operational domains.",
+        charName: "JAKE & SPECIALISTS • FULL FLEET",
+        charAvatar: "assets/transparent/jake_transparent.png",
+        charQuote: '"Latency report: Zero milliseconds. Drift: Zero drift. Deploy."',
+        img: "assets/cinematic/flow_absolute_parity_deployment.png",
+        accent: "#7C3AED",
+        tel1: "🚀 10/10 Nodes Online",
+        tel2: "⚡ <120ms End-to-End",
+        tel3: "🟢 99.99% Production Parity"
+      }
+    ];
+
+    let currentFlowSceneIndex = 0;
+    let flowAutoPlayTimer = null;
+
+    function renderFlowScene(idx) {
+      if (idx < 0 || idx >= flowScenesData.length) return;
+      currentFlowSceneIndex = idx;
+      const s = flowScenesData[idx];
+
+      // Update badge & texts
+      const badge = document.getElementById('flowSceneNumBadge');
+      const eyebrow = document.getElementById('flowSceneEyebrow');
+      const title = document.getElementById('flowSceneTitle');
+      const loc = document.getElementById('flowSceneLoc');
+      const narrative = document.getElementById('flowSceneNarrative');
+      const charName = document.getElementById('flowCharName');
+      const charQuote = document.getElementById('flowCharQuote');
+      const charAvatar = document.getElementById('flowCharAvatar');
+      const sceneImg = document.getElementById('flowSceneImage');
+      const giantNum = document.getElementById('flowVariantNumGiant');
+      const tel1 = document.getElementById('flowTel1');
+      const tel2 = document.getElementById('flowTel2');
+      const tel3 = document.getElementById('flowTel3');
+      const imgWrapper = document.getElementById('flowImgWrapper');
+
+      if (badge) badge.textContent = s.num;
+      if (eyebrow) eyebrow.textContent = s.eyebrow;
+      if (title) title.textContent = s.title;
+      if (loc) loc.textContent = s.loc;
+      if (narrative) narrative.textContent = s.narrative;
+      if (charName) charName.textContent = s.charName;
+      if (charQuote) charQuote.textContent = s.charQuote;
+      if (charAvatar) charAvatar.src = s.charAvatar;
+      if (giantNum) {
+        giantNum.textContent = s.num;
+        giantNum.style.textShadow = `0 0 30px ${s.accent}80`;
+      }
+      if (tel1) tel1.textContent = s.tel1;
+      if (tel2) tel2.textContent = s.tel2;
+      if (tel3) tel3.textContent = s.tel3;
+
+      if (imgWrapper) {
+        imgWrapper.style.boxShadow = `0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 50px ${s.accent}40`;
+        imgWrapper.style.borderColor = `${s.accent}60`;
+      }
+
+      if (sceneImg) {
+        sceneImg.style.opacity = '0.3';
+        sceneImg.src = s.img;
+        sceneImg.onload = () => {
+          sceneImg.style.opacity = '1';
+        };
+      }
+
+      // Update vertical pills
+      const pills = document.querySelectorAll('#flowPillsCol .flow-pill-dot');
+      pills.forEach((p, i) => {
+        if (i === idx) {
+          p.classList.add('active');
+          p.style.background = s.accent;
+          p.style.boxShadow = `0 0 14px ${s.accent}`;
+        } else {
+          p.classList.remove('active');
+          p.style.background = 'rgba(255, 255, 255, 0.2)';
+          p.style.boxShadow = 'none';
+        }
+      });
+
+      // Update filmstrip thumbnails
+      const thumbs = document.querySelectorAll('#flowFilmstripBar .flow-thumb-card');
+      thumbs.forEach((t, i) => {
+        if (i === idx) {
+          t.classList.add('active-thumb');
+          t.style.borderColor = s.accent;
+          t.style.boxShadow = `0 0 16px ${s.accent}80`;
+        } else {
+          t.classList.remove('active-thumb');
+          t.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+          t.style.boxShadow = 'none';
+        }
+      });
+
+      playSyntheticTone(440 + (idx * 55), 'sine', 0.08);
+    }
+
+    function flowNextScene() {
+      const nextIdx = (currentFlowSceneIndex + 1) % flowScenesData.length;
+      renderFlowScene(nextIdx);
+    }
+
+    function flowPrevScene() {
+      const prevIdx = (currentFlowSceneIndex - 1 + flowScenesData.length) % flowScenesData.length;
+      renderFlowScene(prevIdx);
+    }
+
+    function jumpToFlowScene(idx) {
+      renderFlowScene(idx);
+    }
+
+    function openScreenplayModal() {
+      const modal = document.getElementById('screenplayModal');
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        playSyntheticTone(580, 'sine', 0.12);
+      }
+    }
+
+    function openFlowShotZoom() {
+      const curScene = flowScenesData[currentFlowSceneIndex];
+      // Open UGC modal with this shot
+      if (typeof openUgcVideoModal === 'function') {
+        openUgcVideoModal('superhero');
+      }
+    }
+
+    // 3D Perspective Tilt on Mouse Movement
+    document.addEventListener('DOMContentLoaded', () => {
+      const box = document.getElementById('flowVisualBox');
+      const card = document.getElementById('flowImgWrapper');
+      if (box && card) {
+        box.addEventListener('mousemove', (e) => {
+          const rect = box.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -12;
+          const rotateY = ((x - centerX) / centerX) * 12;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        box.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+      }
+    });
+
+    // Keyboard Arrow Scrubber Listener
+    window.addEventListener('keydown', (e) => {
+      const flowFrame = document.getElementById('cinemaFlowFrame');
+      if (flowFrame && flowFrame.style.display !== 'none') {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          flowNextScene();
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          flowPrevScene();
+        }
+      }
+    });
+
     function switchStageMode(mode) {
+      const flowFrame = document.getElementById('cinemaFlowFrame');
       const videoFrame = document.getElementById('cinemaVideoFrame');
       const lineupFrame = document.getElementById('squadLineupFrame');
-      const btnVideo = document.getElementById('btn-showcase-video');
-      const btnLineup = document.getElementById('btn-showcase-lineup');
       const video = document.getElementById('heroHallwayVideo');
 
-      if (mode === 'video') {
+      const btnsFlow = [document.getElementById('btn-showcase-flow'), document.getElementById('btn-showcase-flow-v'), document.getElementById('btn-showcase-flow-l')];
+      const btnsVideo = [document.getElementById('btn-showcase-video'), document.getElementById('btn-showcase-video-l')];
+      const btnsLineup = [document.getElementById('btn-showcase-lineup'), document.getElementById('btn-showcase-lineup-l')];
+
+      // Reset active states
+      btnsFlow.forEach(b => b && b.classList.remove('active'));
+      btnsVideo.forEach(b => b && b.classList.remove('active'));
+      btnsLineup.forEach(b => b && b.classList.remove('active'));
+
+      if (mode === 'flow') {
+        if (flowFrame) flowFrame.style.display = 'flex';
+        if (videoFrame) videoFrame.style.display = 'none';
+        if (lineupFrame) lineupFrame.style.display = 'none';
+        btnsFlow.forEach(b => b && b.classList.add('active'));
+        if (video) video.pause();
+        playSyntheticTone(620, 'sine', 0.1);
+      } else if (mode === 'video') {
+        if (flowFrame) flowFrame.style.display = 'none';
         if (videoFrame) videoFrame.style.display = 'block';
         if (lineupFrame) lineupFrame.style.display = 'none';
-        if (btnVideo) btnVideo.classList.add('active');
-        if (btnLineup) btnLineup.classList.remove('active');
+        btnsVideo.forEach(b => b && b.classList.add('active'));
         if (video) video.play().catch(() => {});
         playSyntheticTone(520, 'sine', 0.1);
-      } else {
+      } else if (mode === 'lineup') {
+        if (flowFrame) flowFrame.style.display = 'none';
         if (videoFrame) videoFrame.style.display = 'none';
         if (lineupFrame) lineupFrame.style.display = 'flex';
-        if (btnVideo) btnVideo.classList.remove('active');
-        if (btnLineup) btnLineup.classList.add('active');
+        btnsLineup.forEach(b => b && b.classList.add('active'));
         if (video) video.pause();
         playSyntheticTone(420, 'sine', 0.1);
       }
@@ -8553,7 +9405,7 @@
       "🌿 4rest engaged Portuguese donor, staged $500 Stripe checkout (140ms)",
       "💵 Warren reconciled €3,420 invoice in tecktitans111@gmail.com (180ms)",
       "💬 Katie qualified enterprise inquiry from London → Twenty CRM (98ms)",
-      "🔒 Vance blocked unauthorized webhook scan — SOC 2 audit logged",
+      "🔒 Vance blocked unauthorized webhook scan - SOC 2 audit logged",
       "⚡ Jake routed multi-agent M&A review DAG across 3 pods in 14ms"
     ];
     let tickerIdx = 0;
@@ -8589,6 +9441,80 @@
       document.querySelectorAll('.ugc-video-element').forEach(v => videoObserver.observe(v));
     }
   </script>
+
+  
+  <!-- 0. SCREENPLAY MODAL (GOOGLE FLOW STORYBOARD SCRIPT) -->
+  <div class="modal-backdrop" id="screenplayModal" onclick="handleBackdropClick(event, 'screenplayModal')">
+    <div class="modal-dialog" style="max-width: 820px; max-height: 88vh; overflow-y: auto;">
+      <button type="button" class="modal-close-btn" onclick="closeModal('screenplayModal')">✕</button>
+      <div class="modal-header-section" style="border-bottom: 1px solid rgba(124, 58, 237, 0.15);">
+        <div style="font-size:11px; font-weight:800; color:var(--primary); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Google Flow Storyboard Studio // Production Screenplay</div>
+        <div class="modal-title" style="font-size: 24px; font-weight:900;">WORKS4YOU AI: ZERO LATENCY</div>
+        <div class="modal-subtitle">Official 6-scene cinematic production script engineered in Google Flow &amp; Imagen 3/Veo</div>
+      </div>
+      <div class="modal-body-section" style="font-family: 'Courier New', Courier, monospace; line-height: 1.7; font-size: 13.5px; color: #1E293B; background: #F8FAFC; border-radius: 12px; padding: 24px; margin-top: 14px; border: 1px solid #E2E8F0;">
+        <p style="font-weight: 800; color: #7C3AED; margin-bottom: 14px;">INT. EXECUTIVE ATRIUM - DAYLIGHT</p>
+        <p style="color: #475569; margin-bottom: 14px;">Sunlit white marble atrium with architectural glass walls and purple LED accents. In the center of the atrium hovers our signature 3D segmented infinity core, casting shifting luminous purple and magenta reflections across the white marble floor.</p>
+        <p style="color: #475569; margin-bottom: 14px;">JAKE, the hyper-focused Chief Technology Officer, stands before the floating structure with arms crossed, tracking nine synchronized autonomous fleet nodes with zero latency.</p>
+        
+        <div style="margin: 16px 0 16px 24px; border-left: 3px solid #06B6D4; padding-left: 14px; background: rgba(6, 182, 212, 0.04); padding: 8px 12px; border-radius: 0 8px 8px 0;">
+          <p style="font-weight: 800; margin: 0; color: #0284C7;">JAKE</p>
+          <p style="margin: 4px 0 0 0;">Run orchestration cycle. Nine nodes, absolute parity.</p>
+        </div>
+
+        <p style="color: #475569; margin-bottom: 14px;">A ripple cascades across the Mobius loop. Transparent holographic interfaces ignite in a wide circular perimeter.</p>
+        <p style="color: #475569; margin-bottom: 14px;">KATIE leans into a cascading arc of holographic data ribbons. Real-time messages, voice waveforms, and social pings flicker around her fingertips.</p>
+
+        <div style="margin: 16px 0 16px 24px; border-left: 3px solid #10B981; padding-left: 14px; background: rgba(16, 185, 129, 0.04); padding: 8px 12px; border-radius: 0 8px 8px 0;">
+          <p style="font-weight: 800; margin: 0; color: #059669;">KATIE</p>
+          <p style="margin: 4px 0 0 0;">Omnichannel ingestion stabilized. Seven thousand inquiries triaged across voice, text, WhatsApp, Telegram, Slack, and direct sync.</p>
+        </div>
+
+        <p style="color: #475569; margin-bottom: 14px;">Katie swipes two fingers forward, routing thousands of glowing packets directly into the central core without touching a physical console.</p>
+        <p style="color: #475569; margin-bottom: 14px;">The camera whips along an iridescent light beam to CLAIRE, who stands before an unfurling lattice of dense contract clauses. Redline discrepancies shimmer in amber.</p>
+
+        <div style="margin: 16px 0 16px 24px; border-left: 3px solid #A855F7; padding-left: 14px; background: rgba(168, 85, 247, 0.04); padding: 8px 12px; border-radius: 0 8px 8px 0;">
+          <p style="font-weight: 800; margin: 0; color: #7C3AED;">CLAIRE</p>
+          <p style="margin: 4px 0 0 0;">Jurisdictional compliance verified across three international frameworks. Cryptographic seal locked. Executed.</p>
+        </div>
+
+        <p style="color: #475569; margin-bottom: 14px;">Across the circular floor, WARREN tracks towering vertical cylinders of numeric telemetry. Disparate fiat feeds and decentralized tokens stream past his eyes in gold and silver digits.</p>
+
+        <div style="margin: 16px 0 16px 24px; border-left: 3px solid #F59E0B; padding-left: 14px; background: rgba(245, 158, 11, 0.04); padding: 8px 12px; border-radius: 0 8px 8px 0;">
+          <p style="font-weight: 800; margin: 0; color: #D97706;">WARREN</p>
+          <p style="margin: 4px 0 0 0;">Treasury reconciliation complete across twelve currencies. Ledger variance zero point zero zero percent.</p>
+        </div>
+
+        <p style="color: #475569; margin-bottom: 14px;">Down in the perimeter hub, VANCE watches an intricate geodesic sphere mapped with defensive perimeters. Blue defensive rings shift beneath microsecond probe attempts.</p>
+
+        <div style="margin: 16px 0 16px 24px; border-left: 3px solid #06B6D4; padding-left: 14px; background: rgba(6, 182, 212, 0.04); padding: 8px 12px; border-radius: 0 8px 8px 0;">
+          <p style="font-weight: 800; margin: 0; color: #0284C7;">VANCE</p>
+          <p style="margin: 4px 0 0 0;">SOC 2 perimeter holding. Enclave isolation intact. Zero anomalous telemetry across all microservices.</p>
+        </div>
+
+        <p style="color: #475569; margin-bottom: 14px;">Five additional AI OPERATORS raise their hands in unison, each locking their respective floating sector rings into the core's rotating orbit. The rhythmic hum settles into complete, motionless silence.</p>
+
+        <div style="margin: 16px 0 16px 24px; border-left: 3px solid #EC4899; padding-left: 14px; background: rgba(236, 72, 153, 0.04); padding: 8px 12px; border-radius: 0 8px 8px 0;">
+          <p style="margin: 0;"><strong>JAKE:</strong> Latency report.</p>
+          <p style="margin: 4px 0 0 0;"><strong>KATIE:</strong> Zero milliseconds.</p>
+          <p style="margin: 4px 0 0 0;"><strong>CLAIRE:</strong> Zero drift.</p>
+          <p style="margin: 4px 0 0 0; font-weight:800; color:#0F172A;"><strong>JAKE:</strong> Deploy.</p>
+        </div>
+
+        <p style="color: #475569; margin-top: 14px;">The 3D segmented infinity core pulses in radiant purple and magenta light across the sunlit white executive atrium as all ten fleet nodes deploy into live production. [SCENE COMPLETE]</p>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:18px; flex-wrap:wrap; gap:10px;">
+        <div style="font-size:12px; color:#64748B;">
+          Engineered for Works4you AI by Google Flow Storyboard Studio
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button type="button" class="btn-primary" onclick="closeModal('screenplayModal'); openDemoModal();">Book Fleet Demo</button>
+          <button type="button" class="btn-secondary" onclick="closeModal('screenplayModal')">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- 1. BOOK FLEET DEMO MODAL -->
   <div class="modal-backdrop" id="demoModal" onclick="handleBackdropClick(event, 'demoModal')">
@@ -8646,9 +9572,9 @@
           <div style="margin-bottom:24px;">
             <label class="form-label">Estimated Team Size:</label>
             <select class="form-input-text" id="demo-input-size">
-              <option value="10-50">10 – 50 team members</option>
-              <option value="50-250" selected>50 – 250 team members</option>
-              <option value="250-1000">250 – 1,000 team members</option>
+              <option value="10-50">10 - 50 team members</option>
+              <option value="50-250" selected>50 - 250 team members</option>
+              <option value="250-1000">250 - 1,000 team members</option>
               <option value="1000+">1,000+ Enterprise seats</option>
             </select>
           </div>
@@ -8684,7 +9610,7 @@
         <img src="assets/transparent/jake_transparent.png" id="dossier-avatar" alt="Agent" style="width:72px; height:72px; border-radius:20px; object-fit:cover; background:#F1EEFE; border:2px solid var(--primary); flex-shrink:0;">
         <div>
           <div style="font-size:11px; font-weight:800; color:var(--primary); text-transform:uppercase; letter-spacing:0.06em;" id="dossier-badge">SPECIALIST ARCHITECTURE DOSSIER</div>
-          <div class="modal-title" style="margin-bottom:2px;" id="dossier-name">Jake — Chief Fleet Orchestrator</div>
+          <div class="modal-title" style="margin-bottom:2px;" id="dossier-name">Jake - Chief Fleet Orchestrator</div>
           <div class="modal-subtitle" id="dossier-role">Autonomous DevOps, DAG Dependency Routing & Self-Healing Cloud Runtime</div>
         </div>
       </div>
@@ -8860,6 +9786,48 @@
       <div class="ticker-text" id="liveTickerText">⚖️ Maya audited 42 alimony clauses for Edith Ltd Legal (142ms)</div>
     </div>
   </div>
+
+  <!-- EXECUTIVE HUD FLOATING BUTTON & DRAWER -->
+  <button id="executiveHudBtn" onclick="toggleHudDrawer()" style="position:fixed; top:20px; right:20px; z-index:9999; background:linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%); color:#fff; border:1px solid rgba(255,255,255,0.2); padding:9px 15px; border-radius:30px; font-weight:700; font-size:12.5px; display:flex; align-items:center; gap:8px; cursor:pointer; box-shadow:0 4px 20px rgba(124,58,237,0.4); backdrop-filter:blur(8px); transition:all 0.2s;" title="פתח לוח מנהלים צדדי (קיצור מקלדת: H)">
+    <span style="width:8px; height:8px; border-radius:50%; background:#10b981; box-shadow:0 0 8px #10b981; animation:pulse 2s infinite;"></span>
+    <span>לוח מנהלים HUD</span>
+    <span style="font-size:10px; background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:10px;">H</span>
+  </button>
+
+  <!-- EXECUTIVE HUD SLIDING DRAWER -->
+  <div id="executiveHudOverlay" onclick="toggleHudDrawer()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); z-index:10000; transition:opacity 0.3s;"></div>
+  <div id="executiveHudDrawer" style="position:fixed; top:0; right:-460px; width:450px; max-width:92vw; height:100vh; background:#090d16; border-left:1px solid rgba(255,255,255,0.1); z-index:10001; transition:right 0.35s cubic-bezier(0.16, 1, 0.3, 1); box-shadow:-10px 0 30px rgba(0,0,0,0.7); display:flex; flex-direction:column;">
+    <div style="display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background:#0f172a; border-bottom:1px solid rgba(255,255,255,0.08);">
+      <span style="font-weight:700; font-size:13px; color:#fff;">Works4you AI &bull; פאנל צד מנהלים (HUD)</span>
+      <button onclick="toggleHudDrawer()" style="background:transparent; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">&times;</button>
+    </div>
+    <iframe src="hud.html" style="flex:1; border:none; width:100%; height:100%;"></iframe>
+  </div>
+
+  <script>
+    function toggleHudDrawer() {
+      const drawer = document.getElementById('executiveHudDrawer');
+      const overlay = document.getElementById('executiveHudOverlay');
+      if (!drawer || !overlay) return;
+      const isOpen = drawer.style.right === '0px';
+      if (isOpen) {
+        drawer.style.right = '-460px';
+        overlay.style.display = 'none';
+      } else {
+        drawer.style.right = '0px';
+        overlay.style.display = 'block';
+      }
+    }
+    window.addEventListener('keydown', (e) => {
+      if ((e.key === 'h' || e.key === 'H' || e.key === 'י') && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        toggleHudDrawer();
+      }
+      if (e.key === 'Escape') {
+        const drawer = document.getElementById('executiveHudDrawer');
+        if (drawer && drawer.style.right === '0px') toggleHudDrawer();
+      }
+    });
+  </script>
 
 </body>
 </html>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <!-- Left Loop Violet Gradient -->
+    <linearGradient id="violetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7A2FF2" />
+      <stop offset="50%" stop-color="#5B21EA" />
+      <stop offset="100%" stop-color="#4318B0" />
+    </linearGradient>
+
+    <!-- Right Loop Cyan Gradient -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="60%" stop-color="#00C2FF" />
+      <stop offset="100%" stop-color="#0077B6" />
+    </linearGradient>
+
+    <!-- Center Synapse Overlap Gradient -->
+    <linearGradient id="synapseGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#5B21EA" />
+      <stop offset="50%" stop-color="#3A82F7" />
+      <stop offset="100%" stop-color="#00C2FF" />
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0B132B" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <g filter="url(#subtleShadow)">
+    <!-- Left Torus (Violet Loop) -->
+    <path d="M 210,180 C 210,115 155,75 95,75 C 35,75 10,120 10,180 C 10,240 35,285 95,285 C 155,285 210,245 210,180 Z" 
+          fill="none" stroke="url(#violetGrad)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Right Torus (Cyan Loop) -->
+    <path d="M 390,180 C 390,115 445,75 505,75 C 565,75 590,120 590,180 C 590,240 565,285 505,285 C 445,285 390,245 390,180 Z" 
+          fill="none" stroke="url(#cyanGrad)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Interlocking Synapse Center Bridge -->
+    <!-- Front crossover of cyan ring diving through violet ring -->
+    <path d="M 240,140 C 275,120 325,120 360,140 C 385,155 385,205 360,220 C 325,240 275,240 240,220 C 215,205 215,155 240,140 Z" 
+          fill="none" stroke="url(#synapseGrad)" stroke-width="48" stroke-linecap="round" />
+  </g>
+</svg>

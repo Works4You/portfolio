@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Works4you AI - Official Brand Book & Visual Guidelines (Style 07: Vector Synapse)</title>
+  <link rel="icon" type="image/png" href="assets/brand/works4you_vector_synapse_icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* Primary Synapse Palette */
+      --synapse-cyan: #00C2FF;
+      --synapse-blue: #0077B6;
+      --synapse-violet: #5B21EA;
+      --synapse-neon: #7A2FF2;
+      --synapse-gradient: linear-gradient(135deg, #7A2FF2 0%, #5B21EA 35%, #0085FF 75%, #00C2FF 100%);
+      --synapse-gradient-subtle: linear-gradient(135deg, rgba(122, 47, 242, 0.08) 0%, rgba(0, 194, 255, 0.08) 100%);
+      
+      /* Neutrals & Surfaces */
+      --bg-base: #FFFFFF;
+      --bg-surface: #F8F9FE;
+      --bg-card: #FFFFFF;
+      --border-subtle: #E2E8F0;
+      --border-accent: rgba(0, 194, 255, 0.3);
+      --text-main: #0B132B;
+      --text-muted: #4A5568;
+      --text-sub: #718096;
+      --obsidian-dark: #0B132B;
+      
+      /* Shadows */
+      --shadow-sm: 0 2px 8px rgba(91, 33, 234, 0.04);
+      --shadow-md: 0 12px 32px rgba(91, 33, 234, 0.06), 0 2px 6px rgba(0,0,0,0.02);
+      --shadow-glow: 0 0 30px rgba(0, 194, 255, 0.25);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #0B132B;
+      --bg-surface: #111B38;
+      --bg-card: #152246;
+      --border-subtle: #1E2D5A;
+      --border-accent: rgba(0, 194, 255, 0.4);
+      --text-main: #F8F9FE;
+      --text-muted: #A0AEC0;
+      --text-sub: #718096;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Fixed Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.3s ease;
+    }
+    [data-theme="dark"] header {
+      background: rgba(11, 19, 43, 0.9);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-logo-img {
+      height: 40px;
+      width: auto;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: var(--synapse-cyan);
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid var(--border-subtle);
+    }
+    .btn-primary {
+      background: var(--synapse-gradient);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 14px rgba(0, 194, 255, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 194, 255, 0.45);
+    }
+    .btn-secondary {
+      background: var(--bg-surface);
+      color: var(--text-main);
+    }
+    .btn-secondary:hover {
+      border-color: var(--synapse-cyan);
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 72px 32px 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: var(--synapse-gradient-subtle);
+      border: 1px solid var(--border-accent);
+      color: var(--synapse-cyan);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    [data-theme="dark"] .pill-badge {
+      color: #00E5FF;
+    }
+
+    .hero-title {
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      background: var(--synapse-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 19px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 620px;
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(0, 194, 255, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-icon-large {
+      width: 240px;
+      height: auto;
+      margin: 0 auto 24px;
+      filter: drop-shadow(0 12px 28px rgba(91, 33, 234, 0.15));
+    }
+
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px 96px;
+    }
+
+    .section-title-wrap {
+      margin-bottom: 36px;
+    }
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--synapse-cyan);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 64px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-accent);
+    }
+
+    /* Color Swatches */
+    .swatch-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      position: relative;
+    }
+    .swatch-color {
+      height: 140px;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 600;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+    .swatch-info {
+      padding: 18px 20px;
+    }
+    .swatch-name {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .swatch-sub {
+      font-size: 13px;
+      color: var(--text-sub);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Lockup Showcase */
+    .lockup-box {
+      border-radius: 16px;
+      padding: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+    }
+    .lockup-box.dark {
+      background: #0B132B;
+    }
+    .lockup-box.light {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+    }
+
+    /* Typography Table */
+    .type-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 140px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      align-items: baseline;
+    }
+    .type-spec {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    /* Component Sandbox */
+    .component-box {
+      padding: 32px;
+      border-radius: 16px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    /* Status Dot */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(0, 194, 255, 0.1);
+      color: var(--synapse-cyan);
+      border: 1px solid rgba(0, 194, 255, 0.25);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--synapse-cyan);
+      box-shadow: 0 0 10px var(--synapse-cyan);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Toast */
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0B132B;
+      color: #00C2FF;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1px solid #00C2FF;
+      box-shadow: 0 8px 24px rgba(0, 194, 255, 0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <img src="assets/brand/works4you_brand_lockup_light.png" id="headerLogo" alt="Works4you AI" class="brand-logo-img">
+      </a>
+      <nav class="header-nav">
+        <a href="#identity" class="nav-link">Identity</a>
+        <a href="#lockups" class="nav-link">Lockups</a>
+        <a href="#colors" class="nav-link">Colors</a>
+        <a href="#typography" class="nav-link">Typography</a>
+        <a href="#components" class="nav-link">Components</a>
+        <a href="https://www.figma.com/design/vxw1ZTXumBQcZYqHNxIcY6/Create-Brand-Kit-...?t=TFuJdmsKD4HktL4Y-0" target="_blank" class="btn-action btn-secondary">
+          🎨 Figma Board
+        </a>
+        <button onclick="toggleTheme()" class="btn-action btn-secondary" id="themeToggleBtn">
+          🌙 Dark Mode
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="identity">
+    <div>
+      <div class="pill-badge">
+        <span>●</span> OFFICIAL BRAND GUIDELINES • STYLE 07 (VECTOR SYNAPSE)
+      </div>
+      <h1 class="hero-title">
+        Works4you <br><span class="gradient-text">Vector Synapse</span> Brand Kit
+      </h1>
+      <p class="hero-desc">
+        The official visual language, design tokens, and lockup standards for Works4you Multi-Agent Cognitive System. Built on mathematical precision, interlocking dual-ring geometry, and deterministic AI execution.
+      </p>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a href="assets/brand/works4you_vector_synapse_icon_4x.png" download class="btn-action btn-primary">
+          ⬇ Download Icon (4K PNG)
+        </a>
+        <a href="assets/brand/works4you_vector_synapse.svg" download class="btn-action btn-secondary">
+          ⬇ Download Vector SVG
+        </a>
+        <a href="https://flow.google.com/project/7dd6e529-8303-43d4-b636-2ec79359d25d" target="_blank" class="btn-action btn-secondary">
+          ✨ Google Flow Studio
+        </a>
+      </div>
+    </div>
+    
+    <div class="hero-card">
+      <img src="assets/brand/works4you_vector_synapse_icon_4x.png" alt="Vector Synapse Core Icon" class="hero-icon-large">
+      <h3 style="font-size:22px; font-weight:700; margin-bottom:8px;">Style 07: Vector Synapse</h3>
+      <p style="font-size:14px; color:var(--text-sub); font-family:'JetBrains Mono', monospace;">
+        Dual Möbius Torus • Electric Azure Cyan into Royal Synapse Violet
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- Section 1: Core Symbolism -->
+    <div class="section-title-wrap">
+      <div class="section-tag">01 • Concept & Anatomy</div>
+      <h2 class="section-title">Anatomy of Vector Synapse</h2>
+    </div>
+    
+    <div class="grid-3">
+      <div class="card">
+        <div style="font-size:32px; margin-bottom:16px;">♾️</div>
+        <h3 style="font-size:20px; font-weight:700; margin-bottom:12px;">Interlocking Dual Rings</h3>
+        <p style="color:var(--text-muted); font-size:15px;">
+          Two continuous closed-loop torus bodies intertwined at the center synapse, symbolizing continuous bi-directional synchronization between user intent and autonomous agent execution.
+        </p>
+      </div>
+
+      <div class="card">
+        <div style="font-size:32px; margin-bottom:16px;">⚡</div>
+        <h3 style="font-size:20px; font-weight:700; margin-bottom:12px;">Cyan to Violet Gradient</h3>
+        <p style="color:var(--text-muted); font-size:15px;">
+          The Left Loop in Royal Violet (<code>#5B21EA</code>) represents institutional memory, depth, and safety. The Right Loop in Electric Azure (<code>#00C2FF</code>) represents real-time speed, clarity, and execution.
+        </p>
+      </div>
+
+      <div class="card">
+        <div style="font-size:32px; margin-bottom:16px;">🎯</div>
+        <h3 style="font-size:20px; font-weight:700; margin-bottom:12px;">Deterministic Precision</h3>
+        <p style="color:var(--text-muted); font-size:15px;">
+          Clean 3D lighting curves without visual noise, engineered to scale effortlessly from a 16px favicon or smartwatch icon up to large architectural billboards and executive decks.
+        </p>
+      </div>
+    </div>
+
+    <!-- Section 2: Logo Lockups -->
+    <div class="section-title-wrap" id="lockups">
+      <div class="section-tag">02 • Lockups & Contrast</div>
+      <h2 class="section-title">Dual-Mode Master Lockups</h2>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="lockup-box light">
+          <img src="assets/brand/works4you_brand_lockup_light.png" alt="Light Lockup" style="max-width:100%; height:auto;">
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <h4 style="font-weight:700;">Light Mode Lockup (Alabaster White)</h4>
+            <p style="font-size:13px; color:var(--text-sub); font-family:'JetBrains Mono', monospace;">WCAG AAA 12.8:1 Contrast Pass</p>
+          </div>
+          <a href="assets/brand/works4you_brand_lockup_light.png" download class="btn-action btn-secondary" style="font-size:12px;">⬇ PNG</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="lockup-box dark">
+          <img src="assets/brand/works4you_brand_lockup_dark.png" alt="Dark Lockup" style="max-width:100%; height:auto;">
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <h4 style="font-weight:700;">Dark Mode Lockup (Obsidian Navy)</h4>
+            <p style="font-size:13px; color:var(--text-sub); font-family:'JetBrains Mono', monospace;">WCAG AAA 14.2:1 Contrast Pass</p>
+          </div>
+          <a href="assets/brand/works4you_brand_lockup_dark.png" download class="btn-action btn-secondary" style="font-size:12px;">⬇ PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Color Tokens -->
+    <div class="section-title-wrap" id="colors">
+      <div class="section-tag">03 • Chromatic Palette</div>
+      <h2 class="section-title">Design Tokens & Swatches</h2>
+      <p style="color:var(--text-muted); font-size:15px; margin-top:8px;">Click any swatch to copy its HEX / CSS variable value.</p>
+    </div>
+
+    <div class="grid-4">
+      <div class="swatch-card" onclick="copyToken('#00C2FF', '--synapse-cyan')">
+        <div class="swatch-color" style="background:#00C2FF;">#00C2FF</div>
+        <div class="swatch-info">
+          <div class="swatch-name">Electric Cyan</div>
+          <div class="swatch-sub">--synapse-cyan • Primary</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" onclick="copyToken('#5B21EA', '--synapse-violet')">
+        <div class="swatch-color" style="background:#5B21EA;">#5B21EA</div>
+        <div class="swatch-info">
+          <div class="swatch-name">Royal Violet</div>
+          <div class="swatch-sub">--synapse-violet • Core</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" onclick="copyToken('#7A2FF2', '--synapse-neon')">
+        <div class="swatch-color" style="background:#7A2FF2;">#7A2FF2</div>
+        <div class="swatch-info">
+          <div class="swatch-name">Neon Synapse</div>
+          <div class="swatch-sub">--synapse-neon • Accent</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" onclick="copyToken('#0B132B', '--obsidian-dark')">
+        <div class="swatch-color" style="background:#0B132B;">#0B132B</div>
+        <div class="swatch-info">
+          <div class="swatch-name">Obsidian Navy</div>
+          <div class="swatch-sub">--obsidian-dark • Surface</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: Typography -->
+    <div class="section-title-wrap" id="typography">
+      <div class="section-tag">04 • Typography</div>
+      <h2 class="section-title">Inter & JetBrains Mono Hierarchy</h2>
+    </div>
+
+    <div class="card" style="margin-bottom:64px;">
+      <div class="type-row">
+        <div class="type-spec">Display XL<br>Inter 800 • 56px / -0.03em</div>
+        <div style="font-size:48px; font-weight:800; letter-spacing:-0.03em; line-height:1.1;">Autonomous Fleet Intelligence</div>
+        <div class="type-spec">font-extrabold</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-spec">Headline LG<br>Inter 700 • 32px / -0.02em</div>
+        <div style="font-size:32px; font-weight:700; letter-spacing:-0.02em;">Multi-Agent Cognitive System Orchestration</div>
+        <div class="type-spec">font-bold</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-spec">Title MD<br>Inter 600 • 20px / -0.01em</div>
+        <div style="font-size:20px; font-weight:600;">Zero-Latency Executive Telemetry & Verification</div>
+        <div class="type-spec">font-semibold</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-spec">Body Regular<br>Inter 400 • 16px / 1.6</div>
+        <div style="font-size:16px; font-weight:400; color:var(--text-muted); max-width:700px;">
+          Autonomous zero-touch execution across legal, operations, finance, intelligence, and browser automation. Eliminates maintenance friction through self-healing DevOps loops.
+        </div>
+        <div class="type-spec">font-normal</div>
+      </div>
+
+      <div class="type-row" style="border-bottom:none;">
+        <div class="type-spec">Telemetry Code<br>JetBrains Mono 500 • 13px</div>
+        <div style="font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--synapse-cyan);">
+          <code>node_sync(id="4853071", latency="0ms", parity="100%", status="AUTONOMOUS_EXEC")</code>
+        </div>
+        <div class="type-spec">font-mono</div>
+      </div>
+    </div>
+
+    <!-- Section 5: UI Components & Living Sandbox -->
+    <div class="section-title-wrap" id="components">
+      <div class="section-tag">05 • Design System Components</div>
+      <h2 class="section-title">Living Component Sandbox</h2>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:20px;">Button Variants</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center;">
+          <button class="btn-action btn-primary">Primary Synapse CTA</button>
+          <button class="btn-action btn-secondary">Secondary Outline</button>
+          <button class="btn-action btn-secondary" style="border-color:var(--synapse-neon); color:var(--synapse-neon);">Neon Synapse</button>
+          <button class="btn-action btn-secondary" style="opacity:0.5; cursor:not-allowed;">Disabled State</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:20px;">Agent Operational Chips</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            AUTONOMOUS_EXEC
+          </div>
+          <div class="status-badge" style="color:#10B981; border-color:rgba(16, 185, 129, 0.3); background:rgba(16, 185, 129, 0.1);">
+            <span class="status-dot" style="background:#10B981; box-shadow:0 0 10px #10B981;"></span>
+            ZERO_LATENCY
+          </div>
+          <div class="status-badge" style="color:#7A2FF2; border-color:rgba(122, 47, 242, 0.3); background:rgba(122, 47, 242, 0.1);">
+            <span class="status-dot" style="background:#7A2FF2; box-shadow:0 0 10px #7A2FF2;"></span>
+            SYNCHRONIZED
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 6: Stitch & Figma Ecosystem -->
+    <div class="section-title-wrap">
+      <div class="section-tag">06 • Integrated Design Cloud</div>
+      <h2 class="section-title">Google Stitch & Figma Synchronizer</h2>
+    </div>
+
+    <div class="card" style="padding:40px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;">
+        <div>
+          <h3 style="font-size:24px; font-weight:700; margin-bottom:16px;">Live Stitch Project & Figma Board</h3>
+          <p style="color:var(--text-muted); font-size:16px; margin-bottom:24px;">
+            The Works4you Vector Synapse system is fully published to both Google Stitch (Project <code>485307106448899203</code>) and Figma live workspace, allowing instant vector export, multi-device component variants, and automated frontend code generation.
+          </p>
+          <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <a href="https://www.figma.com/design/vxw1ZTXumBQcZYqHNxIcY6/Create-Brand-Kit-...?t=TFuJdmsKD4HktL4Y-0" target="_blank" class="btn-action btn-primary">
+              🎨 Open in Figma
+            </a>
+            <a href="assets/brand/stitch_brand_book_screenshot.png" target="_blank" class="btn-action btn-secondary">
+              👁️ View Stitch Blueprint
+            </a>
+          </div>
+        </div>
+
+        <div style="border-radius:16px; overflow:hidden; border:1px solid var(--border-subtle); box-shadow:var(--shadow-md);">
+          <img src="assets/brand/stitch_brand_book_screenshot.png" alt="Google Stitch Board" style="width:100%; height:auto; display:block;">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="copyToast" class="copy-toast">✓ Copied to clipboard</div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', next);
+      
+      const btn = document.getElementById('themeToggleBtn');
+      const logo = document.getElementById('headerLogo');
+      
+      if (next === 'dark') {
+        btn.innerText = '☀️ Light Mode';
+        logo.src = 'assets/brand/works4you_brand_lockup_dark.png';
+      } else {
+        btn.innerText = '🌙 Dark Mode';
+        logo.src = 'assets/brand/works4you_brand_lockup_light.png';
+      }
+    }
+
+    function copyToken(hex, cssVar) {
+      const text = `${hex} /* ${cssVar} */`;
+      navigator.clipboard.writeText(text);
+      const toast = document.getElementById('copyToast');
+      toast.innerText = `✓ Copied: ${hex} (${cssVar})`;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>

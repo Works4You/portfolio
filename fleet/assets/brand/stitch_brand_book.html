@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Works4you Multi-Agent Cognitive System — Official Brand Guidelines &amp; Design Kit</title>
+<!-- Fonts & Material Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Public+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#75d1ff",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#001e2b",
+            "tertiary": "#7526ed",
+            "on-secondary-fixed": "#1e0061",
+            "on-primary-fixed-variant": "#004d67",
+            "background": "#faf8ff",
+            "primary-container": "#00c2ff",
+            "surface-container-highest": "#dbe1ff",
+            "outline-variant": "#bcc8d1",
+            "on-tertiary-fixed": "#25005a",
+            "surface-tint": "#006688",
+            "secondary-fixed": "#e7deff",
+            "on-surface-variant": "#3d484f",
+            "on-tertiary-fixed-variant": "#5a00c6",
+            "on-background": "#131a33",
+            "tertiary-fixed": "#eaddff",
+            "error-container": "#ffdad6",
+            "primary": "#006688",
+            "secondary-fixed-dim": "#cbbeff",
+            "on-tertiary-container": "#5900c4",
+            "surface-container-low": "#f3f3ff",
+            "on-secondary-container": "#f0e9ff",
+            "surface-dim": "#d2d9fa",
+            "surface-container-high": "#e3e7ff",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#c3a5ff",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#dbe1ff",
+            "surface-container": "#ebedff",
+            "surface": "#faf8ff",
+            "secondary": "#5719e7",
+            "on-surface": "#131a33",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#eff0ff",
+            "inverse-surface": "#282f49",
+            "secondary-container": "#7042ff",
+            "error": "#ba1a1a",
+            "outline": "#6d7980",
+            "surface-bright": "#faf8ff",
+            "primary-fixed": "#c2e8ff",
+            "inverse-primary": "#75d1ff",
+            "on-secondary-fixed-variant": "#4b00d4",
+            "on-primary-container": "#004c66",
+            "tertiary-fixed-dim": "#d3bbff",
+            "on-primary": "#ffffff",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {},
+          "fontFamily": {
+            "headline": ["Inter"],
+            "display": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Public Sans"],
+            "mono": ["JetBrains Mono"]
+          },
+          "fontSize": {}
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .synapse-gradient {
+      background: linear-gradient(135deg, #7A2FF2 0%, #5B21EA 35%, #0085FF 75%, #00C2FF 100%);
+    }
+    .synapse-gradient-border {
+      position: relative;
+      border: 1px solid transparent;
+      background-clip: padding-box;
+    }
+    .synapse-gradient-border::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, #7A2FF2, #00C2FF);
+    }
+    .blueprint-grid {
+      background-size: 24px 24px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 194, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 194, 255, 0.08) 1px, transparent 1px);
+    }
+    .pulse-glow {
+      box-shadow: 0 0 15px rgba(0, 194, 255, 0.5);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased selection:bg-primary selection:text-on-primary">
+<!-- ================= TOP NAV BAR (Shared Component Execution) ================= -->
+<header class="bg-surface-container-lowest/90 backdrop-blur-md text-primary font-headline text-title-md font-semibold tracking-tight docked full-width top sticky z-50 border-b border-outline-variant shadow-sm flex justify-between items-center w-full px-6 py-3">
+<!-- Brand / Identity -->
+<div class="flex items-center gap-4">
+<div class="font-headline text-lg font-bold tracking-tight text-on-surface flex items-center gap-2">
+<!-- Interlocking Vector Synapse Glyph -->
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg class="w-8 h-8" viewbox="0 0 40 40">
+<defs>
+<lineargradient id="navSynapseLeft" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#7A2FF2"></stop>
+<stop offset="100%" stop-color="#5B21EA"></stop>
+</lineargradient>
+<lineargradient id="navSynapseRight" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#0085FF"></stop>
+<stop offset="100%" stop-color="#00C2FF"></stop>
+</lineargradient>
+</defs>
+<!-- Left Synapse Loop -->
+<path d="M14 12 C7 12 4 16 4 20 C4 24 7 28 14 28 C21 28 24 20 28 17 C31 15 34 15 36 17" fill="none" stroke="url(#navSynapseLeft)" stroke-linecap="round" stroke-width="4.5"></path>
+<!-- Right Synapse Loop -->
+<path d="M26 28 C33 28 36 24 36 20 C36 16 33 12 26 12 C19 12 16 20 12 23 C9 25 6 25 4 23" fill="none" stroke="url(#navSynapseRight)" stroke-linecap="round" stroke-width="4.5"></path>
+</svg>
+</div>
+<span class="text-on-surface font-headline font-bold text-base tracking-tight">Works4you Cognitive System</span>
+</div>
+<div class="hidden lg:flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-surface-container-high border border-outline-variant text-xs font-mono font-medium text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+        v2.4 Core Active
+      </div>
+</div>
+<!-- Center Navigation Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1" href="#brand-identity">Guidelines</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface transition-colors" href="#color-tokens">Design Tokens</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface transition-colors" href="#ui-library">Components</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface transition-colors" href="#telemetry-tokens">Telemetry</a>
+</nav>
+<!-- Search & Trailing Actions -->
+<div class="flex items-center gap-3">
+<!-- Search Input on Right -->
+<div class="relative hidden sm:block w-48 lg:w-64">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+<input class="w-full pl-8 pr-3 py-1.5 text-xs bg-surface-container-low rounded-lg border border-outline-variant focus:outline-none focus:border-primary text-on-surface placeholder:text-outline" placeholder="Search tokens, symbols..." type="text"/>
+</div>
+<!-- Trailing Action Icons -->
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all duration-150 active:scale-[0.98]" title="Dark Mode Preview">
+<span class="material-symbols-outlined text-sm" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all duration-150 active:scale-[0.98]" title="Open Token Terminal">
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all duration-150 active:scale-[0.98]" title="Share Guidelines">
+<span class="material-symbols-outlined text-sm" data-icon="share">share</span>
+</button>
+<!-- Trailing Primary Action -->
+<button class="flex items-center gap-1.5 bg-primary text-on-primary px-3.5 py-1.5 rounded-lg text-xs font-semibold hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-[0.98] shadow-sm">
+<span class="material-symbols-outlined text-xs" data-icon="download">download</span>
+        Export Kit
+      </button>
+</div>
+</header>
+<!-- ================= MAIN LAYOUT WITH STICKY SIDEBAR ================= -->
+<div class="max-w-[1720px] mx-auto flex w-full">
+<!-- ================= SIDEBAR (Shared Component Execution) ================= -->
+<aside class="hidden md:flex flex-col justify-between w-72 h-[calc(100vh-61px)] sticky top-[61px] p-4 bg-surface-container-low border-r border-outline-variant shrink-0 overflow-y-auto">
+<div>
+<!-- Sidebar Brand Card -->
+<div class="p-3 mb-4 rounded-xl bg-surface-container-lowest border border-outline-variant">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg synapse-gradient flex items-center justify-center text-white shadow-sm shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="all_inclusive">all_inclusive</span>
+</div>
+<div>
+<div class="font-headline text-headline-sm font-bold tracking-tight text-on-surface text-sm">Vector Synapse</div>
+<div class="text-xs text-on-surface-variant">Design System v2.4</div>
+</div>
+</div>
+<button class="w-full mt-3 py-1.5 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-mono text-[11px] font-semibold border border-outline-variant transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="content_copy">content_copy</span>
+            Copy All Tokens
+          </button>
+</div>
+<!-- Section Index Links -->
+<div class="text-[11px] font-mono uppercase tracking-wider text-outline px-3 mb-2 font-bold">System Navigation</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-primary/10 text-primary font-semibold border-l-4 border-primary text-xs" href="#brand-identity">
+<span class="material-symbols-outlined text-sm" data-icon="all_inclusive">all_inclusive</span>
+            Brand Identity &amp; Synapse
+          </a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface transition-colors text-xs" href="#typography">
+<span class="material-symbols-outlined text-sm" data-icon="text_fields">text_fields</span>
+            Typography Hierarchy
+          </a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface transition-colors text-xs" href="#color-tokens">
+<span class="material-symbols-outlined text-sm" data-icon="palette">palette</span>
+            Color Palette Tokens
+          </a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface transition-colors text-xs" href="#logo-construction">
+<span class="material-symbols-outlined text-sm" data-icon="token">token</span>
+            Logo &amp; Clear Space
+          </a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface transition-colors text-xs" href="#dual-mode">
+<span class="material-symbols-outlined text-sm" data-icon="contrast">contrast</span>
+            Theme Architecture
+          </a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface transition-colors text-xs" href="#ui-library">
+<span class="material-symbols-outlined text-sm" data-icon="widgets">widgets</span>
+            UI Component Library
+          </a>
+</nav>
+</div>
+<!-- Footer Action Links -->
+<div class="pt-4 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high text-xs transition-colors" href="#changelog">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+          Changelog
+        </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high text-xs transition-colors" href="#documentation">
+<span class="material-symbols-outlined text-sm" data-icon="menu_book">menu_book</span>
+          Documentation
+        </a>
+</div>
+</aside>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="flex-1 p-6 lg:p-10 space-y-16 max-w-6xl mx-auto overflow-hidden">
+<!-- ================= 01 HERO & BRAND IDENTITY ================= -->
+<section class="space-y-6" id="brand-identity">
+<div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+<span class="px-2.5 py-1 rounded-md bg-secondary text-on-secondary font-semibold">Style 07: Vector Synapse</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface border border-outline-variant">Spec v2.4 (Updated April 2025)</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-lowest text-outline border border-outline-variant">Enterprise Cognitive Core</span>
+</div>
+<div class="space-y-3">
+<h1 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-on-surface font-headline leading-tight">
+            Works4you Multi-Agent <br class="hidden sm:inline"/>
+<span class="text-transparent bg-clip-text synapse-gradient">Cognitive System Design Kit</span>
+</h1>
+<p class="text-lg text-on-surface-variant max-w-3xl leading-relaxed">
+            The canonical design language and deterministic visual identity for sovereign AI swarms. Built at the convergence of hyper-modern neural agent engineering and high-frequency executive luxury.
+          </p>
+</div>
+<!-- Brand Pillar Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-4">
+<div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface text-base mb-1">Autonomous Resonance</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+              Every token, radius, and transition embodies self-healing micro-interactions designed to reflect agent synchronicity across all nodes.
+            </p>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" data-icon="sync_alt">sync_alt</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface text-base mb-1">Synaptic Dual Torus</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+              The Vector Synapse mark anchors the dual nature of cognitive computing: deep institutional memory bound to instant real-time action.
+            </p>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface text-base mb-1">Telemetry-First UX</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+              Native integration of JetBrains Mono code tokens alongside human-scale editorial typography for uncompromising data legibility.
+            </p>
+</div>
+</div>
+</section>
+<!-- ================= 02 LOGO GEOMETRY & CLEAR SPACE ================= -->
+<section class="space-y-6 pt-4" id="logo-construction">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div>
+<span class="text-xs font-mono font-semibold text-primary uppercase">02 Architecture</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface tracking-tight">Logo Construction &amp; Clear Space Matrix</h2>
+</div>
+<span class="text-xs font-mono text-outline">Glyph Node Clear Space: 1.5X</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Blueprint Canvas -->
+<div class="lg:col-span-7 bg-inverse-surface text-inverse-on-surface rounded-2xl p-8 blueprint-grid border border-inverse-surface relative overflow-hidden flex flex-col justify-between min-h-[380px]">
+<div class="flex justify-between items-center text-xs font-mono text-outline-variant">
+<span>CANVAS: VECTOR_SYNAPSE_GRID</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low/10 border border-outline/30">RADIUS NODE: R=18px</span>
+</div>
+<!-- Central Technical Diagram -->
+<div class="relative py-12 flex flex-col items-center justify-center">
+<!-- Clear Space Guide Boxes -->
+<div class="border border-dashed border-primary/40 rounded-2xl p-8 relative">
+<span class="absolute -top-3 left-4 text-[10px] font-mono text-primary bg-inverse-surface px-1">1.5X CLEAR SPACE BOUNDARY</span>
+<!-- Large Interlocking Mobius SVG -->
+<svg class="w-64 h-32 drop-shadow-2xl" viewbox="0 0 240 120">
+<defs>
+<lineargradient id="blueprintGradLeft" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#7A2FF2"></stop>
+<stop offset="100%" stop-color="#5B21EA"></stop>
+</lineargradient>
+<lineargradient id="blueprintGradRight" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#0085FF"></stop>
+<stop offset="100%" stop-color="#00C2FF"></stop>
+</lineargradient>
+</defs>
+<!-- Left Memory Ring -->
+<path d="M80 30 C45 30 25 45 25 60 C25 75 45 90 80 90 C120 90 140 60 160 50 C175 42 195 42 205 50" fill="none" stroke="url(#blueprintGradLeft)" stroke-linecap="round" stroke-width="14"></path>
+<!-- Right Execution Ring -->
+<path d="M160 90 C195 90 215 75 215 60 C215 45 195 30 160 30 C120 30 100 60 80 70 C65 78 45 78 35 70" fill="none" stroke="url(#blueprintGradRight)" stroke-linecap="round" stroke-width="14"></path>
+<!-- Synaptic Center Node Points -->
+<circle class="animate-ping" cx="120" cy="60" fill="#00C2FF" r="4"></circle>
+<circle cx="120" cy="60" fill="#ffffff" r="3"></circle>
+</svg>
+<!-- Annotation markers -->
+<div class="absolute -bottom-3 right-6 text-[10px] font-mono text-primary-fixed-dim bg-inverse-surface px-1">TANGENT INTERLOCK: 0.00ms</div>
+</div>
+</div>
+<div class="flex justify-between items-center text-xs font-mono text-outline-variant pt-4 border-t border-outline-variant/20">
+<span>MIN DIGITAL: 24px</span>
+<span>MIN PRINT: 15mm</span>
+<span>ASPECT RATIO: 2:1 FIXED</span>
+</div>
+</div>
+<!-- Dos & Don'ts Matrix -->
+<div class="lg:col-span-5 grid grid-cols-2 gap-4">
+<!-- Do 1 -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-primary/10 text-primary">DO</span>
+<span class="material-symbols-outlined text-primary text-base" data-icon="check_circle">check_circle</span>
+</div>
+<div class="h-16 bg-surface-container-low rounded-lg flex items-center justify-center my-2">
+<span class="w-8 h-4 rounded-full synapse-gradient"></span>
+</div>
+<p class="text-[11px] text-on-surface-variant font-medium">Use signature gradient on pure dark obsidian or crisp white backdrops.</p>
+</div>
+<!-- Don't 1 -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-error/10 text-error">DON'T</span>
+<span class="material-symbols-outlined text-error text-base" data-icon="cancel">cancel</span>
+</div>
+<div class="h-16 bg-surface-container-low rounded-lg flex items-center justify-center my-2">
+<span class="w-12 h-3 rounded-full bg-outline transform skew-x-12 opacity-60"></span>
+</div>
+<p class="text-[11px] text-on-surface-variant font-medium">Never distort, skew, stretch, or alter the geometric aspect ratio.</p>
+</div>
+<!-- Do 2 -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-primary/10 text-primary">DO</span>
+<span class="material-symbols-outlined text-primary text-base" data-icon="check_circle">check_circle</span>
+</div>
+<div class="h-16 bg-inverse-surface rounded-lg flex items-center justify-center my-2">
+<span class="text-[11px] font-mono font-bold text-inverse-on-surface">WORKS4YOU</span>
+</div>
+<p class="text-[11px] text-on-surface-variant font-medium">Maintain full typographic lockup clear space with tight tracking.</p>
+</div>
+<!-- Don't 2 -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-error/10 text-error">DON'T</span>
+<span class="material-symbols-outlined text-error text-base" data-icon="cancel">cancel</span>
+</div>
+<div class="h-16 bg-surface-container-low rounded-lg flex items-center justify-center my-2">
+<span class="w-8 h-4 rounded-full bg-error drop-shadow-lg"></span>
+</div>
+<p class="text-[11px] text-on-surface-variant font-medium">Do not replace signature cyan-violet spectrum with arbitrary solids.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 03 DUAL MODE LOCKUPS ================= -->
+<section class="space-y-6 pt-4" id="dual-mode">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div>
+<span class="text-xs font-mono font-semibold text-primary uppercase">03 Lockups</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface tracking-tight">Dual Mode Presentation &amp; Contrast Ratios</h2>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-xs font-mono text-on-surface font-medium">WCAG AAA Certified</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Dark Mode Lockup -->
+<div class="p-8 rounded-2xl bg-inverse-surface text-inverse-on-surface border border-outline/30 relative flex flex-col justify-between shadow-lg">
+<div class="flex justify-between items-center mb-8">
+<span class="text-xs font-mono text-primary-fixed-dim">OBSIDIAN DEEP SURFACE (#0B132B)</span>
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary-fixed-dim text-xs font-mono font-semibold">14.2:1 AAA</span>
+</div>
+<div class="flex items-center gap-4 py-8">
+<div class="w-12 h-12 rounded-xl synapse-gradient flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white text-2xl" data-icon="all_inclusive">all_inclusive</span>
+</div>
+<div>
+<div class="font-headline text-2xl font-extrabold tracking-tight text-white">Works4you</div>
+<div class="font-mono text-xs tracking-wider text-primary-fixed-dim uppercase">Cognitive System</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline/20 flex items-center justify-between text-xs font-mono text-outline-variant">
+<span>Token: --surface-obsidian</span>
+<span>Primary Mark: Neon Cyan Synapse</span>
+</div>
+</div>
+<!-- Light Mode Lockup -->
+<div class="p-8 rounded-2xl bg-surface-container-lowest text-on-surface border border-outline-variant relative flex flex-col justify-between shadow-sm">
+<div class="flex justify-between items-center mb-8">
+<span class="text-xs font-mono text-on-surface-variant">ALABASTER LIGHT SURFACE (#FFFFFF)</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-mono font-semibold">11.8:1 AAA</span>
+</div>
+<div class="flex items-center gap-4 py-8">
+<div class="w-12 h-12 rounded-xl synapse-gradient flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-white text-2xl" data-icon="all_inclusive">all_inclusive</span>
+</div>
+<div>
+<div class="font-headline text-2xl font-extrabold tracking-tight text-on-surface">Works4you</div>
+<div class="font-mono text-xs tracking-wider text-primary uppercase">Cognitive System</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant flex items-center justify-between text-xs font-mono text-on-surface-variant">
+<span>Token: --surface-alabaster</span>
+<span>Secondary Mark: Synapse Deep Royal</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 04 TYPOGRAPHY SPECIMEN HIERARCHY ================= -->
+<section class="space-y-6 pt-4" id="typography">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div>
+<span class="text-xs font-mono font-semibold text-primary uppercase">04 Typography</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface tracking-tight">Living Type Specimen Scale</h2>
+</div>
+<div class="flex gap-2">
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-xs font-mono font-bold text-on-surface">Inter Sans</span>
+<span class="px-2.5 py-1 rounded bg-secondary/10 text-xs font-mono font-bold text-secondary">JetBrains Mono</span>
+</div>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant divide-y divide-outline-variant">
+<!-- Display Lg -->
+<div class="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+<div class="md:col-span-3 text-xs font-mono space-y-1">
+<div class="font-bold text-primary">display-lg</div>
+<div class="text-outline">56px / 1.1 / -0.03em</div>
+<div class="text-[10px] text-on-surface-variant">font-display font-extrabold</div>
+</div>
+<div class="md:col-span-9">
+<h1 class="font-display text-4xl lg:text-5xl font-extrabold tracking-tight text-on-surface">
+                Autonomous Intelligence Swarms
+              </h1>
+</div>
+</div>
+<!-- Headline Lg -->
+<div class="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+<div class="md:col-span-3 text-xs font-mono space-y-1">
+<div class="font-bold text-primary">headline-lg</div>
+<div class="text-outline">32px / 1.25 / -0.02em</div>
+<div class="text-[10px] text-on-surface-variant">font-headline font-bold</div>
+</div>
+<div class="md:col-span-9">
+<h2 class="font-headline text-2xl lg:text-3xl font-bold tracking-tight text-on-surface">
+                Dynamic Cognitive Resonance &amp; Telemetry
+              </h2>
+</div>
+</div>
+<!-- Title Md -->
+<div class="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+<div class="md:col-span-3 text-xs font-mono space-y-1">
+<div class="font-bold text-primary">title-md</div>
+<div class="text-outline">18px / 1.4 / normal</div>
+<div class="text-[10px] text-on-surface-variant">font-headline font-semibold</div>
+</div>
+<div class="md:col-span-9">
+<h3 class="font-headline text-lg font-semibold text-on-surface">
+                Enterprise Autonomous Operations &amp; Legal Governance Nodes
+              </h3>
+</div>
+</div>
+<!-- Body Lg -->
+<div class="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+<div class="md:col-span-3 text-xs font-mono space-y-1">
+<div class="font-bold text-primary">body-lg</div>
+<div class="text-outline">16px / 1.6 / normal</div>
+<div class="text-[10px] text-on-surface-variant">font-body font-normal</div>
+</div>
+<div class="md:col-span-9">
+<p class="font-body text-base text-on-surface-variant leading-relaxed">
+                The Works4you framework delegates sovereign multi-agent cognitive tasks across deterministic clusters with unified state synchronization and zero latency feedback.
+              </p>
+</div>
+</div>
+<!-- Code Mono Token -->
+<div class="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+<div class="md:col-span-3 text-xs font-mono space-y-1">
+<div class="font-bold text-secondary">label-code</div>
+<div class="text-outline">12px / 1.5 / 0.04em</div>
+<div class="text-[10px] text-on-surface-variant">font-mono font-medium</div>
+</div>
+<div class="md:col-span-9">
+<div class="p-3 rounded-lg bg-surface-container font-mono text-xs text-on-surface flex items-center justify-between border border-outline-variant">
+<span>{ agent_id: "COGNITIVE_SYNAPSE_CORE", status: "SYNCHRONIZED", latency_ms: 0.12 }</span>
+<span class="text-primary font-bold">LIVE TELEMETRY</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 05 COLOR PALETTE TOKENS ================= -->
+<section class="space-y-6 pt-4" id="color-tokens">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div>
+<span class="text-xs font-mono font-semibold text-primary uppercase">05 Palette</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface tracking-tight">Chromatic Token System</h2>
+</div>
+<button class="px-3 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-xs font-mono text-on-surface font-semibold flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-xs" data-icon="code">code</span>
+            Copy CSS Variables
+          </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Token: Cyan Spark -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant space-y-3">
+<div class="h-24 rounded-lg bg-primary-container flex items-end p-2.5 shadow-inner">
+<span class="text-xs font-mono font-bold text-white">#00C2FF</span>
+</div>
+<div class="space-y-1">
+<div class="font-bold text-sm text-on-surface">Primary Cyan Spark</div>
+<div class="text-xs font-mono text-outline">--token-primary-cyan</div>
+<div class="text-[11px] text-on-surface-variant">Execution &amp; Real-time speed</div>
+</div>
+</div>
+<!-- Token: Royal Violet -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant space-y-3">
+<div class="h-24 rounded-lg bg-secondary flex items-end p-2.5 shadow-inner">
+<span class="text-xs font-mono font-bold text-white">#5719E7</span>
+</div>
+<div class="space-y-1">
+<div class="font-bold text-sm text-on-surface">Royal Synapse Violet</div>
+<div class="text-xs font-mono text-outline">--token-secondary-violet</div>
+<div class="text-[11px] text-on-surface-variant">Deep cognitive memory &amp; weight</div>
+</div>
+</div>
+<!-- Token: Obsidian Navy -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant space-y-3">
+<div class="h-24 rounded-lg bg-inverse-surface flex items-end p-2.5 shadow-inner">
+<span class="text-xs font-mono font-bold text-white">#0B132B</span>
+</div>
+<div class="space-y-1">
+<div class="font-bold text-sm text-on-surface">Deep Obsidian Navy</div>
+<div class="text-xs font-mono text-outline">--token-inverse-surface</div>
+<div class="text-[11px] text-on-surface-variant">Terminal canvas &amp; foundation</div>
+</div>
+</div>
+<!-- Token: Alabaster Neutral -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant space-y-3">
+<div class="h-24 rounded-lg bg-surface-container-low border border-outline-variant flex items-end p-2.5">
+<span class="text-xs font-mono font-bold text-on-surface">#F3F3FF</span>
+</div>
+<div class="space-y-1">
+<div class="font-bold text-sm text-on-surface">Alabaster Surface Low</div>
+<div class="text-xs font-mono text-outline">--surface-container-low</div>
+<div class="text-[11px] text-on-surface-variant">Light mode container bedrock</div>
+</div>
+</div>
+</div>
+<!-- Semantic Status Tokens -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-primary-container pulse-glow"></span>
+<div>
+<div class="text-xs font-bold text-on-surface font-mono">STATUS: OPTIMAL</div>
+<div class="text-[10px] text-outline">0.00% Packet Loss</div>
+</div>
+</div>
+<span class="text-xs font-mono font-semibold text-primary">#00C2FF</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<div>
+<div class="text-xs font-bold text-on-surface font-mono">STATUS: SYNTHESIZING</div>
+<div class="text-[10px] text-outline">Agent Core Active</div>
+</div>
+</div>
+<span class="text-xs font-mono font-semibold text-tertiary">#7526ED</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<div>
+<div class="text-xs font-bold text-on-surface font-mono">STATUS: FAULT HALT</div>
+<div class="text-[10px] text-outline">Threshold Exceeded</div>
+</div>
+</div>
+<span class="text-xs font-mono font-semibold text-error">#BA1A1A</span>
+</div>
+</div>
+</section>
+<!-- ================= 06 UI COMPONENT SHOWCASE ================= -->
+<section class="space-y-6 pt-4" id="ui-library">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div>
+<span class="text-xs font-mono font-semibold text-primary uppercase">06 Living Components</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface tracking-tight">Interactive UI Component Library</h2>
+</div>
+<span class="text-xs font-mono text-on-surface-variant">Deterministic Tokens Applied</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Column 1: Buttons & Interactive Elements -->
+<div class="lg:col-span-6 space-y-6">
+<div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant space-y-4 shadow-sm">
+<h3 class="font-headline font-bold text-base text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="smart_button">smart_button</span>
+                Button Architecture
+              </h3>
+<div class="flex flex-wrap gap-3 items-center">
+<!-- Signature Gradient Primary Button -->
+<button class="synapse-gradient text-white px-5 py-2.5 rounded-xl text-xs font-semibold shadow-md hover:opacity-95 transition-all active:scale-[0.98] flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="bolt">bolt</span>
+                  Trigger Swarm
+                </button>
+<!-- Outline Secondary Button -->
+<button class="bg-surface-container-lowest border border-primary text-primary px-5 py-2.5 rounded-xl text-xs font-semibold hover:bg-primary/5 transition-all active:scale-[0.98]">
+                  Export Snapshot
+                </button>
+<!-- Glassmorphic Icon Button -->
+<button class="p-2.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant text-on-surface transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span>
+</button>
+<!-- Disabled State -->
+<button class="opacity-50 cursor-not-allowed bg-surface-container text-outline px-4 py-2.5 rounded-xl text-xs font-semibold" disabled="">
+                  Locked Node
+                </button>
+</div>
+<!-- Button Code Spec -->
+<div class="pt-2">
+<div class="p-2.5 rounded-lg bg-surface-container text-[11px] font-mono text-on-surface-variant border border-outline-variant">
+                  class="synapse-gradient text-white px-5 py-2.5 rounded-xl text-xs font-semibold shadow-md"
+                </div>
+</div>
+</div>
+<!-- Agent Status Chips -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant space-y-4 shadow-sm">
+<h3 class="font-headline font-bold text-base text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base" data-icon="label">label</span>
+                Agent Status Chips
+              </h3>
+<div class="flex flex-wrap gap-2.5">
+<span class="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/30 text-primary text-xs font-mono font-medium flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+                  AUTONOMOUS_EXEC
+                </span>
+<span class="px-3 py-1.5 rounded-lg bg-secondary/10 border border-secondary/30 text-secondary text-xs font-mono font-medium flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                  SUPERVISED_MODE
+                </span>
+<span class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant text-on-surface-variant text-xs font-mono font-medium flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+                  STANDBY_POOL
+                </span>
+<span class="px-3 py-1.5 rounded-lg bg-tertiary/10 border border-tertiary/30 text-tertiary text-xs font-mono font-medium flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                  SYNTHESIZING
+                </span>
+</div>
+</div>
+</div>
+<!-- Column 2: Telemetry Cards & Metric Indicators -->
+<div class="lg:col-span-6 space-y-6" id="telemetry-tokens">
+<div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant space-y-4 shadow-sm relative overflow-hidden">
+<div class="flex justify-between items-center">
+<h3 class="font-headline font-bold text-base text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="monitoring">monitoring</span>
+                  Swarm Telemetry Cards
+                </h3>
+<span class="text-xs font-mono text-primary font-bold">NODE #8410</span>
+</div>
+<!-- Metric Bento Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant">
+<div class="text-xs text-on-surface-variant font-medium">Neural Flow Rate</div>
+<div class="text-2xl font-bold font-headline text-on-surface mt-1">99.84%</div>
+<div class="mt-2 flex items-center gap-1 text-[11px] font-mono text-primary">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                    +0.04% optimal
+                  </div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant">
+<div class="text-xs text-on-surface-variant font-medium">Active Swarm Nodes</div>
+<div class="text-2xl font-bold font-headline text-on-surface mt-1">1,420</div>
+<div class="mt-2 flex items-center gap-1 text-[11px] font-mono text-secondary">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span>
+                    Zero Latency Lock
+                  </div>
+</div>
+</div>
+<!-- Mini sparkline visual indicator -->
+<div class="p-3 rounded-xl bg-surface-container border border-outline-variant flex items-center justify-between">
+<div class="text-xs font-mono text-on-surface-variant">Cognitive Throughput</div>
+<div class="flex items-center gap-1 h-6">
+<div class="w-1.5 h-3 bg-primary rounded-full"></div>
+<div class="w-1.5 h-4 bg-primary rounded-full"></div>
+<div class="w-1.5 h-6 bg-primary rounded-full"></div>
+<div class="w-1.5 h-5 bg-primary-container rounded-full"></div>
+<div class="w-1.5 h-6 bg-primary-container rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Code Token Viewer Box -->
+<div class="p-6 rounded-2xl bg-inverse-surface text-inverse-on-surface border border-outline/30 space-y-3 font-mono text-xs shadow-md">
+<div class="flex justify-between items-center text-outline-variant">
+<span>cognitive-tokens.json</span>
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-white" data-icon="content_copy">content_copy</span>
+</div>
+<pre class="text-[11px] text-primary-fixed-dim leading-relaxed overflow-x-auto">{
+  "system": "Works4you AI",
+  "version": "2.4.0",
+  "theme": "Vector Synapse",
+  "tokens": {
+    "--synapse-cyan": "#00C2FF",
+    "--synapse-violet": "#5B21EA",
+    "--obsidian-navy": "#0B132B",
+    "--agent-latency": "0.12ms"
+  }
+}</pre>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= CHANGELOG / FOOTER SECTION ================= -->
+<footer class="pt-10 border-t border-outline-variant flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-outline" id="changelog">
+<div>Works4you Cognitive System v2.4 Spec • Style 07: Vector Synapse</div>
+<div class="flex items-center gap-4">
+<a class="hover:text-primary transition-colors" href="#">JSON Tokens</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#">SVG Glyph Kit</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#">Security Whitepaper</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>
