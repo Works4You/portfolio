@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>חתימת מייל רשמית — שמעון אזקיאל</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F8FD;
+      --card-bg: #FFFFFF;
+      --primary: #5B21EA;
+      --accent: #EE1B8D;
+      --text: #18122B;
+      --text-muted: #584F75;
+      --border: #ECE6F8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      font-family: 'Heebo', 'Inter', -apple-system, sans-serif;
+      color: var(--text);
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 680px;
+      width: 100%;
+    }
+    .header-box {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header-box h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .header-box p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .action-bar {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, #EE1B8D 0%, #9B2CDE 50%, #5B21EA 100%);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(91, 33, 234, 0.25);
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      text-decoration: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+    .btn-secondary {
+      background: #FFFFFF;
+      color: var(--primary);
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .card-preview-wrap {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 12px 36px rgba(91, 33, 234, 0.06);
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+    }
+    .sig-table {
+      font-family: 'Inter', 'Heebo', Arial, sans-serif;
+      font-size: 13px;
+      color: #18122B;
+      line-height: 1.5;
+      border-collapse: collapse;
+      max-width: 620px;
+      direction: ltr;
+      text-align: left;
+    }
+    .info-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .info-box h3 {
+      font-size: 16px;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .info-box ol {
+      padding-right: 20px;
+    }
+    .url-chip {
+      background: #F4EFFE;
+      border: 1px solid #DCCAF8;
+      color: var(--primary);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 12px;
+      display: inline-block;
+      direction: ltr;
+      margin-top: 6px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header-box">
+    <h1>חתימת מייל רשמית — שמעון אזקיאל</h1>
+    <p>גרסה בהירה, יוקרתית, אנושית ועדכנית הכוללת דיוקן והנעת פגישות ביומן</p>
+  </div>
+
+  <div class="action-bar">
+    <button class="btn" onclick="copySignature()">📋 העתק חתימה מוכנה (להדבקה ישירה ב-Gmail)</button>
+    <a class="btn btn-secondary" href="https://shimon-ezekiel.pages.dev/shimon_ezekiel_signature_new.png" target="_blank">🖼️ פתח תמונה ישירה</a>
+  </div>
+
+  <div class="card-preview-wrap">
+    <div id="signature-html-container">
+      <!-- Standard Gmail-safe Table Signature -->
+      <table cellpadding="0" cellspacing="0" border="0" class="sig-table" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#18122B;line-height:1.5;border-collapse:collapse;max-width:620px;direction:ltr;text-align:left;">
+        <tr>
+          <td style="padding-right:20px;vertical-align:middle;width:98px;">
+            <img src="https://shimon-ezekiel.pages.dev/shimon_portrait_new.jpg" width="94" height="94" alt="Shimon Ezekiel" style="display:block;border-radius:50%;width:94px;height:94px;object-fit:cover;border:3px solid #FFFFFF;outline:2px solid #9B2CDE;">
+          </td>
+          <td style="border-left:2px solid #EFE8FD;padding-left:20px;vertical-align:middle;">
+            <div style="font-size:18px;font-weight:bold;color:#18122B;line-height:1.3;">
+              Shimon Ezekiel <span style="color:#C4B9E3;font-weight:normal;">|</span> <span style="color:#5B21EA;font-family:Arial,sans-serif;">שמעון אזקיאל</span>
+            </div>
+            <div style="color:#7B2FF2;font-weight:bold;font-size:13px;margin-top:2px;">
+              Founder &amp; CEO &middot; AI Systems &amp; Operations Architect
+            </div>
+            <div style="color:#584F75;font-size:11.5px;margin-top:1px;margin-bottom:8px;">
+              Executive MBA, Coller School of Management, Tel Aviv University
+            </div>
+            <div style="font-size:12px;color:#18122B;margin-bottom:8px;">
+              &#128222;&nbsp;<a href="tel:+972546177111" style="color:#18122B;text-decoration:none;font-weight:500;">+972 54-617-7111</a>
+              &nbsp;&middot;&nbsp;
+              &#9993;&#65039;&nbsp;<a href="mailto:shimon@wtpte.com" style="color:#18122B;text-decoration:none;font-weight:500;">shimon@wtpte.com</a>
+              &nbsp;&middot;&nbsp;
+              &#127760;&nbsp;<a href="https://works4you.ai" style="color:#5B21EA;text-decoration:none;font-weight:bold;">works4you.ai</a>
+            </div>
+            <div style="margin-top:4px;">
+              <a href="https://shimon-ezekiel.pages.dev/card" style="display:inline-block;background:#F4EFFE;border:1px solid #DCCAF8;color:#5B21EA;font-size:11px;font-weight:bold;padding:4px 12px;border-radius:20px;text-decoration:none;">&#128197; תיאום פגישה ביומן &middot; Schedule a Call</a>
+              &nbsp;
+              <a href="https://shimon-ezekiel.pages.dev/card" style="display:inline-block;background:#FAF9FE;border:1px solid #ECE6F8;color:#584F75;font-size:11px;font-weight:bold;padding:4px 10px;border-radius:20px;text-decoration:none;">🔗 Digital Card</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>📌 איך להגדיר ב-Gmail בדקה אחת:</h3>
+    <ol>
+      <li>לחץ על הכפתור הסגול למעלה: <strong>"העתק חתימה מוכנה"</strong> (או סמן בעכבר את החתימה ולחץ <code>Cmd+C</code>).</li>
+      <li>פתח את <strong>Gmail</strong> ← גלגל שיניים (הגדרות) ← <strong>"הצגת כל ההגדרות" (See all settings)</strong>.</li>
+      <li>גלול למטה לחלק של <strong>חתימה (Signature)</strong>.</li>
+      <li>הדבק (<code>Cmd+V</code>) בתיבת החתימה ולחץ <strong>"שמור שינויים" (Save changes)</strong> בתחתית העמוד.</li>
+    </ol>
+  </div>
+
+  <div class="info-box">
+    <h3>🔗 קישורים ישירים לנכסים:</h3>
+    <p>קישור ישיר לתמונת כרטיס החתימה המלאה (PNG ברזולוציית רטינה):</p>
+    <div class="url-chip">https://shimon-ezekiel.pages.dev/shimon_ezekiel_signature_new.png</div>
+    <p style="margin-top:10px;">קישור ישיר לתמונת הפרופיל החדשה:</p>
+    <div class="url-chip">https://shimon-ezekiel.pages.dev/shimon_portrait_new.jpg</div>
+  </div>
+</div>
+
+<script>
+function copySignature() {
+  const container = document.getElementById('signature-html-container');
+  const range = document.createRange();
+  range.selectNode(container);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+  try {
+    document.execCommand('copy');
+    alert('✓ החתימה הועתקה לקליפבורד! כעת גש להגדרות Gmail והדבק (Cmd+V).');
+  } catch (err) {
+    alert('נא לסמן בעכבר את החתימה וללחוץ Cmd+C');
+  }
+  window.getSelection().removeAllRanges();
+}
+</script>
+
+</body>
+</html>
