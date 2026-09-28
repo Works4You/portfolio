@@ -415,6 +415,77 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Concepts Grid */
+    .concept-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .concept-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+    .concept-img-wrap {
+      width: 100%;
+      background: var(--bg-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .concept-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .concept-card:hover .concept-img-wrap img {
+      transform: scale(1.02);
+    }
+    .concept-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .concept-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--synapse-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .concept-title {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .concept-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .concept-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
   </style>
 </head>
 <body data-theme="light">
@@ -428,8 +499,12 @@
         <a href="#identity" class="nav-link">Identity</a>
         <a href="#lockups" class="nav-link">Lockups</a>
         <a href="#colors" class="nav-link">Colors</a>
+        <a href="#concepts" class="nav-link">Concepts</a>
         <a href="#typography" class="nav-link">Typography</a>
         <a href="#components" class="nav-link">Components</a>
+        <a href="https://www.canva.com/brand/kAHWayDTRfI" target="_blank" class="btn-action btn-secondary" style="border-color:rgba(0,194,255,0.4); color:var(--synapse-cyan);">
+          🎨 Canva Kit
+        </a>
         <a href="https://www.figma.com/design/vxw1ZTXumBQcZYqHNxIcY6/Create-Brand-Kit-...?t=TFuJdmsKD4HktL4Y-0" target="_blank" class="btn-action btn-secondary">
           🎨 Figma Board
         </a>
@@ -589,9 +664,112 @@
       </div>
     </div>
 
-    <!-- Section 4: Typography -->
+    <!-- Section 4: Exploratory Concepts & White-Collar Executive Direction -->
+    <div class="section-title-wrap" id="concepts">
+      <div class="section-tag">04 • Exploratory Concepts & White-Collar Direction</div>
+      <h2 class="section-title">Geometric & Executive Variations</h2>
+      <p style="color:var(--text-muted); font-size:16px; margin-top:8px; max-width:850px;">
+        Exploratory adaptations in Works4you Electric Cyan (<code>#00C2FF</code>) and Royal Violet (<code>#5B21EA</code>) exploring the "white collar" executive cognitive workforce, translucent isometric ribbon folds, faceted polygonal prisms, and luxury embossed physical collateral.
+      </p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:48px;">
+      <!-- Concept 1: White Collar Origami -->
+      <div class="concept-card">
+        <div class="concept-img-wrap" style="aspect-ratio: 1 / 1;">
+          <img src="assets/brand/concept_white_collar_origami_logo.png" alt="The Executive Origami Collar">
+        </div>
+        <div class="concept-body">
+          <div class="concept-tag">Executive Workforce • Ref Washio</div>
+          <h3 class="concept-title">The Executive Origami Collar</h3>
+          <p class="concept-desc">
+            Origami folded white collar shirt and executive tie badge with precision geometric paper creases and subtle directional shadow, centered inside an Electric Cyan to Royal Violet circular gradient emblem.
+          </p>
+          <div class="concept-footer">
+            <span style="font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-sub);">Circular Badge • Vector</span>
+            <a href="assets/brand/concept_white_collar_origami_logo.png" download class="btn-action btn-secondary" style="font-size:12px; padding:6px 12px;">⬇ PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 2: Translucent Ribbon -->
+      <div class="concept-card">
+        <div class="concept-img-wrap" style="aspect-ratio: 1 / 1;">
+          <img src="assets/brand/concept_translucent_ribbon_vector.png" alt="The Translucent Folded Ribbon">
+        </div>
+        <div class="concept-body">
+          <div class="concept-tag">Isometric Synapse • Ref Silktide</div>
+          <h3 class="concept-title">The Folded Translucent Ribbon</h3>
+          <p class="concept-desc">
+            Continuous isometric folded geometric ribbon creating an interlocking "W" and infinite synapse loop with translucent overlapping color planes in multiply blend mode showing deeper violet and cobalt intersections.
+          </p>
+          <div class="concept-footer">
+            <span style="font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-sub);">Isometric Ribbon • Vector</span>
+            <a href="assets/brand/concept_translucent_ribbon_vector.png" download class="btn-action btn-secondary" style="font-size:12px; padding:6px 12px;">⬇ PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 3: Faceted Polygonal Prism -->
+      <div class="concept-card">
+        <div class="concept-img-wrap" style="aspect-ratio: 1 / 1;">
+          <img src="assets/brand/concept_faceted_w_prism.png" alt="The Faceted Polygonal W-Prism">
+        </div>
+        <div class="concept-body">
+          <div class="concept-tag">Faceted Geometry • Ref MINGIOX</div>
+          <h3 class="concept-title">The Faceted Polygonal W-Prism</h3>
+          <p class="concept-desc">
+            Precision 3D faceted low-poly crystal chevron forming a sharp "W" mark with chromatic light facets in cyan, violet, and deep obsidian, blind embossed on textured white luxury cotton paper.
+          </p>
+          <div class="concept-footer">
+            <span style="font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-sub);">Embossed Cotton • 3D</span>
+            <a href="assets/brand/concept_faceted_w_prism.png" download class="btn-action btn-secondary" style="font-size:12px; padding:6px 12px;">⬇ PNG</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:64px;">
+      <!-- Concept 4: White Collar Synapse Hybrid -->
+      <div class="concept-card">
+        <div class="concept-img-wrap" style="aspect-ratio: 16 / 10;">
+          <img src="assets/brand/concept_white_collar_synapse_card.png" alt="White Collar Synapse Card">
+        </div>
+        <div class="concept-body">
+          <div class="concept-tag">Architectural Hybrid</div>
+          <h3 class="concept-title">White-Collar Origami & Synapse Loop Hybrid</h3>
+          <p class="concept-desc">
+            Architectural geometric origami white collar merged seamlessly with an infinity loop synapse, featuring cyan edge lighting and violet ambient shadow on an alabaster luxury matte card.
+          </p>
+          <div class="concept-footer">
+            <span style="font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-sub);">Alabaster Card • Executive</span>
+            <a href="assets/brand/concept_white_collar_synapse_card.png" download class="btn-action btn-secondary" style="font-size:12px; padding:6px 12px;">⬇ PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 5: Executive Stationery Mockup -->
+      <div class="concept-card">
+        <div class="concept-img-wrap" style="aspect-ratio: 16 / 10;">
+          <img src="assets/brand/concept_executive_stationery_mockup.png" alt="Executive Luxury Stationery Mockup">
+        </div>
+        <div class="concept-body">
+          <div class="concept-tag">Physical Collateral • Ref Silktide</div>
+          <h3 class="concept-title">Executive Stationery & Blueprint Mockup</h3>
+          <p class="concept-desc">
+            High-end executive luxury stationery suite featuring embossed matte business cards, ceramic white coffee mug with technical CAD isometric wireframe mark, letterhead, and drafting pencil on marble.
+          </p>
+          <div class="concept-footer">
+            <span style="font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-sub);">Executive Suite • Mockup</span>
+            <a href="assets/brand/concept_executive_stationery_mockup.png" download class="btn-action btn-secondary" style="font-size:12px; padding:6px 12px;">⬇ PNG</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: Typography -->
     <div class="section-title-wrap" id="typography">
-      <div class="section-tag">04 • Typography</div>
+      <div class="section-tag">05 • Typography</div>
       <h2 class="section-title">Inter & JetBrains Mono Hierarchy</h2>
     </div>
 
@@ -631,9 +809,9 @@
       </div>
     </div>
 
-    <!-- Section 5: UI Components & Living Sandbox -->
+    <!-- Section 6: UI Components & Living Sandbox -->
     <div class="section-title-wrap" id="components">
-      <div class="section-tag">05 • Design System Components</div>
+      <div class="section-tag">06 • Design System Components</div>
       <h2 class="section-title">Living Component Sandbox</h2>
     </div>
 
@@ -667,25 +845,29 @@
       </div>
     </div>
 
-    <!-- Section 6: Stitch & Figma Ecosystem -->
-    <div class="section-title-wrap">
-      <div class="section-tag">06 • Integrated Design Cloud</div>
-      <h2 class="section-title">Google Stitch & Figma Synchronizer</h2>
+    <!-- Section 7: Integrated Cloud & Figma Design System Board -->
+    <div class="section-title-wrap" id="figma">
+      <div class="section-tag">07 • Integrated Design Cloud & Figma Board</div>
+      <h2 class="section-title">Canva Brand Kit & Figma Live Design System</h2>
     </div>
 
-    <div class="card" style="padding:40px;">
+    <div class="card" style="padding:40px; margin-bottom:48px;">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;">
         <div>
-          <h3 style="font-size:24px; font-weight:700; margin-bottom:16px;">Live Stitch Project & Figma Board</h3>
-          <p style="color:var(--text-muted); font-size:16px; margin-bottom:24px;">
-            The Works4you Vector Synapse system is fully published to both Google Stitch (Project <code>485307106448899203</code>) and Figma live workspace, allowing instant vector export, multi-device component variants, and automated frontend code generation.
+          <div class="pill-badge" style="margin-bottom:12px;">CLOUD SYNCHRONIZATION ACTIVE</div>
+          <h3 style="font-size:24px; font-weight:700; margin-bottom:16px;">Live Stitch, Figma & Canva Integration</h3>
+          <p style="color:var(--text-muted); font-size:16px; margin-bottom:24px; line-height:1.6;">
+            The Works4you brand identity is simultaneously connected across Google Stitch (Project <code>485307106448899203</code>), Figma live workspace, and the Canva Brand Hub (8 official logos and custom palettes), providing seamless vector assets, design tokens, and production collateral for the entire fleet.
           </p>
           <div style="display:flex; gap:16px; flex-wrap:wrap;">
-            <a href="https://www.figma.com/design/vxw1ZTXumBQcZYqHNxIcY6/Create-Brand-Kit-...?t=TFuJdmsKD4HktL4Y-0" target="_blank" class="btn-action btn-primary">
+            <a href="https://www.canva.com/brand/kAHWayDTRfI" target="_blank" class="btn-action btn-primary">
+              🎨 Open Canva Brand Kit
+            </a>
+            <a href="https://www.figma.com/design/vxw1ZTXumBQcZYqHNxIcY6/Create-Brand-Kit-...?t=TFuJdmsKD4HktL4Y-0" target="_blank" class="btn-action btn-secondary">
               🎨 Open in Figma
             </a>
             <a href="assets/brand/stitch_brand_book_screenshot.png" target="_blank" class="btn-action btn-secondary">
-              👁️ View Stitch Blueprint
+              👁️ Stitch Blueprint
             </a>
           </div>
         </div>
@@ -693,6 +875,22 @@
         <div style="border-radius:16px; overflow:hidden; border:1px solid var(--border-subtle); box-shadow:var(--shadow-md);">
           <img src="assets/brand/stitch_brand_book_screenshot.png" alt="Google Stitch Board" style="width:100%; height:auto; display:block;">
         </div>
+      </div>
+    </div>
+
+    <!-- Full Figma Design System Board Embed/Preview -->
+    <div class="card" style="padding:32px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:16px;">
+        <div>
+          <h3 style="font-size:20px; font-weight:700; margin-bottom:4px;">Full Figma Design System Board</h3>
+          <p style="font-size:14px; color:var(--text-sub); font-family:'JetBrains Mono', monospace;">Vector Synapse • Core Foundations, Components & Observability Tokens</p>
+        </div>
+        <a href="https://www.figma.com/design/vxw1ZTXumBQcZYqHNxIcY6/Create-Brand-Kit-...?t=TFuJdmsKD4HktL4Y-0" target="_blank" class="btn-action btn-secondary" style="font-size:13px;">
+          ↗ Open Interactive Canvas in Figma
+        </a>
+      </div>
+      <div style="border-radius:16px; overflow:hidden; border:1px solid var(--border-subtle); background:#0B132B; box-shadow:var(--shadow-md); text-align:center;">
+        <img src="assets/brand/figma_full_design_system_board.png" alt="Full Figma Design System Board" style="max-width:100%; height:auto; display:block; margin:0 auto;">
       </div>
     </div>
 
