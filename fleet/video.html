@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WORKS4YOU - Pilot Opening Title Sequence & Character Voices (08:00 AM SYNC)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070B14;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --card-border: rgba(0, 194, 255, 0.2);
+      --cyan: #00C2FF;
+      --purple: #7A2FF2;
+      --purple-deep: #5B21EA;
+      --text-main: #F8F9FE;
+      --text-muted: #94A3B8;
+      --synapse-grad: linear-gradient(135deg, #7A2FF2 0%, #5B21EA 35%, #0085FF 75%, #00C2FF 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 24px 64px;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--synapse-grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(0, 194, 255, 0.4);
+    }
+
+    .logo-badge svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
+
+    .brand-text h1 {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      background: var(--synapse-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+
+    .brand-text p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--cyan);
+      text-transform: uppercase;
+    }
+
+    .status-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #10B981;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+    }
+
+    /* Video Player Card */
+    .player-card {
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 194, 255, 0.15);
+      position: relative;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 720px;
+      background: #000;
+    }
+
+    /* Character Showcase Grid */
+    .characters-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+
+    .section-title .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
+    }
+
+    .characters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .char-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+
+    .char-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 194, 255, 0.5);
+      box-shadow: 0 16px 36px rgba(0, 194, 255, 0.15);
+    }
+
+    .char-img-wrap {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: #0F172A;
+    }
+
+    .char-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.4s ease;
+    }
+
+    .char-card:hover .char-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .voice-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(11, 19, 43, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 194, 255, 0.4);
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .voice-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
+    }
+
+    .char-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .char-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .char-role {
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--cyan);
+      font-weight: 600;
+    }
+
+    .char-persona {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .char-line-box {
+      margin-top: auto;
+      background: rgba(0, 194, 255, 0.06);
+      border-right: 3px solid var(--cyan);
+      padding: 10px 12px;
+      border-radius: 4px 8px 8px 4px;
+      font-size: 13px;
+      color: #E2E8F0;
+      font-style: italic;
+    }
+
+    .play-voice-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: rgba(91, 33, 234, 0.2);
+      border: 1px solid rgba(122, 47, 242, 0.4);
+      color: #C084FC;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 4px;
+    }
+
+    .play-voice-btn:hover {
+      background: rgba(91, 33, 234, 0.4);
+      color: #fff;
+      border-color: var(--cyan);
+    }
+
+    .play-voice-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* Timeline & Plot Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+
+    .card-title .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
+    }
+
+    /* Scene Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .timeline-item:hover {
+      background: rgba(0, 194, 255, 0.08);
+      border-color: rgba(0, 194, 255, 0.3);
+      transform: translateX(-4px);
+    }
+
+    .time-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(0, 194, 255, 0.12);
+      padding: 4px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .timeline-content h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .timeline-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Narrative Synopsis */
+    .narrative-p {
+      font-size: 14px;
+      color: #CBD5E1;
+      margin-bottom: 14px;
+      line-height: 1.7;
+    }
+
+    .narrative-highlight {
+      color: var(--cyan);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <div class="brand-wrap">
+      <div class="logo-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div class="brand-text">
+        <h1>WORKS4YOU - PILOT OPENING & CHARACTER VOICES</h1>
+        <p>Prestige TV Series Title Sequence | 08:00 AM SYNC</p>
+      </div>
+    </div>
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      <span>VOICES INTEGRATED & MASTER READY</span>
+    </div>
+  </div>
+
+  <!-- Video Player -->
+  <div class="player-card">
+    <video id="player" controls autoplay muted playsinline poster="/assets/cinematic_realistic/comp_scene1_voiced.png">
+      <source src="/assets/cinematic_realistic/works4you_pilot_intro_with_voices.mp4" type="video/mp4">
+      <source src="/assets/cinematic_realistic/works4you_pilot_intro.mp4" type="video/mp4">
+      הדפדפן שלך אינו תומך בהפעלת וידאו HTML5.
+    </video>
+  </div>
+
+  <!-- Character Showcase Section -->
+  <div class="characters-section">
+    <div class="section-title">
+      <span class="dot"></span>
+      <span>אפיון הדמויות וקולות ה-AI הייחודיים (Google Flow Character System)</span>
+    </div>
+
+    <div class="characters-grid">
+      <!-- Jake -->
+      <div class="char-card">
+        <div class="char-img-wrap">
+          <img src="/assets/cinematic_realistic/portrait_jake.png" alt="Jake - VP Operations">
+          <div class="voice-badge">
+            <span class="voice-badge-dot"></span>
+            <span>VOICE: ALNILAM (MALE FIRM)</span>
+          </div>
+        </div>
+        <div class="char-body">
+          <div class="char-name">ג'ייק (Jake)</div>
+          <div class="char-role">VP OPERATIONS & AUTONOMOUS FLEET CONDUCTOR</div>
+          <div class="char-persona">
+            מנצח הצי האוטונומי. בן 38, בלייזר פחם מוקפד, מנהיגות שקטה וסמכותית. מנהל את סנכרון כלל הסוכנים בעמידה מול מסך הטלמטריה הקעור.
+          </div>
+          <div class="char-line-box">
+            "All systems green. Fleet active."
+          </div>
+          <button class="play-voice-btn" onclick="playVoiceAudio('/assets/cinematic_realistic/voices/v1_jake_intro.mp3')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span>השמעת קול (Alnilam)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Katie -->
+      <div class="char-card">
+        <div class="char-img-wrap">
+          <img src="/assets/cinematic_realistic/portrait_katie.png" alt="Katie - Lead Client Strategist">
+          <div class="voice-badge">
+            <span class="voice-badge-dot"></span>
+            <span>VOICE: AUTONOE (FEMALE BRIGHT)</span>
+          </div>
+        </div>
+        <div class="char-body">
+          <div class="char-name">קייטי (Katie)</div>
+          <div class="char-role">LEAD CLIENT STRATEGIST & OMNI-CHANNEL</div>
+          <div class="char-persona">
+            מובילת אסטרטגיית לקוחות ותקשורת רב-ערוצית. בת 32, סריג קרם ומשקפי שריון, חדה ואמפתית. אחראית על ניקוי עומסי Chatwoot וואטסאפ ללא שום Backlog.
+          </div>
+          <div class="char-line-box">
+            "Zero backlog. Overnight inbound completely cleared."
+          </div>
+          <button class="play-voice-btn" onclick="playVoiceAudio('/assets/cinematic_realistic/voices/v2_katie.mp3')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span>השמעת קול (Autonoe)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Claire -->
+      <div class="char-card">
+        <div class="char-img-wrap">
+          <img src="/assets/cinematic_realistic/portrait_claire.png" alt="Claire - General Counsel">
+          <div class="voice-badge">
+            <span class="voice-badge-dot"></span>
+            <span>VOICE: GACRUX (FEMALE MATURE)</span>
+          </div>
+        </div>
+        <div class="char-body">
+          <div class="char-name">קלייר (Claire)</div>
+          <div class="char-role">GENERAL COUNSEL & LEGAL GOVERNANCE</div>
+          <div class="char-persona">
+            היועצת המשפטית הבכירה. בת 41, בלייזר מחויט יוקרתי, אנליטית ומדויקת. סורקת חוזים מסחריים מורכבים באפס חיכוך ומאשרת חתימות דיגיטליות.
+          </div>
+          <div class="char-line-box">
+            "Contract audited. Zero friction. Ready for signature."
+          </div>
+          <button class="play-voice-btn" onclick="playVoiceAudio('/assets/cinematic_realistic/voices/v3_claire_pacing.mp3')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span>השמעת קול (Gacrux)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Warren -->
+      <div class="char-card">
+        <div class="char-img-wrap">
+          <img src="/assets/cinematic_realistic/portrait_warren.png" alt="Warren - CFO & Treasury">
+          <div class="voice-badge">
+            <span class="voice-badge-dot"></span>
+            <span>VOICE: CHARON (MALE RESONANT)</span>
+          </div>
+        </div>
+        <div class="char-body">
+          <div class="char-name">וורן (Warren)</div>
+          <div class="char-role">CFO & TREASURY ARCHITECT</div>
+          <div class="char-persona">
+            מנהל הכספים והתזרים. בן 45, וסט פסי-סיכה כחול כהה, שיער מאפיר בצדעים. מודד שערי חליפין, התאמות בנקים וחיובים אוטומטיים עד לרמת הסנט והאגורה.
+          </div>
+          <div class="char-line-box">
+            "Every dollar, euro, and shekel reconciled to the penny."
+          </div>
+          <button class="play-voice-btn" onclick="playVoiceAudio('/assets/cinematic_realistic/voices/v4_warren.mp3')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span>השמעת קול (Charon)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Grid: Timeline & Synopsis -->
+  <div class="content-grid">
+    <!-- Scene Timeline -->
+    <div class="card">
+      <div class="card-title">
+        <span class="dot"></span>
+        <span>פירוק 6 הסצינות בציר הזמן (לחץ לקפיצה בסרטון)</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item" onclick="seekVideo(0)">
+          <span class="time-tag">00:00 | 07:58 AM</span>
+          <div class="timeline-content">
+            <h4>סצינה 1: מגדל המטה הראשי (עליית זווית נמוכה)</h4>
+            <p>מעטפת זכוכית ופלדה משקפת את אור הזריחה המטרופוליני. פעימת התנועה למטה שקטה. הצי מתעורר.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" onclick="seekVideo(3.5)">
+          <span class="time-tag">00:03.5 | 08:00 AM</span>
+          <div class="timeline-content">
+            <h4>סצינה 2: ג'ייק - קומת הנהלה 42 ועמדת טלמטריה</h4>
+            <p><strong>קול מדובר (Alnilam):</strong> "All systems green. Fleet active." ג'ייק מול מסך קעור מאשר את הפעלת הפליט.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" onclick="seekVideo(7.5)">
+          <span class="time-tag">00:07.5 | 08:01 AM</span>
+          <div class="timeline-content">
+            <h4>סצינה 3: קייטי - אגף תקשורת ולקוחות</h4>
+            <p><strong>קול מדובר (Autonoe):</strong> "Zero backlog. Overnight inbound completely cleared." סנכרון רב-ערוצי מלא בוואטסאפ ובמייל.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" onclick="seekVideo(11.5)">
+          <span class="time-tag">00:11.5 | 08:02 AM</span>
+          <div class="timeline-content">
+            <h4>סצינה 4: קלייר - סוויטת ייעוץ משפטי ותאימות</h4>
+            <p><strong>קול מדובר (Gacrux):</strong> "Contract audited. Zero friction. Ready for signature." ביקורת חוזים אוטונומית ואפס סיכון.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" onclick="seekVideo(16.5)">
+          <span class="time-tag">00:16.5 | 08:03 AM</span>
+          <div class="timeline-content">
+            <h4>סצינה 5: וורן - סוויטת תפעול פיננסי ובלומברג</h4>
+            <p><strong>קול מדובר (Charon):</strong> "Every dollar, euro, and shekel reconciled to the penny." התאמת תזרים רב-מטבעי בזמן אמת.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" onclick="seekVideo(20.5)">
+          <span class="time-tag">00:20.5 | 08:04 AM</span>
+          <div class="timeline-content">
+            <h4>סצינה 6: חדר הישיבות הפנורמי - כינוס ההנהלה</h4>
+            <p><strong>קול מדובר (Jake Conductor):</strong> "Autonomous fleet is online. Let us make things happen." כל הצוות סביב שולחן האלון.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" onclick="seekVideo(25.5)">
+          <span class="time-tag">00:25.5 | 08:04 AM</span>
+          <div class="timeline-content">
+            <h4>סיום: קאט חד לכרטיס הכותרת - WORKS4YOU</h4>
+            <p>מעבר חד לרקע שחור עמוק, טיפוגרפיית נאון ציאן ולבן - MULTI-AGENT COGNITIVE SYSTEM עם פעימת סאב-בס עוצמתית.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plot & Narrative Synopsis -->
+    <div class="card">
+      <div class="card-title">
+        <span class="dot"></span>
+        <span>עלילת הפתיח והאפיון הקולי (08:00 AM SYNC)</span>
+      </div>
+
+      <p class="narrative-p">
+        <strong>הקונספט המנחה:</strong> פתיח של סדרת דרמה יוקרתית (בסגנון <em>Succession</em> ו-<em>Industry</em>), המתרחש כולו בתוך <strong>סביבת משרד אמיתית ויוקרתית בקומה 42</strong> של גורד שחקים מזכוכית ופלדה באור בוקר טבעי וצלול.
+      </p>
+
+      <p class="narrative-p">
+        במקום עולמות מד"ב מופשטים, כל 6 הסצינות מדברות <span class="narrative-highlight">באותה שפה אדריכלית וחזותית אחידה ומדויקת</span>: רצפות מיקרו-צמנט מוחלקות, שולחנות עבודה מעץ אלון בהיר, מחיצות זכוכית מחורצת (Fluted Glass), פסי אקוסטיקה מעץ, כיסאות הרמן מילר, ומסכי עבודה אמיתיים.
+      </p>
+
+      <p class="narrative-p">
+        <strong>שילוב קולות הדמויות (Audio Mixing & Ducking):</strong> כל דמות מביאה גוון קול וטמפרמנט מובחן שנבחר והוגדר ב-Google Flow. במהלך הסרטון, מוזיקת הרקע (Synth Drone) נחלשת בעדינות (Audio Ducking) ברגע שכל דמות פותחת את פיה, כך שהשורה המדוברת נשמעת בחדות ובנוכחות של הפקה הוליוודית.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentAudio = null;
+
+  function seekVideo(timeSec) {
+    const video = document.getElementById('player');
+    if (video) {
+      video.currentTime = timeSec;
+      video.play();
+    }
+  }
+
+  function playVoiceAudio(src) {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio = null;
+    }
+    currentAudio = new Audio(src);
+    currentAudio.play();
+  }
+</script>
+
+</body>
+</html>
